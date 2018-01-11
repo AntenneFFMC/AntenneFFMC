@@ -1,0 +1,60 @@
+[(#REM) date" content="2014-05-17 Norbert(FFMC73) ]
+<BOUCLE_auteur_principal(AUTEURS){id_auteur}>
+<html dir="#LANG_DIR" lang="#LANG" xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" class="[(#LANG_DIR)][ (#LANG)] no-js"> <!--<![endif]-->
+
+<head>
+	<meta charset="utf-8" />
+            <link rel="stylesheet" href="global.css" />
+            <link rel="stylesheet" media="handheld, only screen and (max-device-width: 480px)" type="text/css" href="mobile.css" />
+        <meta name="robots" content="doindex, dofollow" />
+    	<meta name="Googlebot" content="doindex, dofollow" />
+    	<meta name="Slurp" content="doindex, dofollow" />
+    	<meta name="msnbot" content="doindex, dofollow" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <title>Contact</title>
+</head>
+
+<body>
+
+	<div>
+		<INCLURE{fond=inc_entete}>
+	</div>
+
+	<div class="main">
+	<div class="rubrique-zone">
+		<div class="wrapper">
+			<div class="content sans-style-liste" id="content">
+				<p class="arbo" style="text-align:center;">
+					<a href="#URL_SITE_SPIP/"><:accueil_site:></a> &gt; <strong class="on"><:contact:></strong></p>
+
+				<div class="cartouche">
+					<h4 class="#EDIT{titre} surlignable"><:contact:></h4>
+					<hr class="ligne-titre-rubrique"/>
+				</div>
+
+				<div class="#EDIT{texte} texte surlignable texte-centre">
+					700 faubourg Montmélian<br>
+					73000 Chambéry
+				</div>
+
+				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13286.687341019655!2d5.930488494745681!3d45.566779768243165!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478ba8e699b85fd7%3A0x17f1033fd33db4b0!2s700+Fbg+Montm%C3%A9lian%2C+73000+Chamb%C3%A9ry!5e0!3m2!1sfr!2sfr!4v1501429874030" frameborder="0" style="border:0" allowfullscreen class="street-view"></iframe>
+
+	                        <div class="#EDIT{texte} texte surlignable texte-centre">
+	                                <strong>Votre contact :</strong> le webmestre, la secrétaire
+				</div>
+
+				#FORMULAIRE_ECRIRE_AUTEUR
+
+			</div><!--.content-->
+		</div><!--.wrapper-->
+	</div>
+	</div><!--.main-->
+
+</body>
+
+<footer>
+	<INCLURE{fond=inc_pied}>
+</footer>
+
+</html>
+</BOUCLE_auteur_principal>

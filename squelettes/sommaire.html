@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<!-- Entête -->
+	<meta charset="utf-8" />
+	<link rel="stylesheet" href="global.css" />
+	<link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet" />
+	<meta name="robots" content="doindex, dofollow" />
+	<meta name="Googlebot" content="doindex, dofollow" />
+	<meta name="Slurp" content="doindex, dofollow" />
+	<meta name="msnbot" content="doindex, dofollow" />
+	<meta name="Description" content="la FFMC agit pour développer la pratique des deux-roues motorisés ou engins assimilés. Elle défend, sans corporatisme, leurs utilisateurs en tant qu'usagers de la route et en tant que consommateurs. Elle agit pour la sécurité et le partage de la route sur la base du développement de l'information, de la prévention, et de la formation, et pour faire prévaloir la connaissance et la prise de conscience plutôt que les mesures répressives" />
+	<meta name="Keywords" content="moto, motard, colère, motard en colère, colere, motards en colère, ffmc69, ffmc, rhône, rhone, Rhone, Rhône, sécurité routière, route, partage, rails, guillotine, infrastructures, feux de jour, pollution, controle technique, contrôle, motostra, amdm, mutuelle, stop vol, motomag, afdm, formation" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+	<title>FFMC 73</title>
+</head>
+
+<body>
+	<!-- Corps de la page -->
+
+	<div>
+		<INCLURE{fond=inc_entete}>
+	</div>
+
+	<div class="zone">
+
+		<div class="une">
+			<BOUCLE_EDITO(ARTICLES){id_mot=1}{!par date}{0,1}{doublons}>
+				<h1>A LA UNE<hr/></h1> [
+				<h5 class="titre-article-une"><a href="#URL_ARTICLE">(#TITRE)</a></h5>]
+				<span class="published"><abbr title="[(#DATE|date_iso)]">[(#DATE|nom_jour) ][(#DATE|affdate)]</span>
+				<hr/> [
+				<div class="#EDIT{texte} extrait-une">(#TEXTE|couper{550})</div>]
+			</BOUCLE_EDITO>
+		</div>
+		<div class="une-mobile">
+			<BOUCLE_EDITOmobile(ARTICLES){id_mot=1}{!par date}{0,1}{doublons}>
+				<h1>A LA UNE<hr/></h1> [
+				<h5 class="titre-article-une"><a href="#URL_ARTICLE">(#TITRE)</a></h5>]
+				<span class="published"><abbr title="[(#DATE|date_iso)]">[(#DATE|nom_jour) ][(#DATE|affdate)]</span>
+				<hr/> [
+				<div class="#EDIT{texte} extrait-articles extrait-une">(#TEXTE|couper{300})</div>]
+			</BOUCLE_EDITOmobile>
+		</div>
+
+		<div id="colonne-laterale-gauche">
+			<div class="article">
+				<h1>LES DERNIERS ARTICLES<hr></h1>
+				[(#REM) Non affichage des articles avec le mot-clef "14"= agenda 2015-03-14 Norbert]
+				<BOUCLE_RECENTS(ARTICLES){!par date}{0,8}{doublons}{!id_article=1}{!id_mot=14}>
+					[
+					<h5 class="titre-article"><a href="#URL_ARTICLE">(#TITRE)</a></h5>]
+					<span><abbr class="published-sommaire" title="[(#DATE|date_iso)]">[(#DATE|nom_jour) ][(#DATE|affdate)]</span> [
+					<div class="#EDIT{texte}">(#TEXTE|couper{200})</div>]<br/>
+				</BOUCLE_RECENTS>
+			</div>[(#REM) Fin DIV "articles" ]
+			<!-- Articles -->
+<!--
+			<div class="article-mobile">
+				<h1>LES DERNIERS ARTICLES<hr></h1>
+				[(#REM) Non affichage des articles avec le mot-clef "14"= agenda 2015-03-14 Norbert]
+				<BOUCLE_RECENTSmobile(ARTICLES){!par date}{0,4}{doublons}{!id_article=1}{!id_mot=14}>
+					[
+					<h5 class="titre-article"><a href="#URL_ARTICLE">(#TITRE)</a></h5>]
+					<span><abbr class="published" title="[(#DATE|date_iso)]">[(#DATE|nom_jour) ][(#DATE|affdate)]</span> [
+					<div class="#EDIT{texte} extrait-articles">(#TEXTE|couper{100})</div>]
+				</BOUCLE_RECENTSmobile>
+			</div>[(#REM) Fin DIV "articles" ] -->
+			<!-- Articles mobile -->
+
+			<div class="article">
+				[(#REM) Debut Tableau News nationales ]
+				<table WIDTH="100%" BORDER="0" CLASS="news">
+					<TR>
+						[(#REM) Debut colonne gauche News Motomag ]
+						<TD WIDTH="50%" VALIGN="TOP" STYLE="padding-right: 20px;">
+							<DIV ID="NewsMotoMag">
+								<IMG SRC="images/Motomag_mini.jpg">&nbsp;&nbsp;
+								<B>  Les derni&egrave;res infos de Motomag</B>
+								<BR>
+								<BR>
+								<div class="texte-news">
+									<B_MotoMag>
+										<BOUCLE_MotoMag(SYNDIC_ARTICLES){id_syndic=3}{par date}{inverse}{0,3}>
+											[
+											<div class="texte">
+												<img src="puce.gif" alt="" width="8" height="11" border="0" align="left">
+												<a href="#URL_ARTICLE" target="_self">(#TITRE)</a>
+											</div>
+											]
+											</BOUCLE_MotoMag>
+									</B_MotoMag>
+								</div>
+								<BR>
+								<DIV STYLE="text-align: right;">
+									<I><A HREF="http://www.motomag.com" TARGET="_blank">Toutes les news de Motomag ></A></I>
+								</DIV>
+							</DIV>
+						</TD>
+						[(#REM) Fin colonne gauche News Motomag ] [(#REM) Debut colonne droite News FFMC nationale ]
+						<TD WIDTH="50%" VALIGN="TOP" STYLE="padding-left: 20px;">
+							<DIV ID="NewsNationales">
+								<IMG SRC="images/FFMC_mini.jpg">&nbsp;&nbsp;
+								<B>Les infos de la FFMC nationale</B>
+								<BR>
+								<BR>
+								<div class="texte-news">
+									<B_FFMCNat>
+										<BOUCLE_FFMCNat(SYNDIC_ARTICLES){id_syndic=2}{par date}{inverse}{0,3}>
+											[
+											<div class="texte">
+												<img src="puce.gif" alt="" width="8" height="11" border="0" align="left">
+												<a href="#URL_ARTICLE" target="_self">(#TITRE)</a>
+											</div>
+											]
+											</BOUCLE_FFMCNat>
+									</B_FFMCNat>
+								</div>
+								<BR>
+								<DIV STYLE="text-align: right;">
+									<I><A HREF="http://www.ffmc.asso.fr/" TARGET="_blank">Toutes les news du national ></A></I>
+								</DIV>
+							</DIV>
+						</TD>
+						[(#REM) Fin colonne droite News FFMC nationale ]
+					</TR>
+				</table>
+				[(#REM) Fin tableau News nationales ]
+			</DIV>[(#REM) Fin DIV "News nationales" ]
+			<!-- Dernières infos -->
+		</div>
+
+		<div id="colonne-laterale-droite">
+			<img class="carte-antenne" src="images/carte-antenne.png">
+			<div class="bloc-twitter">
+                                <a class="twitter-timeline" data-width="100%" data-height="100%" data-link-color="#118E00" href="https://twitter.com/ffmc73">Tweets by ffmc73</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+                        </div>
+			<div class="boutons">
+				<a href="https://gael.ffmc.asso.fr/" target="_blank" title="Accéder">
+					<div class="corps-bouton corps-bouton1">
+						<div class="logo-bouton logo-bouton1"></div>
+						<div class="texte-bouton texte-bouton1">ADHERER ou faire un DON <b>EN LIGNE</b></div>
+					</div>
+				<a class="bouton-papier" href="/IMG/pdf/bulletin_adhesion.pdf" target="_blank" title="Télécharger">
+					<div class="corps-bouton corps-bouton2">
+						<div class="logo-bouton logo-bouton2"></div>
+						<div class="texte-bouton texte-bouton2">ADHERER ou faire un DON <b>PAPIER</b></div>
+					</div>
+				</a>
+				<a class="bouton-prelevement" href="/IMG/pdf/demande_et_autorisation_de_prelevement.pdf" target="_blank" title="Télécharger">
+					<div class="corps-bouton corps-bouton3">
+						<div class="logo-bouton logo-bouton3"></div>
+						<div class="texte-bouton texte-bouton3">BULLETIN de prélèvement <b>TELECHARGER</b></div>
+					</div>
+				</a>
+			</div>
+			<img class="illustration-mobilisation" src="images/illustration-mobilisation.png" onmouseover="this.src='images/illustration-2.png" ; onmouseout="this.src='images/illustration-mobilisation.png" width="100%" height="100%">
+		</div>
+
+		<div class="bandeau-antenne">
+			<div class="txt-bandeau-antenne">
+				<span>73000 Chambéry</span>
+				<br/><span>700 Faubourg Montmélian</span>
+				<br/><span>Tels : 06 37 09 53 11 / 06 80 52 15 06</span>
+				<br/><span>Réunion le 2ème jeudi du mois à 19h</span>
+			</div>
+		</div>
+
+	</div>
+
+	<footer>
+		<INCLURE{fond=inc_pied}>
+	</footer>
+
+</body>
+
+</html>

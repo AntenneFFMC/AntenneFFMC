@@ -1,0 +1,905 @@
+/* ////////////////////////////////////////////////////////////////////////////////////
+
+                ||====  ||====  ||\\    //||   //====
+                ||==      ||==      ||  \\//  ||  ||          73
+                ||          ||          ||        ||   \\====
+
+//////////////////////////////////////////////////////////////////////////////////// */
+
+body {
+        background-color: #f9f9f9;
+        margin: 0;
+        font-family: Arial;
+}
+
+.pas-centre {
+        margin: 0 auto;
+        text-align: justify;
+        max-width: 700px;
+}
+
+.texte-centre { text-align: center;}
+
+.sans-style-liste {
+    list-style: none;
+    padding: 0;
+}
+
+a { text-decoration: none; color: inherit;}
+a:link { text-decoration: none; color: inherit;}
+a:visited { text-decoration: none; color: inherit;}
+a:hover { text-decoration: underline; background: none;}
+a:active {text-decoration: underline;}
+
+/* les a href spip vers l'extérieur et l'intérieur du site */
+  a.spip_out { color: #118E00; text-decoration: underline; }
+  a.spip_in { color: #118E00; text-decoration: underline; }
+
+h1 {
+        font-family: Tahoma, Arial;
+        font-size: 20px;
+        text-align: center;
+}
+h2 {
+        font-size: 20px;
+        color: darkgreen;
+        margin-left: 40px;
+        margin-bottom: 10px;
+        margin-right: 40px;
+}
+p {
+        font-size: 16px;
+        text-align: justify;
+        color: black;
+}
+hr { width: 50%;}
+
+.zone { width: 1000px; margin: 0 auto;}
+.corps-zone {
+        width: 1200px;
+        margin: 0 auto;
+        border: 1px black solid;
+        margin-top: 40px;
+        border-top: none;
+}
+
+.fond-header { position: relative; background-color: #040017;}
+.img-header {
+        margin: auto;
+        padding: 10px;
+        display: block;
+        z-index: 9;
+        height: 90px;
+}
+
+.pagination {text-align: center;}
+
+.submit {
+	width: 100%;
+	line-height: 2;
+	border: 1px solid lightgrey;
+	text-transform: uppercase;
+	border-radius: 5px;
+        letter-spacing: 1;
+        color: #686868;
+}
+
+
+/* ------------------------------------------------------------------
+                        MENU (ordinateur)
+------------------------------------------------------------------- */
+
+#menu, #menu ul {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        text-align: center;
+        background-color: green;
+        z-index: 10;
+        border-bottom: 3px solid darkgreen;
+}
+#menu li {
+        display: inline-block;
+        position: relative;
+        border-radius: 0px 0px 0px 0px;
+}
+.menu-bouton-pluslarge { padding-left: 10px; padding-right: 10px;}
+#menu ul li { display: inherit; border-radius: 0;}
+#menu ul li:hover { border-radius: 0;}
+#menu ul li:last-child { border-radius: 0;}
+#menu ul {
+        position: absolute;
+        max-height: 0;
+        left: 0;
+        right: 0;
+        overflow: hidden;
+        -moz-transition: .8s all .3s;
+        -webkit-transition: .8s all .3s;
+        transition: .8s all .3s;
+}
+#menu li:hover ul { max-height: 15em;}
+
+ul#menu li > ul > li.lien-sous-cat > a {
+    font-size: 17px;
+}
+
+
+/* background des liens menus */
+
+#menu li:first-child { background-color: green;}
+#menu li:nth-child(2) { background-color: green;}
+#menu li:nth-child(3) { background-color: green;}
+#menu li:nth-child(4) { background-color: green;}
+#menu li:nth-child(5) { background-color: green;}
+#menu li:last-child { background-color: green;}
+
+
+/* background des liens sous menus */
+
+#menu li:first-child li { background: #333A40;}
+#menu li:nth-child(2) li { background: #333A40;}
+#menu li:nth-child(3) li { background: #333A40;}
+#menu li:nth-child(4) li { background: #333A40;}
+#menu li:nth-child(5) li { background: #333A40;}
+#menu li:last-child li { background: #333A40;}
+
+
+/* background des liens menus et sous menus au survol */
+
+#menu li:first-child:hover, #menu li:first-child li:hover { background: #F6AD1A;}
+#menu li:nth-child(2):hover, #menu li:nth-child(2) li:hover { background: #F6AD1A;}
+#menu li:nth-child(3):hover, #menu li:nth-child(3) li:hover { background: #F6AD1A;}
+#menu li:nth-child(4):hover, #menu li:nth-child(4) li:hover { background: #F6AD1A;}
+#menu li:nth-child(5):hover, #menu li:nth-child(5) li:hover { background: #F6AD1A;}
+#menu li:last-child:hover, #menu li:last-child li:hover { background: #F6AD1A;}
+
+
+/* les a href */
+
+#menu a {
+        text-decoration: none;
+        display: block;
+        padding: 8px 32px;
+        color: #F2F2F2;
+        font-family: Tahoma, Arial;
+        font-size: 18px;
+        text-shadow: 1px 1px 1px 1px white;
+}
+.lien-sous-cat a { font-size: 17px;}
+#menu ul a { padding: 8px 0;}
+#menu li:hover li a { color: #fff; text-transform: inherit;}
+#menu li:hover a, #menu li li:hover a {color: #000;}
+
+
+/* ------------------------------------------------------------------
+                        MENU (mobile)
+------------------------------------------------------------------- */
+
+#cssmenu, #cssmenu ul, #cssmenu ul li, #cssmenu ul li ul, #cssmenu ul li ul li, #cssmenu a, #cssmenu #menu-button {
+        display: none;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        list-style: none;
+        line-height: 1;
+        position: relative;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        font-family: Tahoma, Arial;
+        font-size: 18px;
+}
+
+.logoffmc-mobile {
+        display: none;
+}
+
+#cssmenu>ul>li>a {
+        padding: 16px 20px;
+        color: #ffffff;
+        text-transform: uppercase;
+        text-decoration: none;
+        background: green;
+}
+
+#cssmenu>ul>li>ul>li>a {
+        padding: 12px 30px;
+        color: #ffffff;
+        font-size: 17px;
+        text-decoration: none;
+        background: darkgreen;
+}
+
+#cssmenu.small-screen {
+        width: 100%;
+        line-height: 1;
+        position: absolute;
+        top: 0;
+        border-bottom: 3px solid darkgreen;
+        z-index: 1;
+}
+
+#cssmenu.small-screen>ul, #cssmenu.small-screen.align-center>ul {
+        width: 100%;
+        text-align: left;
+        background: green;
+}
+
+#cssmenu.small-screen>ul>li, #cssmenu.small-screen.align-center {
+        float: none;
+        display: block;
+        border-top: 1px solid rgba(100, 100, 100, 0.1);
+}
+
+#cssmenu.small-screen>ul>li>a::before {
+        display: none;
+}
+
+#cssmenu.small-screen #menu-button {
+        display: block;
+        padding: 16px 20px;
+        height: 66px;
+        cursor: pointer;
+        font-size: 14px;
+        text-decoration: none;
+        color: #ffffff;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        background: green;
+}
+
+#cssmenu.small-screen #menu-button:after {
+        content: "";
+        position: absolute;
+        right: 20px;
+        top: 27px;
+        display: block;
+        -webkit-box-sizing: content-box;
+        -moz-box-sizing: content-box;
+        box-sizing: content-box;
+        border-top: 2px solid #ffffff;
+        border-bottom: 2px solid #ffffff;
+        width: 22px;
+        height: 3px;
+}
+
+#cssmenu.small-screen #menu-button:before {
+        content: "";
+        position: absolute;
+        right: 20px;
+        top: 37px;
+        display: block;
+        width: 22px;
+        height: 2px;
+        background: #ffffff;
+}
+
+
+/* ------------------------------------------------------------------
+                      BANDEAU SOCIAL
+------------------------------------------------------------------- */
+
+.haut3 {
+        display: block;
+        width: 100%;
+        /*background-color: white;*/
+}
+.barre-recherche-social {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        max-width: 1000px;
+        margin: 15px auto 0 auto;
+}
+.search { display: flex;}
+.zone-recherche {
+        margin-top: 3px;
+        border: 1px solid lightgray;
+        padding-left: 10px;
+        float: left;
+        height: 23px;
+        width: 400px;
+        border-radius: 10px 0 0 10px;
+        box-shadow: 0 0 1px rgba( 0, 0, 0, 0.2), 0 5px 0 rgba( 255, 255, 255, 0.1);
+}
+.bouton-rechercher-barre {
+        text-decoration: none;
+        border: 1px solid lightgray;
+        padding-top: 1px;
+        padding-bottom: 10px;
+        text-align: center;
+        display: inline-block;
+        float: left;
+        margin-top: 3px;
+        border-radius: 0 10px 10px 0;
+        width: 120px;
+        height: 27px;
+        color: gray;
+        font-family: Arial, sans-serif;
+        font-size: 15px;
+        box-shadow: 0 0 1px rgba( 0, 0, 0, 0.2), 0 -1px 0 rgba( 255, 255, 255, 0.1);
+        text-shadow: 0px 1px 0px rgba( 255, 255, 255, 0.3);
+}
+.bouton-rechercher-barre, .bouton-rechercher-barre:active { background: linear-gradient( #D8D8D8, #BDBDBD);}
+.bouton-rechercher-barre:hover { background: -webkit-linear-gradient( #848484, #424242);}
+.bouton-rechercher-barre:active { box-shadow: 1px 1px 10px #A4A4A4 inset, 0 1px 0 rgba( 255, 255, 255, 0.4);}
+
+.social { display: flex;}
+.Facebook, .RSS, .Twitter { height: 30px;}
+.Facebook {margin: 0 3px;}
+
+.zone2 {  width: 1000px;  margin: 0 auto;}
+
+/* ------------------------------------------------------------------
+                COLONNE DE GAUCHE
+------------------------------------------------------------------- */
+
+#colonne-laterale-gauche { display: inline-block; width: 676px; margin-right: 30px; vertical-align: top;}
+
+.une-mobile {display: none;}
+
+.une {
+        display: block;
+        margin: 20px 0 55px 0;
+        padding: 1px 350px 20px 20px;
+        background-image: url(images/motard.png);
+        background-repeat: no-repeat;
+        background-position: right 40px bottom;
+        background-color: rgba(0, 0, 0, 0.1);
+        background-size: 250px;
+        text-align: center;
+}
+
+.titre-article-une {
+        font-size: 16px;
+        color: #118E00;
+        text-decoration: none;
+        margin: 0 0 2px 0;
+}
+
+.extrait-une {text-align: left;}
+
+.published { margin: 0;}
+"#EDIT{texte}" { text-align: justify;}
+.lien-une { margin-left: 50%;}
+
+.article-mobile {display: none;}
+
+.article {
+        display: block;
+        width: 100%;
+        padding: 0 0 40px 0;
+        text-align: justify;
+}
+
+.titre-article {
+        font-size: 16px;
+        color: #118E00;
+        text-decoration: none;
+        margin: 0;
+        margin-bottom: 2px;
+}
+
+.published-sommaire {
+        margin: -3px 0 5px 0;
+        font-size: 15px;
+        display: block;
+        color: #242424;
+}
+
+.texte-news { min-height: 121px;}
+
+/* ------------------------------------------------------------------
+                COLONNE DE DROITE
+------------------------------------------------------------------- */
+
+#colonne-laterale-droite { display: inline-block; width: 289px; vertical-align: top;}
+
+.carte-antenne { display: block; margin-bottom: 20px; max-width: 289px;}
+
+.boutons {display: block; margin-bottom: 17px; max-width: 289px;}
+.corps-bouton { display: flex; width: 100%; height: 60px;}
+.texte-bouton { text-align: left; padding: 10px; color: white;}
+.logo-bouton {
+        min-height: 60px;
+        min-width: 62px;
+        background-size: 80%;
+        background-repeat: no-repeat;
+        background-position: center;
+}
+.corps-bouton1 { background-color: #FFC100; border-bottom: 2px solid #be9000;}
+.logo-bouton1 { background-color: #e9b000; background-image: url(images/computer.png);}
+.corps-bouton2 { background-color: #0EAE00; border-bottom: 2px solid #0D7F00;}
+.logo-bouton2 { background-color: #0D9300; background-image: url(images/print.png);}
+.corps-bouton3 { background-color: #898989; border-bottom: 2px solid #505050; height: auto; max-height: 72px;}
+.logo-bouton3 { background-color: #797979; background-image: url(images/download.png);}
+
+
+.bloc-twitter {display: block;  max-width: 289px; max-height: 300px; margin-bottom: 20px;}
+.twitter-timeline {min-width: none;}
+
+.illustration-mobilisation { display: block;  max-width: 289px;}
+
+/* ------------------------------------------------------------------
+                      BAS DE LA PAGE
+------------------------------------------------------------------- */
+
+.bandeau-antenne {
+        display: flex;
+        width: 100%;
+        height: 145px;
+        margin-bottom: 15px;
+        background-image: url(images/bandeau-antenne.jpg);
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+}
+
+.txt-bandeau-antenne {
+        display: block;
+        margin: auto;
+        text-align: center;
+        color: #FFF;
+        font-family: 'Anton', Arial;
+        font-size: 21px;
+        line-height: 1.2;
+        letter-spacing: 0.5px;
+}
+
+.zone-bandeau-mouvement {
+        display: block;
+        margin: 20px auto 0 auto;
+        width: 100%;
+        max-width: 1000px;
+}
+
+.bas {
+        display: block;
+        background-image: url(images/real_cf.png);
+        height: 30px;
+        font-size: 14px;
+        color: #FFF;
+        box-shadow: 2px 2px 2px 2px black;
+        text-align: center;
+        padding-top: 10px;
+        padding-bottom: 4px;
+        margin-top: 30px;
+}
+
+.img-connexion {
+        display: inline;
+        vertical-align: middle;
+}
+
+
+/* ////////////////////////////////////////////////////////////////////////////////////
+                            PAGES RUBRIQUE
+//////////////////////////////////////////////////////////////////////////////////// */
+
+.rubrique-zone {
+        margin: 20px auto;
+        padding: 20px 10px;
+        background-color: #FFF;
+        max-width: 980px;
+        text-align: left;
+}
+
+.cartouche {
+        font-family: Tahoma, Arial;
+        font-size: 20px;
+        text-align: center;
+        font-weight: bold;
+        color: black;
+        margin-bottom: 30px;
+}
+
+.logo-titre { display: block; margin-bottom: 6px;}
+.spip_logo.spip_logos {vertical-align: bottom;}
+
+.ligne-titre-rubrique { margin: -15px auto auto auto;}
+
+.texte-rubrique {
+        max-width: 800px;
+        margin: auto;
+        margin-bottom: 10px;
+}
+
+/*.texte-rubrique>p {}*/
+
+.liste-articles-rubrique, .supplements-articles {
+        text-align: left;
+        max-width: 600px;
+        display: block;
+        margin: 25px auto 0 auto;
+}
+.liste-articles-rubrique>li { margin-top: 8px;}
+.liste-articles-rubrique>li:first-child { margin-top: 0px;}
+.liste-articles-rubrique-dates { display: block; margin-left: 35px; vertical-align: super; color: #242424;}
+
+.arbo { max-width: 800px; margin: 0 auto; color: black;}
+.arbo > p { margin: 0 0 -20px 0;}
+
+.info-publi {
+        text-align: right;
+        margin-top: 0;
+        font-weight: normal;
+        font-style: italic;
+}
+
+.sous-titre-rubrique { font-weight: bold;} /* sert aussi dans les articles */
+
+
+/* ////////////////////////////////////////////////////////////////////////////////////
+                            PAGE MENTIONS
+////////////////////////////////////////////////////////////////////////////////////
+
+.texte-contact, .texte-plan, .texte-mentions { text-decoration: none; color: #FFF;
+}
+
+.mentions-imgbalance {
+        display: block;
+        margin: auto;
+        padding-top: 20px;
+        text-align: center;
+}
+
+.mentions-titre { font-size: 25px; margin-top: 1px;}
+
+.mentions-date { text-align: center; margin-bottom: 0px; }
+
+.mentions-p {
+        font-size: 15px;
+        text-align: left;
+        color: black;
+}
+
+*/
+
+
+/* ////////////////////////////////////////////////////////////////////////////////////
+                                PAGE CONTACT
+//////////////////////////////////////////////////////////////////////////////////// */
+
+.street-view {
+        display: block;
+        margin: auto;
+        width: 80%;
+        margin-top: 20px;
+        margin-bottom: 20px;
+}
+
+#formulaire_ecrire_auteur_7 {
+        margin: auto;
+        width: 100%;
+        max-width: 600px;
+}
+
+.bloc-formulaire {border: none; margin: 0; padding: 0;}
+
+.case-formulaire-contact {
+        display: block;
+        width: 100%;
+        margin: 2px 0 0 0;
+        padding: 2px 5px;
+        text-align: left;
+        border: 1px solid lightgrey;
+        border-radius: 5px;
+}
+
+.texte-formulaire-contact {
+        display: block;
+        width: 100%;
+        font-size: 15px;
+        color: #353535;
+        padding: 0;
+        margin: 0;
+        text-align: left;
+}
+
+#texte_message_auteur_7 { height: 200px;}
+
+.bouton-formulaire {
+        display: block;
+        margin: auto;
+        text-align: center;
+}
+
+.bloc-formulaire>ul>li:nth-child(2) { margin: 10px 0;}
+
+
+/* ////////////////////////////////////////////////////////////////////////////////////
+                    PAGE QUI SOMMES-NOUS
+////////////////////////////////////////////////////////////////////////////////////
+
+.qui-zone {
+        margin: 0 auto;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        padding-bottom: 10px;
+        background-color: rgba(255, 255, 255, 0.5);
+        background-image: url(images/fondmoto.png);
+        background-repeat: no-repeat;
+        background-position: right bottom;
+        width: 1000px;
+}
+
+.qui1 {
+        margin-left: 200px;
+        margin-right: 200px;
+}
+
+.qui-categories {
+        margin-left: auto;
+        margin-right: auto;
+        width: 926px;
+        margin: auto;
+}
+
+.qui-categories a {
+
+        text-align: center;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 20px;
+        border-radius: 200px;
+        width: 300px;
+        color: white;
+}
+
+.qui-infrastructure {
+        float: left;
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        padding-top: 8px;
+        height: 132px;
+        box-shadow: 0 0 2px 0 gray;
+        text-shadow: 0px 1px 0px gray;
+        background: linear-gradient(#ebac02, #d09300);
+        margin-right: 10px;
+}
+
+.qui-annonces {
+        float: left;
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        padding-top: 20px;
+        height: 120px;
+        box-shadow: 0 0 2px 0 gray;
+        text-shadow: 0px 1px 0px gray;
+        background: linear-gradient(#05c3bd, #00a39d);
+        margin-right: 10px;
+}
+
+.qui-soutien {
+        float: left;
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        padding-top: 20px;
+        height: 120px;
+        box-shadow: 0 0 2px 0 gray;
+        text-shadow: 0px 1px 0px gray;
+        background: linear-gradient( #a2a700, #939700);
+}
+
+*/
+
+/* ////////////////////////////////////////////////////////////////////////////////////
+                   FORMULAIRE & CALENDRIER
+//////////////////////////////////////////////////////////////////////////////////// */
+
+.texte-info-agenda {
+        margin: auto;
+        width: 96%;
+        margin-bottom: 10px;
+}
+
+.cadre-formulaire {
+        display: block;
+        margin: auto;
+        width: 96%;
+        border: 5px solid #006600;
+        border-radius: 10px;
+        padding: 10px;
+}
+
+/* * #agenda, #agenda * {z-index: 0;} */
+.fc-content { background-color: none;}
+.fc-today, .fc-state-highlight { background-color: #419f2e;}
+.fc-widget-header, .fc-widget-content { border: 1px solid #419f2e;}
+
+
+
+/* ////////////////////////////////////////////////////////////////////////////////////
+                        MENTIONS LEGALES
+//////////////////////////////////////////////////////////////////////////////////// */
+
+button.accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+}
+
+button.accordion.active, button.accordion:hover {
+    background-color: #ddd;
+}
+
+div.panel {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+
+
+
+
+
+
+
+.mouvement-ffmc {
+        display: block;
+        max-width: 980px;
+        margin: auto;
+}
+
+.clear { clear: both;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ////////////////////////////////////////////////////////////////////////////////////
+
+                                RESPONSIVE
+
+//////////////////////////////////////////////////////////////////////////////////// */
+
+/******************************
+        Tablette paysage
+******************************/
+@media (max-width: 1024px) {
+        body {padding-top: 66px;}
+        .barre-recherche-social {
+                display: flex;
+                width: 96%;
+                padding: 0 2% 0 2%;
+        }
+        .search {
+                width: auto;
+                width: 100%;
+                display: inline-block;
+                margin-right: 17px;
+        }
+        .Facebook {margin: 0;}
+        .zone-recherche {
+                border-radius: 0;
+                padding-left: 10px;
+                width: 100%;
+                height: 27px;
+                margin: 0;
+        }
+        .social {
+                text-align: right;
+                width: 18%;
+                min-width: 100px;
+                display: inline-block;
+        }
+        .Twitter {margin-left: 0;}
+        .bouton-rechercher-barre {display: none;}
+        .zone {width: 100%;}
+        .une {
+                display: block;
+                margin: 15px 0 20px 0;
+                padding: 1px 40px 20px 40px;
+                background-image: inherit;
+                background-color: rgba(0, 0, 0, 0.1);
+                background-size: 250px;
+                text-align: center;
+        }
+        .article {text-align: left;}
+        .extrait-articles {
+                max-width: 650px;
+                display: block;
+                margin: 0 auto;
+        }
+        .titre-article {margin-top: 20px;}
+        #colonne-laterale-gauche {
+                display: block;
+                width: 80%;
+                padding: 0 10% 0 10%;
+                margin: 0;
+        }
+        #colonne-laterale-droite {
+                display: flex;
+                width: 80%;
+                padding: 0 10% 0 10%;
+                margin: 20px 0;
+                flex-flow: row wrap;
+                justify-content: space-evenly;
+        }
+        .carte-antenne {display: none;}
+        .boutons {
+                display: flex;
+                flex-flow: column;
+                justify-content: space-between;
+                width: 49%;
+                margin: 0 0 0 1%;
+                max-width: none;
+                min-width: 200px;
+        }
+        .bloc-twitter {
+                width: 49%;
+                margin: 0 1% 0 0;
+                max-height: none;
+                max-width: none;
+                height: inherit;
+                min-width: 200px;
+        }
+        .illustration-mobilisation {display: none;}
+        .haut, .haut2 {display: none;}
+        #cssmenu, #cssmenu ul, #cssmenu ul li, #cssmenu ul li ul,
+        #cssmenu ul li ul li, #cssmenu a, #cssmenu #menu-button {display: block;}
+        #cssmenu>ul>li> a {line-height: 6px;}
+        #cssmenu>ul>li>ul>li a {line-height: 5px;}
+        .logoffmc-mobile {
+                display: block;
+                position: absolute;
+                z-index: 11;
+                top: 4px;
+                left: 25%;
+                background-image: url(images/entete.png);
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: contain;
+                width: 50%;
+                height: 58px;
+        }
+        .rubrique-zone {margin-top: 10px;}
+        .zone-bandeau-mouvement { width: 98%;}
+}
+
+/******************************
+        Tablette portrait
+******************************/
+@media (max-width: 768px) {
+        .bandeau-antenne {height: 106px;}
+        .txt-bandeau-antenne {font-size: 17px;}
+        .texte-info-agenda {width: auto;}
+        .cadre-formulaire {width: auto; padding: 5px;}
+}
+
+/******************************
+                mobile
+******************************/
+@media (max-width: 640px) {
+        .boutons {
+                margin: 10px 0;
+                width: 100%;
+                height: 200px;
+        }
+        .bloc-twitter {
+                display: block;
+                margin: 10px 0;
+                width: 100%;
+        }
+        .bas {
+                line-height: 28px;
+                height: 50px;
+        }
+        .rubrique-zone { padding: 20px 8%; margin-bottom: 0;}
+        .street-view, {width: 100%;}
+        .arbo > p { text-align: center; margin: 0 0 10px 0;}

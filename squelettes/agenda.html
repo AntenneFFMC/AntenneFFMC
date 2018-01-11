@@ -1,0 +1,92 @@
+[(#REM) date" content="2016-11-14 Norbert(FFMC73) Erik(FFMC69)"]
+[(#REM) date" content="2018-01-03 Norbert(FFMC73)"]
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- Un cache plus court, pour la boucle syndic_articles -->
+#CACHE{3600}
+<html>
+<head>
+	<title>[#NOM_SITE_SPIP]</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta name="date" content="2013-01-05T23:49:38+0100" >
+	<meta name="Description" content="la FFMC agit pour développer la pratique des deux-roues motorisés ou engins assimilés. Elle défend, sans corporatisme, leurs utilisateurs en tant qu'usagers de la route et en tant que consommateurs. Elle agit pour la sécurité et le partage de la route sur la base du développement de l'information, de la prévention, et de la formation, et pour faire prévaloir la connaissance et la prise de conscience plutôt que les mesures répressives">
+	<meta name="Keywords" content="moto, motard, colère, motard en colère, colere, motards en colère, ffmc73, ffmc, sécurité routière, route, partage, rails, guillotine, infrastructures, feux de jour, pollution, controle technique, contrôle, motostra, amdm, mutuelle, stop vol, motomag, afdm, formation">
+	<!-- style_ffmc.css -->
+	<link rel="stylesheet" type="text/css" href="global.css">
+	<link rel="icon" href="favicon.ico" type="image/x-icon">
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+	#INSERT_HEAD  <!-- Appel des styles du plugin agenda -->
+</head>
+
+<body MARGINWIDTH="O" LEFTMARGIN="0">
+
+	<div>
+	    <INCLURE{fond=inc_entete}>
+	</div>
+
+	<link rel='stylesheet' type='text/css' href='#CHEMIN{lib/fullcalendar/fullcalendar.css}' />
+	<script type='text/javascript' src='#CHEMIN{lib/fullcalendar/fullcalendar.min.js}'></script>
+
+	<script type="text/javascript">/*<![CDATA[*/
+		/** jQuery('document').ready(function($) { **/
+		jQuery(function($) {
+		    /** $('#calendrier-loading').hide(); **/
+			$('#agenda').fullCalendar({
+					locale: '[(#LANG|strtolower)]',
+					editable: false,
+					navLinks: true,
+					eventLimit: true, 
+					events: "[(#URL_PAGE{agenda.json})]",
+					header: {
+									left: [(#LANG_DIR|=={ltr}|?{"'prevYear,prev,next,nextYear today'","'listMonth,month,agendaWeek,agendaDay'"})],
+		             	center: 'title',
+									right: [(#LANG_DIR|=={ltr}|?{"'agendaDay,agendaWeek,month,listMonth'","'today nextYear,next,prev,prevYear'"})]
+									},
+					fixedWeekCount: false,
+          allDayHtml:'<:organiseur:cal_jour_entier|textebrut:>',
+
+					/** Choix des différentes couleurs **/
+					eventBackgroundColor: '#FFFFFF',
+					eventBorderColor: '#000000',
+					eventTextColor: '#00A000',
+			})
+		});
+	</script>
+
+	<div class="rubrique-zone" ID="MainContent">
+		<p class="texte-info-agenda">Cliquer sur l'évènement souhaité pour accéder à l'article correspondant.</p>
+
+		<div class="cadre-formulaire">
+			<div id="agenda">
+
+			<B_agenda>
+				<div id="calendrier-loading">
+				<p class="pagination">#PAGINATION</p>
+				<BOUCLE_agenda(DATA){source json, #PRODUIRE{fond=agenda.json, start=0,end=2147483647,_=#REM|time}}{pagination 15}>
+				    <dl>
+					[<dt><:agenda:evenement_titre:></dt>
+					<dd><a href="#VALEUR{url}">(#VALEUR{title})</a></dd>]
+
+					[<dt><:agenda:evenement_date:></dt>
+					<dd>(#VALEUR{start}|Agenda_affdate_debut_fin{#VALEUR{end},#VALEUR{allDay}|=={true}|?{non,oui}})</dd>]
+
+					[<dt><:agenda:evenement_descriptif:></dt>
+					<dd>(#VALEUR{description})</dd>]
+				    </dl>
+				</BOUCLE_agenda>
+				<p class="pagination">#PAGINATION</p>
+				</div>
+			</B_agenda>
+			</div>
+		</div>
+
+	</div>
+
+	[(#REM) Pied de page ]
+
+	<footer>
+		<INCLURE{fond=inc_pied}>
+	</footer>
+
+</body>
+</html>

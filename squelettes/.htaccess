@@ -1,0 +1,14 @@
+##############################################################
+# Fichier .htaccess                                          #
+#                                                            #
+# Permet d’empêcher l’affichage des squelettes, car les      #
+# squelettes personnalisés peuvent contenir de nombreuses    #
+# failles de sécurité.                                       #
+#                                                            #
+##############################################################
+
+<Files *.html>
+Deny from all
+</Files>
+#
+###
