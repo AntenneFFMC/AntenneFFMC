@@ -1,5 +1,4 @@
-# FFMC73  
-![FFMC motard](http://www.ffmc73.org/images/motard.png "dessin d'un motard FFMC de dos")  
+# FFMC73   
 
 ## Statut
 Site internet de l'antenne Savoyarde de la FFMC (Fédération Française des Motards en colère).  
@@ -19,3 +18,6 @@ N°|Détails|Année
 
 ---  
 [Visitez le site](http://www.ffmc73.org)
+---
+
+![FFMC motard](http://www.ffmc73.org/images/motard.png "dessin d'un motard FFMC de dos")
