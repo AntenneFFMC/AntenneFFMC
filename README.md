@@ -1,8 +1,8 @@
 # FFMC73  
 ![FFMC motard](http://www.ffmc73.org/images/motard.png "dessin d'un motard FFMC de dos")  
-Site internet de l'antenne Savoyarde de la FFMC (Fédération Française des Motards en colère)
 
 ## Statut #
+Site internet de l'antenne Savoyarde de la FFMC (Fédération Française des Motards en colère).  
 La FFMC73 est une association de loi 1901, dont le siège est à Chambéry.
 
 ## Contact #
