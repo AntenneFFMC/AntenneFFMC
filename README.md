@@ -20,4 +20,4 @@ N°|Détails|Année
 [Visitez le site](http://www.ffmc73.org)
 ---
 
-![FFMC motard](http://www.ffmc73.org/images/motard.png "dessin d'un motard FFMC de dos")
+![FFMC banderole](images/banderole.png "banderole FFMC")
