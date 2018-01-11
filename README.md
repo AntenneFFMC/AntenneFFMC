@@ -11,11 +11,11 @@ UI & UX dev : Antoine Cabrol
 Tel : 06 37 09 53 11  
 
 ## MAJ
-|       N°     |                                  Infos                                  |  Année  |
-|: ---------- :|: ---------------------------------------------------------- | ---------: |
-|      V1      | Toute première version ! (<table>)                     |     2010 |
-|      V2      | Abandons des <table>, arrivée du responsive ! |     2015 |
-|       ...      |                                                                            |              |
+       N°     |                                   Infos                                   |  Année
+ ----------- | ------------------------------------------------------------- | ---------
+      V1      | Toute première version ! (<table>)                       |     2010
+      V2      | Abandons des <table>, arrivée du responsive !   |     2015
+       ...      |                                                                              |
 
 ---  
-[Visiter le site] (http://www.ffmc73.org "lien vers le site de la FFMC73")
+[Visitez le site](http://www.ffmc73.org)
