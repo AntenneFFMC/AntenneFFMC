@@ -13,8 +13,8 @@ Tel : 06 37 09 53 11
 ## MAJ
 N°|Détails|Année
  ------------ | ------------ | ------------
- V1 | Toute première version ! (en tableaux) | 2010
- V2 | Abandons des tableaux & arrivée du responsive ! | 2015
+ V1 | Toute première version ! (en tableaux :flushed:) | 2010
+ V2 | Abandons des tableaux & arrivée du responsive ! :blush: | 2015
  ... | |
 
 ---  
