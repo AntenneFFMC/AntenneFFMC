@@ -31,6 +31,8 @@ a:visited { text-decoration: none; color: inherit;}
 a:hover { text-decoration: underline; background: none;}
 a:active {text-decoration: underline;}
 
+input, a {cursor: pointer;}
+
 /* les a href spip vers l'extérieur et l'intérieur du site */
   a.spip_out { color: #30891D; text-decoration: underline; }
   a.spip_in { color: #30891D; text-decoration: underline; }
@@ -91,7 +93,7 @@ hr { width: 50%;}
 
 #zone-menu {
         display: grid;
-        grid-template-columns: 1fr minmax(80%,1000px) 1fr;
+        grid-template-columns: 1fr 1000px 1fr;
         position: relative;
         background-color: #3F982C;}
         #zone-menu::before {
@@ -111,27 +113,34 @@ input[name="optionmenu"] {
         position: absolute;
         grid-row: 2/3;
         grid-column: 2/3;
-        width: 25%;
+        width: 179px;
         height: 55px;
         z-index: 2;
         opacity: 0;}
 input.onglet1 {left: 0;}
-input.onglet2 {left: 25%;}
-input.onglet3 {left: 50%;}
-input.onglet4 {left: 75%;}
+input.onglet2 {left: 179px;}
+input.onglet3 {left: 358px;}
+input.onglet4 {left: 537px;}
+input.onglet5 {left: 716px;}
+input.recherche {right: 54px; width: 54px;}
+/**input.login {right: 0; width: 54px;}**/
 input.neutre {
         grid-column: 1/4;
         top: 100%;
         left: 0;
         width: 100%;
         height: 720px;
+        cursor: inherit;
         margin: 0;}
         input.neutre:checked {z-index: -1;}
 
-nav ul li:nth-child(1) ul li,
-nav ul li:nth-child(2) ul li,
-nav ul li:nth-child(3) ul li,
-nav ul li:nth-child(4) ul li {opacity: 0; height: 0; transition: height 0.7s;}
+nav ul li:nth-child(1) ul,
+nav ul li:nth-child(2) ul,
+nav ul li:nth-child(3) ul,
+nav ul li:nth-child(4) ul,
+nav ul li:nth-child(5) ul,
+nav ul li.recherche ul,
+nav ul li.login ul {opacity: 0; height: 0; transition: opacity 0.3s ease 0.2s;}
 
 input.onglet1:checked ~ nav {border-bottom: 40px solid #30891D;}
         input.onglet1:checked ~ nav ul li:nth-child(1) {background: #30891D;}
@@ -145,10 +154,25 @@ input.onglet3:checked ~ nav {border-bottom: 40px solid #30891D;}
         input.onglet3:checked ~ nav ul li:nth-child(3) {background: #30891D;}
         input.onglet3:hover ~ nav ul li:nth-child(3) {background: #30891D;}
         input.onglet3:checked ~ nav ul li:nth-child(3) ul li {opacity: 1; height: 100%;}
-input.onglet4:checked ~ nav {border-bottom: 40px solid #30891D;}
+input.onglet4:checked ~ nav {border-bottom: 90px solid #30891D;}
         input.onglet4:checked ~ nav ul li:nth-child(4) {background: #30891D;}
         input.onglet4:hover ~ nav ul li:nth-child(4) {background: #30891D;}
-        input.onglet4:checked ~ nav ul li:nth-child(4) ul li {opacity: 1; height: 100%;}
+        input.onglet4:checked ~ nav ul li:nth-child(4) ul {opacity: 1; height: 86px;}
+input.onglet5:checked ~ nav {border-bottom: 40px solid #30891D;}
+        input.onglet5:checked ~ nav ul li:nth-child(5) {background: #30891D;}
+        input.onglet5:hover ~ nav ul li:nth-child(5) {background: #30891D;}
+        input.onglet5:checked ~ nav ul li:nth-child(5) ul li {opacity: 1; height: 100%;}
+input.recherche:checked ~ nav {border-bottom: 40px solid #30891D;}
+        input.recherche:checked ~ nav ul li:nth-child(6) {background: #30891D;}
+        /**input.recherche:hover ~ nav ul li:nth-child(6) {background: #30891D;}**/
+        input.recherche:hover ~ nav li:nth-child(6) svg {fill: #F6AD1A;}
+        input.recherche:checked ~ nav ul li:nth-child(6) ul li {opacity: 1; height: 100%;}
+/**input.login:checked ~ nav {border-bottom: 40px solid #30891D;}
+        input.login:checked ~ nav ul li:nth-child(7) {background: #30891D;}
+        input.login:hover ~ nav ul li:nth-child(7) {background: #30891D;}
+        input.login:hover ~ nav li:nth-child(7) svg {fill: #F6AD1A;}
+        input.login:checked ~ nav ul li:nth-child(7) ul li {opacity: 1; height: 100%;}**/
+        nav li.login:hover > svg {fill: #F6AD1A;}
 
 nav {
         grid-column: 1/4;
@@ -162,37 +186,63 @@ nav {
         nav * {
                 display: flex;
                 list-style: none;
-                line-height: 1.4;}
+                line-height: 1.4;
+                box-sizing: border-box;}
                 nav ul {
                         width: 100%;
                         max-width: 1000px;
-                        margin: auto;
+                        margin: 0 auto;
                         padding: 0;
                         position: relative;}
                         nav li {
                                 display: flex;
-                                width: 100%;
+                                width: 179px;
                                 height: 100%;
                                 padding: 16px 0;
                                 color:#FFF;
                                 text-transform: uppercase;}
+                                nav li.recherche, nav li.login {width: 25px; height: 25px; box-sizing: content-box;}
+                                        nav li.recherche {padding: 16px;}
+                                        nav li.login {padding: 16px;}
+                                        nav li svg {fill: #FFF;}
                                 nav li a {margin: auto;}
                                         nav ul li ul {
                                                 position: absolute;
-                                                top: 55px;
+                                                top: 57px;
                                                 left: 0;
                                                 width: 100%;
-                                                height: 34px;}
+                                                height: auto;}
                                                 nav ul li ul li {
+                                                        flex: 1;
+                                                        position: relative;
                                                         width: auto;
-                                                        margin: 0 10px;
+                                                        margin: 0;
                                                         padding: 2px 0;
                                                         justify-content: center;
                                                         line-height: 2;
                                                         text-transform: none;}
 
+/** Onglet Partenaires **/
 
-/* ------------------------------------------------------------------
+li.AFDM, li.motomag, li.ffmcloisirs, li.mutuelle {filter: contrast(50%);}
+li.AFDM:hover, li.motomag:hover, li.ffmcloisirs:hover, li.mutuelle:hover {filter: contrast(100%); transition: filter 0.4s;}
+
+li.AFDM::before, li.motomag::before, li.ffmcloisirs::before, li.mutuelle::before {
+        content: "";
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background-size: cover;
+        background-position: center;}
+        li.AFDM::before {background-image: url(images/partenaires/AFDM_bg.jpg);}
+        li.motomag::before {background-image: url(images/partenaires/motomag.jpg);}
+        li.ffmcloisirs::before {background-image: url(images/partenaires/ffmcloisirs_bg.jpg);}
+        li.mutuelle::before {background-image: url(images/partenaires/mutuelle_bg.jpg);}
+
+li.AFDM img, li.motomag img, li.ffmcloisirs img, li.mutuelle img {z-index: 1;}
+
+
+/** ------------------------------------------------------------------
                         MENU (ordinateur)
 -------------------------------------------------------------------
 
@@ -906,7 +956,6 @@ div.panel {
                 height: 62px;
                 margin: 0;
                 z-index: 2;
-                cursor: pointer;
                 opacity: 0;}
         .bouton-menu-mobile {
                 position: absolute;

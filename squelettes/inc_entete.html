@@ -5,6 +5,7 @@ Quand travail terminé, sortir des commentaires les (#REM) de début et de fin d
 <html>
 <!--[(#REM) date" content="2017-04-26 Antoine" ]-->
 <head>
+	<meta charset="utf-8" />
 	<link rel="stylesheet" href="../global.css" />
 	<title>FFMC menu_V2</title>
 </head>
@@ -23,6 +24,7 @@ Quand travail terminé, sortir des commentaires les (#REM) de début et de fin d
 	        <input type="radio" name="optionmenu" class="onglet4"/>
 	        <input type="radio" name="optionmenu" class="onglet5"/>
 		<input type="radio" name="optionmenu" class="recherche"/>
+		<!--input type="radio" name="optionmenu" class="login"/-->
 	        <input type="radio" name="optionmenu" class="neutre"/>
 	        <nav>
 	                <ul>
@@ -52,10 +54,10 @@ Quand travail terminé, sortir des commentaires les (#REM) de début et de fin d
 	                        </li>
 	                        <li><a>Partenaires</a>
 	                                <ul>
-	                                        <li>Lien C</li>
-	                                        <li>Lien C</li>
-	                                        <li>Lien C</li>
-	                                        <li>Lien C</li>
+	                                        <li class="AFDM">AFDM</li>
+	                                        <li class="motomag">Motomag</li>
+	                                        <li class="ffmcloisirs">FFMC Loisirs</li>
+	                                        <li class="mutuelle"><img src="../images/icones-rubriques/mutuelle-motards.png" alt="Mutuelle des motards" /></li>
 	                                </ul>
 	                        </li>
 	                        <li><a>Contact</a>
@@ -63,11 +65,25 @@ Quand travail terminé, sortir des commentaires les (#REM) de début et de fin d
 	                                        <li>Formulaire intégré ici</li>
 	                                </ul>
 	                        </li>
-				<li><img src="../images/search.svg" width="25px" /></li>
-				<li><img src="../images/padlock.svg" width="25px"/></li>
+				<li class="recherche">
+					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 129 129" enable-background="new 0 0 129 129" width="100%" height="100%">
+						  <g>
+						    <path d="M51.6,96.7c11,0,21-3.9,28.8-10.5l35,35c0.8,0.8,1.8,1.2,2.9,1.2s2.1-0.4,2.9-1.2c1.6-1.6,1.6-4.2,0-5.8l-35-35   c6.5-7.8,10.5-17.9,10.5-28.8c0-24.9-20.2-45.1-45.1-45.1C26.8,6.5,6.5,26.8,6.5,51.6C6.5,76.5,26.8,96.7,51.6,96.7z M51.6,14.7   c20.4,0,36.9,16.6,36.9,36.9C88.5,72,72,88.5,51.6,88.5c-20.4,0-36.9-16.6-36.9-36.9C14.7,31.3,31.3,14.7,51.6,14.7z"/>
+						  </g>
+					</svg>
+				</li>
+				<a href="index.html/ecrire"><li class="login">
+					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" width="100%" height="100%" viewBox="0 0 449.533 449.533" style="enable-background:new 0 0 449.533 449.533;" xml:space="preserve">
+						<g>
+							<g>
+								<path d="M440.839,266.47c0-31.853,0-80.191,0-106.689c0-41.817-37.638-171.484-202.858-158.929    C118.86,9.889,68.236,92.853,49.255,138.457c-0.124,0.306-0.153,0.622-0.268,0.927c-0.564,0.688-1.186,1.32-1.578,2.161    c-1.874,4.074-45.804,101.096-37.724,205.92c0.105,1.405,0.507,2.715,1.109,3.901c0.029,0.258-0.028,0.478,0.01,0.745    c4.188,32.532,17.968,61.43,29.586,80.928c8.864,14.88,30.676,20.378,46.646,13.665l324.915-136.725    C427.901,303.257,440.839,283.797,440.839,266.47z M229.488,171.112c-11.321,32.264-36.002,83.472-85.622,118.327    c-42.687,30.007-79.005,36.452-102.998,36.193c-3.93-0.038-7.698,0.488-11.208,1.416C28.6,261.373,47.476,200.029,58.578,169.84    c3.29,2.152,7.172,3.567,11.504,3.949c25.675,2.267,63.026-0.095,94.697-24.46c19.794-15.233,34.865-20.483,46.053-21    C228.131,127.536,235.227,154.78,229.488,171.112z M357.187,272.724c-15.587,0-28.229-12.642-28.229-28.229    s12.642-28.229,28.229-28.229s28.238,12.642,28.238,28.229S372.773,272.724,357.187,272.724z"/>
+							</g>
+						</g>
+					</svg>
+				</li></a>
 	                </ul>
 	        </nav>
-	 </div>
+	</div>
 
 	 <!--
 	<div class="haut">
