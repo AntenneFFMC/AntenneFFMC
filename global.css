@@ -437,7 +437,7 @@ ul#menu li > ul > li.lien-sous-cat > a {
         width: 100%;
 }
 
-.txt-bandeau-antenne {
+.bandeau-antenne p {
         color: #FFF;
         display: block;
         font-family: 'Anton', Arial;
@@ -879,7 +879,7 @@ div.panel {
 ******************************/
 @media (max-width: 768px) {
         .bandeau-antenne {height: 106px;}
-        .txt-bandeau-antenne {font-size: 17px;}
+        .bandeau-antenne p {font-size: 17px;}
         .texte-info-agenda {width: auto;}
         .cadre-formulaire { padding: 5px;width: auto;}
 }
