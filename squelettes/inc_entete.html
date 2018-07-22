@@ -7,15 +7,16 @@
 <B_nav>
 <div class="haut2">
 	<ul id="menu"> <!-- MENU ORDINATEUR -->
-		<BOUCLE_nav(RUBRIQUES) {racine} {par num titre, titre}>
+		<BOUCLE_nav(RUBRIQUES) {racine} {id_rubrique != 3} {par num id_rubrique, id_rubrique}>
 		<li class="menu-bouton-pluslarge"><a href="#URL_RUBRIQUE">#TITRE</a>
 			<ul>
-				<BOUCLE_sousnav(RUBRIQUES) {id_parent} {par num titre, titre}>
+				<BOUCLE_sousnav(RUBRIQUES) {id_parent} {par num id_rubrique, id_rubrique}>
 				<li class="lien-sous-cat" ><a class="lien-sous-cat" href="#URL_RUBRIQUE">#TITRE</a></li>
 				</BOUCLE_sousnav>
 			</ul>
 		</li>
 		</BOUCLE_nav>
+		<li class="menu-bouton-pluslarge"><a href="spip.php?page=agenda">Agenda</a></li>
 	</ul>
 </div>
 </B_nav>
