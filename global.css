@@ -1,8 +1,8 @@
 /* ////////////////////////////////////////////////////////////////////////////////////
 
-                ||====  ||====  ||\\    //||   //====
-                ||==      ||==      ||  \\//  ||  ||          73
-                ||          ||          ||        ||   \\====
+                 ||====  ||====  ||\\    //||  //====
+                ||==    ||==    ||  \\//  ||  ||         
+               ||      ||      ||        ||   \\====
 
 //////////////////////////////////////////////////////////////////////////////////// */
 
@@ -858,18 +858,18 @@ div.panel {
         #cssmenu>ul>li> a {line-height: 6px;}
         #cssmenu>ul>li>ul>li a {line-height: 5px;}
         .logoffmc-mobile {
-                background-image: url(images/entete.png);
-                background-position: center;
-                background-repeat: no-repeat;
-                background-size: contain;
-                display: block;
-                height: 58px;
-                left: 25%;
-                position: absolute;
-                top: 4px;
-                width: 50%;
-                z-index: 11;
-        }
+          display: block;
+          height: 58px;
+          left: 25%;
+          position: absolute;
+          top: 4px;
+          width: 50%;
+          z-index: 11;
+       }
+           .spip_logo.spip_logos {
+            	height: 100%;
+            	padding: 0;
+            }
         .rubrique-zone {margin-top: 10px;}
         .zone-bandeau-mouvement { width: 98%;}
 }

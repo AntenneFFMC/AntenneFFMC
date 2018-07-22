@@ -4,74 +4,38 @@
 	<div class="fond-header"><a href="spip.php">#LOGO_SITE_SPIP</a></div>
 </div>
 
+<B_nav>
 <div class="haut2">
 	<ul id="menu"> <!-- MENU ORDINATEUR -->
-		<li class="menu-bouton-pluslarge"><a href="spip.php?rubrique36">NOS ACTIONS</a>
+		<BOUCLE_nav(RUBRIQUES) {racine} {par num titre, titre}>
+		<li class="menu-bouton-pluslarge"><a href="#URL_RUBRIQUE">#TITRE</a>
 			<ul>
-				<li class="lien-sous-cat" ><a class="lien-sous-cat" href="spip.php?rubrique13">Journées ERJ/Formation</a></li>
-				<li class="lien-sous-cat" ><a class="lien-sous-cat" href="spip.php?rubrique28">Infrastructures routières</a></li>
-				<li class="lien-sous-cat" ><a class="lien-sous-cat" href="spip.php?rubrique37">Manifs</a></li>
+				<BOUCLE_sousnav(RUBRIQUES) {id_parent} {par num titre, titre}>
+				<li class="lien-sous-cat" ><a class="lien-sous-cat" href="#URL_RUBRIQUE">#TITRE</a></li>
+				</BOUCLE_sousnav>
 			</ul>
 		</li>
-		<li class="menu-bouton-pluslarge"><a href="spip.php?rubrique3">LA #NOM_SITE_SPIP</a>
-			<ul>
-				<li class="lien-sous-cat" ><a class="lien-sous-cat" href="spip.php?rubrique7">Réunions</a></li>
-				<li class="lien-sous-cat" ><a class="lien-sous-cat" href="spip.php?rubrique9">Soutenir et Adhérer</a></li>
-				<li class="lien-sous-cat" ><a class="lien-sous-cat" href="spip.php?rubrique10">Petites annonces</a></li>
-				<li class="lien-sous-cat" ><a class="lien-sous-cat" href="spip.php?article225">Statuts</a></li>
-			</ul>
-		</li>
-		<li><a href="spip.php?page=agenda">AGENDA</a>
-		</li>
-		<li class="menu-bouton-pluslarge"><a href="spip.php?rubrique4">LE MOUVEMENT</a>
-			<ul>
-				<li class="lien-sous-cat" ><a class="lien-sous-cat" href="spip.php?rubrique6">La Mutuelle des Motards</a></li>
-				<li class="lien-sous-cat" ><a class="lien-sous-cat" href="spip.php?rubrique8">L'Asso de formation</a></li>
-				<li class="lien-sous-cat" ><a class="lien-sous-cat" href="spip.php?rubrique35">Moto Magazine</a></li>
-				<li class="lien-sous-cat" ><a class="lien-sous-cat" href="spip.php?rubrique34">La FFMC Loisirs</a></li>
-			</ul>
-		</li>
-		<li><a href="spip.php?rubrique19">GALERIE</a>
-		</li>
-		<li><a href="spip.php?auteur7">CONTACT</a>
-		</li>
+		</BOUCLE_nav>
 	</ul>
 </div>
+</B_nav>
 
-<a href="/index.php"><div class="logoffmc-mobile"></div></a>
-<div id="cssmenu"> <!-- MENU MOBILE -->
-	<ul>
-		<li><a href="spip.php?rubrique36">NOS ACTIONS</a>
+<a href="spip.php"><div class="logoffmc-mobile">#LOGO_SITE_SPIP</div></a>
+<B_navmobile>
+<div id="cssmenu">
+	<ul> <!-- MENU MOBILE -->
+		<BOUCLE_navmobile(RUBRIQUES) {racine} {par num titre, titre}>
+		<li><a href="#URL_RUBRIQUE">#TITRE</a>
 			<ul>
-				<li><a href="spip.php?rubrique13">Journées ERJ/Formation</a></li>
-				<li ><a href="spip.php?rubrique28">Infrastructures routières</a></li>
-				<li ><a href="spip.php?rubrique37">Manifs</a></li>
+				<BOUCLE_sousnavmobile(RUBRIQUES) {id_parent} {par num titre, titre}>
+				<li><a href="#URL_RUBRIQUE">#TITRE</a></li>
+				</BOUCLE_sousnavmobile>
 			</ul>
 		</li>
-		<li><a href="spip.php?rubrique3">#NOM_SITE_SPIP</a>
-			<ul>
-				<li ><a href="spip.php?rubrique7">Réunions</a></li>
-				<li ><a href="spip.php?rubrique9">Soutenir et Adhérer</a></li>
-				<li ><a href="spip.php?rubrique10">Petites annonces</a></li>
-				<li ><a href="spip.php?article225">Statuts</a></li>
-			</ul>
-		</li>
-		<li><a href="spip.php?page=agenda">AGENDA</a>
-		</li>
-		<li><a href="spip.php?rubrique4">LE MOUVEMENT</a>
-			<ul>
-				<li ><a href="spip.php?rubrique6">La Mutuelle des Motards</a></li>
-				<li ><a href="spip.php?rubrique8">L'Asso de formation</a></li>
-				<li ><a href="spip.php?rubrique35">Moto Magazine</a></li>
-				<li ><a href="spip.php?rubrique34">La FFMC Loisirs</a></li>
-			</ul>
-		</li>
-		<li><a href="spip.php?rubrique19">GALERIE</a>
-		</li>
-		<li><a href="spip.php?auteur7">CONTACT</a>
-		</li>
+		</BOUCLE_navmobile>
 	</ul>
 </div>
+</B_navmobile>
 
 <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
 <script type="text/javascript">
@@ -198,7 +162,7 @@
 		<div class="social">
 			<a href="https://twitter.com/ffmc73" target="_blank" title="Tweet this">
 				<img class="Twitter"src="images/logo-twitter.png"></a>
-			<a  href="https://fr-fr.facebook.com/pages/FFMC-73-F%C3%A9d%C3%A9ration-Fran%C3%A7aise-de-Motards-en-Col%C3%A8re-de-Savoie/166995240002843" target="_blank" title="Facebook">
+			<a  href="$url_facebook" target="_blank" title="Facebook">
 				<img class="Facebook" src="images/logo-facebook.png"></a>
 			<a href="http://www.ffmc73.org/spip.php?page=backend" target="_blank" title="Ajoutez à votre flux RSS">
 				<img class="RSS" target="_blank" title="Flux rss" src="images/logo-rss.png"></a>
