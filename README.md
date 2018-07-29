@@ -1,5 +1,4 @@
 # FFMC73   
-![FFMC banderole](images/entete.png "banderole FFMC")  
 
 ## Statut
 Site internet de l'antenne Savoyarde de la FFMC (Fédération Française des Motards en colère).  
