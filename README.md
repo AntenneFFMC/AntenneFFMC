@@ -1,12 +1,12 @@
-# FFMC73   
+# Antenne FFMC
 
 ## Statut
-Site internet de l'antenne Savoyarde de la FFMC (Fédération Française des Motards en colère).  
-La FFMC73 est une association de loi 1901, dont le siège est à Chambéry.  
+`Antenne FFMC` est le thème des site internet des antennes départementales de la FFMC (Fédération Française des Motards en colère).  
+La FFMC est une association française de loi 1901. Ce thème est développé bénévolement et fonctionne avec le CMS [Spip](https://www.spip.net).
 
 ## Contact
 Webmestre & Back dev : Norbert Cabrol  
-UI & UX dev : Antoine Cabrol  
+Front dev : Antoine Cabrol  
 Tel : 06 37 09 53 11  
 
 ## MAJ
