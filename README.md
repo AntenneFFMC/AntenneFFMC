@@ -1,8 +1,7 @@
 # Antenne FFMC
 
 ## Statut
-`Antenne FFMC` est le thème des site internet des antennes départementales de la FFMC (Fédération Française des Motards en colère).  
-La FFMC est une association française de loi 1901. Ce thème est développé bénévolement et fonctionne avec le CMS [Spip](https://www.spip.net).
+`Antenne FFMC` est le thème des site internet des antennes départementales de la FFMC (Fédération Française des Motards en colère).   La FFMC est une association française de loi 1901. Ce thème est développé bénévolement et fonctionne avec le CMS [Spip](https://www.spip.net).
 
 ## Contact
 Webmestre & Back dev : Norbert Cabrol  
