@@ -1,4 +1,4 @@
-// main: ../config.scss
+// main: ../global.scss
 
 /** ================================================
                # RESET
@@ -21,3 +21,5 @@ a:active {text-decoration: underline;}
 input, a {cursor: pointer;}
 
 ul, li {margin: none;}
+
+.clear { clear: both;}

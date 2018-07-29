@@ -1,0 +1,50 @@
+// main: ../global.scss
+
+/** ================================================
+               # MENTIONS
+================================================ **/
+
+button.accordion {
+    background-color: #eee;
+    border: none;
+    color: #444;
+    cursor: pointer;
+    font-size: 15px;
+    outline: none;
+    padding: 18px;
+    text-align: left;
+    transition: 0.4s;
+    width: 100%;
+}
+
+button.accordion.active, button.accordion:hover {
+    background-color: #ddd;
+}
+
+div.panel {
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 18px;
+    transition: max-height 0.2s ease-out;
+}
+
+
+
+/** ------------------------------------------------
+                Tablette paysage
+------------------------------------------------ **/
+
+@media (max-width: $tablette-paysage) { }
+
+/** ------------------------------------------------
+                Tablette portrait
+------------------------------------------------ **/
+
+@media (max-width: $tablette-portrait) { }
+
+/** ------------------------------------------------
+                Mobile
+------------------------------------------------ **/
+
+@media (max-width: $mobile) { }

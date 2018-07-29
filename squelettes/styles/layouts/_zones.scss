@@ -1,0 +1,51 @@
+// main: ../global.scss
+
+/** ================================================
+               # ZONES
+================================================ **/
+
+.zone { margin: 0 auto; width: 1000px;}
+.corps-zone {
+   border: 1px black solid;
+   border-top: none;
+   margin: 0 auto;
+   margin-top: 40px;
+   width: 1200px;
+}
+
+
+.spip_logo.spip_logos {
+   display: block;
+   height: 90px;
+   margin: auto;
+   padding: 10px;
+   vertical-align: unset;
+   width: auto;
+   z-index: 9;
+}
+
+.pagination {text-align: center;}
+
+
+
+/** ------------------------------------------------
+                Tablette paysage
+------------------------------------------------ **/
+
+@media (max-width: $tablette-paysage) {
+
+   .zone {width: 100%;}
+
+}
+
+/** ------------------------------------------------
+                Tablette portrait
+------------------------------------------------ **/
+
+@media (max-width: $tablette-portrait) { }
+
+/** ------------------------------------------------
+                Mobile
+------------------------------------------------ **/
+
+@media (max-width: $mobile) { }

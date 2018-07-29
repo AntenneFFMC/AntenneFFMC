@@ -2,85 +2,89 @@
 
 <BOUCLE_principale(ARTICLES) {id_article}>
 
-<html dir="#LANG_DIR" lang="#LANG" xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" class="[(#LANG_DIR)][ (#LANG)] no-js"> <!--<![endif]-->
+<html lang="fr">
+
 <head>
-	<script type='text/javascript'>/*<![CDATA[*/(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement);/*]]>*/</script>
-	<link rel="stylesheet" type="text/css" href="global.css">
+	<!-- Entête -->
+	<meta charset="utf-8" />
+	<INCLURE{fond=inclure/inc_styles}>
+	<INCLURE{fond=inclure/inc_fonts}>
+	<INCLURE{fond=inclure/inc_robots-do}>
 	[<meta name="description" content="(#INTRODUCTION{150}|attribut_html)" />]
 	[<link rel="canonical" href="(#URL_ARTICLE|url_absolue)" />]
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<script type='text/javascript'>/*<![CDATA[*/(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement);/*]]>*/</script>
+	<title>[(#TITRE|couper{80})]</title>
 </head>
 
 <body>
-    <!-- Corps de la page -->
 
-    <div>
-            <INCLURE{fond=inc_entete}>
-    </div>
+	<!-- Header -->
+	<INCLURE{fond=inclure/inc_entete}>
 
-<div class="rubrique-zone">
-	<!-- Début article -->
-	[(#REM) Contenu principal : contenu de l'article ]
-	<div class="wrapper">
-		<div class="content" id="content">
-			<div class="arbo">
-				<p><a href="#URL_SITE_SPIP/"><:accueil_site:></a><BOUCLE_ariane(HIERARCHIE){id_article}> &gt; <a href="#URL_RUBRIQUE">[(#TITRE|couper{80})]</a></BOUCLE_ariane><!--[ &gt; <strong class="on">(#TITRE|couper{80})</strong>]-->
-				</p>
-			</div>
-			<div class="texte-rubrique">
-				<p class="info-publi">
-					<abbr class="published" title="[(#DATE|date_iso)]">[(#DATE|nom_jour) ][(#DATE|affdate)]</abbr>
+	<!-- Corps de la page -->
+	<div class="rubrique-zone">
+		<!-- Début article -->
+		[(#REM) Contenu principal : contenu de l'article ]
+		<div class="wrapper">
+			<div class="content" id="content">
+				<div class="arbo">
+					<p><a href="#URL_SITE_SPIP/"><:accueil_site:></a><BOUCLE_ariane(HIERARCHIE){id_article}> &gt; <a href="#URL_RUBRIQUE">[(#TITRE|couper{80})]</a></BOUCLE_ariane><!--[ &gt; <strong class="on">(#TITRE|couper{80})</strong>]-->
+					</p>
+				</div>
+				<div class="texte-rubrique">
+					<p class="info-publi">
+						<abbr class="published" title="[(#DATE|date_iso)]">[(#DATE|nom_jour) ][(#DATE|affdate)]</abbr>
 
-				</p>
-				[(#REM) Inclure le modele des liens de traductions ]
-				#MODELE{article_traductions}
-			</div>
+					</p>
+					[(#REM) Inclure le modele des liens de traductions ]
+					#MODELE{article_traductions}
+				</div>
 
-			<div class="cartouche" style="text-align:center;">
-				[<p class="#EDIT{surtitre} surtitre">(#SURTITRE)</p>]
-				<h4 class="#EDIT{titre} surlignable"><span class="logo-titre">[(#LOGO_ARTICLE_RUBRIQUE|image_reduire{80,*}) ]</span>#TITRE</h4>
+				<div class="cartouche" style="text-align:center;">
+					[<p class="#EDIT{surtitre} surtitre">(#SURTITRE)</p>]
+					<h4 class="#EDIT{titre} surlignable"><span class="logo-titre">[(#LOGO_ARTICLE_RUBRIQUE|image_reduire{80,*}) ]</span>#TITRE</h4>
+					<hr class="ligne-titre-rubrique"/>
+				</div>
+				<div class="texte-rubrique">
+					<span class="texte-rubrique sous-titre-rubrique">[<p class="#EDIT{soustitre} soustitre">(#SOUSTITRE)</p>]</span>
+					[<div class="#EDIT{chapo} chapo surlignable texte-rubrique">(#CHAPO|image_reduire{50,*})</div>]
+					[<div class="#EDIT{texte} texte surlignable texte-rubrique">(#TEXTE|image_reduire{500,500})</div>]
+					[<p class="#EDIT{hyperlien} hyperlien"><:voir_en_ligne:> : <a href="(#URL_SITE)">[(#NOM_SITE|sinon{[(#URL_SITE|couper{80})]})]</a></p>]
+					[<div class="#EDIT{ps} ps surlignable texte-rubrique"><hr />(#PS|image_reduire{50,*})</div>]
+				</div>
+				<br />
+				<br />
 				<hr class="ligne-titre-rubrique"/>
-			</div>
-			<div class="texte-rubrique">
-				<span class="texte-rubrique sous-titre-rubrique">[<p class="#EDIT{soustitre} soustitre">(#SOUSTITRE)</p>]</span>
-				[<div class="#EDIT{chapo} chapo surlignable texte-rubrique">(#CHAPO|image_reduire{50,*})</div>]
-				[<div class="#EDIT{texte} texte surlignable texte-rubrique">(#TEXTE|image_reduire{500,500})</div>]
-				[<p class="#EDIT{hyperlien} hyperlien"><:voir_en_ligne:> : <a href="(#URL_SITE)">[(#NOM_SITE|sinon{[(#URL_SITE|couper{80})]})]</a></p>]
-				[<div class="#EDIT{ps} ps surlignable texte-rubrique"><hr />(#PS|image_reduire{50,*})</div>]
-			</div>
-			<br />
-			<br />
-			<hr class="ligne-titre-rubrique"/>
 
-			<div class="supplements-articles sans-style-liste">
-				<!-- l'argument sans-style-liste doit être mis dans les modèles sur les <li> pour y fonctionner également -->
-				[(#REM) Gestion du portfolio et des documents ]
-				[(#INCLURE{fond=inclure/documents,id_article, env})]
+				<div class="supplements-articles sans-style-liste">
+					<!-- l'argument sans-style-liste doit être mis dans les modèles sur les <li> pour y fonctionner également -->
+					[(#REM) Gestion du portfolio et des documents ]
+					[(#INCLURE{fond=inclure/documents,id_article, env})]
 
-				[(#REM) Petition :
-				La petition ayant une PAGINATION il faut absolument {env}
-				et pourquoi pas ajax
-				][(#PETITION|oui)<INCLURE{fond=inclure/petition,id_article,env,ajax} />]
+					[(#REM) Petition :
+					La petition ayant une PAGINATION il faut absolument {env}
+					et pourquoi pas ajax
+					][(#PETITION|oui)<INCLURE{fond=inclure/petition,id_article,env,ajax} />]
 
-				[<div class="notes"><hr />(#NOTES)</div>]
+					[<div class="notes"><hr />(#NOTES)</div>]
 
-				[(#REM) Forum de l'article ]
-				<INCLURE{fond=inclure/forum,id_article} />
-				[<h2 class="forum-titre"><:forum:form_pet_message_commentaire:></h2>
-				(#FORMULAIRE_FORUM)]
-			</div>
+					[(#REM) Forum de l'article ]
+					<INCLURE{fond=inclure/forum,id_article} />
+					[<h2 class="forum-titre"><:forum:form_pet_message_commentaire:></h2>
+					(#FORMULAIRE_FORUM)]
+				</div>
 
-		</div><!--.content-->
-	</div><!--.wrapper-->
-	<!-- Fin article -->
-</div>
+			</div><!--.content-->
+		</div><!--.wrapper-->
+		<!-- Fin article -->
+	</div>
 
-<footer>
-	<INCLURE{fond=inc_pied}>
-</footer>
+	<!-- Footer -->
+	<INCLURE{fond=inclure/inc_pied}>
 
 </body>
 
 </html>
+
 </BOUCLE_principale>[(#INCLURE{fond=404, erreur=<:aucun_article:>})]
 <//B_principale>

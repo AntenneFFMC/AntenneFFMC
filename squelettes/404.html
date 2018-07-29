@@ -1,33 +1,30 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-        "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html lang="fr">
+
 <head>
-	<meta http-equiv="content-type" content="text/html; charset=utf-8">
-	<title>[(#NOM_SITE_SPIP)]</title>
-	<link rel="stylesheet" href="style_ffmc.css" media="screen">
-	<!-- media="print" permet d'utiliser cette feuille de style quand vous imprimez depuis votre navigateur -->
-	<link rel="stylesheet" href="impression.css" type="text/css" media="print">
-	<link rel='stylesheet' href='spip_admin.css' type='text/css' />
+	<!-- Entête -->
+	<meta charset="utf-8" />
+   <INCLURE{fond=inclure/inc_styles}>
+	<INCLURE{fond=inclure/inc_fonts}>
+	<INCLURE{fond=inclure/inc_robots-do}>
+	<INCLURE{fond=inclure/inc_desc}>
+	<title>Erreur 404</title>
 </head>
 
-<center>
-<DIV STYLE="width: 1000px; background: url('images/bgwhite.png');" ID="MainContent">
+<body>
 
-<body BGCOLOR="#666666" MARGINWIDTH="O" LEFTMARGIN="0">
+	<!-- Header -->
+	<INCLURE{fond=inclure/inc_entete}>
 
-<a href="index.php"><img src="images/BandeauWebAntenne.png" alt="Accueil"></a>
+	<!-- Corps de la page -->
+	<div class="zone">
+      <h1>Oops !</h1>
+      <h3>Vous avez l'air de vous être trompé de route...</h3>
+   </div>
 
-<table border="0" width="100%" cellpadding="2">
-	<tr>
-		<td width="640" align="left" valign="top">
-			<h1 class="titre-texte"><:pass_erreur:> 404</h1>
-			<p>D&eacute;sol&eacute; la page n'existe pas ...</p>
-		</td>
-	</tr>
-</table>
-		
-<INCLURE{fond=inc_pied}>
+   <!-- Footer -->
+	<INCLURE{fond=inclure/inc_pied}>
 
 </body>
-</DIV>
+
 </html>

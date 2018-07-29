@@ -1,4 +1,4 @@
-// main: ../theme.scss
+// main: ../global.scss
 
 /** ================================================
                # TYPOS
@@ -23,6 +23,8 @@ p {
   font-size: 16px;
   text-align: justify;
 }
+
+hr { width: 50%;}
 
 /* les a href spip vers l'extérieur et l'intérieur du site */
   a.spip_out { color: $main-color--dark; text-decoration: underline; }
