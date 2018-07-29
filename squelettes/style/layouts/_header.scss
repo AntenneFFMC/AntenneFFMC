@@ -1,38 +1,8 @@
+ // main: ../theme.scss
+
 /** ================================================
                 # HEADER
 ================================================ **/
-
-$main-color : #3EA147;
-$main-color--dark : #30891D;
-$dark-color : #040017;
-$highight : #ffcf00;
-
-$duration : 0.2s;
-$timing : ease;
-
-%transition-all {
-   transition: all $duration $timing;
-}
-%transition-all--no-opacity {
-   transition-property: top, bottom, left, right, width, height, margin, padding, line-height, border;
-   transition-duration: $duration;
-   transition-timing-function: $timing;
-}
-%transition-size {
-   transition-property: width, height, margin, padding, line-height, border;
-   transition-duration: $duration;
-   transition-timing-function: $timing;
-}
-%transition-position {
-   transition-property: top, bottom, left, right;
-   transition-duration: $duration;
-   transition-timing-function: $timing;
-}
-
-* { @extend %transition-all; }
-
-
-
 
 
 .header {
@@ -220,11 +190,14 @@ $timing : ease;
 }
 
 
+
+
+
 /** ------------------------------------------------
                 Tablette paysage
 ------------------------------------------------ **/
 
-@media (max-width: 1024px) {
+@media (max-width: $tablette-paysage) {
 
    .menu {
 
@@ -333,12 +306,11 @@ $timing : ease;
 
 
 
-
 /** ------------------------------------------------
                 Tablette portrait
 ------------------------------------------------ **/
 
-@media (max-width: 768px) {
+@media (max-width: $tablette-portrait) {
 
    .header__banniere {
       display: block;
@@ -363,11 +335,13 @@ $timing : ease;
 
 }
 
+
+
 /** ------------------------------------------------
                 Mobile
 ------------------------------------------------ **/
 
-@media (max-width: 640px) {
+@media (max-width: $mobile) {
 
    .menu {
 
