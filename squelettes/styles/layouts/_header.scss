@@ -22,6 +22,8 @@
    padding: 0 calc( (100% - 1000px) / 2 );
    background-color: $main-color;
    border-bottom: 4px solid $main-color--dark;
+   
+   * { @extend %transition-all; }
 
    &__bouton-mobile {
    	position: relative;
@@ -113,7 +115,7 @@
          z-index: -1;
          padding: 10px 20px;
          width: 70px;
-      	transform: translateY(-100%);
+      	transform: translateY(-110%);
       }
    }
    &__rubrique-bouton {
@@ -124,13 +126,13 @@
       opacity: 0;
       visibility: visible;
       &:hover {
-         & + .menu__rubrique-text { background-color: $main-color--dark; }
-         & + .menu__rubrique-icon { fill : $highight; }
+         & + .menu__rubrique-texte { background-color: $main-color--dark; }
+         & + .menu__rubrique-icone { fill : $highight; }
       }
       &:checked {
          z-index: -1;
          visibility: hidden;
-         & + .menu__rubrique-text { background-color: $main-color--dark; }
+         & + .menu__rubrique-texte { background-color: $main-color--dark; }
          & ~ .menu__liste-sous-liste {
             height: 200%;
             @extend %transition-all;
