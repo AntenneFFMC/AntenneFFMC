@@ -1,0 +1,136 @@
+[(#REM) date" content="2016-11-14 Norbert(FFMC73) Erik(FFMC69)" ]
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- Un cache plus court, pour la boucle syndic_articles -->
+#CACHE{3600}
+<html>
+<head>
+<title>[#NOM_SITE_SPIP]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="date" content="2013-01-05T23:49:38+0100" >
+<meta name="Description" content="la FFMC agit pour développer la pratique des deux-roues motorisés ou engins assimilés. Elle défend, sans corporatisme, leurs utilisateurs en tant qu'usagers de la route et en tant que consommateurs. Elle agit pour la sécurité et le partage de la route sur la base du développement de l'information, de la prévention, et de la formation, et pour faire prévaloir la connaissance et la prise de conscience plutôt que les mesures répressives">
+<meta name="Keywords" content="moto, motard, colère, motard en colère, colere, motards en colère, ffmc73, ffmc, sécurité routière, route, partage, rails, guillotine, infrastructures, feux de jour, pollution, controle technique, contrôle, motostra, amdm, mutuelle, stop vol, motomag, afdm, formation">
+<!-- style_ffmc.css -->
+<link rel="stylesheet" type="text/css" href="global.css">
+<!--<link rel="alternate" type="application/rss+xml" title="RSS" href="http://www.ffmc.asso.fr/backend.php3"> -->
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+#INSERT_HEAD  <!-- Appel des styles du plugin agenda -->
+</head>
+
+<body MARGINWIDTH="O" LEFTMARGIN="0">
+
+	<div>
+	    <INCLURE{fond=inc_entete}>
+	</div>
+
+	<link rel='stylesheet' type='text/css' href='#CHEMIN{lib/fullcalendar/fullcalendar.css}' />
+	<script type='text/javascript' src='#CHEMIN{lib/fullcalendar/fullcalendar.min.js}'></script>
+
+	<script type="text/javascript">/*<![CDATA[*/
+		jQuery(document).ready(function() {
+		    $('#calendrier-loading').hide();
+			$('#agenda').fullCalendar({
+					editable: false,
+					events: "[(#URL_PAGE{agenda.json})]",
+
+					header: {
+						left: 'prevYear,prev,next,nextYear',
+						center: 'title',
+						right: ''
+		<!--				right: 'month,agendaWeek,agendaDay' pour un choix d'affichage M S J-->
+
+					},
+					height: 500,
+					firstDay: 1,
+					monthNames:['<:date_mois_1|attribut_html:>','<:date_mois_2|attribut_html:>','<:date_mois_3|attribut_html:>','<:date_mois_4|attribut_html:>','<:date_mois_5|attribut_html:>','<:date_mois_6|attribut_html:>','<:date_mois_7|attribut_html:>','<:date_mois_8|attribut_html:>','<:date_mois_9|attribut_html:>','<:date_mois_10|attribut_html:>','<:date_mois_11|attribut_html:>','<:date_mois_12|attribut_html:>'],
+					monthNamesShort:['<:date_mois_1_abbr|attribut_html:>','<:date_mois_2_abbr|attribut_html:>','<:date_mois_3_abbr|attribut_html:>','<:date_mois_4_abbr|attribut_html:>','<:date_mois_5_abbr|attribut_html:>','<:date_mois_6_abbr|attribut_html:>','<:date_mois_7_abbr|attribut_html:>','<:date_mois_8_abbr|attribut_html:>','<:date_mois_9_abbr|attribut_html:>','<:date_mois_10_abbr|attribut_html:>','<:date_mois_11_abbr|attribut_html:>','<:date_mois_12_abbr|attribut_html:>'],
+					dayNames:['<:date_jour_1|attribut_html:>','<:date_jour_2|attribut_html:>','<:date_jour_3|attribut_html:>','<:date_jour_4|attribut_html:>','<:date_jour_5|attribut_html:>','<:date_jour_6|attribut_html:>','<:date_jour_7|attribut_html:>'],
+					dayNamesShort:['<:date_jour_1_abbr|attribut_html:>','<:date_jour_2_abbr|attribut_html:>','<:date_jour_3_abbr|attribut_html:>','<:date_jour_4_abbr|attribut_html:>','<:date_jour_5_abbr|attribut_html:>','<:date_jour_6_abbr|attribut_html:>','<:date_jour_7_abbr|attribut_html:>'],
+					buttonText: {
+							today: '<:date_aujourdhui|attribut_html:>',
+							month: '<:organiseur:cal_par_mois|attribut_html:>',
+							day: '<:organiseur:cal_par_jour|attribut_html:>',
+							week: '<:organiseur:cal_par_semaine|attribut_html:>'
+					},
+					weekMode : 'liquid',
+
+
+					timeFormat: {
+
+						agenda: "H'h'mm{ - H'h'mm}",
+
+						'': "H'h'(mm)"
+					},
+		<!-- Choix des différentes couleurs-->
+					eventBackgroundColor: '#FFFFFF',
+					eventBorderColor: '#000000',
+					eventTextColor: '#00A000',
+
+					axisFormat: "H'h'(mm)",
+					allDayText:'<:organiseur:cal_jour_entier|attribut_html:>',
+					columnFormat: {
+						month: 'ddd',
+						week: 'ddd d/M',
+						day: 'dddd d/M'
+					},
+					titleFormat: {
+						month: 'MMMM yyyy',
+						week: "d [ MMM] [ yyyy]{ '&#8212;' d MMM yyyy}",
+						day: 'dddd d MMM yyyy'
+					},
+					dayClick: function(date, allDay, jsEvent, view) {
+						if(view.name=='month'){
+							$('.fc-button-agendaWeek').click();
+							$('#calendrier').fullCalendar( 'gotoDate', date );
+						}
+						else
+							if(view.name=='agendaWeek'){
+								$('.fc-button-agendaDay').click();
+								$('#calendrier').fullCalendar( 'gotoDate', date );
+							}
+					},
+					isRTL : [(#LANG_DIR|=={rtl}|?{true,false})]
+			})
+
+		});
+		/*]]>*/
+	</script>
+
+	<div class="rubrique-zone" ID="MainContent">
+		<p class="texte-info-agenda">Cliquer sur l'évènement souhaité pour accéder à l'article correspondant.</p>
+
+		<div class="cadre-formulaire">
+			<div id="agenda"></div>
+
+			<B_agenda>
+				<div id="calendrier-loading">
+				<p class="pagination">#PAGINATION</p>
+				<BOUCLE_agenda(DATA){source json, #PRODUIRE{fond=agenda.json, start=0,end=2147483647,_=#REM|time}}{pagination 15}>
+				    <dl>
+					[<dt><:agenda:evenement_titre:></dt>
+					<dd><a href="#VALEUR{url}">(#VALEUR{title})</a></dd>]
+
+					[<dt><:agenda:evenement_date:></dt>
+					<dd>(#VALEUR{start}|Agenda_affdate_debut_fin{#VALEUR{end},#VALEUR{allDay}|=={true}|?{non,oui}})</dd>]
+
+					[<dt><:agenda:evenement_descriptif:></dt>
+					<dd>(#VALEUR{description})</dd>]
+				    </dl>
+				</BOUCLE_agenda>
+				<p class="pagination">#PAGINATION</p>
+				</div>
+			</B_agenda>
+		</div>
+
+	</div>
+
+	[(#REM) Pied de page ]
+
+	<footer>
+		<INCLURE{fond=inc_pied}>
+	</footer>
+
+</body>
+</html>
