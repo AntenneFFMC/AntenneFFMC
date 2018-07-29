@@ -1,0 +1,354 @@
+ // main: ../theme.scss
+
+/** ================================================
+                # HEADER
+================================================ **/
+
+
+.header {
+   position: relative;
+   background-color: $dark-color;
+   &__banniere {
+     display: block;
+     width: auto;
+     height: 120px;
+     margin: auto;
+     padding: 20px;
+   }
+}
+
+.menu {
+   position: relative;
+   padding: 0 calc( (100% - 1000px) / 2 );
+   background-color: $main-color;
+   border-bottom: 4px solid $main-color--dark;
+
+   &__bouton-mobile {
+   	position: relative;
+      display: none;
+      flex-direction: column;
+      justify-content: space-around;
+      margin: 0 20px 0 auto;
+      padding: 10px;
+   	width: 50px;
+   	height: 50px;
+      &-declencheur {
+         z-index: 1;
+         position: absolute;
+         top: 0;
+         right: 20px;
+         height: 50px;
+         width: 50px;
+         margin: 0;
+         opacity: 0;
+         &:checked {
+            & ~ .menu__bouton-mobile .menu__bouton-mobile-ligne {
+               &:nth-of-type(1) { transform: rotate(45deg) translate(25%, 360%); }
+               &:nth-of-type(2) { width: 0; }
+               &:nth-of-type(3) { transform: rotate(-45deg) translate(25%, -360%); }
+            }
+         }
+      }
+      &-ligne {
+         width: 100%;
+         height: 2px;
+         background-color: #FFF;
+      }
+   }
+
+   &__bouton-neutre {
+      z-index: 0;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      height: calc(100vh - (400%));
+      margin: 0;
+      cursor: inherit;
+      opacity: 0;
+      &:checked { z-index: -1; }
+   }
+
+   &__liste {
+      display: flex;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      &-sous-liste {
+      	display: flex;
+      	position: absolute;
+      	top: 100%;
+      	left: 0;
+      	width: 100%;
+         height: 4px;
+      	padding: 0 calc( (100% - 1000px) / 2 );
+         overflow: hidden;
+         background-color: $main-color--dark;
+      	list-style: none;
+      	text-align: center;
+         @extend %transition-all;
+      }
+   }
+
+   &__rubrique {
+      display: block;
+      z-index: 1;
+      flex: 1 0 auto;
+      height: 50px;
+      color: #FFF;
+      text-align: center;
+      text-transform: uppercase;
+      &--lien-remplacement { display: none; }
+      &--recherche { flex: 0; }
+      &-texte {
+         display: block;
+         z-index: -1;
+         padding: 0 20px;
+      	transform: translateY(-54px);
+         line-height: 50px;
+      }
+      &-icone {
+         fill: #FFF;
+         z-index: -1;
+         padding: 10px 20px;
+         width: 70px;
+      	transform: translateY(-100%);
+      }
+   }
+   &__rubrique-bouton {
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      opacity: 0;
+      visibility: visible;
+      &:hover {
+         & + .menu__rubrique-text { background-color: $main-color--dark; }
+         & + .menu__rubrique-icon { fill : $highight; }
+      }
+      &:checked {
+         z-index: -1;
+         visibility: hidden;
+         & + .menu__rubrique-text { background-color: $main-color--dark; }
+         & ~ .menu__liste-sous-liste {
+            height: 200%;
+            @extend %transition-all;
+            &--petit { height: 100%; @extend %transition-all;}
+            &--grand { height: 60vh; @extend %transition-all;}
+            .menu__sous-rubrique { opacity: 1; }
+         }
+      }
+   }
+
+   &__sous-rubrique {
+      position: relative;
+      flex: 1;
+      justify-content: center;
+      width: auto;
+      margin: 0;
+      padding: 2px 0;
+      line-height: 100px;
+      text-transform: none;
+      opacity: 0;
+      cursor: pointer;
+
+      &--petit { line-height: 50px; }
+
+      &-texte {
+         z-index: 1;
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 100%;
+         opacity: 0;
+      }
+      &-illustration {
+         z-index: 0;
+         position: absolute;
+         top: -10%;
+         left: 0;
+      }
+
+      &:hover {
+         .menu__sous-rubrique-illustration { opacity: 0.2; transition: opacity $duration $timing; }
+         .menu__sous-rubrique-texte { opacity: 1; transition: opacity $duration $timing; }
+      }
+   }
+
+   &__barre-recherche {
+   	display: flex;
+   	width: 80%;
+      height: 100%;
+   	margin: auto;
+   	background: none;
+   	border: none;
+   	color: #FFF;
+   	font-size: 18px;
+   	text-align: center;
+   }
+}
+
+
+
+
+
+/** ------------------------------------------------
+                Tablette paysage
+------------------------------------------------ **/
+
+@media (max-width: $tablette-paysage) {
+
+   .menu {
+
+      &__bouton-mobile {
+         display: flex;
+         &-declencheur:checked {
+            & ~ .menu__liste { height: calc(100% + 50px);}
+         }
+      }
+
+      &__bouton-neutre {
+      	top: 0;
+      	left: 0;
+      	width: 70px;
+      	height: 100%;
+      	z-index: 3;
+      	cursor: pointer;
+      }
+
+      &__liste {
+         flex-direction: column;
+         height: 0;
+         overflow: hidden;
+         &-sous-liste {
+            position: unset;
+            height: auto;
+            opacity: 1;
+         }
+      }
+
+      &__rubrique {
+         flex: auto;
+         height: auto;
+         &-bouton { display: none; }
+         &-texte { transform: translateY(0);}
+         &-icone {
+         	transform: translateY(0);
+         	height: 50px;
+         }
+         &--recherche {
+            position: absolute;
+            top: 0;
+            left: 0;
+            .menu__rubrique-bouton {
+               z-index: 2;
+               position: absolute;
+               display: block;
+               &:checked {
+                  & ~ .menu__liste-sous-liste {
+                     height: 50px;
+                     width: calc(100vw - 17px);
+                     padding: 10px 20px;
+                  }
+               }
+            }
+            .menu__rubrique-icone {
+               z-index: 1;
+               margin-left: 8px;
+            }
+            .menu__liste-sous-liste {
+               z-index: 0;
+            	position: absolute;
+            	top: 0;
+            	width: 0;
+               height: 50px;
+               padding: 10px 0;
+               overflow: hidden;
+            }
+         }
+         &--agenda, &--contact {
+            .menu__liste-sous-liste { display: none; }
+            .menu__rubrique--lien-remplacement {
+               display: block;
+               position: absolute;
+               height: 50px;
+               width: 100%;
+               &::after {
+               	content: "〉";
+               	position: absolute;
+               	line-height: 50px;
+               	top: 0;
+               	right: 30px;
+               	font-weight: bold;
+               }
+            }
+         }
+      }
+
+      &__sous-rubrique {
+         line-height: 80px;
+         &-texte {
+         	position: relative;
+         	opacity: 1;
+         	display: block;
+         	width: auto;
+         	margin: 20px 15px;
+         	line-height: 25px;
+         	color: #FFF;
+            opacity: 1;
+         }
+         &-illustration { opacity: 0.3; }
+      }
+   }
+
+}
+
+
+
+/** ------------------------------------------------
+                Tablette portrait
+------------------------------------------------ **/
+
+@media (max-width: $tablette-portrait) {
+
+   .header__banniere {
+      display: block;
+      width: auto;
+      height: 80px;
+      margin: auto;
+      padding: 12px;
+   }
+
+   .menu {
+
+      &__liste {
+         &-sous-liste { padding: 10px 20px; }
+      }
+
+      &__sous-rubrique {
+         line-height: 30px;
+         &-texte { line-height: 25px; margin: 0; }
+         &-illustration { display: none; }
+      }
+   }
+
+}
+
+
+
+/** ------------------------------------------------
+                Mobile
+------------------------------------------------ **/
+
+@media (max-width: $mobile) {
+
+   .menu {
+
+      &__liste {
+         &-sous-liste { flex-direction: column; }
+      }
+
+   }
+
+}
