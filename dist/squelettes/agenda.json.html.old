@@ -1,0 +1,16 @@
+[(#REM) date" content="2013-09-15 Erik(FFMC69)" ]
+
+#HTTP_HEADER{Content-type:text/javascript;}
+[<BOUCLE_evenements(EVENEMENTS){', '}{par date_debut}	
+{agendafull date_debut,date_fin, periode,
+	#VAL{Y}|date{#ENV{start}}, #VAL{m}|date{#ENV{start}},     #VAL{d}|date{#ENV{start}},
+	#VAL{Y}|date{#ENV{end}}, #VAL{m}|date{#ENV{end}}, #VAL{d}|date{#ENV{end}}}
+	>
+					[(#ARRAY{id,#ID_EVENEMENT,
+title,[(#TITRE|html2unicode|unicode2charset)],
+allDay,[(#HORAIRE|=={non}|?{#EVAL{true},#EVAL{false}})],
+start,#DATE_DEBUT,
+end,#DATE_FIN,
+url,#URL_ARTICLE,
+description,[(#DESCRIPTIF|html2unicode|unicode2charset)]}|json_encode)]
+</BOUCLE_evenements>]

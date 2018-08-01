@@ -1,0 +1,40 @@
+// main: ../global.scss
+
+/** ================================================
+               # CALENDRIER
+================================================ **/
+
+.texte-info-agenda {
+        margin: auto;
+        margin-bottom: 10px;
+        width: 96%;
+}
+
+/* * #agenda, #agenda * {z-index: 0;} */
+.fc-content { background-color: none;}
+.fc-today, .fc-state-highlight { background-color: #419f2e;}
+.fc-widget-header, .fc-widget-content { border: 1px solid #419f2e;}
+
+
+
+/** ------------------------------------------------
+                Tablette paysage
+------------------------------------------------ **/
+
+@media (max-width: $tablette-paysage) { }
+
+/** ------------------------------------------------
+                Tablette portrait
+------------------------------------------------ **/
+
+@media (max-width: $tablette-portrait) {
+
+   .texte-info-agenda {width: auto;}
+
+}
+
+/** ------------------------------------------------
+                Mobile
+------------------------------------------------ **/
+
+@media (max-width: $mobile) { }

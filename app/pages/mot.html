@@ -1,0 +1,72 @@
+[(#REM) date" 2014-07-07 Norbert(FFMC73)"]
+<BOUCLE_mot_courant(MOTS){id_mot}>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="fr">
+<head>
+<title>[(#NOM_SITE_SPIP)]</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="date" content="2014-07-07T10:55:35+0100">
+<meta name="Description" content="la FFMC agit pour d&eacute;velopper la pratique des deux-roues motoris&eacute;s ou engins assimil&eacute;s. Elle d&eacute;fend, sans corporatisme, leurs utilisateurs en tant qu'usagers de la route et en tant que consommateurs. Elle agit pour la s&eacute;curit&eacute; et le partage de la route sur la base du d&eacute;veloppement de l'information, de la pr&eacute;vention, et de la formation, et pour faire pr&eacute;valoir la connaissance et la prise de conscience plut&ocirc;t que les mesures r&eacute;pressives">
+<meta name="Keywords" content="moto, motard, colère, motard en colère, colere, motards en colère, ffmc73, ffmc, sécurité routière, route, partage, route, rails, guillotine, infrastructures, feux de jour, pollution, controle technique, motostra, amdm, mutuelle, stop vol, motomag, afdm, formation, ERJ">
+
+<link rel="stylesheet" type="text/css" href="global.css">
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+
+<CENTER>
+
+<DIV STYLE="width: 1000px; background: url('images/bg$bg-color--light.png');" ID="MainContent"><!-- Debut page -->
+
+<body MARGINWIDTH="O" LEFTMARGIN="0">
+[(#REM) Header  ]
+<a href="index.php"><img src="images/BandeauWebAntenne.png" alt="Acceuil"></a>
+
+<table WIDTH="100%" BORDER="0" CELLSPACING="10" BACKGROUND="images/fondmoto.png" STYLE="background-repeat: no-repeat; background-position: bottom right;">
+	<tr>
+	<!-- Debut colonne gauche -->
+     <TD WIDTH="1%" VALIGN="TOP">
+     </TD>
+	<!-- Fin colonne gauche -->
+	<!-- Debut colonne droite -->
+		<td WIDTH="99%" VALIGN="TOP" CLASS="content">
+					<B_mots>
+						<div class="theme">
+							<div class="bandeau">
+								<h3>Les autres dossiers</h3>
+							</div><!--.bandeau-->
+							<div class="texte">
+								<BOUCLE_mots(MOTS){id_groupe!=2}>
+									<img src="images/puce.gif" alt="" width="8" height="11" border="0" align="left">
+									<a href="#URL_MOT" target="_self">#TITRE</a><br>
+								</BOUCLE_mots>
+							</div><!--.texte-->
+								<BR>
+								</BOUCLE_mots>
+						</div><!--.theme-->
+					</B_mots>
+
+					[(#LOGO_MOT|left)]<h3>#TITRE</h3>
+
+					<BOUCLE_articles_lies(ARTICLES){id_mot}{par date}{inverse}{debut_page,15}>
+						<img src="images/puce.gif" alt="" width="8" height="11" border="0" align="left">
+						<a href="#URL_ARTICLE" target="_self">#TITRE</a><br>
+					</BOUCLE_articles_lies><br><br>
+
+					<BOUCLE_articles_pagination(ARTICLES){id_mot}{par date}{inverse}>
+					</BOUCLE_articles_pagination>
+					[(#TOTAL_BOUCLE|pagination{debut_page,15})]
+					</B_articles_pagination>
+		</td>
+		<!-- Fin colonne droite -->
+	</tr>
+</table>
+
+[(#REM) Pied de page ]
+	<INCLURE{fond=inc_pied}{skel=#SQUELETTE}>
+</body>
+</DIV><!-- Debut page -->
+</CENTER>
+</html>
+</BOUCLE_mot_courant>

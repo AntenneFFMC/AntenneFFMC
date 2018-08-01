@@ -1,0 +1,50 @@
+[(#REM) date" content="2014-07-24 Norbert(FFMC73)" ]
+
+<BOUCLE_principale(ARTICLES) {id_article}>
+
+<html dir="#LANG_DIR" lang="#LANG" xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" class="[(#LANG_DIR)][ (#LANG)] no-js"> <!--<![endif]-->
+
+<head>
+[<meta name="description" content="(#INTRODUCTION{150}|attribut_html)" />]
+[<link rel="canonical" href="(#URL_ARTICLE|url_absolue)" />]
+</head>
+
+<center>
+<DIV STYLE="width: 1000px; background: url('images/bg$bg-color--light.png');" ID="MainContent">
+
+<body BGCOLOR="#666666" MARGINWIDTH="O" LEFTMARGIN="0">
+
+<a href="index.php"><img src="images/BandeauWebAntenne.png" alt="Accueil"></a>
+
+	<div class="main" style="width: 900px" align="left">
+		[(#REM) Contenu principal : contenu de l'article ]
+		<div class="wrapper hfeed">
+		<div class="content hentry" id="content">
+			<p class="arbo"><a href="#URL_SITE_SPIP/"><:accueil_site:></a><BOUCLE_ariane(HIERARCHIE){id_article}> &gt; <a href="#URL_RUBRIQUE">[(#TITRE|couper{80})]</a></BOUCLE_ariane>[ &gt; <strong class="on">(#TITRE|couper{80})</strong>]</p>
+	
+			<div class="cartouche">
+				[<p class="#EDIT{surtitre} surtitre">(#SURTITRE)</p>]
+				<h1 class="#EDIT{titre} surlignable">[(#LOGO_ARTICLE_RUBRIQUE|image_reduire{40,*}) ]#TITRE</h1>
+				[<p class="#EDIT{soustitre} soustitre">(#SOUSTITRE)</p>]
+				[(#REM) Inclure le modele des liens de traductions ]
+				#MODELE{article_traductions}
+			</div>
+			
+			[<div class="#EDIT{chapo} chapo surlignable">(#CHAPO|image_reduire{500,*})</div>]
+			[<div class="#EDIT{texte} texte surlignable">(#TEXTE|image_reduire{500,*})</div>]
+		</div><!--.content-->
+		</div><!--.wrapper-->
+
+	#FORMULAIRE_INFRAS
+
+	</div><!--.main-->
+
+<br /><br />
+
+<INCLURE{fond=inc_pied}>
+
+</body>
+</DIV><!--.page-->
+</center>
+</html>
+</BOUCLE_principale>
