@@ -1,15 +1,14 @@
 [(#REM) date" content="2013-09-15 Erik(FFMC69); 2014-05-17 Norbert(FFMC73); 2017-04-30 Antoine(FFMC73) " ]
 
 <BOUCLE_principale(ARTICLES) {id_article}>
-
 <html lang="fr">
 
 <head>
 	<!-- Entête -->
 	<meta charset="utf-8" />
-	<INCLURE{fond=inclure/inc_styles}>
-	<INCLURE{fond=inclure/inc_fonts}>
-	<INCLURE{fond=inclure/inc_robots-do}>
+	[(#INCLURE{fond=inclure/inc_styles})]
+	[(#INCLURE{fond=inclure/inc_fonts})]
+	[(#INCLURE{fond=inclure/inc_robots-do})]
 	[<meta name="description" content="(#INTRODUCTION{150}|attribut_html)" />]
 	[<link rel="canonical" href="(#URL_ARTICLE|url_absolue)" />]
 	<script type='text/javascript'>/*<![CDATA[*/(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement);/*]]>*/</script>
@@ -19,7 +18,7 @@
 <body>
 
 	<!-- Header -->
-	<INCLURE{fond=inclure/inc_entete}>
+	[(#INCLURE{fond=inclure/inc_entete})]
 
 	<!-- Corps de la page -->
 	<div class="rubrique-zone">
@@ -80,7 +79,7 @@
 	</div>
 
 	<!-- Footer -->
-	<INCLURE{fond=inclure/inc_pied}>
+	[(#INCLURE{fond=inclure/inc_pied})]
 
 </body>
 

@@ -4,21 +4,21 @@
 <head>
 	<!-- Entête -->
 	<meta charset="utf-8" />
-	<INCLURE{fond=inclure/inc_styles}>
-	<INCLURE{fond=inclure/inc_fonts}>
-	<INCLURE{fond=inclure/inc_robots-do}>
-	<INCLURE{fond=inclure/inc_desc}>
+	[(#INCLURE{fond=inclure/inc_styles})]
+	[(#INCLURE{fond=inclure/inc_fonts})]
+	[(#INCLURE{fond=inclure/inc_robots-do})]
+	[(#INCLURE{fond=inclure/inc_desc})]
 	<title>#NOM_SITE_SPIP</title>
 </head>
 
 <body>
 
 	<!-- Header -->
-	<INCLURE{fond=inclure/inc_entete}>
+	[(#INCLURE{fond=inclure/inc_entete})]
 
 	<!-- Corps de la page -->
 	<div class="zone">
-		
+
 		<div class="une">
 			<BOUCLE_EDITO(ARTICLES){id_mot=1}{!par date}{0,1}{doublons}>
 				<h1>A LA UNE<hr/></h1> [
@@ -256,7 +256,7 @@
 	</div>
 
 	<!-- Footer -->
-	<INCLURE{fond=inclure/inc_pied}>
+	[(#INCLURE{fond=inclure/inc_pied})]
 
 </body>
 

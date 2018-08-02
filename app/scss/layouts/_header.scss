@@ -163,18 +163,37 @@
          top: 0;
          left: 0;
          width: 100%;
-         opacity: 0;
+         opacity: 1;
+         a {
+         	display: flex;
+         	justify-content: center;
+         }
       }
       &-illustration {
          z-index: 0;
          position: absolute;
-         top: -10%;
+         top: 0;
          left: 0;
+         width: 100%;
+         height: 100%;
+         padding: 10px;
+         opacity: 0.3;
+         .spip_logo.spip_logos {
+            height: 100%;
+            padding: 0;
+         }
       }
 
       &:hover {
-         .menu__sous-rubrique-illustration { opacity: 0.2; transition: opacity $duration $timing; }
-         .menu__sous-rubrique-texte { opacity: 1; transition: opacity $duration $timing; }
+         .menu__sous-rubrique-illustration {
+            opacity: 1;
+            top: 0;
+            padding: 12px;
+            .spip_logo.spip_logos { height: 100%; }
+         }
+         .menu__sous-rubrique-texte {
+            opacity: 0.3;
+         }
       }
    }
 
