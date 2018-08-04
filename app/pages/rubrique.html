@@ -21,30 +21,28 @@
 
 
 
-<body>
+<body class="page-rubrique">
 
     <!-- Header -->
    [(#INCLURE{fond=inclure/inc_entete})]
 
 
    <!-- Corps de la page -->
-   <div class="rubrique-zone">
-      <div class="content" id="content">
-      <p class="arbo" style="text-align:center;">
+   <div class="conteneur rubrique">
+      <p class="arbo">
          <a href="#URL_SITE_SPIP/">
             <:accueil_site:>
          </a>
          <BOUCLE_ariane(HIERARCHIE){id_rubrique}> &gt; <a href="#URL_RUBRIQUE">[(#TITRE|couper{80})]</a></BOUCLE_ariane>[ &gt; <strong class="on">(#TITRE|couper{80})</strong>]</p>
       <!--.arbo-->
 
-      <div class="cartouche" style="text-align:center;">
-         <h4 class="#EDIT{titre} surlignable"><span class="logo-titre">[(#LOGO_RUBRIQUE|image_reduire{80,*}) ]</span>#TITRE</h4>
-         <hr class="ligne-titre-rubrique" />
-      </div>
+      <header class="rubrique__entete">
+			<div class="rubrique__entete-logo">#LOGO_RUBRIQUE</div>
+         <h4 class="rubrique__entete-titre">#TITRE</h4>
+      </header>
 
-      <div class="texte-rubrique">
-         [
-         <div class="#EDIT{texte} texte surlignable texte-rubrique">(#TEXTE|image_reduire{500,*})</div>]
+      <div class="rubrique__description">
+			<p class="rubrique__description-texte">#TEXTE</p>
       </div>
       <hr/>
 
@@ -89,7 +87,6 @@
             <hr />(#NOTES)</div>]
       </div>
 
-   </div>
    </div>
 
    <!-- Footer -->

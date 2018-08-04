@@ -11,7 +11,7 @@ h1 {
 }
 
 h2 {
-  color: $main-color--dark;
+  color: $couleur1--sombre;
   font-size: 20px;
   margin-bottom: 10px;
   margin-left: 40px;
@@ -19,7 +19,7 @@ h2 {
 }
 
 p {
-  color: $text-color;
+  color: $couleur-texte;
   font-size: 16px;
   text-align: justify;
 }
@@ -27,8 +27,8 @@ p {
 hr { width: 50%;}
 
 /* les a href spip vers l'extérieur et l'intérieur du site */
-  a.spip_out { color: $main-color--dark; text-decoration: underline; }
-  a.spip_in { color: $main-color--dark; text-decoration: underline; }
+  a.spip_out { color: $couleur1--sombre; text-decoration: underline; }
+  a.spip_in { color: $couleur1--sombre; text-decoration: underline; }
 
 
 

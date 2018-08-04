@@ -1,33 +1,31 @@
 // main: ../global.scss
 
 /** ================================================
-               # MENTIONS
+               # CONTENEURS
 ================================================ **/
 
-button.accordion {
-    background-color: #eee;
-    border: none;
-    color: #444;
-    cursor: pointer;
-    font-size: 15px;
-    outline: none;
-    padding: 18px;
-    text-align: left;
-    transition: 0.4s;
-    width: 100%;
+.page {
+   &-accueil { background-color: $couleur-fond--clair; }
+   &-rubrique { background-color: $couleur-fond; } 
+}
+ 
+.conteneur {
+   width: 100%;
+   max-width: 1000px;
+   margin: 0 auto;
 }
 
-button.accordion.active, button.accordion:hover {
-    background-color: #ddd;
+.spip_logo.spip_logos {
+   display: block;
+   z-index: 9;
+   width: auto;
+   height: 90px;
+   margin: auto;
+   padding: 10px;
+   vertical-align: unset;
 }
 
-div.panel {
-    background-color: $couleur-fond--clair;
-    max-height: 0;
-    overflow: hidden;
-    padding: 0 18px;
-    transition: max-height 0.2s ease-out;
-}
+.pagination {text-align: center;}
 
 
 
@@ -35,7 +33,11 @@ div.panel {
                 Tablette paysage
 ------------------------------------------------ **/
 
-@media (max-width: $tablette-paysage) { }
+@media (max-width: $tablette-paysage) {
+
+   .zone {width: 100%;}
+
+}
 
 /** ------------------------------------------------
                 Tablette portrait

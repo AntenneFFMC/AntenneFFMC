@@ -7,7 +7,7 @@
 
 .header {
    position: relative;
-   background-color: $text-color;
+   background-color: $couleur-texte;
    &__banniere {
      display: block;
      width: auto;
@@ -20,8 +20,8 @@
 .menu {
    position: relative;
    padding: 0 calc( (100% - 1000px) / 2 );
-   background-color: $main-color;
-   border-bottom: 4px solid $main-color--dark;
+   background-color: $couleur1;
+   border-bottom: 4px solid $couleur1--sombre;
 
    * { @extend %transition-all; }
 
@@ -54,7 +54,7 @@
       &-ligne {
          width: 100%;
          height: 2px;
-         background-color: $bg-color--light;
+         background-color: $couleur-fond--clair;
       }
    }
 
@@ -86,7 +86,7 @@
          height: 4px;
       	padding: 0 calc( (100% - 1000px) / 2 );
          overflow: hidden;
-         background-color: $main-color--dark;
+         background-color: $couleur1--sombre;
       	list-style: none;
       	text-align: center;
          @extend %transition-all;
@@ -98,7 +98,7 @@
       z-index: 1;
       flex: 1 0 auto;
       height: 50px;
-      color: $bg-color--light;
+      color: $couleur-fond--clair;
       text-align: center;
       text-transform: uppercase;
       &--lien-remplacement { display: none; }
@@ -111,7 +111,7 @@
          line-height: 50px;
       }
       &-icone {
-         fill: $bg-color--light;
+         fill: $couleur-fond--clair;
          z-index: -1;
          padding: 10px 20px;
          width: 70px;
@@ -126,13 +126,13 @@
       opacity: 0;
       visibility: visible;
       &:hover {
-         & + .menu__rubrique-texte { background-color: $main-color--dark; }
-         & + .menu__rubrique-icone { fill : $highight; }
+         & + .menu__rubrique-texte { background-color: $couleur1--sombre; }
+         & + .menu__rubrique-icone { fill : $couleur-pop; }
       }
       &:checked {
          z-index: -1;
          visibility: hidden;
-         & + .menu__rubrique-texte { background-color: $main-color--dark; }
+         & + .menu__rubrique-texte { background-color: $couleur1--sombre; }
          & ~ .menu__liste-sous-liste {
             height: 200%;
             @extend %transition-all;
@@ -185,7 +185,7 @@
    	margin: auto;
    	background: none;
    	border: none;
-   	color: $bg-color--light;
+   	color: $couleur-fond--clair;
    	font-size: 18px;
    	text-align: center;
    }
@@ -297,7 +297,7 @@
          	width: auto;
          	margin: 20px 15px;
          	line-height: 25px;
-         	color: $bg-color--light;
+         	color: $couleur-fond--clair;
             opacity: 1;
          }
          &-illustration { opacity: 0.3; }

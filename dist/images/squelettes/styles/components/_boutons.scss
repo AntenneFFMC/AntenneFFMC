@@ -10,14 +10,14 @@
 	max-width: 289px;
 	height: 60px;
 	margin: 20px auto;
-	color: $text-color;
-	background-color: $bg-color--dark;
-	border-bottom: 4px solid $border-color;
+	color: $couleur-texte;
+	background-color: $couleur-fond--sombre;
+	border-bottom: 4px solid $couleur-bordure;
 	cursor: pointer;
 	&__logo {
 		height: 100%;
 		max-width: 60px;
-		background-color: $highight--dark;
+		background-color: $couleur-pop--sombre;
 	}
 	&__texte {
 		flex: 1;

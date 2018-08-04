@@ -1,34 +1,18 @@
 // main: ../global.scss
 
 /** ================================================
-               # MENTIONS
+               # ARBORESCENCE
 ================================================ **/
 
-button.accordion {
-    background-color: #eee;
-    border: none;
-    color: #444;
-    cursor: pointer;
-    font-size: 15px;
-    outline: none;
-    padding: 18px;
-    text-align: left;
-    transition: 0.4s;
-    width: 100%;
-}
+.arbo {
+   display: block;
+   margin: 0 auto;
+   max-width: 800px;
+   color: $couleur-texte;
+   text-align: center;
 
-button.accordion.active, button.accordion:hover {
-    background-color: #ddd;
+   & > p { margin: 0 0 -20px 0;}
 }
-
-div.panel {
-    background-color: $couleur-fond--clair;
-    max-height: 0;
-    overflow: hidden;
-    padding: 0 18px;
-    transition: max-height 0.2s ease-out;
-}
-
 
 
 /** ------------------------------------------------

@@ -13,7 +13,7 @@
 .une-mobile {display: none;}
 
 .une {
-        background-color: $bg-color--dark;
+        background-color: $couleur-fond--sombre;
         background-image: url(images/motard.png);
         background-position: right 40px bottom;
         background-repeat: no-repeat;
@@ -25,7 +25,7 @@
 }
 
 .titre-article-une {
-        color: $main-color--dark;
+        color: $couleur1--sombre;
         font-size: 16px;
         margin: 0 0 2px 0;
         text-decoration: none;
@@ -46,7 +46,7 @@
 }
 
 .titre-article {
-        color: $main-color--dark;
+        color: $couleur1--sombre;
         font-size: 16px;
         margin: 0;
         margin-bottom: 2px;
@@ -54,7 +54,7 @@
 }
 
 .published-sommaire {
-        color: $text-color--light;
+        color: $couleur-texte--clair;
         display: block;
         font-size: 15px;
         margin: -3px 0 5px 0;
@@ -91,7 +91,7 @@
 }
 
 .bandeau-antenne p {
-        color: $bg-color--light;
+        color: $couleur-fond--clair;
         display: block;
         font-family: 'Anton', Arial;
         font-size: 21px;
@@ -110,8 +110,8 @@
 
 .bas {
         background-image: url(images/real_cf.png);
-        box-shadow: 2px 2px 2px 2px $text-color;
-        color: $bg-color--light;
+        box-shadow: 2px 2px 2px 2px $couleur-texte;
+        color: $couleur-fond--clair;
         display: block;
         font-size: 14px;
         height: 30px;
@@ -135,7 +135,7 @@
 @media (max-width: $tablette-paysage) {
 
    .une {
-      background-color: $bg-color--dark;
+      background-color: $couleur-fond--sombre;
       background-image: inherit;
       background-size: 250px;
       display: block;

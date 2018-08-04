@@ -64,8 +64,8 @@
 						'': "H'h'(mm)"
 					},
 		<!-- Choix des différentes couleurs-->
-					eventBackgroundColor: '$bg-color--light',
-					eventBorderColor: '$text-color000',
+					eventBackgroundColor: '$couleur-fond--clair',
+					eventBorderColor: '$couleur-texte000',
 					eventTextColor: '#00A000',
 
 					axisFormat: "H'h'(mm)",
