@@ -1,0 +1,64 @@
+<div class='formulaire_spip formulaire_configurer formulaire_#FORM' id='formulaire_#FORM'>
+	<h3 class="titrem"><:adminmots:titre_formulaire_administrer_mot:></h3>
+
+	[<p class="reponse_formulaire reponse_formulaire_ok">(#ENV*{message_ok})</p>]
+	[<p class="reponse_formulaire reponse_formulaire_erreur">(#ENV*{message_erreur})</p>]
+	<form method="post" action="#SELF"><div>
+		#ACTION_FORMULAIRE
+		#SET{fl,adminmots}
+		[<input name="revert_action" type="hidden" value="(#ENV{revert_action})" />
+		<input class='submit' type="submit" name="revert" value="Oooops" />]
+		<fieldset>
+			<ul class="editer-groupe">
+				#SET{name,associer_objets_mot}#SET{obli,''}#SET{defaut,''}#SET{erreurs,#ENV**{erreurs}|table_valeur{#GET{name}}}
+				<li class="editer editer_[(#GET{name})][ (#GET{obli})][ (#GET{erreurs}|oui)erreur]">
+					<label for="#GET{name}">[(#GET{fl}|concat{':label_',#GET{name}}|_T)]</label>[
+					<span class='erreur_message'>(#GET{erreurs})</span>
+					]<select name="#GET{name}" class="select" id="#GET{name}">
+						<option value="#GET{val}"[(#ENV{#GET{name},#GET{defaut}}|=={#GET{val}}|oui)selected="selected"]><:adminmots:placeholder_select:></option>
+						[(#ENV{#GET{name},#GET{defaut}}|afficher_options_mots)]
+					</select>
+					<input type="text" name="#GET{name}_id" class="text" value="#ENV*{#GET{name}_id,#GET{defaut}}" id="#GET{name}" [(#HTML5|et{#GET{obli}})required='required']
+					placeholder="<:adminmots:placeholder_id_mot|attribut_html:>"
+					/>
+				</li>
+			</ul>
+			<p class='boutons'><input class='submit' type="submit" name="associer" value="<:adminmots:bouton_associer|attribut_html:>" /></p>
+		</fieldset>
+		<fieldset>
+			<ul class="editer-groupe">
+				#SET{name,dissocier_objets_mot}#SET{obli,''}#SET{defaut,''}#SET{erreurs,#ENV**{erreurs}|table_valeur{#GET{name}}}
+				<li class="editer editer_[(#GET{name})][ (#GET{obli})][ (#GET{erreurs}|oui)erreur]">
+					<label for="#GET{name}">[(#GET{fl}|concat{':label_',#GET{name}}|_T)]</label>[
+					<span class='erreur_message'>(#GET{erreurs})</span>
+					]<select name="#GET{name}" class="select" id="#GET{name}">
+						<option value="#GET{val}"[(#ENV{#GET{name},#GET{defaut}}|=={#GET{val}}|oui)selected="selected"]><:adminmots:placeholder_select:></option>
+						[(#ENV{#GET{name},#GET{defaut}}|afficher_options_mots)]
+					</select>
+					<input type="text" name="#GET{name}_id" class="text" value="#ENV*{#GET{name}_id,#GET{defaut}}" id="#GET{name}" [(#HTML5|et{#GET{obli}})required='required']
+					placeholder="<:adminmots:placeholder_id_mot|attribut_html:>"
+					/>
+				</li>
+			</ul>
+			<p class='boutons'><input class='submit' type="submit" name="dissocier" value="<:adminmots:bouton_dissocier|attribut_html:>" /></p>
+		</fieldset>
+		<fieldset>
+			<ul class="editer-groupe">
+				#SET{name,fusionner_mot}#SET{obli,''}#SET{defaut,''}#SET{erreurs,#ENV**{erreurs}|table_valeur{#GET{name}}}
+				<li class="editer editer_[(#GET{name})][ (#GET{obli})][ (#GET{erreurs}|oui)erreur]">
+					<label for="#GET{name}">[(#GET{fl}|concat{':label_',#GET{name}}|_T)]</label>[
+					<span class='erreur_message'>(#GET{erreurs})</span>
+					]<select name="#GET{name}" class="select" id="#GET{name}">
+						<option value="#GET{val}"[(#ENV{#GET{name},#GET{defaut}}|=={#GET{val}}|oui)selected="selected"]><:adminmots:placeholder_select:></option>
+						[(#ENV{#GET{name},#GET{defaut}}|afficher_options_mots)]
+					</select>
+					<input type="text" name="#GET{name}_id" class="text" value="#ENV*{#GET{name}_id,#GET{defaut}}" id="#GET{name}" [(#HTML5|et{#GET{obli}})required='required']
+					placeholder="<:adminmots:placeholder_id_mot|attribut_html:>"
+					/>
+				</li>
+			</ul>
+			<p class='boutons'><input class='submit' type="submit" name="fusionner" value="<:adminmots:bouton_fusionner|attribut_html:>" /></p>
+		</fieldset>
+	</div></form>
+
+</div>

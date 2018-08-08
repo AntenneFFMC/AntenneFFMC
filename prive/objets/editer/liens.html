@@ -1,0 +1,9 @@
+[(#ENV{lien}|=={#ENV{objet}}|non)
+<div class="ajax">
+	#FORMULAIRE_EDITER_LIENS{#ENV{table_source},#ENV{objet},#ENV{id_objet},#ENV{editable}|=={non}|?{'',' '}}
+</div>
+][(#ENV{lien}|=={#ENV{objet}}|oui)
+<div class="ajax">
+	#FORMULAIRE_EDITER_LIENS{#ENV{objet},#ENV{id_objet},#ENV{table_source},#ENV{editable}|=={non}|?{'',' '}}
+</div>
+]

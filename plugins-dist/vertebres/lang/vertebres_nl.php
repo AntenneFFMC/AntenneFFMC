@@ -1,0 +1,20 @@
+<?php
+// This is a SPIP language file  --  Ceci est un fichier langue de SPIP
+// extrait automatiquement de https://trad.spip.net/tradlang_module/vertebres?lang_cible=nl
+// ** ne pas modifier le fichier **
+
+if (!defined('_ECRIRE_INC_VERSION')) {
+	return;
+}
+
+$GLOBALS[$GLOBALS['idx_lang']] = array(
+
+	// 1
+	'1_donnee' => '1 record',
+
+	// N
+	'nb_donnees' => '@nb@ records ',
+
+	// T
+	'titre_tables' => 'Tabellen van de database'
+);

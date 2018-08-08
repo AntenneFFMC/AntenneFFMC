@@ -1,0 +1,87 @@
+[(#REM)
+
+  Squelette
+  (c) xxx
+  Distribue sous licence GPL
+
+]
+[(#REM) pour permettre d'inclure ce squelette plusieurs fois dans une page, fournir un parametre id_unique dans l'appel]
+
+#SET{nbdocs,0}
+<div id="portfolios#ENV{id_unique}" class="portfolios">
+[(#REM) D'abord les images illustration]
+<B_illustrations>
+<h3><span class="image_loading"></span><:medias:info_illustrations:></h3>
+<div class="liste_items documents ordonner_rang_lien" id="illustrations#ENV{id_unique}"  data-cookie-affichage="illustrations" data-lien="[(#OBJET|concat{'/',#ID_OBJET}|attribut_html)]">
+[<p class="pagination">(#PAGINATION{prive})</p>]
+<div class="sortable">
+<BOUCLE_illustrations(DOCUMENTS documents_liens types_documents){inclus=image}{mode=image}{id_objet}{objet}{par rang_lien, num titre, date,id_document}{pagination 50}{statut?}>
+	#MODELE{document_desc,id_document,id_objet,objet}
+</BOUCLE_illustrations>
+</div>
+[<p class="pagination">(#PAGINATION{prive})</p>]
+[(#AUTORISER{dissocierdocuments,#OBJET,#ID_OBJET})
+	<div class="actions-liste">
+	[(#BOUTON_ACTION{<:medias:lien_tout_enlever:>,#URL_ACTION_AUTEUR{dissocier_document,#ID_OBJET-#OBJET-I/image,#SELF|ancre_url{illustrations}},'ajax tout_supprimer',<:ecrire:lien_tout_supprimer:> ?})]
+	[(#BOUTON_ACTION{<:medias:lien_tout_desordonner:>,#URL_ACTION_AUTEUR{desordonner_liens_documents,#ID_OBJET-#OBJET-I/image,#SELF|ancre_url{illustrations}},'ajax tout_desordonner',<:medias:lien_tout_desordonner_verif:>})]
+	</div>
+]
+</div>
+#SET{nbdocs,#GET{nbdocs}|plus{#GRAND_TOTAL}}
+</B_illustrations>
+
+[(#REM) puis les images du portfolio]
+<B_portfolio>
+<h3><:medias:info_portfolio:></h3>
+<div class="liste_items documents ordonner_rang_lien" id="portfolio#ENV{id_unique}" data-cookie-affichage="portfolio" data-lien="[(#OBJET|concat{'/',#ID_OBJET}|attribut_html)]">
+[<p class="pagination">(#PAGINATION{prive})</p>]
+<div class="sortable">
+<BOUCLE_portfolio(DOCUMENTS documents_liens types_documents){inclus=image}{mode=document}{id_objet}{objet}{par rang_lien, num titre, date,id_document}{pagination 50}{statut?}>
+	#MODELE{document_desc,id_document,id_objet,objet}
+</BOUCLE_portfolio>
+</div>
+[<p class="pagination">(#PAGINATION{prive})</p>]
+[(#AUTORISER{dissocierdocuments,#OBJET,#ID_OBJET})
+	<div class="actions-liste">
+		[(#BOUTON_ACTION{<:medias:lien_tout_enlever:>,#URL_ACTION_AUTEUR{dissocier_document,#ID_OBJET-#OBJET-I/document,#SELF|ancre_url{portfolio}},'ajax tout_supprimer',<:ecrire:lien_tout_supprimer:> ?})]
+		[(#BOUTON_ACTION{<:medias:lien_tout_desordonner:>,#URL_ACTION_AUTEUR{desordonner_liens_documents,#ID_OBJET-#OBJET-I/document,#SELF|ancre_url{illustrations}},'ajax tout_desordonner',<:medias:lien_tout_desordonner_verif:>})]
+	</div>
+]
+</div>
+#SET{nbdocs,#GET{nbdocs}|plus{#GRAND_TOTAL}}
+</B_portfolio>
+
+[(#REM) puis les documents]
+<B_documents>
+<h3><:medias:info_documents:></h3>
+<div class="liste_items documents ordonner_rang_lien" id="documents#ENV{id_unique}" data-cookie-affichage="documents" data-lien="[(#OBJET|concat{'/',#ID_OBJET}|attribut_html)]">
+[<p class="pagination">(#PAGINATION{prive})</p>]
+<div class="sortable">
+<BOUCLE_documents(DOCUMENTS documents_liens types_documents){inclus!=image}{mode!=vignette}{id_objet}{objet}{par rang_lien, num titre, date,id_document}{pagination 50}{statut?}>
+	#MODELE{document_desc,id_document,id_objet,objet}
+</BOUCLE_documents>
+</div>
+[<p class="pagination">(#PAGINATION{prive})</p>]
+[(#AUTORISER{dissocierdocuments,#OBJET,#ID_OBJET})
+	<div class="actions-liste">
+		[(#BOUTON_ACTION{<:medias:lien_tout_enlever:>,#URL_ACTION_AUTEUR{dissocier_document,#ID_OBJET-#OBJET-D/document,#SELF|ancre_url{documents}},'ajax tout_supprimer',<:ecrire:lien_tout_supprimer:> ?})]
+		[(#BOUTON_ACTION{<:medias:lien_tout_desordonner:>,#URL_ACTION_AUTEUR{desordonner_liens_documents,#ID_OBJET-#OBJET-D/document,#SELF|ancre_url{documents}},'ajax tout_desordonner',<:medias:lien_tout_desordonner_verif:>})]
+	</div>
+]
+</div>
+#SET{nbdocs,#GET{nbdocs}|plus{#GRAND_TOTAL}}
+</B_documents>
+
+<script type="text/javascript">/*<![CDATA[*/
+/* Plugin multifile et gestion de la modale */
+var multifile='[(#CHEMIN{javascript/jquery.multifile.js}|texte_script)]';
+[(#INCLURE{javascript/medias_edit.js}|compacte{js})]
+
+/* Sur la page d'une rubrique, recharger la boîte d'info en cas de rechargement ajax */
+[(#OBJET|=={rubrique}|et{#CONST{_AJAX}}|et{#GET{nbdocs}|=={1}}|oui)
+if (window.jQuery) jQuery('#navigation .box.info').ajaxReload();]
+
+/* Gestion des différents modes d'affichages, du tri des documents, et des rechargements ajax */
+[(#INCLURE{fond=javascript/gestion_listes_documents.js}|compacte{js})]
+/*]]>*/</script>
+</div>

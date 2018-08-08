@@ -1,0 +1,31 @@
+<div id="calendrier-loading" style="position:absolute;top:20px;left:350px;padding:5px 30px;display:none;border:1px solid #ddd;background:#eee;z-index:100;"><:organiseur:loading:></div>
+<div id="calendrier"></div>
+<link rel='stylesheet' type='text/css' href='#CHEMIN{lib/fullcalendar/fullcalendar.min.css}' />
+<link rel='stylesheet' type='text/css' href='#CHEMIN{calendrier.css}' />
+<script type='text/javascript' src='#CHEMIN{lib/moment/moment-with-locales.min.js}'></script>
+<script type='text/javascript' src='#CHEMIN{lib/fullcalendar/fullcalendar.min.js}'></script>
+<script type='text/javascript' src='#CHEMIN{lib/fullcalendar/locale-all.js}'></script>
+<script type="text/javascript">
+jQuery(function($) {
+
+	// page is now ready, initialize the calendar...
+	$('#calendrier').fullCalendar({
+		locale: '[(#LANG|strtolower)]',
+		editable: false,
+		navLinks: true,
+		eventLimit: true,
+		events: "[(#URL_ACTION_AUTEUR{quete_calendrier_prive,calendrier}|replace{'&amp;','&'})]",
+		header: {
+			left: [(#LANG_DIR|=={ltr}|?{"'prevYear,prev,next,nextYear today'","'listMonth,month,agendaWeek,agendaDay'"})],
+			center: 'title',
+			right: [(#LANG_DIR|=={ltr}|?{"'agendaDay,agendaWeek,month,listMonth'","'today nextYear,next,prev,prevYear'"})]
+		},
+		fixedWeekCount: false,
+		allDayHtml:'<:organiseur:cal_jour_entier|texte_script:>',
+		loading: function(bool) {
+			if (bool) $('#calendrier-loading').show();
+			else $('#calendrier-loading').hide();
+		}
+	});
+});
+</script>

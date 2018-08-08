@@ -1,0 +1,8 @@
+<div class="editer-groupe">
+    <div class='editer editer_fichier_upload[ (#ENV**{erreurs}|table_valeur{fichier_upload}|oui)erreur]'>
+        <label for='fichier_upload#ENV{domid}'><:bouton_upload:></label>[
+        <span class='erreur_message'>(#ENV**{erreurs}|table_valeur{fichier_upload})</span>
+        ]<input class='file[(#ENV{multi}|=={non}|non) multi]' type="file" name="fichier_upload[]" value='[(#ENV{fichier_upload}|is_array|?{'', #ENV{fichier_upload}})]' id="fichier_upload#ENV{domid}" size='11' />
+        <!--editer_fichier_upload-->
+    </div>
+</div>

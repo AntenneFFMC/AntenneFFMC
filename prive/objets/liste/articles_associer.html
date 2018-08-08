@@ -1,0 +1,59 @@
+[(#SET{defaut_tri,#ARRAY{
+	date,#ENV{date_sens,-1},
+	num titre,1,
+	id_article,1,
+	points,-1
+}})
+]
+#SET{exclus,#ENV{objet_source}|lister_objets_lies{#ENV{objet},#ENV{id_objet},#ENV{_objet_lien}}}
+<B_liste_rub>
+#ANCRE_PAGINATION
+[<h3><:info_resultat_recherche:> &laquo;(#ENV{recherche})&raquo;</h3>]
+<div class="liste-objets liste-objets-associer articles">
+<table class='spip liste'>
+[<caption><span class="caption"><strong>(#ENV*{titre,#GRAND_TOTAL|singulier_ou_pluriel{info_1_article,info_nb_articles}})</strong>
+<span class="recherche">
+	<label for="recherche-#ENV{id}"><:info_rechercher_02:></label>
+	<input type="text" class="recherche" name="recherche" id="recherche-#ENV{id}" value="#ENV{recherche}" />
+	<input type="submit" class="tout_voir" name="tout_voir" value="<:info_tout_afficher:>" />
+</span>
+</span>
+</caption>]
+	<thead>
+		<tr class='first_row'>
+			<th class='statut' scope='col'></th>
+			<th class='titre' scope='col'>[(#TRI{num titre,<:info_titre:>,ajax})]</th>
+			<th class='date' scope='col'>[(#TRI{date,<:date:>,ajax})]</th>
+			<th class='id' scope='col'>[(#TRI{id_article,<:info_numero_abbreviation:>,ajax})]</th>
+			<th class='action' scope='col'>&nbsp;</th>
+		</tr>
+	</thead>
+	<tbody>
+	<BOUCLE_liste_rub(ARTICLES){!id_article IN #GET{exclus}}{tout}{where?}{statut?}{recherche?}{tri #ENV{par,num titre},#GET{defaut_tri}}{par titre}{pagination #ENV{nb,10}}>
+		<tr class="[(#COMPTEUR_BOUCLE|alterner{row_odd,row_even})][ (#EXPOSE|unique)]">
+			<td class="statut">[(#STATUT|puce_statut{article})]</td>
+			<td class='titre principale'>[(#LOGO_ARTICLE|image_reduire{20,26})
+				]<a href="[(#ID_ARTICLE|generer_url_entite{article})]"
+				[hreflang="(#ENV{lang}|=={#LANG}|non|?{#LANG})"]
+				title="<:info_numero_abbreviation|attribut_html:> #ID_ARTICLE">[(#RANG). ]#TITRE</a></td>
+			<td class='date secondaire'>[(#DATE|affdate_jourcourt)]</td>
+			<td class='id'>#ID_ARTICLE</td>
+			<td class='action'><button type="submit" class="button" name="ajouter_lien[article-#ID_ARTICLE-#OBJET-#ID_OBJET]" value="+"><:lien_ajouter_un_article:> [(#CHEMIN_IMAGE{ajouter-12.png}|balise_img{'+'})]</button></td>
+		</tr>
+	</BOUCLE_liste_rub>
+	</tbody>
+</table>
+[<p class='pagination'>(#PAGINATION{prive})</p>]
+</div>
+</B_liste_rub>
+[(#ENV{recherche}|oui)
+<div class="liste-objets liste-objets-associer articles caption-wrap">
+<span class="caption"><strong>[(#VAL{info_recherche_auteur_zero}|_T{#ARRAY{cherche_auteur,#ENV{recherche}}})]</strong>
+<span class="recherche">
+	<label for="recherche-#ENV{id}"><:info_rechercher_02:></label>
+	<input type="text" class="recherche" name="recherche" id="recherche-#ENV{id}" value="#ENV{recherche}" />
+	<input type="submit" class="tout_voir" name="tout_voir" value="<:info_tout_afficher:>" />
+</span>
+</span>
+</div>
+]<//B_liste_rub>

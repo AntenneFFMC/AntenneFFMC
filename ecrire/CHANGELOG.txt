@@ -1,0 +1,66 @@
+
+SPIP-Core spip-3.2.0 -> spip-3.2.1  14 mars 2018
+-------------------------------------------------------------
+
+r23781 | erational |  (mer. 18 oct. 2017) | report de r23780 passer la requête http://query.yahooapis.com en https://
+r23784 | marcimat  |  (jeu. 19 oct. 2017) | Report de r23783 : Cet argument pour sqlite est un tableau et provoque sinon des warnings lors des mises à jours.
+r23788 | rasta     |  (mar. 24 oct. 2017) | Backport de r23787 : Franck proposait de mettre les versions min tout comme PHP dans ce fichier d'install pour ne pas avoir à se poser de questions.
+r23791 | b_b       |  (mar. 31 oct. 2017) | retour sur r23686 : $streamContext n'est pas un tableau mais un contexte de fluxref #3751 thx to Thierry Voyat
+r23794 | cedric    |  (lun. 06 nov. 2017) | Fix #4033 : quand le champ est complexe (expression calculee pour age) il faut faillir la regexp de decomposition du sql_quote pour le recaster proprement. On contourne en utilisant un type par defaut inexistant @@defaultcast@@ et facilement reperable et un elseif de plus
+r23799 | kent1     |  (ven. 10 nov. 2017) | Report de r23796Les Mongols utilisent en général le cyrillique (cf http://www.mfa.gov.mn/ par exemple)
+r23811 | rasta     |  (dim. 19 nov. 2017) | Backport de r23810, ça n'avait pas été backporté sur la dernière version (mais en 3.1).
+r23817 | b_b       |  (jeu. 07 déc. 2017) | report de r23816Fix #3418 again : ajouter un log pour signaler le problème de conf opcache
+r23820 | b_b       |  (ven. 08 déc. 2017) | report de r23819
+r23837 | cedric    |  (jeu. 14 déc. 2017) | Report de r23836 : Meme si _VAR_MODE est deja definie, il faut exclure calcul et recalcul de l'analyse pour ne pas provoquer une redirection erronnee
+r23839 | erational |  (jeu. 21 déc. 2017) | [CSS] Empêcher les débordements de texte sur les colonnes latérales (chankalan)https://core.spip.net/issues/3622
+r23843 | b_b       |  (lun. 25 déc. 2017) | report de r23842indentation
+r23858 | cedric    |  (jeu. 04 janv. 2018) | Report de petites ameliorations contenues dans le plugin FullText + modifs pour homogeneiser le code
+r23861 | b_b       |  (jeu. 04 janv. 2018) | report de r23860Fix #3392 : ajouter un title sur les liens editer des listes d'objets
+r23862 | cedric    |  (ven. 05 janv. 2018) | Fix indentation du selecteur de rubrique dans FF :Finie l'exception de Firefox : le padding/margin ne marche plus, au moins sur Mac OSX recent, on simplfie donc le code et traite tous les navigateurs de la meme facon+ petit ajustement sur l'indentation de base pour eviter trop de decalage entre 1er et 2nd niveau, le 1er niveau etant bien distingue par la couleur
+r23867 | rasta     |  (lun. 08 janv. 2018) | Backport de r23866 : fix #4069 : harmonisation entre la manière de chercher les options pour les champs date et heure, utilisation de la fonction data() puisque c'est ce qu'on cherche, commentaires. Il y a toujours un pas par défaut global en amont et définissable avec heure_pas dans l'inclusion, mais on harmonise avec la recherche d'options directement sur les champs, et directement avec le nom des options. Du coup au passage on ajoute startTime et endTime.
+r23869 | rasta     |  (lun. 08 janv. 2018) | Backport de r23868 : Oups, il n'y a pas de casse pour les attributs html, mais en revanche il y en a pour la fonction data(), donc tout mettre en minuscule.
+r23871 | marcimat  |  (lun. 08 janv. 2018) | Report de r23870 : petite correction sur certains create table sqlite.
+r23874 | b_b       |  (lun. 08 janv. 2018) | report de r23873Fix #3626 : installation, ne pas permettre un prefixe qui commence par des chiffres puisqu'on ne le prend pas en charge
+r23876 | cedric    |  (mar. 09 janv. 2018) | Amelioration du #FORMULAIRE_DATER a qui on peut passer explicitement le champ date et le champ date_redac que l'on veut utiliser ainsi que les labels associes, ce qui permet d'en etendre l'usage et la reutilisation possible
+r23880 | b_b       |  (mar. 09 janv. 2018) | report de r23879Fix #3426 : enrichir la détection des robots
+r23883 | marcimat  |  (mer. 10 janv. 2018) | Report de r23882 :  Ticket #3426, Correction de r23879, éviter un ||.
+r23886 | rasta     |  (jeu. 11 janv. 2018) | backport de r23885 : les admins doivent voir les comptes à confirmer aussi (peetdu) + je n'avais pas placée la fonction au même endroit par rapport aux autres en 3.2
+r23890 | marcimat  |  (jeu. 11 janv. 2018) | Report de r23888 : Ticket #3426, Correction de r23879, 'web' attrape webkit, qui n’est pas un bot. On l’enlève ! 
+r23894 | erational |  (jeu. 18 janv. 2018) | Début de résolution de  #3996 . Ne plus afficher quota_cache qui est obsolète et qui n'est plus utilisé dans SPIP 
+r23899 | b_b       |  (mer. 24 janv. 2018) | report de r23898Fix #3557 : simplifier l'entête compsed-by en y indiquant l'url du fichier local/config.txt
+r23901 | marcimat  |  (mer. 24 janv. 2018) | Report de r23900 : Corriger r23898 : url_absolue n’est pas forcément présente.
+r23905 | b_b       |  (jeu. 01 févr. 2018) | report de r23904Fix #4084 : retour sur r23507 permettre de saisir des horaires à la 23e heure ou à la 59e minute + ne pas vérifier la daite saisie si on annule la modification
+r23906 | cedric    |  (ven. 09 févr. 2018) | Prise en compte amelioree du flag process
+r23907 | cedric    |  (ven. 09 févr. 2018) | Revert de r23906 errone
+r23908 | cedric    |  (ven. 09 févr. 2018) | Prise en compte amelioree du flag process
+r23922 | rasta     |  (sam. 24 févr. 2018) | Backport de r23921 : Correction cohérence : le pipeline affiche_enfants est depuis des années appelé sur TOUS les objets par l'échafaudage. Donc les objets du noyau qui surchargent l'échafaudage doivent l'appeler aussi.
+r23925 | rasta     |  (mar. 27 févr. 2018) | Backport de r23924 : Ajouter l'information de l'id_parent dans les pipelines insertion puisqu'on l'a (remplie ou pas peu importe).
+r23927 | booz      |  (mer. 28 févr. 2018) | Report de [23926] ; voir aussi https://core.spip.net/issues/3924
+
+SPIP-plugins-dist spip-3.2.0 -> spip-3.2.1  14 mars 2018
+-------------------------------------------------------------
+
+r107073 | chankalan |  (ven. 20 oct. 2017) | éviter des notices php, report de https://zone.spip.org/trac/spip-zone/changeset/107072
+r107342 | maieul    |  (sam. 04 nov. 2017) | Afficher les documents les plus récents en haut dans la colonne des documents liés à un objet.Cela permet de ne pas scroller tout en bas pour trouver le document qu'on vient d'ajouter.Notes:  - J'espère avoir commité aux bon en endroits (entre les branches et le trunk, je suis perdu). En tout cas, je commit pas sur la v3.0 car n'est plus maintenu que pour raison de sécurité. - On se base sur l'idée document et pas sur la date associée au document, pour éviter une jointure peut utile dans le cas présent.fix #4039
+r107345 | maieul    |  (sam. 04 nov. 2017) | dans un premier tps, r107342 n'aurait du être que sur le trunk
+r107867 | erational |  (mar. 05 déc. 2017) | Ajout d'un critère facultatif annee qui permet de limiter les articles d'une année donnée et contourner la limitation des 2000 items du sitemap.xml généralL'appel par année se fait: monsite.org/sitemap.xml?annee=1981
+r108116 | chankalan |  (mar. 19 déc. 2017) | un seul lien par objet pour les objets liés à chaque document, voir évolution #4065 + z
+r108119 | b_b       |  (mar. 19 déc. 2017) | report de r108118retour sur r108117 cf https://core.spip.net/issues/4065#note-3
+r108185 | b_b       |  (lun. 25 déc. 2017) | report de r108184Fix #3427 : afficher les poids total des documents listés par la médiathèque
+r108187 | b_b       |  (lun. 25 déc. 2017) | report de r108186indentation
+r108189 | b_b       |  (lun. 25 déc. 2017) | report de r108188indentation
+r108306 | cedric    |  (mer. 03 janv. 2018) | Report de r108305 : Mise a jour de MediaElement.js en version 4.2.7 qui corrige le bug d'affichage du temps + procure mejs avec la bonne version - on inclue egalement les fichiers package.js et json de mejs pour avoir dans le dossier lib les informations de version
+r108317 | cedric    |  (mer. 03 janv. 2018) | Retablir l'initialisation JS de mediaelement.js via le script mejs-init.js qui prend en charge les attributs data- et ajoute les class paused/playing selon l'etat du player. Retrait de la class mejs__player qui avait ete ajoutee pour declencher l'init automatique au lieu de reparer le script mejs-init.js
+r108321 | cedric    |  (mer. 03 janv. 2018) | Suite de r108317 : pas de mejs__player sur video non plus, et aussi on evite que le script mejs-init de doublle initialise un audio ou un video avec cette classe
+r108328 | cedric    |  (mer. 03 janv. 2018) | Renseigner la duree du son ou de la video si on a l'info en base (en general oui avec ID3)
+r108363 | b_b       |  (jeu. 04 janv. 2018) | report de r108362Fix #3392 : ajouter un title sur les liens editer des listes d'objets
+r108519 | cedric    |  (lun. 15 janv. 2018) | Report de r108517 : Eviter un fatal memory si jamais un tampon est ouvert
+r108607 | b_b       |  (mer. 24 janv. 2018) | report de r108606lisiblité des forums privé pas de font-size à 11px
+r108693 | cedric    |  (mar. 30 janv. 2018) | Report de r108692 : le titrage des documents a partir du nom de fichier est un peu restritif, on donne la possibilite de definir sa regle via une fonction inc_titrer_document_dist surchargeable
+r108734 | cedric    |  (ven. 02 févr. 2018) | mise a jour du test unitaire suite au changement de serveur math : la taille de l'image test change de 1px
+r108782 | b_b       |  (sam. 03 févr. 2018) | report de r108781
+r108786 | jluc      |  (sam. 03 févr. 2018) | suite fix couleur_saturation dans le cas où couleur est FFFFFF ou #ffffff
+r108842 | b_b       |  (mer. 07 févr. 2018) | report de r108841Fix #4088 : fix autorisation moderation forum pour un objet spécifique
+r109113 | rasta     |  (sam. 24 févr. 2018) | Backport de [109112] : Correction cohérence : le pipeline affiche_enfants est depuis des années appelé sur TOUS les objets par l'échafaudage. Donc les objets du noyau qui surchargent l'échafaudage doivent l'appeler aussi.
+r109376 | booz      |  (jeu. 08 mars 2018) | report de https://zone.spip.org/trac/spip-zone/changeset/109375 
+r109454 | booz      |  (lun. 12 mars 2018) | z+1 (franck)

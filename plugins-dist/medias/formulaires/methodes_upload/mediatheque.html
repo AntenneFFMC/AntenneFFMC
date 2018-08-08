@@ -1,0 +1,14 @@
+<div class="editer-groupe">
+    <div class='editer editer_refdoc_joindre[ (#ENV**{erreurs}|table_valeur{refdoc_joindre}|oui)erreur]'>
+        <label for='refdoc_joindre#ENV{domid}'><:medias:label_refdoc_joindre:></label>[
+        <span class='erreur_message'>(#ENV**{erreurs}|table_valeur{refdoc_joindre})</span>
+        ]<input class='text' type="text" name="refdoc_joindre" value='#ENV{refdoc_joindre}' id="refdoc_joindre#ENV{domid}"/>
+        <input class='submit' type="button" name="parcourir" value="<:medias:bouton_parcourir:>"
+            onclick="jQuery.modalboxload('#URL_ECRIRE{popin-choisir_document,var_zajax=contenu&selectfunc=mediaselect#ENV{domid}}',{autoResize: true});"
+        />
+        <!--editer_refdoc_joindre-->
+    </div>
+</div>
+<script type="text/javascript">/*<!\[CDATA\[*/
+function mediaselect#ENV{domid}(id){jQuery.modalboxclose();jQuery("#refdoc_joindre#ENV{domid}").attr('value','doc'+id).focus();jQuery('#joindre_mediatheque#ENV{domid}>.boutons input').get(0).click();}
+/*\]\]>*/</script>

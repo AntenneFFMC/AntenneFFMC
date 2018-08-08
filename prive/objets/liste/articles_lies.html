@@ -1,0 +1,48 @@
+[(#SET{defaut_tri,#ARRAY{
+	date,#ENV{date_sens,-1},
+	num titre,1,
+	id_article,1,
+	points,-1
+}})
+]
+#SET{selection,#ENV{objet_source}|lister_objets_lies{#ENV{objet},#ENV{id_objet},#ENV{_objet_lien}}}
+<B_liste_rub>
+#ANCRE_PAGINATION
+<div class="liste-objets liste-objets-lies articles">
+<table class='spip liste'>
+[<caption><strong class="caption">(#ENV*{titre,#GRAND_TOTAL|singulier_ou_pluriel{info_1_article,info_nb_articles}})</strong></caption>]
+	<thead>
+		<tr class='first_row'>
+			<th class='statut' scope='col'></th>
+			<th class='titre' scope='col'>[(#TRI{num titre,<:info_titre:>,ajax})]</th>
+			<th class='date' scope='col'>[(#TRI{date,<:date:>,ajax})]</th>
+			<th class='id' scope='col'>[(#TRI{id_article,<:info_numero_abbreviation:>,ajax})]</th>
+			<th class='action' scope='col'>&nbsp;</th>
+		</tr>
+	</thead>
+	<tbody>
+	<BOUCLE_liste_rub(ARTICLES){id_article IN #GET{selection}}{tout}{where?}{statut?}{tri #ENV{par,num titre},#GET{defaut_tri}}{par titre}{pagination #ENV{nb,10}}>
+		<tr class="[(#COMPTEUR_BOUCLE|alterner{row_odd,row_even})][ (#EXPOSE|unique)][(#ID_ARTICLE|=={#ENV{id_lien_ajoute}}|oui)append]">
+			<td class="statut">[(#STATUT|puce_statut{article})]</td>
+			<td class='titre principale'>[(#LOGO_ARTICLE|image_reduire{20,26})
+				]<a href="[(#ID_ARTICLE|generer_url_entite{article})]"
+				[hreflang="(#ENV{lang}|=={#LANG}|non|?{#LANG})"]
+				title="<:info_numero_abbreviation|attribut_html:> #ID_ARTICLE">[(#RANG). ]#TITRE</a></td>
+			<td class='date secondaire'>[(#DATE|affdate_jourcourt)]</td>
+			<td class='id'>[(#AUTORISER{modifier,article,#ID_ARTICLE}|?{
+				<a href="[(#URL_ECRIRE{articles_edit,id_article=#ID_ARTICLE})]" title="<:icone_modifier_article|attribut_html:>">#ID_ARTICLE</a>,
+				#ID_ARTICLE
+			})]</td>
+			<td class='action'><button type="submit" class="button link delete" name="supprimer_lien[article-#ID_ARTICLE-#OBJET-#ID_OBJET]" value="X"><:lien_retirer_article:> [(#CHEMIN_IMAGE{supprimer-12.png}|balise_img{'X'})]</button></td>
+		</tr>
+	</BOUCLE_liste_rub>
+	</tbody>
+</table>
+[<p class='pagination'>(#PAGINATION{prive})</p>]
+[(#GRAND_TOTAL|>{3}|oui)<div class="action"><button type="submit" class="button link" name="supprimer_lien\[article-*-#OBJET-#ID_OBJET\]" value="X"><:lien_retirer_toutes_articles:> [(#CHEMIN_IMAGE{supprimer-8.png}|balise_img{'X'})]</button></div>]
+</div>
+</B_liste_rub>
+<div class="liste-objets liste-objets-lies articles caption-wrap">
+<strong class="caption">[(#ENV*{titre,<:info_aucun_article:>}) ]</strong>
+</div>
+<//B_liste_rub>

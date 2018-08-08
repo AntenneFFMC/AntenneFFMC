@@ -1,0 +1,15 @@
+[(#AUTORISER{administrer,mot,#ID_MOT})
+
+	[(#ENV{administrer}|=={oui}|oui)
+	<div class='nettoyeur'></div>
+	<a href='[(#SELF|parametre_url{administrer,non})]' class='ajax bouton_fermer'>[(#CHEMIN_IMAGE{fermer-16.png}|balise_img)]</a>
+	<div class="ajax">
+		#FORMULAIRE_ADMINISTRER_MOT{#ID_MOT}
+	</div>
+	<div class='nettoyeur'></div>
+	]
+	[(#ENV{administrer}|=={oui}|non)
+		[(#SELF|parametre_url{administrer,oui}|icone{<:adminmots:icone_administrer_mot:>,mot-24.png,#LANG_RIGHT,edit,ajax})]
+	]
+
+]

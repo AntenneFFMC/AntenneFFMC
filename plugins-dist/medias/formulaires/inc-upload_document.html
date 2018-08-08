@@ -1,0 +1,55 @@
+#SET{domid,_#ENV{mode}|concat{'_',#ENV{id,new}}}
+#SET{methode,upload}
+[(#ENV{joindre_mediatheque}|oui)#SET{methode,mediatheque}]
+[(#ENV{joindre_distant}|oui)#SET{methode,distant}]
+[(#ENV{joindre_ftp}|oui)#SET{methode,ftp}]
+
+#SET{methodes_upload,#ENV**|medias_lister_methodes_upload}
+[(#ENV{methode_focus}|et{#GET{methodes_upload}|is_array}|et{#ENV{methode_focus}|array_key_exists{#GET{methodes_upload}}}|oui)#SET{methode,#ENV{methode_focus}}]
+
+<div id="defaultsubmit#GET{domid}" class="none"></div>
+<BOUCLE_methodes(DATA){source tableau,#GET{methodes_upload}}>
+	#SET{methode_upload,#CLE}
+	<div class='joindre_mode#GET{domid}[(#GET{methode}|=={#CLE}|non)none-js]' id='joindre_#CLE#GET{domid}'>
+
+		<INCLURE{fond=formulaires/methodes_upload/#CLE,env,domid=#GET{domid}} />
+
+		<div class='sourceup'>
+			[(#SET{cpt,1})]
+			<:medias:bouton_download_depuis:>
+			<BOUCLE_methodes_liens(DATA){source tableau,#GET{methodes_upload}}>
+				[(#GET{cpt}|>{1}|oui)
+					[(#VAL{'|'})]
+				]
+				[(#GET{methode_upload}|=={#CLE}|oui)
+					#VALEUR{label_lien}
+				]
+				[(#GET{methode_upload}|=={#CLE}|non)
+					<a href='#' onclick="change_methode('#GET{domid}','#CLE');return false;">#VALEUR{label_lien}</a>
+				]
+				[(#SET{cpt,#GET{cpt}|plus{1}})]
+			</BOUCLE_methodes_liens>
+		</div>
+		<p class='boutons'><input class='submit' type="submit" name="joindre_#CLE" value="#VALEUR{label_bouton}"/></p>
+	</div>
+</BOUCLE_methodes>
+
+[(#REM) Formulaire pour deballer un zip]
+[<div class="editer-groupe"><div class='fieldset deballer_zip'>(#ENV**{erreurs}|table_valeur{lister_contenu_archive})</div></div>]
+
+<script type='text/javascript'>/*<!\[CDATA\[*/
+if (window.jQuery){
+function change_methode(domid,methode){
+	var id = "#joindre_"+methode+domid;
+	if (jQuery(id).is(':hidden')) {
+		jQuery('div.joindre_mode'+domid+':visible').slideUp('fast');
+		jQuery(id).slideDown('fast');
+	}
+	// placer en haut du formulaire les boutons submit par defaut correspondant a la methode active
+	jQuery("#defaultsubmit"+domid).html('').append(jQuery(id).find('.boutons').eq(-1).find('input').clone(true));
+	var joindre = jQuery(id).find('.boutons').eq(-1).find('input').prop('name').replace('joindre_', '');
+	jQuery("#defaultsubmit"+domid).append($('<input>').attr({type: 'hidden', id: 'methode_focus', name: 'methode_focus', value: joindre}));
+}
+jQuery(function(){change_methode('#GET{domid}','#GET{methode}');});
+}
+/*\]\]>*/</script>

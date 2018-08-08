@@ -1,0 +1,16 @@
+<div class="editer-groupe">
+    [<div class='editer editer_cheminftp[ (#ENV**{erreurs}|table_valeur{cheminftp}|oui)erreur]'>
+        <label for='cheminftp#ENV{domid}'>[(#VAL{info_selectionner_fichier}|_T{#ARRAY{upload,#ENV*{_dir_upload_ftp}}})]</label>[
+        <span class='erreur_message'>(#ENV**{erreurs}|table_valeur{cheminftp})</span>
+        ]<select name='cheminftp' id='cheminftp#ENV{domid}' size='1'>
+        <option value=''>&gt;&gt;</option>
+        (#ENV*{_options_upload_ftp})
+        </select>
+        <!--editer_cheminftp-->
+    </div>]
+</div>
+[(#ENV{_dir_upload_ftp}|et{#ENV{_options_upload_ftp}|non}|oui)
+<p class="infos">
+[(#VAL{info_installer_ftp}|_T{#ARRAY{upload,#ENV*{_dir_upload_ftp}}})] #AIDER{ins_upload}
+</p>
+]

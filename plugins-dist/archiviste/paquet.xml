@@ -1,0 +1,17 @@
+<paquet
+	prefix="archiviste"
+	categorie="outil"
+	version="0.2.2"
+	etat="dev"
+	compatibilite="[3.2.0;3.2.*]"
+	logo="prive/themes/spip/images/archiviste-64.png"
+	documentation=""
+>
+
+	<nom>Archiviste</nom>
+	<!-- Gérer des archives de fichiers Zip, Tar, ... -->
+
+	<auteur>Collectif SPIP</auteur>
+
+	<licence lien="http://www.gnu.org/licenses/gpl-3.0.html">GPL</licence>
+</paquet>

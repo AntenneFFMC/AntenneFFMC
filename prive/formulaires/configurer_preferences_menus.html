@@ -1,0 +1,89 @@
+<div class="formulaire_spip formulaire_configurer formulaire_#FORM formulaire_#FORM-#ENV{id,nouveau}">
+	<h3 class='titrem'><:titre_configurer_preferences_menus:></h3>
+	[<p class="reponse_formulaire reponse_formulaire_ok">(#ENV*{message_ok})</p>]
+	[<p class="reponse_formulaire reponse_formulaire_erreur">(#ENV*{message_erreur})</p>]
+
+	<form method='post' action='#ENV{action}'><div>
+		#ACTION_FORMULAIRE
+
+		[(#AUTORISER{webmestre}|oui)
+		<div class='editer editer_activer_menudev[ (#ENV{erreurs/activer_menudev}|oui)erreur]'>
+			[<span class='erreur_message'>(#ENV{erreurs/activer_menudev})</span>]
+			<div class='choix'>
+				<input type="hidden" name="activer_menudev" value="non" />
+				<input class='checkbox' type="checkbox" name="activer_menudev" value='oui' [checked="(#ENV{activer_menudev,non}|=={oui}|?{checked})"] id="activer_menudev"/>
+				<label for="activer_menudev"><:info_activer_menu_developpement:></label>
+			</div>
+		</div>]
+
+		#SET{boutons,#ARRAY|definir_barre_boutons{0}|trier_boutons_enfants_par_favoris_alpha}
+		<div class='menus_favoris fieldset'>
+			<fieldset>
+				<legend><:titre_preference_menus_favoris:></legend>
+				<div class="editer-groupe deux_colonnes">
+					<BOUCLE_menu(DATA){source tableau, #GET{boutons}}{cle LIKE 'menu_%'}{cle !IN #LISTE{menu_accueil}}>
+					<B_menusous>
+						<div class="editer menus_favoris pleine_largeur">
+							<label>[(#LIBELLE|_T)]</label>
+							[<span class='erreur_message'>(#ENV{erreurs/menus_favoris})</span>]
+							<BOUCLE_menusous(DATA){source tableau, #SOUSMENU}>
+							<div class="item choix">
+								<input class='text positionner' type="text" name="menus_favoris[#CLE]" value="#ENV{menus_favoris/#CLE}" id="menu_fav_#CLE" size="1">
+								<label for="menu_fav_#CLE">[(#LIBELLE|_T)]</label>
+							</div>
+							</BOUCLE_menusous>
+						</div>
+					</B_menusous>
+					</BOUCLE_menu>
+				</div>
+			</fieldset>
+		</div>
+
+		[(#REM) ajouter les saisies supplementaires : extra et autre, a cet endroit ]
+		<!--extra-->
+		<p class='boutons'>
+			<span class='image_loading'>&nbsp;</span>
+			<input type='submit' name="reset" class='submit' value='<:bouton_reinitialiser_aux_valeurs_par_defaut:>' />
+			<input type='submit' class='submit' value='<:bouton_enregistrer:>' />
+		</p>
+	</div></form>
+</div>
+<style type="text/css">
+	.formulaire_spip .choix .positionner {
+		width:2.2em;
+		text-align:center;
+	}
+</style>
+<script type="text/javascript">
+jQuery(function($) {
+	$('.formulaire_#FORM form').on('click', '.choix label', function(){
+		var $me = $(this);
+		var $parent = $me.closest('.editer');
+		var $input = $me.siblings('.positionner');
+		if ($input.val()) {
+			$input.val("");
+			var trier = [];
+			$parent.find('.positionner').each(function(){
+				if ($(this).val()) {
+					trier.push({id: $(this).attr('id'), val: parseInt($(this).val()) });
+				}
+			});
+			trier.sort(function(a,b) { return a.val - b.val; });
+			var i = 1;
+			$.each(trier, function(k, a) {
+				$parent.find('#' + a.id).val(i);
+				i++;
+			});
+		} else {
+			var max = 0;
+			$parent.find('.positionner').each(function(){
+				if ($(this).val() > max) {
+					max = $(this).val();
+				}
+			});
+			$input.val(parseInt(max) + 1);
+		}
+		return false;
+	});
+});
+</script>

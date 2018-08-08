@@ -1,0 +1,159 @@
+<traduction module="statistiques" gestionnaire="salvatore" url="https://trad.spip.net" source="svn://zone.spip.org/spip-zone/_core_/plugins/statistiques/lang/" reference="fr">
+	<langue code="ar" url="https://trad.spip.net/tradlang_module/statistiques?lang_cible=ar" total="52" traduits="52" relire="0" modifs="0" nouveaux="0" pourcent="100.00">
+		<traducteur nom="George" lien="https://trad.spip.net/auteur/جورج-قندلفت" />
+	</langue>
+	<langue code="ast" url="https://trad.spip.net/tradlang_module/statistiques?lang_cible=ast" total="52" traduits="25" relire="0" modifs="3" nouveaux="24" pourcent="48.08">
+	</langue>
+	<langue code="ay" url="https://trad.spip.net/tradlang_module/statistiques?lang_cible=ay" total="52" traduits="14" relire="0" modifs="1" nouveaux="37" pourcent="26.92">
+	</langue>
+	<langue code="bg" url="https://trad.spip.net/tradlang_module/statistiques?lang_cible=bg" total="52" traduits="22" relire="0" modifs="2" nouveaux="28" pourcent="42.31">
+	</langue>
+	<langue code="br" url="https://trad.spip.net/tradlang_module/statistiques?lang_cible=br" total="52" traduits="25" relire="0" modifs="3" nouveaux="24" pourcent="48.08">
+	</langue>
+	<langue code="bs" url="https://trad.spip.net/tradlang_module/statistiques?lang_cible=bs" total="52" traduits="21" relire="0" modifs="4" nouveaux="27" pourcent="40.38">
+	</langue>
+	<langue code="ca" url="https://trad.spip.net/tradlang_module/statistiques?lang_cible=ca" total="52" traduits="25" relire="0" modifs="3" nouveaux="24" pourcent="48.08">
+		<traducteur nom="merce" lien="https://trad.spip.net/auteur/merce" />
+	</langue>
+	<langue code="co" url="https://trad.spip.net/tradlang_module/statistiques?lang_cible=co" total="52" traduits="25" relire="0" modifs="3" nouveaux="24" pourcent="48.08">
+	</langue>
+	<langue code="cpf" url="https://trad.spip.net/tradlang_module/statistiques?lang_cible=cpf" total="52" traduits="22" relire="0" modifs="2" nouveaux="28" pourcent="42.31">
+	</langue>
+	<langue code="cpf_hat" url="https://trad.spip.net/tradlang_module/statistiques?lang_cible=cpf_hat" total="52" traduits="22" relire="0" modifs="3" nouveaux="27" pourcent="42.31">
+	</langue>
+	<langue code="cs" url="https://trad.spip.net/tradlang_module/statistiques?lang_cible=cs" total="52" traduits="21" relire="0" modifs="4" nouveaux="27" pourcent="40.38">
+	</langue>
+	<langue code="da" url="https://trad.spip.net/tradlang_module/statistiques?lang_cible=da" total="52" traduits="21" relire="0" modifs="2" nouveaux="29" pourcent="40.38">
+	</langue>
+	<langue code="de" url="https://trad.spip.net/tradlang_module/statistiques?lang_cible=de" total="52" traduits="52" relire="0" modifs="0" nouveaux="0" pourcent="100.00">
+		<traducteur nom="klaus++" lien="https://trad.spip.net/auteur/klaus" />
+		<traducteur nom="Torsten Willmann" lien="https://trad.spip.net/auteur/torsten-willmann" />
+	</langue>
+	<langue code="el" url="https://trad.spip.net/tradlang_module/statistiques?lang_cible=el" total="52" traduits="12" relire="0" modifs="3" nouveaux="37" pourcent="23.08">
+		<traducteur nom="Yannick Bailly" lien="https://trad.spip.net/auteur/yannick-bailly" />
+	</langue>
+	<langue code="en" url="https://trad.spip.net/tradlang_module/statistiques?lang_cible=en" total="52" traduits="52" relire="0" modifs="0" nouveaux="0" pourcent="100.00">
+		<traducteur nom="Davood Hossein" lien="https://trad.spip.net/auteur/davood-hossein" />
+		<traducteur nom="George" lien="https://trad.spip.net/auteur/جورج-قندلفت" />
+		<traducteur nom="Hanjo" lien="https://trad.spip.net/auteur/hanjo" />
+		<traducteur nom="kennethkeen" lien="https://trad.spip.net/auteur/kennethkeen" />
+		<traducteur nom="kent1" lien="https://trad.spip.net/auteur/kent1" />
+		<traducteur nom="olly" lien="https://trad.spip.net/auteur/olly" />
+		<traducteur nom="sQuonk" lien="https://trad.spip.net/auteur/squonk" />
+	</langue>
+	<langue code="en_hx" url="https://trad.spip.net/tradlang_module/statistiques?lang_cible=en_hx" total="52" traduits="18" relire="0" modifs="5" nouveaux="29" pourcent="34.62">
+	</langue>
+	<langue code="eo" url="https://trad.spip.net/tradlang_module/statistiques?lang_cible=eo" total="52" traduits="24" relire="0" modifs="3" nouveaux="25" pourcent="46.15">
+	</langue>
+	<langue code="es" url="https://trad.spip.net/tradlang_module/statistiques?lang_cible=es" total="52" traduits="51" relire="0" modifs="0" nouveaux="1" pourcent="98.08">
+		<traducteur nom="dani" lien="https://trad.spip.net/auteur/dani" />
+		<traducteur nom="jotacese" lien="https://trad.spip.net/auteur/jotacese" />
+		<traducteur nom="kent1" lien="https://trad.spip.net/auteur/kent1" />
+	</langue>
+	<langue code="eu" url="https://trad.spip.net/tradlang_module/statistiques?lang_cible=eu" total="52" traduits="25" relire="0" modifs="2" nouveaux="25" pourcent="48.08">
+	</langue>
+	<langue code="fa" url="https://trad.spip.net/tradlang_module/statistiques?lang_cible=fa" total="52" traduits="34" relire="0" modifs="0" nouveaux="18" pourcent="65.38">
+		<traducteur nom="Davood Hossein" lien="https://trad.spip.net/auteur/davood-hossein" />
+	</langue>
+	<langue code="fi" url="https://trad.spip.net/tradlang_module/statistiques?lang_cible=fi" total="52" traduits="11" relire="0" modifs="5" nouveaux="36" pourcent="21.15">
+	</langue>
+	<langue code="fon" url="https://trad.spip.net/tradlang_module/statistiques?lang_cible=fon" total="52" traduits="21" relire="0" modifs="3" nouveaux="28" pourcent="40.38">
+	</langue>
+	<langue code="fr" url="https://trad.spip.net/tradlang_module/statistiques?lang_cible=fr" total="52" traduits="52" relire="0" modifs="0" nouveaux="0" pourcent="100.00">
+	</langue>
+	<langue code="fr_fem" url="https://trad.spip.net/tradlang_module/statistiques?lang_cible=fr_fem" total="52" traduits="52" relire="0" modifs="0" nouveaux="0" pourcent="100.00">
+		<traducteur nom="b_b" lien="https://trad.spip.net/auteur/b_b" />
+		<traducteur nom="Cerf" lien="https://trad.spip.net/auteur/cerf" />
+		<traducteur nom="denisb" lien="https://trad.spip.net/auteur/denisb" />
+	</langue>
+	<langue code="fr_tu" url="https://trad.spip.net/tradlang_module/statistiques?lang_cible=fr_tu" total="52" traduits="52" relire="0" modifs="0" nouveaux="0" pourcent="100.00">
+		<traducteur nom="Cerf" lien="https://trad.spip.net/auteur/cerf" />
+		<traducteur nom="RealET" lien="https://trad.spip.net/auteur/realet" />
+	</langue>
+	<langue code="gl" url="https://trad.spip.net/tradlang_module/statistiques?lang_cible=gl" total="52" traduits="26" relire="0" modifs="2" nouveaux="24" pourcent="50.00">
+		<traducteur nom="Antón Méixome" lien="https://trad.spip.net/auteur/anton-meixome" />
+	</langue>
+	<langue code="hac" url="https://trad.spip.net/tradlang_module/statistiques?lang_cible=hac" total="52" traduits="10" relire="0" modifs="1" nouveaux="41" pourcent="19.23">
+	</langue>
+	<langue code="he" url="https://trad.spip.net/tradlang_module/statistiques?lang_cible=he" total="52" traduits="16" relire="0" modifs="3" nouveaux="33" pourcent="30.77">
+	</langue>
+	<langue code="hu" url="https://trad.spip.net/tradlang_module/statistiques?lang_cible=hu" total="52" traduits="21" relire="0" modifs="4" nouveaux="27" pourcent="40.38">
+	</langue>
+	<langue code="id" url="https://trad.spip.net/tradlang_module/statistiques?lang_cible=id" total="52" traduits="22" relire="0" modifs="2" nouveaux="28" pourcent="42.31">
+	</langue>
+	<langue code="is" url="https://trad.spip.net/tradlang_module/statistiques?lang_cible=is" total="52" traduits="3" relire="0" modifs="2" nouveaux="47" pourcent="5.77">
+	</langue>
+	<langue code="it" url="https://trad.spip.net/tradlang_module/statistiques?lang_cible=it" total="52" traduits="48" relire="0" modifs="3" nouveaux="1" pourcent="92.31">
+		<traducteur nom="Julia14" lien="https://trad.spip.net/auteur/julia14" />
+		<traducteur nom="phante" lien="https://trad.spip.net/auteur/phante" />
+	</langue>
+	<langue code="it_fem" url="https://trad.spip.net/tradlang_module/statistiques?lang_cible=it_fem" total="52" traduits="25" relire="0" modifs="3" nouveaux="24" pourcent="48.08">
+	</langue>
+	<langue code="ja" url="https://trad.spip.net/tradlang_module/statistiques?lang_cible=ja" total="52" traduits="22" relire="0" modifs="2" nouveaux="28" pourcent="42.31">
+	</langue>
+	<langue code="km" url="https://trad.spip.net/tradlang_module/statistiques?lang_cible=km" total="52" traduits="22" relire="0" modifs="3" nouveaux="27" pourcent="42.31">
+	</langue>
+	<langue code="lb" url="https://trad.spip.net/tradlang_module/statistiques?lang_cible=lb" total="52" traduits="34" relire="0" modifs="0" nouveaux="18" pourcent="65.38">
+		<traducteur nom="Jim Wanderscheid" lien="https://trad.spip.net/auteur/jwander" />
+	</langue>
+	<langue code="my" url="https://trad.spip.net/tradlang_module/statistiques?lang_cible=my" total="52" traduits="22" relire="0" modifs="2" nouveaux="28" pourcent="42.31">
+	</langue>
+	<langue code="nb" url="https://trad.spip.net/tradlang_module/statistiques?lang_cible=nb" total="52" traduits="12" relire="0" modifs="6" nouveaux="34" pourcent="23.08">
+	</langue>
+	<langue code="nl" url="https://trad.spip.net/tradlang_module/statistiques?lang_cible=nl" total="52" traduits="52" relire="0" modifs="0" nouveaux="0" pourcent="100.00">
+		<traducteur nom="Hanjo" lien="https://trad.spip.net/auteur/hanjo" />
+		<traducteur nom="Suske" lien="https://trad.spip.net/auteur/suske" />
+	</langue>
+	<langue code="no" url="https://trad.spip.net/tradlang_module/statistiques?lang_cible=no" total="52" traduits="3" relire="0" modifs="2" nouveaux="47" pourcent="5.77">
+	</langue>
+	<langue code="oc_auv" url="https://trad.spip.net/tradlang_module/statistiques?lang_cible=oc_auv" total="52" traduits="22" relire="0" modifs="2" nouveaux="28" pourcent="42.31">
+	</langue>
+	<langue code="oc_gsc" url="https://trad.spip.net/tradlang_module/statistiques?lang_cible=oc_gsc" total="52" traduits="22" relire="0" modifs="2" nouveaux="28" pourcent="42.31">
+	</langue>
+	<langue code="oc_lms" url="https://trad.spip.net/tradlang_module/statistiques?lang_cible=oc_lms" total="52" traduits="22" relire="0" modifs="2" nouveaux="28" pourcent="42.31">
+	</langue>
+	<langue code="oc_lnc" url="https://trad.spip.net/tradlang_module/statistiques?lang_cible=oc_lnc" total="52" traduits="22" relire="0" modifs="2" nouveaux="28" pourcent="42.31">
+	</langue>
+	<langue code="oc_ni" url="https://trad.spip.net/tradlang_module/statistiques?lang_cible=oc_ni" total="52" traduits="22" relire="0" modifs="3" nouveaux="27" pourcent="42.31">
+	</langue>
+	<langue code="oc_ni_la" url="https://trad.spip.net/tradlang_module/statistiques?lang_cible=oc_ni_la" total="52" traduits="22" relire="0" modifs="2" nouveaux="28" pourcent="42.31">
+	</langue>
+	<langue code="oc_ni_mis" url="https://trad.spip.net/tradlang_module/statistiques?lang_cible=oc_ni_mis" total="52" traduits="52" relire="0" modifs="0" nouveaux="0" pourcent="100.00">
+		<traducteur nom="sylvain" lien="https://trad.spip.net/auteur/sylvain" />
+	</langue>
+	<langue code="oc_prv" url="https://trad.spip.net/tradlang_module/statistiques?lang_cible=oc_prv" total="52" traduits="22" relire="0" modifs="2" nouveaux="28" pourcent="42.31">
+	</langue>
+	<langue code="oc_va" url="https://trad.spip.net/tradlang_module/statistiques?lang_cible=oc_va" total="52" traduits="22" relire="0" modifs="2" nouveaux="28" pourcent="42.31">
+	</langue>
+	<langue code="pl" url="https://trad.spip.net/tradlang_module/statistiques?lang_cible=pl" total="52" traduits="22" relire="0" modifs="3" nouveaux="27" pourcent="42.31">
+	</langue>
+	<langue code="pt" url="https://trad.spip.net/tradlang_module/statistiques?lang_cible=pt" total="52" traduits="34" relire="0" modifs="0" nouveaux="18" pourcent="65.38">
+		<traducteur nom="Cláudia Anjos Lopes" lien="https://trad.spip.net/auteur/claudia_a_lopes" />
+		<traducteur nom="Ricardo Porto" lien="https://trad.spip.net/auteur/ricardo-porto" />
+	</langue>
+	<langue code="pt_br" url="https://trad.spip.net/tradlang_module/statistiques?lang_cible=pt_br" total="52" traduits="52" relire="0" modifs="0" nouveaux="0" pourcent="100.00">
+		<traducteur nom="Ricardo Porto" lien="https://trad.spip.net/auteur/ricardo-porto" />
+		<traducteur nom="telopa" lien="https://trad.spip.net/auteur/telopa" />
+	</langue>
+	<langue code="ro" url="https://trad.spip.net/tradlang_module/statistiques?lang_cible=ro" total="52" traduits="25" relire="0" modifs="3" nouveaux="24" pourcent="48.08">
+	</langue>
+	<langue code="ru" url="https://trad.spip.net/tradlang_module/statistiques?lang_cible=ru" total="52" traduits="51" relire="0" modifs="0" nouveaux="1" pourcent="98.08">
+		<traducteur nom="olly" lien="https://trad.spip.net/auteur/olly" />
+		<traducteur nom="Serge Markitanenko" lien="https://trad.spip.net/auteur/serge-markitanenko" />
+	</langue>
+	<langue code="sk" url="https://trad.spip.net/tradlang_module/statistiques?lang_cible=sk" total="52" traduits="52" relire="0" modifs="0" nouveaux="0" pourcent="100.00">
+		<traducteur nom="jaro" lien="https://trad.spip.net/auteur/jaro" />
+	</langue>
+	<langue code="sv" url="https://trad.spip.net/tradlang_module/statistiques?lang_cible=sv" total="52" traduits="22" relire="0" modifs="3" nouveaux="27" pourcent="42.31">
+	</langue>
+	<langue code="tr" url="https://trad.spip.net/tradlang_module/statistiques?lang_cible=tr" total="52" traduits="25" relire="0" modifs="2" nouveaux="25" pourcent="48.08">
+	</langue>
+	<langue code="uk" url="https://trad.spip.net/tradlang_module/statistiques?lang_cible=uk" total="52" traduits="51" relire="0" modifs="0" nouveaux="1" pourcent="98.08">
+		<traducteur nom="olly" lien="https://trad.spip.net/auteur/olly" />
+		<traducteur nom="Retenodus" lien="https://trad.spip.net/auteur/retenodus" />
+	</langue>
+	<langue code="vi" url="https://trad.spip.net/tradlang_module/statistiques?lang_cible=vi" total="52" traduits="22" relire="0" modifs="2" nouveaux="28" pourcent="42.31">
+	</langue>
+	<langue code="zh" url="https://trad.spip.net/tradlang_module/statistiques?lang_cible=zh" total="52" traduits="16" relire="0" modifs="7" nouveaux="29" pourcent="30.77">
+	</langue>
+</traduction>
