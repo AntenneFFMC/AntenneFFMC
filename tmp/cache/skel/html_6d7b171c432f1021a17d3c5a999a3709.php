@@ -3,12 +3,12 @@
 /*
  * Squelette : squelettes/inclure/inc_robots-do.html
  * Date :      Wed, 01 Aug 2018 17:03:56 GMT
- * Compile :   Tue, 07 Aug 2018 17:27:27 GMT
+ * Compile :   Wed, 08 Aug 2018 10:18:24 GMT
  * Boucles :   
  */ 
 //
 // Fonction principale du squelette squelettes/inclure/inc_robots-do.html
-// Temps de compilation total: 0.195 ms
+// Temps de compilation total: 0.183 ms
 //
 
 function html_6d7b171c432f1021a17d3c5a999a3709($Cache, $Pile, $doublons = array(), $Numrows = array(), $SP = 0) {

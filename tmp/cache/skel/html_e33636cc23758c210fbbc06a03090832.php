@@ -3,12 +3,12 @@
 /*
  * Squelette : ../prive/squelettes/inclure/pied.html
  * Date :      Wed, 14 Mar 2018 16:27:20 GMT
- * Compile :   Tue, 07 Aug 2018 17:17:13 GMT
+ * Compile :   Wed, 08 Aug 2018 10:18:37 GMT
  * Boucles :   
  */ 
 //
 // Fonction principale du squelette ../prive/squelettes/inclure/pied.html
-// Temps de compilation total: 2.426 ms
+// Temps de compilation total: 4.688 ms
 //
 
 function html_e33636cc23758c210fbbc06a03090832($Cache, $Pile, $doublons = array(), $Numrows = array(), $SP = 0) {

@@ -3,7 +3,7 @@
 /*
  * Squelette : squelettes/sommaire.html
  * Date :      Sat, 04 Aug 2018 15:23:14 GMT
- * Compile :   Tue, 07 Aug 2018 17:27:27 GMT
+ * Compile :   Wed, 08 Aug 2018 10:18:24 GMT
  * Boucles :   _EDITO, _EDITOmobile, _RECENTS, _RECENTSmobile, _MotoMag, _FFMCNat
  */ 
 
@@ -490,7 +490,7 @@ quete_condition_statut('syndic_articles.statut','publie,prop','publie',''),
 
 //
 // Fonction principale du squelette squelettes/sommaire.html
-// Temps de compilation total: 68.238 ms
+// Temps de compilation total: 122.810 ms
 //
 
 function html_20bad19474852c2c1a99d7289d969071($Cache, $Pile, $doublons = array(), $Numrows = array(), $SP = 0) {

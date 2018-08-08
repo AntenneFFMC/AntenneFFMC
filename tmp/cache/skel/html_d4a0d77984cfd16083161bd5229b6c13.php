@@ -3,7 +3,7 @@
 /*
  * Squelette : ../prive/themes/spip/style_prive.css.html
  * Date :      Wed, 14 Mar 2018 16:27:18 GMT
- * Compile :   Tue, 07 Aug 2018 17:17:02 GMT
+ * Compile :   Wed, 08 Aug 2018 10:18:24 GMT
  * Boucles :   _css, _cssplugins
  */ 
 
@@ -160,7 +160,7 @@ recuperer_fond( table_valeur($Pile["vars"], (string)'fond', null) , array_merge(
 
 //
 // Fonction principale du squelette ../prive/themes/spip/style_prive.css.html
-// Temps de compilation total: 55.511 ms
+// Temps de compilation total: 75.242 ms
 //
 
 function html_d4a0d77984cfd16083161bd5229b6c13($Cache, $Pile, $doublons = array(), $Numrows = array(), $SP = 0) {

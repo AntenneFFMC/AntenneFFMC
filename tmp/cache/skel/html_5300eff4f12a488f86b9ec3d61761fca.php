@@ -3,12 +3,12 @@
 /*
  * Squelette : ../prive/themes/spip/box_skins.css.html
  * Date :      Wed, 14 Mar 2018 16:27:18 GMT
- * Compile :   Tue, 07 Aug 2018 17:17:03 GMT
+ * Compile :   Wed, 08 Aug 2018 10:18:27 GMT
  * Boucles :   
  */ 
 //
 // Fonction principale du squelette ../prive/themes/spip/box_skins.css.html
-// Temps de compilation total: 17.036 ms
+// Temps de compilation total: 50.198 ms
 //
 
 function html_5300eff4f12a488f86b9ec3d61761fca($Cache, $Pile, $doublons = array(), $Numrows = array(), $SP = 0) {

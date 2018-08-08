@@ -3,7 +3,7 @@
 /*
  * Squelette : ../prive/squelettes/inclure/accueil-information.html
  * Date :      Wed, 14 Mar 2018 16:27:20 GMT
- * Compile :   Tue, 07 Aug 2018 17:18:46 GMT
+ * Compile :   Wed, 08 Aug 2018 10:18:36 GMT
  * Boucles :   _artsr, _restreints, _arts, _cpt, _auts, _cpta
  */ 
 
@@ -367,7 +367,7 @@ BOUCLE_autshtml_c89811f70f247a8cfd227817a37ab8fe($Cache, $Pile, $doublons, $Numr
 
 //
 // Fonction principale du squelette ../prive/squelettes/inclure/accueil-information.html
-// Temps de compilation total: 34.307 ms
+// Temps de compilation total: 28.251 ms
 //
 
 function html_c89811f70f247a8cfd227817a37ab8fe($Cache, $Pile, $doublons = array(), $Numrows = array(), $SP = 0) {

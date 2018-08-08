@@ -3,12 +3,12 @@
 /*
  * Squelette : ../plugins-dist/porte_plume/javascript/porte_plume_start.js.html
  * Date :      Wed, 14 Mar 2018 16:28:00 GMT
- * Compile :   Tue, 07 Aug 2018 17:17:01 GMT
+ * Compile :   Wed, 08 Aug 2018 10:18:23 GMT
  * Boucles :   
  */ 
 //
 // Fonction principale du squelette ../plugins-dist/porte_plume/javascript/porte_plume_start.js.html
-// Temps de compilation total: 8.657 ms
+// Temps de compilation total: 3.656 ms
 //
 
 function html_e37c1472b48ffa4afb82f007b05ba46b($Cache, $Pile, $doublons = array(), $Numrows = array(), $SP = 0) {

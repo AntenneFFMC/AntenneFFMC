@@ -3,12 +3,12 @@
 /*
  * Squelette : ../plugins-dist/statistiques/prive/style_prive_plugin_stats.html
  * Date :      Wed, 14 Mar 2018 16:28:00 GMT
- * Compile :   Tue, 07 Aug 2018 17:17:04 GMT
+ * Compile :   Wed, 08 Aug 2018 10:18:28 GMT
  * Boucles :   
  */ 
 //
 // Fonction principale du squelette ../plugins-dist/statistiques/prive/style_prive_plugin_stats.html
-// Temps de compilation total: 13.459 ms
+// Temps de compilation total: 40.457 ms
 //
 
 function html_47317702949af77411140a74ba0645d9($Cache, $Pile, $doublons = array(), $Numrows = array(), $SP = 0) {

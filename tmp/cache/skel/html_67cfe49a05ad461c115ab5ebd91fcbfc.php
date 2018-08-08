@@ -3,12 +3,12 @@
 /*
  * Squelette : squelettes/inclure/inc_desc.html
  * Date :      Wed, 01 Aug 2018 17:03:56 GMT
- * Compile :   Tue, 07 Aug 2018 17:27:27 GMT
+ * Compile :   Wed, 08 Aug 2018 10:18:24 GMT
  * Boucles :   
  */ 
 //
 // Fonction principale du squelette squelettes/inclure/inc_desc.html
-// Temps de compilation total: 0.386 ms
+// Temps de compilation total: 0.408 ms
 //
 
 function html_67cfe49a05ad461c115ab5ebd91fcbfc($Cache, $Pile, $doublons = array(), $Numrows = array(), $SP = 0) {

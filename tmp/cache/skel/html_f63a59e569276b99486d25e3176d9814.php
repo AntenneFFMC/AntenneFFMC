@@ -3,12 +3,12 @@
 /*
  * Squelette : squelettes/inclure/inc_styles.html
  * Date :      Wed, 01 Aug 2018 21:54:00 GMT
- * Compile :   Tue, 07 Aug 2018 17:27:27 GMT
+ * Compile :   Wed, 08 Aug 2018 10:18:24 GMT
  * Boucles :   
  */ 
 //
 // Fonction principale du squelette squelettes/inclure/inc_styles.html
-// Temps de compilation total: 0.441 ms
+// Temps de compilation total: 1.197 ms
 //
 
 function html_f63a59e569276b99486d25e3176d9814($Cache, $Pile, $doublons = array(), $Numrows = array(), $SP = 0) {

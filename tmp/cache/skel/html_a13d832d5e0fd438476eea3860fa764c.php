@@ -3,12 +3,12 @@
 /*
  * Squelette : ../prive/squelettes/structure.html
  * Date :      Wed, 14 Mar 2018 16:27:20 GMT
- * Compile :   Tue, 07 Aug 2018 17:17:01 GMT
+ * Compile :   Wed, 08 Aug 2018 10:18:22 GMT
  * Boucles :   
  */ 
 //
 // Fonction principale du squelette ../prive/squelettes/structure.html
-// Temps de compilation total: 6.659 ms
+// Temps de compilation total: 8.343 ms
 //
 
 function html_a13d832d5e0fd438476eea3860fa764c($Cache, $Pile, $doublons = array(), $Numrows = array(), $SP = 0) {
