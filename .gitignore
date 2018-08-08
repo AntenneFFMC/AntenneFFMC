@@ -1,0 +1,16 @@
+node_modules/
+.*
+gulp*
+package*.json
+
+**/config
+**/ecrire
+**/tmp
+**/local
+**/plugins-dist
+**/prive
+**/squelettes-dist
+
+COPYING.txt
+htaccess.txt
+INSTALL.txt
