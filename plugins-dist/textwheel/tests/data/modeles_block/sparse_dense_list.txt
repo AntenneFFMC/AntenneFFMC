@@ -1,4 +1,0 @@
--* li <textwheel1|block>
-
--* li <textwheel1|block>
--* li <textwheel1|block>

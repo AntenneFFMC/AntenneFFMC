@@ -1,3 +1,0 @@
-<https://www.spip.net/IMG/siteon0.jpg>
-
-<img src="https://www.spip.net/IMG/siteon0.jpg" alt="avec de la typo !" />

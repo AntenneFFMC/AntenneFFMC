@@ -1,8 +1,0 @@
--# one <textwheel1|inline>
--# two <textwheel1|inline>
-
-repeating:
-
--# one <textwheel1|inline>
--# two <textwheel1|inline>
-

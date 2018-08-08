@@ -1,3 +1,0 @@
-my email is: [->me@example.com]
-
-my email is: <me@example.com>

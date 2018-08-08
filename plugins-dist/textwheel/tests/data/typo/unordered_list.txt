@@ -1,9 +1,0 @@
--* li avec de la typo !
--* li avec de la typo !
-
-mixed markers&nbsp;:
-
--* li avec de la typo !
--*li avec de la typo !
-- puce avec de la typo !
--puce avec de la typo !
