@@ -14,3 +14,8 @@ package*.json
 COPYING.txt
 htaccess.txt
 INSTALL.txt
+
+index.php
+spip.php
+spip.png
+svn.revision
