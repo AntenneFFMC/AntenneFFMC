@@ -7,6 +7,7 @@ package*.json
 **/ecrire
 **/tmp
 **/local
+**/plugins
 **/plugins-dist
 **/prive
 **/squelettes-dist
