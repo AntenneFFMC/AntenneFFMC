@@ -28,49 +28,28 @@
 				<div class="#EDIT{texte} extrait-une">(#TEXTE|couper{550})</div>]
 			</BOUCLE_EDITO>
 		</div>
-		<div class="une-mobile">
-			<BOUCLE_EDITOmobile(ARTICLES){id_mot=1}{!par date}{0,1}{doublons}>
-				<h1>A LA UNE<hr/></h1> [
-				<h5 class="titre-article-une"><a href="#URL_ARTICLE">(#TITRE)</a></h5>]
-				<span class="published"><abbr title="[(#DATE|date_iso)]">[(#DATE|nom_jour) ][(#DATE|affdate)]</span>
-				<hr/> [
-				<div class="#EDIT{texte} extrait-articles extrait-une">(#TEXTE|couper{300})</div>]
-			</BOUCLE_EDITOmobile>
-		</div>
 
 		<div id="colonne-laterale-gauche">
 			<div class="article">
 				<h1>LES DERNIERS ARTICLES<hr></h1>
 				[(#REM) Non affichage des articles avec le mot-clef "14"= agenda 2015-03-14 Norbert]
-				<BOUCLE_RECENTS(ARTICLES){!par date}{0,8}{doublons}{!id_article=1}{!id_mot=14}>
+				<BOUCLE_RECENTS(ARTICLES){!par date}{0,6}{doublons}{!id_article=1}{!id_mot=14}>
 					[
 					<h5 class="titre-article"><a href="#URL_ARTICLE">(#TITRE)</a></h5>]
 					<span><abbr class="published-sommaire" title="[(#DATE|date_iso)]">[(#DATE|nom_jour) ][(#DATE|affdate)]</span> [
 					<div class="#EDIT{texte}">(#TEXTE|couper{200})</div>]<br/>
 				</BOUCLE_RECENTS>
 			</div>[(#REM) Fin DIV "articles" ]
-			<!-- Articles -->
-		<!--
-			<div class="article-mobile">
-				<h1>LES DERNIERS ARTICLES<hr></h1>
-				[(#REM) Non affichage des articles avec le mot-clef "14"= agenda 2015-03-14 Norbert]
-				<BOUCLE_RECENTSmobile(ARTICLES){!par date}{0,4}{doublons}{!id_article=1}{!id_mot=14}>
-					[
-					<h5 class="titre-article"><a href="#URL_ARTICLE">(#TITRE)</a></h5>]
-					<span><abbr class="published" title="[(#DATE|date_iso)]">[(#DATE|nom_jour) ][(#DATE|affdate)]</span> [
-					<div class="#EDIT{texte} extrait-articles">(#TEXTE|couper{100})</div>]
-				</BOUCLE_RECENTSmobile>
-			</div>[(#REM) Fin DIV "articles" ] -->
-			<!-- Articles mobile -->
 
-			<div class="article">
+			<!-- Articles -->
+				<div class="article">
 				[(#REM) Debut Tableau News nationales ]
 				<table WIDTH="100%" BORDER="0" CLASS="news">
 					<TR>
 						[(#REM) Debut colonne gauche News Motomag ]
 						<TD WIDTH="50%" VALIGN="TOP" STYLE="padding-right: 20px;">
 							<DIV ID="NewsMotoMag">
-								<IMG SRC="images/Motomag_mini.jpg">&nbsp;&nbsp;
+								<IMG SRC="#CHEMIN{images/rubriques/partenaires/motomag.png}">&nbsp;&nbsp;
 								<B>  Les derni&egrave;res infos de MotoMag</B>
 								<BR>
 								<BR>
@@ -128,7 +107,7 @@
 		<div id="colonne-laterale-droite">
 			<?xml version="1.0" encoding="utf-8"?>
 			<!-- Generator: Adobe Illustrator 22.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-			<svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+			<svg class="carte-antenne" version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 				 viewBox="0 0 500 500" style="enable-background:new 0 0 500 500;" xml:space="preserve">
 				<style type="text/css">
 					.st0{fill-rule:evenodd;clip-rule:evenodd;fill:#3F982C;}

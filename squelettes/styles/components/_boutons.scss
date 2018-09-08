@@ -17,7 +17,7 @@
 	&__logo {
 		height: 100%;
 		max-width: 60px;
-		background-color: $couleur-pop--sombre;
+		background-color: $couleur-bordure;
 	}
 	&__texte {
 		flex: 1;
@@ -25,6 +25,18 @@
 		padding: 10px;
 		text-align: left;
 	}
+}
+
+.btn--pop {
+	background-color: $couleur-pop;
+	border-bottom: 4px solid $couleur-pop--sombre;
+	&__logo { background-color: $couleur-pop--sombre; }
+}
+
+.btn--discret {
+	background-color: transparent;
+	border-bottom: 4px solid transparent;
+	&__logo { background-color: transparent; }
 }
 
 
