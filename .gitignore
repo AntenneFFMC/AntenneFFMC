@@ -5,6 +5,7 @@ package*.json
 
 **/config
 **/ecrire
+**/IMG
 **/tmp
 **/local
 **/plugins
