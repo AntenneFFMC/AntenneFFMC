@@ -7,103 +7,82 @@
 <!--[if IE 9 ]> <html dir="#LANG_DIR" lang="#LANG" xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" class="[(#LANG_DIR)][ (#LANG)] no-js ie ie9"> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!--> <html dir="#LANG_DIR" lang="#LANG" xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" class="[(#LANG_DIR)][ (#LANG)] no-js"> <!--<![endif]-->
 <head>
-<!--
-	<script type='text/javascript'>/*<![CDATA[*/(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement);/*]]>*/</script>
--->
-	<title>[#NOM_SITE_SPIP]</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-	<meta name="date" content="2018-08-17T23:49:38+0100" >
-	<meta name="Description" content="la FFMC agit pour développer la pratique des deux-roues motorisés ou engins assimilés. Elle défend, sans corporatisme, leurs utilisateurs en tant qu'usagers de la route et en tant que consommateurs. Elle agit pour la sécurité et le partage de la route sur la base du développement de l'information, de la prévention, et de la formation, et pour faire prévaloir la connaissance et la prise de conscience plutôt que les mesures répressives">
-	<meta name="Keywords" content="moto, motard, colère, motard en colère, colere, motards en colère, ffmc73, ffmc, sécurité routière, route, partage, rails, guillotine, infrastructures, feux de jour, pollution, controle technique, contrôle, motostra, amdm, mutuelle, stop vol, motomag, afdm, formation">
-	<!-- style_ffmc.css -->
-	<link rel="stylesheet" type="text/css" href="global.css">
-	<link rel="icon" href="favicon.ico" type="image/x-icon">
-	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+	<!-- Entête -->
+	<meta charset="utf-8" />
+	[(#INCLURE{fond=inclure/inc_styles})]
 	<link rel='stylesheet' type='text/css' href='#CHEMIN{lib/fullcalendar/fullcalendar.min.css}' />
-	<link rel="stylesheet" type="text/css" href="plugins-dist/organiseur/calendrier.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type='text/javascript' src='#CHEMIN{lib/moment/moment-with-locales.min.js}'></script>
+	<script type='text/javascript' src='#CHEMIN{lib/fullcalendar/fullcalendar.min.js}'></script>
+	<script type='text/javascript' src='#CHEMIN{lib/fullcalendar/locale-all.js}'></script>
+	[(#INCLURE{fond=inclure/inc_fonts})]
+	[(#INCLURE{fond=inclure/inc_robots-do})]
+	[(#INCLURE{fond=inclure/inc_desc})]
+	<title>Calendrier</title>
 </head>
 
-<body MARGINWIDTH="O" LEFTMARGIN="0">
+<body>
 
-	<div>
-		<INCLURE{fond=inc_entete}>
-	</div>
-	
-	<div class="rubrique-zone" ID="MainContent">
-		<p class="texte-info-agenda">Cliquer sur l'évènement souhaité pour accéder à l'article correspondant.</p>
+	<!-- Header -->
+	[(#INCLURE{fond=inclure/inc_entete})]
 
-		<div class="cadre-formulaire">
-		<!-- Appel de 3 scripts javascript, dans leurs versions compressées : -->
-		<script type='text/javascript' src='#CHEMIN{lib/moment/moment-with-locales.min.js}'></script>
-		<script type='text/javascript' src='#CHEMIN{lib/fullcalendar/fullcalendar.min.js}'></script>
-		<script type='text/javascript' src='#CHEMIN{lib/fullcalendar/locale-all.js}'></script>
+	<div class="conteneur">
 
-		<!--Appel des fonctions javascript qui permettent d'afficher l'agenda -->
-		<!-- Demander a javascript de modifier le div dont l’id est égale à agenda pour y mettre à la place…l’agenda -->
-		<!-- Options de l'agenda -->
-			<!-- langue courante -->
-			<!-- Ne pas editer les evenements dans l'agenda -->
-			<!-- Rendre cliquable les numéros de jours / les noms de jours pour basculer sur une vue par jour -->
-			<!-- Limiter le nombre d’évènements affichés par jour à la hauteur de la cellule. Les évènements supplémentaires seront affichables via un clique supplémentaire -->
-			<!-- Recuperer les evenements via le squelette agenda.json.html -->
-			<!-- Entete de l'agenda -->
-				<!-- à gauche, on met les boutons de navigation par mois/semaines/jours (selon le type de calendrier) et par années (dans tout les cas) -->
-				<!-- au centre, on affiche le titre de l’agenda, correspondant à la période affichée (par ex. "Août 2012").-->
-				<!-- à droite, on affiche la bascule vers l’agenda en mode mois, semaine ou jour.-->
-			<!-- afficher 4, 5 ou 6 semaines par mois en fonction du mois, et non pas systématiquement 6 -->
-			<!-- changer la chaîne de langue pour "toute la journée", chaîne de langue définie par SPIP.-->
-			<!-- pendant le temps du chargement, afficher l’élément HTML dont l’id est calendrier-loading.-->
-		<!-- La fonction $() est la fonction magique de jQuery. Celle-ci permet de cibler les éléments grâce aux sélecteurs, de déclarer des gestionnaires d'événements,-->
-		<!-- d'utiliser les autres fonctions de la librairie, il s'agit en réalité d'un alias sur l'objet jQuery lui-même.-->
-		<script type="text/javascript">/*<![CDATA[*/
-			jQuery(function($) {
-			$('#agenda').fullCalendar({
-				locale: '[(#LANG|strtolower)]',
-				editable: false,
-				navLinks: true,
-				eventLimit: true,
-				events: "[(#URL_PAGE{agenda.json})]",
-				header: {
-					left: [(#LANG_DIR|=={ltr}|?{"'prevYear,prev,next,nextYear today'"})],
-					center: 'title',
-					right: [(#LANG_DIR|=={ltr}|?{"'agendaDay,agendaWeek,month'"})]
-					},
-				fixedWeekCount: false,
-				allDayHtml:'<:organiseur:cal_jour_entier|textebrut:>',
-				loading: function(bool) {
-							if (bool) $('#calendrier-loading').show();
-							else $('#calendrier-loading').hide();
-							},
-					});
-				});
-		/*]]>*/</script>
-			<div id="agenda">			
-			</div>
-		<!--  Tout le monde n’a pas de Javascript. La solution consiste à afficher un calendrier sous forme de liste dans un div dont l’id est calendrier-loading. Si Javascript est activé, FullCalendar va masquer ce div.-->
+		<!-- Masqué si JS activé -->
 		<B_agenda>
 		<div id="calendrier-loading">
-		<p class="pagination">#PAGINATION</p>
-		<BOUCLE_agenda(DATA){source json,#PRODUIRE{fond=agenda.json,start=0,end=2147483647,_=#REM|time}|url_absolue}{pagination 15}>
-			<dl>
-		        [<dt><:agenda:evenement_titre:></dt>
-		        <dd><a href="#VALEUR{url}">(#VALEUR{title})</a></dd>]
-        
-		        [<dt><:agenda:evenement_date:></dt>
-	        	<dd>(#VALEUR{start}|Agenda_affdate_debut_fin{#VALEUR{end},#VALEUR{allDay}|=={true}|?{non,oui}})</dd>]
-        
-        		[<dt><:agenda:evenement_descriptif:></dt>
-        		<dd>(#VALEUR{description})</dd>]
-			</dl>
-		</BOUCLE_agenda>
+			<p class="pagination">#PAGINATION</p>
+			<BOUCLE_agenda(DATA){source json, #PRODUIRE{fond=agenda.json, start=0,end=2147483647,_=#REM|time}|url_absolue}{pagination 15}>
+					<dl>
+							[<dt><:agenda:evenement_titre:></dt>
+							<dd><a href="#VALEUR{url}">(#VALEUR{title})</a></dd>]
+
+							[<dt><:agenda:evenement_date:></dt>
+							<dd>(#VALEUR{start}|Agenda_affdate_debut_fin{#VALEUR{end},#VALEUR{allDay}|=={true}|?{non,oui}})</dd>]
+
+							[<dt><:agenda:evenement_descriptif:></dt>
+							<dd>(#VALEUR{description})</dd>]
+					</dl>
+			</BOUCLE_agenda>
+			<p class="pagination">#PAGINATION</p>
 		</div>
 		</B_agenda>
+
+		<!-- Affiché si JS activé -->
+		<div id="agenda">
+		</div>
+
 	</div>
 
-	[(#REM) Pied de page ]
+	<!-- Footer -->
+	[(#INCLURE{fond=inclure/inc_pied})]
 
-	<footer>
-		<INCLURE{fond=inc_pied}>
-	</footer>
+
+	<script type="text/javascript">
+		/*<![CDATA[*/
+			jQuery(function($) {
+							$('#agenda').fullCalendar({
+											locale : '[(#LANG|strtolower)]',
+											editable: false,
+											navLinks: true,
+											eventLimit: true,
+											events: "[(#URL_PAGE{agenda.json})]",
+											header: {
+															left: [(#LANG_DIR|=={ltr}|?{"'prevYear,prev,next,nextYear,today'","'listMonth,month,agendaWeek,agendaDay'"})],
+															center: 'title',
+															right: [(#LANG_DIR|=={ltr}|?{"'agendaDay,agendaWeek,month,listMonth'","'today nextYear,next,prev,prevYear'"})]
+											},
+											fixedWeekCount: false,
+										 allDayHtml:'<:organiseur:cal_jour_entier|textebrut:>',
+											loading: function(bool) {
+														 if (bool) $('#calendrier-loading').show();
+															else $('#calendrier-loading').hide();
+											},
+							})
+			});
+		/*]]>*/
+	</script>
 
 </body>
+
 </html>
