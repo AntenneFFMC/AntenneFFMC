@@ -30,6 +30,27 @@
 		</div>
 
 		<div id="colonne-laterale-gauche">
+
+			<!-- agenda -->
+			<B_agenda>
+			<div>
+				<p class="pagination">#PAGINATION</p>
+				<BOUCLE_agenda(DATA){source json, #PRODUIRE{fond=agenda.json, start=0,end=2147483647,_=#REM|time}|url_absolue}{pagination 15}>
+						<dl>
+								[<dt><:agenda:evenement_titre:></dt>
+								<dd><a href="#VALEUR{url}">(#VALEUR{title})</a></dd>]
+
+								[<dt><:agenda:evenement_date:></dt>
+								<dd>(#VALEUR{start}|Agenda_affdate_debut_fin{#VALEUR{end},#VALEUR{allDay}|=={true}|?{non,oui}})</dd>]
+
+								[<dt><:agenda:evenement_descriptif:></dt>
+								<dd>(#VALEUR{description})</dd>]
+						</dl>
+				</BOUCLE_agenda>
+				<p class="pagination">#PAGINATION</p>
+			</div>
+			</B_agenda>
+
 			<div class="article">
 				<h1>LES DERNIERS ARTICLES<hr></h1>
 				[(#REM) Non affichage des articles avec le mot-clef "14"= agenda 2015-03-14 Norbert]
