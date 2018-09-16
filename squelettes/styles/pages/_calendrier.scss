@@ -4,16 +4,36 @@
                # CALENDRIER
 ================================================ **/
 
-.texte-info-agenda {
-        margin: auto;
-        margin-bottom: 10px;
-        width: 96%;
+.fc-toolbar, .fc-header-toolbar {
+  .fc-left {}
+  .fc-center {}
+  .fc-right {}
 }
 
-/* * #agenda, #agenda * {z-index: 0;} */
-.fc-content { background-color: none;}
-.fc-today, .fc-state-highlight { background-color: #419f2e;}
-.fc-widget-header, .fc-widget-content { border: 1px solid #419f2e;}
+
+.fc-view-container {
+
+  .fc-view {}
+  .fc-basic-view {}
+
+  // vue semaine
+  .fc-agendaWeek-view {}
+
+  // vue mensuelle
+  .fc-month-view {}
+
+  // vue journalière
+  .fc-agendaDay-view {}
+
+  // vue planning
+  .fc-listMonth-view {
+    .fc-widget-header {}
+  }
+
+  .fc-head {}
+
+}
+
 
 
 
@@ -27,11 +47,7 @@
                 Tablette portrait
 ------------------------------------------------ **/
 
-@media (max-width: $tablette-portrait) {
-
-   .texte-info-agenda {width: auto;}
-
-}
+@media (max-width: $tablette-portrait) { }
 
 /** ------------------------------------------------
                 Mobile
