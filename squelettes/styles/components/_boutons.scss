@@ -5,27 +5,85 @@
 ================================================ **/
 
 .btn {
+	position: relative;
 	display: flex;
+	flex-flow: wrap;
 	width: 100%;
 	max-width: 289px;
-	height: 60px;
 	margin: 20px auto;
 	color: $couleur-texte;
 	background-color: $couleur-fond--sombre;
 	border-bottom: 4px solid $couleur-bordure;
 	cursor: pointer;
 	&__logo {
-		height: 100%;
+		height: 56px;
 		max-width: 60px;
-		background-color: $couleur-pop--sombre;
+		background-color: $couleur-bordure;
 	}
 	&__texte {
 		flex: 1;
-		margin: auto;
-		padding: 10px;
+		margin: auto 30px auto auto;
 		text-align: left;
+		padding: 10px;
 	}
 }
+
+.btn--pop, .btn--pop.btn--deroulant {
+	color: $couleur-fond--clair;
+	background-color: $couleur-pop;
+	border-bottom: 4px solid $couleur-pop--sombre;
+	.btn__logo { background-color: $couleur-pop--sombre; }
+	.btn__liste {
+		background-color: $couleur-pop--sombre;
+		&-option { color: $couleur-fond--clair; }
+	}
+}
+
+.btn--deroulant {
+	cursor: default;
+	input {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 60px;
+		opacity: 0;
+	}
+	.btn__liste {
+		width: 100%;
+		height: 0;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		background-color: $couleur-bordure;
+		overflow: hidden;
+		&-option {
+			color: $couleur-texte--clair;
+			margin: 10px 20px;
+		}
+		&::after {
+			content: "❯";
+			position: absolute;
+			top: 17px;
+			right: 20px;
+			transform: rotate(90deg);
+			@extend %transition-all;
+		}
+	}
+
+	input:hover ~ .btn__liste::after {
+		transform: rotate(0deg);
+		@extend %transition-all;
+	}
+	input:checked ~ .btn__liste {
+		height: auto;
+		&::after {
+			transform: rotate(-90deg);
+			@extend %transition-all;
+		}
+	}
+}
+
 
 
 /** ------------------------------------------------

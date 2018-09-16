@@ -14,7 +14,7 @@
 
 .une {
         background-color: $couleur-fond--sombre;
-        background-image: url(images/motard.png);
+        background-image: url("../images/index/motard.png");
         background-position: right 40px bottom;
         background-repeat: no-repeat;
         background-size: 250px;
@@ -80,7 +80,7 @@
 ------------------------------------------------------------------- */
 
 .bandeau-antenne {
-        background-image: url(images/bandeau-antenne.jpg);
+        background-image: url("../images/index/bandeau-antenne.jpg");
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
@@ -91,39 +91,39 @@
 }
 
 .bandeau-antenne p {
-        color: $couleur-fond--clair;
-        display: block;
-        font-family: 'Anton', Arial;
-        font-size: 21px;
-        letter-spacing: 0.5px;
-        line-height: 1.2;
-        margin: auto;
-        text-align: center;
+  color: $couleur-fond--clair;
+  display: block;
+  font-family: 'Anton', Arial;
+  font-size: 21px;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+  margin: auto;
+  text-align: center;
 }
 
 .zone-bandeau-mouvement {
-        display: block;
-        margin: 20px auto 0 auto;
-        max-width: 1000px;
-        width: 100%;
+  display: block;
+  margin: 20px auto 0 auto;
+  max-width: 1000px;
+  width: 100%;
 }
 
 .bas {
-        background-image: url(images/real_cf.png);
-        box-shadow: 2px 2px 2px 2px $couleur-texte;
-        color: $couleur-fond--clair;
-        display: block;
-        font-size: 14px;
-        height: 30px;
-        margin-top: 30px;
-        padding-bottom: 4px;
-        padding-top: 10px;
-        text-align: center;
+  display: block;
+  margin-top: 30px;
+  padding: 10px 20px;
+  background-color: $couleur-texte;
+  color: $couleur-fond--clair;
+  font-size: 14px;
+  line-height: 35px;
+  text-align: center;
 }
-
-.img-connexion {
-        display: inline;
-        vertical-align: middle;
+.logos-footer { display: inline-block; }
+.logo-footer {
+  display: inline;
+  vertical-align: middle;
+  height: 20px;
+  margin: 0 4px;
 }
 
 
@@ -156,18 +156,18 @@
            display: block;
            margin: 0;
            padding: 0 10% 0 10%;
-           width: 80%;
+           width: 100%;
    }
    #colonne-laterale-droite {
            display: flex;
            flex-flow: row wrap;
            justify-content: space-evenly;
-           margin: 20px 0;
+           margin: 20px auto;
            padding: 0 10% 0 10%;
-           width: 80%;
+           width: 100%;
    }
 
-   .carte-antenne {display: none;}
+   .carte-antenne { max-width: 420px; }
    .boutons {
            display: flex;
            flex-flow: column;
@@ -217,10 +217,6 @@
            display: block;
            margin: 10px 0;
            width: 100%;
-   }
-   .bas {
-           height: 50px;
-           line-height: 28px;
    }
 
 }

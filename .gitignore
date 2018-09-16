@@ -5,8 +5,10 @@ package*.json
 
 **/config
 **/ecrire
+**/IMG
 **/tmp
 **/local
+**/plugins
 **/plugins-dist
 **/prive
 **/squelettes-dist

@@ -1,0 +1,8 @@
+[(#REM) date" content="2018-08-20 Norbert(FFMC73)"]
+[(#REM) La nouvelle version de fullcalendar ne passe plus des timestamps au json, mais des ISO8601 -> on corrige]
+#HTTP_HEADER{Content-Type: application/json; charset=#CHARSET}
+#SET{start,#ENV{start}|strtotime}
+#SET{end,#ENV{end}|strtotime} 
+[<BOUCLE_evenements(EVENEMENTS){', '}{par date_debut}{agendafull date_debut,date_fin,periode,#VAL{Y}|date{#GET{start}},#VAL{m}|date{#GET{start}},#VAL{d}|date{#GET{start}},#VAL{Y}|date{#GET{end}},#VAL{m}|date{#GET{end}},#VAL{d}|date{#GET{end}}}>
+	[(#ARRAY{id,#ID_EVENEMENT,title,[(#TITRE|html2unicode|unicode2charset)],allDay,[(#HORAIRE|=={non}|?{#EVAL{true},#EVAL{false}})],start,#DATE_DEBUT,end,#DATE_FIN,url,#URL_ARTICLE,description,[(#DESCRIPTIF|html2unicode|unicode2charset)]}|json_encode)]
+</BOUCLE_evenements>]
