@@ -1,5 +1,5 @@
 # Antenne FFMC
-![logo FFMC](https://cdn.lelynx.fr/wp-content/uploads/2014/11/FFMC-big.jpg)
+![logo FFMC](https://ffmc.asso.fr/local/cache-vignettes/L960xH138/siteon0-e29d4.jpg?1504019807)
 
 ## Statut
 `Antenne FFMC` est le thème des sites internet des antennes départementales de la FFMC (Fédération Française des Motards en Colère).   La FFMC est une association française de loi 1901. Ce thème est développé bénévolement et fonctionne avec le CMS [Spip](https://www.spip.net). ![spip](https://www.spip.net/local/cache-gd2/e1/90951bb7dda1912dd06c731a3c34f0.ico?1508838261)
