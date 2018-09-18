@@ -254,6 +254,7 @@
       }
 
       &__rubrique {
+         position: relative;
          flex: auto;
          height: auto;
          &-bouton { display: none; }

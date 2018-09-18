@@ -6,13 +6,13 @@
 
 .page {
    &-accueil { background-color: $couleur-fond--clair; }
-   &-rubrique { background-color: $couleur-fond; } 
+   &-rubrique { background-color: $couleur-fond; }
 }
- 
+
 .conteneur {
    width: 100%;
    max-width: 1000px;
-   margin: 0 auto;
+   margin: 30px auto 50px;
 }
 
 .spip_logo.spip_logos {
