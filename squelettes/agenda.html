@@ -10,18 +10,14 @@
 	<!-- Entête -->
 	<meta charset="utf-8" />
 	[(#INCLURE{fond=inclure/inc_styles})]
-	<link rel='stylesheet' type='text/css' href='#CHEMIN{lib/fullcalendar/fullcalendar.min.css}' />
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script type='text/javascript' src='#CHEMIN{lib/moment/moment-with-locales.min.js}'></script>
-	<script type='text/javascript' src='#CHEMIN{lib/fullcalendar/fullcalendar.min.js}'></script>
-	<script type='text/javascript' src='#CHEMIN{lib/fullcalendar/locale-all.js}'></script>
+	[(#INCLURE{fond=inclure/inc_scripts})]
 	[(#INCLURE{fond=inclure/inc_fonts})]
 	[(#INCLURE{fond=inclure/inc_robots-do})]
 	[(#INCLURE{fond=inclure/inc_desc})]
 	<title>Calendrier</title>
 </head>
 
-<body>
+<body class="page-agenda">
 
 	<!-- Header -->
 	[(#INCLURE{fond=inclure/inc_entete})]

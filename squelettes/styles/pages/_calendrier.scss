@@ -11,9 +11,16 @@
 }
 
 
+.fc-toolbar {
+  .fc-state-active,
+  .ui-state-active,
+  button:focus { z-index: 0 !important; }
+}
+
 .fc-view-container {
 
   .fc-view {}
+  .fc-view, .fc-view > table { z-index: 0; }
   .fc-basic-view {}
 
   // vue semaine
