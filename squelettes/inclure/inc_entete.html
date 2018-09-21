@@ -71,7 +71,7 @@
 				<ul class="menu__liste-sous-liste menu__liste-sous-liste--grand">
 					<li class="menu__sous-rubrique">
 						<BOUCLE_formulaire(AUTEURS){tout}{par id_auteur}{! email}{0,1}>
-							#FORMULAIRE_ECRIRE_AUTEUR
+							#FORMULAIRE_ECRIRE_AUTEUR{ajax,env}
 						</BOUCLE_formulaire>
 					</li>
 				</ul>

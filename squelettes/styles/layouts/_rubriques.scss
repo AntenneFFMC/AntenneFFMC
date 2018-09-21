@@ -15,7 +15,7 @@
    &__entete {
       margin: $espace-vertical auto;
       color: $couleur-texte;
-      font-family: Tahoma, Arial;
+      font-family: $police2;
       font-size: 20px;
       font-weight: bold;
       text-align: center;
@@ -62,9 +62,9 @@
 
    .info-publi {
       margin-top: 0;
-      font-style: italic; 
+      font-style: italic;
       font-weight: normal;
-      text-align: right; 
+      text-align: right;
    }
 
   .sous-titre-rubrique { font-weight: bold;} /* sert aussi dans les articles */

@@ -18,32 +18,59 @@
 	</fieldset>
 	]
 	[(#REM) Sinon, formulaire normal ]
-	<fieldset class="bloc-formulaire">
+	<fieldset class="formulaire">
 		<!--<legend><:envoyer_message:></legend>-->
-		<ul class="editer-groupe sans-style-liste">
-			<li class='editer saisie_email_message_auteur obligatoire[ (#ENV*{erreurs}|table_valeur{email_message_auteur}|oui)erreur]'>
-				<label for="email_message_auteur#ENV{id}" class="texte-formulaire-contact"><:entree_adresse_email:> <:info_obligatoire_02:></label>
+		<ul class="formulaire__liste">
+
+			<li class='formulaire__element obligatoire[ (#ENV*{erreurs}|table_valeur{email_message_auteur}|oui)erreur]'>
 				[<span class="erreur_message">(#ENV*{erreurs}|table_valeur{email_message_auteur})</span>]
-				<input[ (#HTML5|?{required="required" type="email" class="text email",type="text" class="text case-formulaire-contact"})] name="email_message_auteur" id="email_message_auteur#ENV{id}" value="#ENV{email_message_auteur}" />
+				<input type="email"
+						   required="required"
+							 id="email_message_auteur#ENV{id}"
+							 class="formulaire__element-champ"
+							 name="email_message_auteur"
+							 value="#ENV{email_message_auteur}"
+							 placeholder="Votre email"/>
 			</li>
-			<li class='editer saisie_sujet_message_auteur obligatoire[ (#ENV*{erreurs}|table_valeur{sujet_message_auteur}|oui)erreur]'>
-				<label for="sujet_message_auteur#ENV{id}" class="texte-formulaire-contact"><:form_prop_sujet:> <:info_obligatoire_02:></label>
+
+			<li class='formulaire__element obligatoire[ (#ENV*{erreurs}|table_valeur{sujet_message_auteur}|oui)erreur]'>
 				[<span class="erreur_message">(#ENV*{erreurs}|table_valeur{sujet_message_auteur})</span>]
-				<input type="text" class="text case-formulaire-contact" name="sujet_message_auteur" id="sujet_message_auteur#ENV{id}" value="#ENV{sujet_message_auteur}" [(#HTML5) required="required"] />
+				<input type="text"
+							 required="required"
+							 name="sujet_message_auteur"
+							 id="sujet_message_auteur#ENV{id}"
+							 class="formulaire__element-champ"
+							 value="#ENV{sujet_message_auteur}"
+							 placeholder="Sujet du message" />
 			</li>
-			<li class='editer saisie_texte_message_auteur obligatoire[ (#ENV*{erreurs}|table_valeur{texte_message_auteur}|oui)erreur]'>
-				<label for="texte_message_auteur#ENV{id}" class="texte-formulaire-contact"><:info_texte_message:> <:info_obligatoire_02:></label>
-				[<span class="erreur_message">(#ENV*{erreurs}|table_valeur{texte_message_auteur})</span>]
-				<textarea name="texte_message_auteur" id="texte_message_auteur#ENV{id}" class="case-formulaire-contact" height="200px" [(#HTML5) required="required"]>#ENV{texte_message_auteur}</textarea>
-			</li>
+
 		</ul>
+
+		<ul class="formulaire__liste">
+
+			<li class='formulaire__element obligatoire[ (#ENV*{erreurs}|table_valeur{texte_message_auteur}|oui)erreur]'>
+				[<span class="erreur_message">(#ENV*{erreurs}|table_valeur{texte_message_auteur})</span>]
+				<textarea required="required"
+									name="texte_message_auteur"
+								  id="texte_message_auteur#ENV{id}"
+									class="formulaire__element-champ">
+				</textarea>
+			</li>
+
+		</ul>
+
+		[(#REM) Piege a robots spammeurs ]
+		<p style="display: none;">
+			<label for="nobot"><:antispam_champ_vide:></label>
+			<input type="text" class="text" name="nobot" id="nobot" value="#ENV{nobot}" size="10" />
+		</p>
+		<input type="submit"
+					 class="formulaire__bouton"
+					 name="valide"
+					 value="Envoyer" />
+
 	</fieldset>
-	[(#REM) Piege a robots spammeurs ]
-	<p style="display: none;">
-		<label for="nobot"><:antispam_champ_vide:></label>
-		<input type="text" class="text" name="nobot" id="nobot" value="#ENV{nobot}" size="10" />
-	</p>
-	<p class="bouton-formulaire"><input type="submit" class="submit" name="valide" value="<:form_prop_envoyer:>" /></p>
+
 </form>
 ]
 </div>

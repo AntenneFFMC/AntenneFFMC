@@ -13,6 +13,50 @@
         width: 96%;
 }
 
+.formulaire {
+  display: flex;
+  flex-flow: wrap;
+  max-width: 720px;
+  margin: auto;
+  border: none;
+  &__liste {
+    display: flex;
+    flex: 1 1 290px;
+    flex-flow: column;
+    list-style: none;
+    padding: 0;
+    margin: auto 30px;
+  }
+  &__element {
+    &:not(:last-child) { margin-bottom: 15px; }
+    &-champ {
+    	width: 100%;
+    	padding: 6px 0;
+    	background: none;
+    	border: none;
+    	color: white;
+    	border-bottom: 1px solid;
+    	font-size: 14px;
+    }
+    textarea {
+    height: 74px;
+      border: 1px solid;
+      margin: 0;
+      padding: 6px;
+      font-family: $police1;
+    }
+  }
+  &__bouton {
+    margin: 20px auto 0;
+    padding: 2px 20px;
+  	background: white;
+  	border: none;
+  	line-height: 24px;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+  }
+}
+
 
 
 /** ------------------------------------------------

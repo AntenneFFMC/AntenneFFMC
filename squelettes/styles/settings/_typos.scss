@@ -4,8 +4,12 @@
                # TYPOS
 ================================================ **/
 
+$police1 : Arial;
+$police2 : Tahoma, Arial;
+$police3 : 'Anton', Arial;
+
 h1 {
-  font-family: Tahoma, Arial;
+  font-family: $police2;
   font-size: 20px;
   text-align: center;
 }
