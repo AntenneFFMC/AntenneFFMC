@@ -1,9 +1,10 @@
-<div class="formulaire_spip formulaire_recherche[ (#ENV{class})]" id="formulaire_recherche">
-<form action="[(#ENV{action})]" method="get"><div>
+<form action="[(#ENV{action})]" method="get">
 	[(#ENV{action}|form_hidden)]
 	[<input type="hidden" name="lang" value="(#ENV{lang})" />]
-	<input type="[(#HTML5|?{search,text})]" class="zone-recherche" size="10" name="recherche" id="#ENV{_id_champ}"[ value="(#ENV{recherche})"] accesskey="4" autocapitalize="off" autocorrect="off"
-	/>
-	<input type="submit" class="bouton-rechercher-barre" value="Rechercher" title="<:info_rechercher:>" />
-</div></form>
-</div>
+	<input type="[(#HTML5|?{search,text})]"
+			   id="#ENV{_id_champ}"[ value="(#ENV{recherche})"]
+			 	 class="menu__barre-recherche"
+				 placeholder="Que cherchez-vous ?"
+				 autocapitalize="off" autocorrect="off"
+				 accesskey="4"/>
+</form>
