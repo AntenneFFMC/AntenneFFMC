@@ -5,13 +5,30 @@
 ================================================ **/
 
 .fc-toolbar, .fc-header-toolbar {
-  .fc-left {}
-  .fc-center {}
-  .fc-right {}
-}
+  position: relative;
 
+  .fc-right, .fc-left { position: absolute; }
+  .fc-left { left: 0; }
+  .fc-right { right: 0; }
 
-.fc-toolbar {
+  h2 {
+    color: $couleur-texte;
+  	line-height: 30px;
+  	font-size: 16px;
+  	font-weight: normal;
+  	letter-spacing: 10px;
+  }
+  .fc-button {
+  	height: 30px;
+  	background: none;
+  	border: none;
+  	box-shadow: none;
+  	text-shadow: none;
+  	color: $couleur-texte;
+  	font-family: Arial;
+  	font-size: 16px;
+  }
+
   .fc-state-active,
   .ui-state-active,
   button:focus { z-index: 0 !important; }
@@ -37,9 +54,54 @@
     .fc-widget-header {}
   }
 
-  .fc-head {}
+  .fc-body {}
 
 }
+
+// SPECIFIQUE VERSION MENU
+.header {
+  .fc-toolbar, .fc-header-toolbar {
+    h2, .fc-button { color: $couleur-fond--clair; }
+  }
+
+  .fc-row th {
+  	border: none;
+  	text-transform: lowercase;
+  	font-weight: normal;
+  	letter-spacing: 5px;
+  	padding-bottom: 8px;
+  }
+
+  .fc-ltr .fc-basic-view .fc-day-top .fc-day-number { font-size: 14px; }
+
+  .fc-day-grid {
+    border-left: 1px solid #ddd;
+    &-event:hover {
+      transform: translateY(-20px);
+      .fc-content {
+        white-space: normal;
+      }
+    }
+  }
+
+  .fc-unthemed td.fc-today {
+  	background: $couleur1--sombre;
+  }
+
+  .fc-head {
+    border: none;
+    &-container { border: none; }
+  }
+
+  .fc-event, .fc-event-dot {
+    background-color: $couleur-pop;
+    border: none;
+    text-transform: none;
+    padding: 2px;
+  }
+
+}
+
 
 
 

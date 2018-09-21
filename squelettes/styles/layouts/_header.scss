@@ -111,7 +111,7 @@
         #agendaMenu { max-width: 860px; margin: 0 auto; width: 100%; }
         .fc-basic-view .fc-body .fc-row {	height: auto !important; }
         .fc-scroller { height: auto !important; }
-        .fc-view-container { overflow: hidden auto; height: calc(100% - 49px); }
+        .fc-view-container { overflow: hidden auto; height: auto; }
       }
    }
 
@@ -163,7 +163,7 @@
             @extend %transition-all;
             &--petit { height: 50px; @extend %transition-all; }
             &--grand { height: 60vh; @extend %transition-all; }
-            &--agenda { height: 430px; padding: 20px; @extend %transition-all; }
+            &--agenda { height: auto; padding: 30px 20px; @extend %transition-all; }
             .menu__sous-rubrique { opacity: 1; }
          }
       }

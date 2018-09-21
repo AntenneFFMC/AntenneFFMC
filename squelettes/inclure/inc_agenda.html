@@ -5,24 +5,25 @@
 <script type="text/javascript">
   /*<![CDATA[*/
     jQuery(function($) {
-            $('#agendaMenu').fullCalendar({
-                    locale : '[(#LANG|strtolower)]',
-                    editable: false,
-                    navLinks: true,
-                    eventLimit: true,
-                    events: "[(#URL_PAGE{agenda.json})]",
-                    header: {
-                            left: [(#LANG_DIR|=={ltr}|?{"'prevYear,prev,next,nextYear,today'","'listMonth,month,agendaWeek,agendaDay'"})],
-                            center: 'title',
-                            right: [(#LANG_DIR|=={ltr}|?{"'agendaDay,agendaWeek,month,listMonth'","'today nextYear,next,prev,prevYear'"})]
-                    },
-                    fixedWeekCount: false,
-                   allDayHtml:'<:organiseur:cal_jour_entier|textebrut:>',
-                    loading: function(bool) {
-                           if (bool) $('#calendrierMenu-loading').show();
-                            else $('#calendrierMenu-loading').hide();
-                    },
-            })
+        $('#agendaMenu').fullCalendar({
+            theme : false,
+            locale : '[(#LANG|strtolower)]',
+            editable: false,
+            navLinks: false,
+            eventLimit: true,
+            events: "[(#URL_PAGE{agenda.json})]",
+            header: {
+              left:   '',
+              center: 'prev, title, next',
+              right:  'today'
+            },
+            fixedWeekCount: false,
+            allDayHtml:'<:organiseur:cal_jour_entier|textebrut:>',
+            loading: function(bool) {
+                   if (bool) $('#calendrierMenu-loading').show();
+                    else $('#calendrierMenu-loading').hide();
+            },
+        })
     });
   /*]]>*/
 </script>
