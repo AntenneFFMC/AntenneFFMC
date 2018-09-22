@@ -1,6 +1,6 @@
 [(#REM) date" content="2013-09-15 Erik(FFMC69); 2014-05-17 Norbert(FFMC73); 2017-04-30 Antoine(FFMC73) " ]
 
-<BOUCLE_principale(ARTICLES) {id_article}>
+<BOUCLE_principale(ARTICLES){id_article}>
 <html lang="fr">
 
 <head>
@@ -10,6 +10,11 @@
 	[(#INCLURE{fond=inclure/inc_scripts})]
 	[(#INCLURE{fond=inclure/inc_fonts})]
 	[(#INCLURE{fond=inclure/inc_robots-do})]
+	<meta property="og:url"           content="[(#URL_ARTICLE|url_absolue)]" />
+  <meta property="og:type"          content="website" />
+  <meta property="og:title"         content="#TITRE" />
+  <meta property="og:description"   content="[(#INTRODUCTION{150}|attribut_html)]" />
+  <meta property="og:image"         content="[(#LOGO_ARTICLE_RUBRIQUE|extraire_attribut{src}|url_absolue)]" />
 	[<meta name="description" content="(#INTRODUCTION{150}|attribut_html)" />]
 	[<link rel="canonical" href="(#URL_ARTICLE|url_absolue)" />]
 	<script type='text/javascript'>/*<![CDATA[*/(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement);/*]]>*/</script>
@@ -36,9 +41,11 @@
 		<section class="article__contenu">
 
 			<div class="article__entete">
-				<span class="article__entete-logo">[(#LOGO_ARTICLE_RUBRIQUE|image_reduire{80,*}) ]</span>
-				<abbr class="article__entete-date" title="[(#DATE|date_iso)]">[(#DATE|nom_jour) ][(#DATE|affdate)]</abbr>
-				<h1 class="article__entete-titre #EDIT{titre}">#TITRE</h1>
+				<span class="article__entete-logo">[(#LOGO_ARTICLE_RUBRIQUE) ]</span>
+				<div class="article__entete-texte">
+					<abbr class="article__entete-date" title="[(#DATE|date_iso)]">[(#DATE|nom_jour) ][(#DATE|affdate)]</abbr>
+					<h1 class="article__entete-titre #EDIT{titre}">#TITRE</h1>
+				</div>
 			</div>
 
 			<div class="article__texte">
@@ -73,11 +80,76 @@
 		</section>
 
 		<aside class="article__aside">
-			<h2>Lisez aussi</h2>
-			<BOUCLE_LIREAUSSI(ARTICLES){!par date}{1,1}{doublons}>
-				[<h5 class="titre-article"><a href="#URL_ARTICLE">(#TITRE)</a></h5>]
-				<span><abbr class="published-sommaire" title="[(#DATE|date_iso)]">[(#DATE|nom_jour) ][(#DATE|affdate)]</span>
-			</BOUCLE_LIREAUSSI>
+
+			<!-- Suggestion article -->
+			<B_LIREAUSSI>
+			<div class="article_lireaussi">
+				<h2>Lisez aussi</h2>
+				<BOUCLE_LIREAUSSI(ARTICLES) {!id_article} {date >= #DATE}{par date, id_article}{0,1}>
+				<div class="article__lireaussi-vignette" style='background-image: url("[(#LOGO_ARTICLE|extraire_attribut{src}|url_absolue)]");'>
+					<div class="article__lireaussi-texte">
+						[<h5 class="article__lireaussi-titre"><a href="#URL_ARTICLE">(#TITRE)</a></h5>]
+						<span class="article__lireaussi-date"><abbr title="[(#DATE|date_iso)]">[(#DATE|nom_jour) ][(#DATE|affdate)]</span>
+					</div>
+				</div>
+				</BOUCLE_LIREAUSSI>
+			</div>
+			</B_LIREAUSSI>
+
+			<!-- Réseaux sociaux -->
+			<div class="article__social">
+				<div id="fb-root"></div>
+			  <script>(function(d, s, id) {
+			    var js, fjs = d.getElementsByTagName(s)[0];
+			    if (d.getElementById(id)) return;
+			    js = d.createElement(s); js.id = id;
+			    js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+			    fjs.parentNode.insertBefore(js, fjs);
+			  }(document, 'script', 'facebook-jssdk'));</script>
+			  <div class="fb-like"
+						 data-href="spip.php"
+						 data-layout="button"
+						 data-action="like"
+						 data-size="large"
+						 data-show-faces="true"
+						 data-share="true">
+		 	  </div>
+
+				<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+				<a href="https://twitter.com/share?ref_src=twsrc%5Etfw"
+					 class="twitter-share-button"
+					 data-size="large"
+					 data-hashtags="ffmc"
+					 data-show-count="false">Tweet</a>
+			</div>
+
+			<!-- agenda -->
+			<B_agenda>
+			<div class="article__widget-agenda widget-agenda">
+				<h2>à venir</h2>
+				<section class="widget-agenda__evenements-liste">
+					<BOUCLE_agenda(DATA){source json, #PRODUIRE{fond=agenda.json, start=0,end=2147483647,_=#REM|time}|url_absolue}{pagination 15}{0,4}>
+						<article class="widget-agenda__evenement">
+								[<header>
+									<span class="widget-agenda__evenement-titre">
+										<a href="#VALEUR{url}">#VALEUR{title}</a>
+									</span>
+									<span class="widget-agenda__evenement-date">
+										(#VALEUR{start}|Agenda_affdate_debut_fin{#VALEUR{end},#VALEUR{allDay}|=={true}|?{non,oui}})
+									</span>
+								</header>]
+
+								[<!--section class="widget-agenda__desc">
+									(#VALEUR{description})
+								</section-->]
+						</article>
+					</BOUCLE_agenda>
+				</section>
+				<footer class="widget-agenda__footer">
+					<a href="spip.php?page=agenda">Accéder à l'agenda</a>
+				</footer>
+			</div>
+			</B_agenda>
 
 		</aside>
 
