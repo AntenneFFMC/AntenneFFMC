@@ -1,76 +1,82 @@
 <div class="formulaire_spip formulaire_ecrire_auteur ajax" id="formulaire_ecrire_auteur#ENV{id}" width="100%">
-<br class='bugajaxie' />
-[<p class="reponse_formulaire reponse_formulaire_ok">(#ENV*{message_ok})</p>]
-[<p class="reponse_formulaire reponse_formulaire_erreur">(#ENV*{message_erreur})</p>]
-[(#ENV{editable})
-<form method='post' action='#ENV{action}#formulaire_ecrire_auteur#ENV{id}' enctype='multipart/form-data'>
-	[(#REM) declarer les hidden qui declencheront le service du formulaire parametre : url d'action ]
-	#ACTION_FORMULAIRE{#ENV{action}}
-	[(#REM) Previsualisation... ]
-	[(#ENV*{erreurs}|table_valeur{previsu}|oui)
-	<fieldset class="previsu">
-		<legend><:previsualisation:></legend>
-		<ul>
-			<li><strong>#ENV{sujet_message_auteur}</strong> - <em>#ENV{email_message_auteur}</em></li>
-			<li>[(#ENV{texte_message_auteur}|nl2br)]</li>
-		</ul>
-		<p class="boutons"><input type="submit" class="submit" name="confirmer" value="<:form_prop_confirmer_envoi:>" /></p>
-	</fieldset>
-	]
-	[(#REM) Sinon, formulaire normal ]
-	<fieldset class="formulaire">
-		<!--<legend><:envoyer_message:></legend>-->
-		<ul class="formulaire__liste">
 
-			<li class='formulaire__element obligatoire[ (#ENV*{erreurs}|table_valeur{email_message_auteur}|oui)erreur]'>
-				[<span class="erreur_message">(#ENV*{erreurs}|table_valeur{email_message_auteur})</span>]
-				<input type="email"
+	[<p class="formulaire__reponse formulaire__reponse--ok">(#ENV*{message_ok})</p>]
+	[<p class="formulaire__reponse formulaire__reponse--erreur">(#ENV*{message_erreur})</p>]
+
+	[(#ENV{editable})
+
+	<form method='post' action='#ENV{action}#formulaire_ecrire_auteur#ENV{id}'>
+		[(#REM) declarer les hidden qui declencheront le service du formulaire parametre : url d'action ]
+		#ACTION_FORMULAIRE
+		[(#REM) Previsualisation... ]
+		[(#ENV*{erreurs}|table_valeur{previsu}|oui)
+
+		<fieldset class="formulaire__reponse formulaire__reponse--previsu">
+			<!--legend> <:previsualisation:> </legend-->
+			<ul class="formulaire__liste">
+				<li class='formulaire__element'>
+					<strong>#ENV{sujet_message_auteur}</strong> <br />
+					<em>#ENV{email_message_auteur}</em>
+				</li>
+				<li class='formulaire__element citation citation--courte'>[(#ENV{texte_message_auteur}|nl2br)]</li>
+			</ul>
+			<input type="submit" class="formulaire__bouton" name="confirmer" value="<:form_prop_confirmer_envoi:>" />
+		</fieldset>
+
+		]
+		[(#REM) Sinon, formulaire normal ]
+		<fieldset class="formulaire">
+			<!--<legend><:envoyer_message:></legend>-->
+			<ul class="formulaire__liste">
+
+				<li class='formulaire__element obligatoire[ (#ENV*{erreurs}|table_valeur{email_message_auteur}|oui)erreur]'>
+					[<span class="formulaire__erreur-msg">(#ENV*{erreurs}|table_valeur{email_message_auteur})</span>]
+					<input type="email"
 						   required="required"
 							 id="email_message_auteur#ENV{id}"
 							 class="formulaire__element-champ"
 							 name="email_message_auteur"
 							 value="#ENV{email_message_auteur}"
 							 placeholder="Votre email"/>
-			</li>
+			  </li>
 
-			<li class='formulaire__element obligatoire[ (#ENV*{erreurs}|table_valeur{sujet_message_auteur}|oui)erreur]'>
-				[<span class="erreur_message">(#ENV*{erreurs}|table_valeur{sujet_message_auteur})</span>]
-				<input type="text"
+				<li class='formulaire__element obligatoire[ (#ENV*{erreurs}|table_valeur{sujet_message_auteur}|oui)erreur]'>
+					[<span class="formulaire__erreur-msg">(#ENV*{erreurs}|table_valeur{sujet_message_auteur})</span>]
+					<input type="text"
 							 required="required"
 							 name="sujet_message_auteur"
 							 id="sujet_message_auteur#ENV{id}"
 							 class="formulaire__element-champ"
 							 value="#ENV{sujet_message_auteur}"
 							 placeholder="Sujet du message" />
-			</li>
+			  </li>
 
-		</ul>
+			</ul>
 
-		<ul class="formulaire__liste">
+			<ul class="formulaire__liste">
 
-			<li class='formulaire__element obligatoire[ (#ENV*{erreurs}|table_valeur{texte_message_auteur}|oui)erreur]'>
-				[<span class="erreur_message">(#ENV*{erreurs}|table_valeur{texte_message_auteur})</span>]
-				<textarea required="required"
-									name="texte_message_auteur"
-								  id="texte_message_auteur#ENV{id}"
-									class="formulaire__element-champ">
-				</textarea>
-			</li>
+				<li class='formulaire__element obligatoire[ (#ENV*{erreurs}|table_valeur{texte_message_auteur}|oui)erreur]'>
+					[<span class="formulaire__erreur-msg">(#ENV*{erreurs}|table_valeur{texte_message_auteur})</span>]
+					<textarea required="required"
+									 name="texte_message_auteur"
+								   id="texte_message_auteur#ENV{id}"
+								   class="formulaire__element-champ">#ENV{texte_message_auteur}</textarea>
+				</li>
 
-		</ul>
+			</ul>
 
-		[(#REM) Piege a robots spammeurs ]
-		<p style="display: none;">
-			<label for="nobot"><:antispam_champ_vide:></label>
-			<input type="text" class="text" name="nobot" id="nobot" value="#ENV{nobot}" size="10" />
-		</p>
-		<input type="submit"
-					 class="formulaire__bouton"
-					 name="valide"
-					 value="Envoyer" />
+			[(#REM) Piege a robots spammeurs ]
+			<p style="display: none;">
+				<label for="nobot"><:antispam_champ_vide:></label>
+				<input type="text" class="text" name="nobot" id="nobot" value="#ENV{nobot}" size="10" />
+			</p>
+			<input type="submit"
+				 class="formulaire__bouton"
+				 name="valide"
+				 value="Envoyer" />
 
-	</fieldset>
+	  </fieldset>
 
-</form>
-]
+	</form>
+	]
 </div>

@@ -99,19 +99,43 @@
       	top: 100%;
       	left: 0;
       	width: 100%;
-         height: 0px;
+        height: 0px;
       	padding: 0 calc( (100% - 1000px) / 2 );
-         overflow: hidden;
-         background-color: $couleur1--sombre;
+        background-color: $couleur1--sombre;
       	list-style: none;
       	text-align: center;
+        overflow: hidden;
          @extend %transition-all;
       }
       &-sous-liste--agenda {
+        overflow: hidden;
         #agendaMenu { max-width: 860px; margin: 0 auto; width: 100%; }
         .fc-basic-view .fc-body .fc-row {	height: auto !important; }
         .fc-scroller { height: auto !important; }
         .fc-view-container { overflow: hidden auto; height: auto; }
+      }
+      &-sous-liste--contact {
+        flex-flow: column;
+        justify-content: center;
+        overflow: visible;
+        font-size: 0;
+        @extend %transition-size;
+        & > div {
+          height: 0;
+          margin: auto;
+          .formulaire {
+            height: 0;
+            opacity: 0;
+            font-size: 0;
+            overflow: hidden;
+            @extend %transition-size;
+          }
+        }
+        & > a {
+          text-transform: none;
+          margin: 2px auto 15px;
+          transition: none;
+        }
       }
    }
 
@@ -162,8 +186,18 @@
             height: 100px;
             @extend %transition-all;
             &--petit { height: 50px; @extend %transition-all; }
-            &--grand { height: auto; @extend %transition-all; }
             &--agenda { height: auto; padding: 30px 20px; @extend %transition-all; }
+            &--contact {
+              height: auto;
+              font-size: 14px;
+              & > div { height: auto; }
+              .formulaire {
+                height: 100%;
+                font-size: inherit;
+                opacity: 1;
+                @extend %transition-size;
+              }
+            }
             .menu__sous-rubrique { opacity: 1; }
          }
       }
@@ -179,7 +213,6 @@
       margin: 0;
       padding: 2px 0;
       text-transform: none;
-      opacity: 0;
       cursor: pointer;
 
       &--petit { line-height: 50px; }

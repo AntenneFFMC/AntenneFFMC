@@ -68,12 +68,13 @@
 				<a class="menu__rubrique--lien-remplacement" href="#"></a>
 				<input class="menu__rubrique-bouton" type="radio" name="optionmenu" />
 				<span class="menu__rubrique-texte">Contact</span>
-				<ul class="menu__liste-sous-liste menu__liste-sous-liste--grand">
-					<li class="menu__sous-rubrique">
+				<ul class="menu__liste-sous-liste menu__liste-sous-liste--contact">
+					<div>
 						<BOUCLE_formulaire(AUTEURS){tout}{par id_auteur}{! email}{0,1}>
-							#FORMULAIRE_ECRIRE_AUTEUR{ajax,env}
-						</BOUCLE_formulaire>
-					</li>
+					    #FORMULAIRE_ECRIRE_AUTEUR
+					  </BOUCLE_formulaire>
+					</div>
+					<a href="spip?page=contact">Page contact</a>
 				</ul>
 			</li>
 

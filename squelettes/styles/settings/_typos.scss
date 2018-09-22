@@ -34,6 +34,35 @@ hr { width: 50%;}
   a.spip_out { color: $couleur1--sombre; text-decoration: underline; }
   a.spip_in { color: $couleur1--sombre; text-decoration: underline; }
 
+.citation {
+  position: relative;
+	font-size: 14px;
+  margin: 5px 0;
+	padding-left: 30px;
+  font-style: italic;
+  &::before, &::after {
+  	font-size: 35px;
+  	position: absolute;
+  	line-height: 0;
+  }
+  &::before {
+    content: "«";
+    top: 5px;
+    left: 0;
+  }
+  &::after {
+    content: "»";
+    top: 40px;
+    left: 0;
+  }
+
+  &--courte {
+    padding-right: 30px;
+    text-align: justify;
+    &::after { top: inherit; left: inherit; right: 0; }
+  }
+}
+
 
 
 
