@@ -1,171 +1,174 @@
-<DIV STYLE="width: 900px; border-style:ridge; border: 5px solid; border-color: $couleur1--sombre; border-radius:10px; " ID="Formulaire" align="left">
+[<p class="formulaire__reponse formulaire__reponse--erreur">(#ENV*{message_erreur})</p>]
+[<p class="formulaire__reponse formulaire__reponse--ok">(#ENV*{message_ok})</p>]
 
-<CENTER> 
+<form class="form-infras" action="#ENV{action}" method="post">
 
-<DIV STYLE="width: 990px; height: 6px; background-image: url('rien.gif');"></DIV>
-    [<p class="reponse_formulaire reponse_formulaire_erreur">(#ENV*{message_erreur})</p>]
-    [<p class="reponse_formulaire reponse_formulaire_ok">(#ENV*{message_ok})</p>]
-
-    <form action="#ENV{action}" method="post"><div>
     #ACTION_FORMULAIRE{#ENV{action}}
 
-<TABLE BORDER="0" WIDTH="98%" ALIGN="middle" BGCOLOR="#419F2E" CELLPADDING="5">
-	<TR>
-		<TD VALIGN="top" ALIGN="left" WIDTH="30%">Nom: * :</TD>
-		<TD><input type="text" name="sender" size="40" maxlength="70" value="#ENV{sender}"></TD>
-	</TR>
-	<TR>
-		<TD VALIGN="top" ALIGN="left" WIDTH="30%">Email: * :</TD>
-		<TD><input type="text" name="email" size="50" maxlength="70" value="#ENV{email}"></TD>
-	</TR>
-	<TR>
-		<TD VALIGN="top" ALIGN="left" WIDTH="30%">Autoroute n&deg;/Avenue/Bld/Rue :</TD>
-		<TD><input type="text" name="Rue" size="50" maxlength="255" value="#ENV{Rue}"></TD>
-	</TR>
-	<TR>
-		<TD valign="top" WIDTH="30%" align="left">En venant de:</TD>
-		<TD><input type="text" name="De" size="30" maxlength="255" value="#ENV{De}"></TD>
-	</TR>
-	<TR>
-		<TD valign="top" WIDTH="30%" align="left">En direction de :</TD>
-		<TD><input type="text" name="A" size="40" maxlength="255" value="#ENV{A}"></TD>
-	</TR>
-	<TR>
-		<TD valign="top" WIDTH="30%" align="left">A la hauteur de:</TD>
-		<TD><input type="text" name="Hauteur" size="40" maxlength="255" value="#ENV{Hauteur}"></TD>
-	</TR>
-	<TR>
-		<TD valign="top" WIDTH="30%" align="left">Point de rep&egrave;re:</TD>
-		<TD><input type="text" name="Repere" size="40" maxlength="255" value="#ENV{Repere}"></TD>
-	</TR>
-	<TR>
-		<TD valign="top" WIDTH="30%" align="left">Ville:</TD>
-		<TD><input type="text" name="Ville" size="50" maxlength="255" value="#ENV{Ville}"></TD>
-	</TR>
-	<TR>
-		<TD valign="top" WIDTH="30%" align="left">Code Postal:</TD>
-		<TD><input type="text" name="Code_postal" size="5" maxlength="5" value="#ENV{Code_postal}"></TD>
-	</TR>
-	<TR>
-		<TD valign="top" WIDTH="30%" align="left">Date:</TD>
-		<TD><input type="text" name="Date" size="20" maxlength="255" value="#ENV{Date}"></TD>
-	</TR>
-</TABLE>
-<BR>
-<TABLE BORDER="0" WIDTH="98%" ALIGN="middle" BGCOLOR="#98DB9C" CELLPADDING="5">
-		<TR>
-		<TD><B>Etat de la route:</B>
-		</TD>
-		<TD><input name="Etat_route[]" type="checkbox" class="checkbox" value="nids de poule;" [(#ENV{Etat_route[]}|oui)checked="checked"]>nids de poule<br>
-		</TD>
-		<TD><input name="Etat_route[]" type="checkbox"  class="checkbox" value="gravillons;" [(#ENV{Etat_route[]}|oui)checked="checked"]>gravillons<br>
- 		</TD>
-		<TD><input name="Etat_route[]" type="checkbox" class="checkbox" value="dos d'ane;" [(#ENV{Etat_route[]}|oui)checked="checked"]>dos d'&acirc;ne<br>
-		</TD>
-		<TD><input name="Etat_route[]" type="checkbox" class="checkbox" value="ornieres;" [(#ENV{Etat_route[]}|oui)checked="checked"]>orni&egrave;res<br>
-		</TD>
-		</TR>
-	</TABLE>
-<BR>
-<TABLE BORDER="0" WIDTH="98%" ALIGN="middle" BGCOLOR="#98DB9C" CELLPADDING="5">
-	<TR>
-		<TD><B>Ralentisseurs:</B></TD>
-		<TD><input name="Ralentisseurs[]" type="checkbox" class="checkbox" value="trop haut;" [(#ENV{Ralentisseurs[]}|oui)checked="checked"]>trop haut<br>
-		</TD>
-		<TD><input name="Ralentisseurs[]" type="checkbox" class="checkbox" value="brusque;" [(#ENV{Ralentisseurs[]}|oui)checked="checked"]>brusque<br>
- 		</TD>
-		<TD><input name="Ralentisseurs[]" type="checkbox" class="checkbox" value="deforme;" [(#ENV{Ralentisseurs[]}|oui)checked="checked"]>d&eacute;form&eacute;<br>
-		</TD>
-		<TD><input name="Ralentisseurs[]" type="checkbox" class="checkbox" value="mal signale;" [(#ENV{Ralentisseurs[]}|oui)checked="checked"]>mal signal&eacute;<br>
-		</TD>
-	</TR>
-	<TR>
-		<TD><B>Peinture:</B></TD>
-		<TD><input name="Peinture[]" type="checkbox" class="checkbox" value="peu visible;" [(#ENV{Peinture[]}|oui)checked="checked"]>peu visible<br>
-		</TD>
-		<TD><input name="Peinture[]" type="checkbox" class="checkbox" value="trop lisse;" [(#ENV{Peinture[]}|oui)checked="checked"]>trop lisse<br>
- 		</TD>
-		<TD><input name="Peinture[]" type="checkbox" class="checkbox" value="trop epaisse;" [(#ENV{Peinture[]}|oui)checked="checked"]>trop &eacute;paisse<br>
-		</TD>
-		<TD><input name="Peinture[]" type="checkbox" class="checkbox" value="trop glissante;" [(#ENV{Peinture[]}|oui)checked="checked"]>trop glissante<br>
-		</TD>
-	</TR>
-	<TR>
-		<TD><B>Glissi&egrave;res de s&eacute;curit&eacute;:</B>	</TD>
-		<TD>
-          <input name="Glissiere_securite[]" type="checkbox" class="checkbox" value="manquante;" [(#ENV{Glissiere_securite[]}|oui)checked="checked"]>manquante<br>
-		</TD>
-		<TD><input name="Glissiere_securite[]" type="checkbox" class="checkbox" value="endommagee;" [(#ENV{Glissiere_securite[]}|oui)checked="checked"]>endommag&eacute;e<br>
-		</TD>
-		<TD><input name="Glissiere_securite[]" type="checkbox" class="checkbox" value="dangereuse;" [(#ENV{Glissiere_securite[]}|oui)checked="checked"]>dangereuse<br>
- 		</TD>
-		<TD><input name="Glissiere_securite[]" type="checkbox" class="checkbox" value="non doublee;" [(#ENV{Glissiere_securite[]}|oui)checked="checked"]>non doubl&eacute;e<br>
-		</TD>
-	</TR>
-	<TR>
-		<TD><B>Virage:</B></TD>
-		<TD><input name="Virage[]" type="checkbox" class="checkbox" value="non signale;" [(#ENV{Virage[]}|oui)checked="checked"]>non signal&eacute;<br>
-		</TD>
-		<TD><input name="Virage[]" type="checkbox" class="checkbox" value="mauvais devers;" [(#ENV{Virage[]}|oui)checked="checked"]>mauvais d&eacute;vers<br>
-		</TD>
-		<TD><input name="Virage[]" type="checkbox" class="checkbox" value="sans visibilite;" [(#ENV{Virage[]}|oui)checked="checked"]>sans visibilit&eacute;<br>
-		</TD>
-		<TD><input name="Virage[]" type="checkbox" class="checkbox" value="glissant;" [(#ENV{Virage[]}|oui)checked="checked"]>glissant<br>
-		</TD>
-	</TR>
-	<TR>
-		<TD><B>Carrefour:</B></TD>
-		<TD COLSPAN="2"><input name="Carrefour[]" type="checkbox" class="checkbox" value="mauvaise comprehension;" [(#ENV{Carrefour[]}|oui)checked="checked"]>mauvaise compr&eacute;hension<br>
-		</TD>
-		<TD COLSPAN="2"><input name="Carrefour[]" type="checkbox" class="checkbox" value="sans visibilite;" [(#ENV{Carrefour[]}|oui)checked="checked"]>sans visibilit&eacute;<br>
-		</TD>
-	</TR>
-	<TR>
-		<TD><B>Plaque d'&eacute;go&ucirc;t:</B></TD>
-		<TD>          <input name="Plaque_egout[]" type="checkbox" class="checkbox" value="surelevee;" [(#ENV{Plaque_egout[]}|oui)checked="checked"]>sur&eacute;lev&eacute;e<br>
-		</TD>
-		<TD><input name="Plaque_egout[]" type="checkbox" class="checkbox" value="enfoncee;" [(#ENV{Plaque_egout[]}|oui)checked="checked"]>enfonc&eacute;e<br>
-		</TD>
-		<TD COLSPAN="2"><input name="Plaque_egout[]" type="checkbox" class="checkbox" value="glissante;" [(#ENV{Plaque_egout[]}|oui)checked="checked"]>glissante<br>
-		</TD>
-	</TR>
-	<TR>
-		<TD><B>S&eacute;parateur de bus:</B></TD>
-		<TD><input name="Separateur_bus[]" type="checkbox" class="checkbox" value="mal signale;" [(#ENV{Separateur_bus[]}|oui)checked="checked"]>mal signal&eacute;<br>
-		</TD>
-		<TD><input name="Separateur_bus[]" type="checkbox" class="checkbox" value="mal eclaire;" [(#ENV{Separateur_bus[]}|oui)checked="checked"]>mal &eacute;clair&eacute;<br>
-		</TD>
-		<TD COLSPAN="2"><input name="Separateur_bus[]" type="checkbox" class="checkbox" value="dangereux;" [(#ENV{Separateur_bus[]}|oui)checked="checked"]>dangereux<br>
-		</TD>
-	</TR>
-	</TABLE>
-<BR>
-<TABLE BORDER="0" WIDTH="98%" ALIGN="middle" BGCOLOR="#98DB9C" CELLPADDING="5">
-	<TR>
-		<TD><input name="Autre[]" type="checkbox" class="checkbox" value="terre plein peu visible;" [(#ENV{Autre[]}|oui)checked="checked"]>terre plein peu visible<br>
-          <input name="Autre[]" type="checkbox" class="checkbox" value="vegetation debordante;" [(#ENV{Autre[]}|oui)checked="checked"]>v&eacute;g&eacute;tation d&eacute;bordante<br>
-		</TD>
-		<TD><input name="Autre[]" type="checkbox" class="checkbox" value="feux/panneaux peu visible;" [(#ENV{Autre[]}|oui)checked="checked"]>feux/panneaux peu visible<br>
-          <input name="Autre[]" type="checkbox" class="checkbox" value="eclairage defectueux;" [(#ENV{Autre[]}|oui)checked="checked"]>&eacute;clairage d&eacute;fectueux<br>
-		</TD>
-		<TD><input name="Autre[]" type="checkbox" class="checkbox" value="travaux non signales;" [(#ENV{Autre[]}|oui)checked="checked"]>travaux non signal&eacute;s<br>
-          <input name="Autre[]" type="checkbox" class="checkbox" value="presence d'eau;" [(#ENV{Autre[]}|oui)checked="checked"]>pr&eacute;sence d'eau<br>
-		</TD>
-	</TR>
-	</TABLE>
-<BR>
-<TABLE BORDER="0" WIDTH="98%" ALIGN="middle" BGCOLOR="#98DB9C" CELLPADDING="5">
-	<TR>
-		<TD ALIGN="left"><p><B>Autres observations: </B></p></TD>
-	</TR>
-	<TR>
-		<TD ALIGN="left"><textarea name="Autres_observations" cols="105" rows="5" maxlength="160" STYLE="resize: none;"></textarea>
-		</TD>
-	</TR>
-	</TABLE>
-<!-- *** VALIDATION DE LA SAISIE *** -->
-    <p class="boutons"><input type="submit" class="submit" value="<:pass_ok:>" /></p>
-    </div></form>
+    <!-- Infos personne -->
+    <table class="form-infras__partie">
+      <tr class="form-infras__partie-ligne">
+        <td class="form-infras__partie-cellule">Nom: * :</td>
+        <td class="form-infras__partie-cellule"><input type="text" name="sender" value="#ENV{sender}"></td>
+      </tr>
+      <tr class="form-infras__partie-ligne">
+        <td class="form-infras__partie-cellule">Email: * :</td>
+        <td class="form-infras__partie-cellule"><input type="email" name="email" value="#ENV{email}"></td>
+      </tr>
+      <tr class="form-infras__partie-ligne">
+        <td class="form-infras__partie-cellule">Autoroute n&deg;/Avenue/Bld/Rue :</td>
+        <td class="form-infras__partie-cellule"><input type="text" name="Rue" value="#ENV{Rue}"></td>
+      </tr>
+      <tr class="form-infras__partie-ligne">
+        <td class="form-infras__partie-cellule" valign="top">En venant de:</td>
+        <td class="form-infras__partie-cellule"><input type="text" name="De" value="#ENV{De}"></td>
+      </tr>
+      <tr class="form-infras__partie-ligne">
+        <td class="form-infras__partie-cellule" valign="top">En direction de :</td>
+        <td class="form-infras__partie-cellule"><input type="text" name="A" value="#ENV{A}"></td>
+      </tr>
+      <tr class="form-infras__partie-ligne">
+        <td class="form-infras__partie-cellule" valign="top">A la hauteur de:</td>
+        <td class="form-infras__partie-cellule"><input type="text" name="Hauteur" value="#ENV{Hauteur}"></td>
+      </tr>
+      <tr class="form-infras__partie-ligne">
+        <td class="form-infras__partie-cellule" valign="top">Point de rep&egrave;re:</td>
+        <td class="form-infras__partie-cellule"><input type="text" name="Repere" value="#ENV{Repere}"></td>
+      </tr>
+      <tr class="form-infras__partie-ligne">
+        <td class="form-infras__partie-cellule" valign="top">Ville:</td>
+        <td class="form-infras__partie-cellule"><input type="text" name="Ville" value="#ENV{Ville}"></td>
+      </tr>
+      <tr class="form-infras__partie-ligne">
+        <td class="form-infras__partie-cellule" valign="top">Code Postal:</td>
+        <td class="form-infras__partie-cellule"><input type="text" name="Code_postal" value="#ENV{Code_postal}"></td>
+      </tr>
+      <tr class="form-infras__partie-ligne">
+        <td class="form-infras__partie-cellule" valign="top">Date:</td>
+        <td class="form-infras__partie-cellule"><input type="date" name="Date" value="#ENV{Date}"></td>
+      </tr>
+    </table>
 
-</CENTER>
-</DIV><!-- Fin du cadre formulaire -->
+    <!-- Etat de la route -->
+    <table class="form-infras__partie">
+      <tr class="form-infras__partie-ligne">
+        <td class="form-infras__partie-cellule"><B>Etat de la route:</B>
+        </td>
+        <td class="form-infras__partie-cellule"><input name="Etat_route[]" type="checkbox" class="checkbox" value="nids de poule;" [(#ENV{Etat_route[]}|oui)checked="checked"]>nids de poule<br>
+      	</td>
+        <td class="form-infras__partie-cellule"><input name="Etat_route[]" type="checkbox"  class="checkbox" value="gravillons;" [(#ENV{Etat_route[]}|oui)checked="checked"]>gravillons<br>
+      		</td>
+        <td class="form-infras__partie-cellule"><input name="Etat_route[]" type="checkbox" class="checkbox" value="dos d'ane;" [(#ENV{Etat_route[]}|oui)checked="checked"]>dos d'&acirc;ne<br>
+      	</td>
+        <td class="form-infras__partie-cellule"><input name="Etat_route[]" type="checkbox" class="checkbox" value="ornieres;" [(#ENV{Etat_route[]}|oui)checked="checked"]>orni&egrave;res<br>
+      	</td>
+      </tr>
+    </table>
+
+    <!-- Divers -->
+    <table class="form-infras__partie">
+      <tr class="form-infras__partie-ligne">
+        <td class="form-infras__partie-cellule"><B>Ralentisseurs:</B></td>
+        <td class="form-infras__partie-cellule"><input name="Ralentisseurs[]" type="checkbox" class="checkbox" value="trop haut;" [(#ENV{Ralentisseurs[]}|oui)checked="checked"]>trop haut<br>
+      	</td>
+        <td class="form-infras__partie-cellule"><input name="Ralentisseurs[]" type="checkbox" class="checkbox" value="brusque;" [(#ENV{Ralentisseurs[]}|oui)checked="checked"]>brusque<br>
+      		</td>
+        <td class="form-infras__partie-cellule"><input name="Ralentisseurs[]" type="checkbox" class="checkbox" value="deforme;" [(#ENV{Ralentisseurs[]}|oui)checked="checked"]>d&eacute;form&eacute;<br>
+      	</td>
+        <td class="form-infras__partie-cellule"><input name="Ralentisseurs[]" type="checkbox" class="checkbox" value="mal signale;" [(#ENV{Ralentisseurs[]}|oui)checked="checked"]>mal signal&eacute;<br>
+      	</td>
+      </tr>
+      <tr class="form-infras__partie-ligne">
+        <td class="form-infras__partie-cellule"><B>Peinture:</B></td>
+        <td class="form-infras__partie-cellule"><input name="Peinture[]" type="checkbox" class="checkbox" value="peu visible;" [(#ENV{Peinture[]}|oui)checked="checked"]>peu visible<br>
+      	</td>
+        <td class="form-infras__partie-cellule"><input name="Peinture[]" type="checkbox" class="checkbox" value="trop lisse;" [(#ENV{Peinture[]}|oui)checked="checked"]>trop lisse<br>
+      		</td>
+        <td class="form-infras__partie-cellule"><input name="Peinture[]" type="checkbox" class="checkbox" value="trop epaisse;" [(#ENV{Peinture[]}|oui)checked="checked"]>trop &eacute;paisse<br>
+      	</td>
+        <td class="form-infras__partie-cellule"><input name="Peinture[]" type="checkbox" class="checkbox" value="trop glissante;" [(#ENV{Peinture[]}|oui)checked="checked"]>trop glissante<br>
+      	</td>
+      </tr>
+      <tr class="form-infras__partie-ligne">
+        <td class="form-infras__partie-cellule"><B>Glissi&egrave;res de s&eacute;curit&eacute;:</B> </td>
+        <td class="form-infras__partie-cellule">
+          <input name="Glissiere_securite[]" type="checkbox" class="checkbox" value="manquante;" [(#ENV{Glissiere_securite[]}|oui)checked="checked"]>manquante<br>
+      	</td>
+        <td class="form-infras__partie-cellule"><input name="Glissiere_securite[]" type="checkbox" class="checkbox" value="endommagee;" [(#ENV{Glissiere_securite[]}|oui)checked="checked"]>endommag&eacute;e<br>
+      	</td>
+        <td class="form-infras__partie-cellule"><input name="Glissiere_securite[]" type="checkbox" class="checkbox" value="dangereuse;" [(#ENV{Glissiere_securite[]}|oui)checked="checked"]>dangereuse<br>
+      		</td>
+        <td class="form-infras__partie-cellule"><input name="Glissiere_securite[]" type="checkbox" class="checkbox" value="non doublee;" [(#ENV{Glissiere_securite[]}|oui)checked="checked"]>non doubl&eacute;e<br>
+      	</td>
+      </tr>
+      <tr class="form-infras__partie-ligne">
+        <td class="form-infras__partie-cellule"><B>Virage:</B></td>
+        <td class="form-infras__partie-cellule"><input name="Virage[]" type="checkbox" class="checkbox" value="non signale;" [(#ENV{Virage[]}|oui)checked="checked"]>non signal&eacute;<br>
+      	</td>
+        <td class="form-infras__partie-cellule"><input name="Virage[]" type="checkbox" class="checkbox" value="mauvais devers;" [(#ENV{Virage[]}|oui)checked="checked"]>mauvais d&eacute;vers<br>
+      	</td>
+        <td class="form-infras__partie-cellule"><input name="Virage[]" type="checkbox" class="checkbox" value="sans visibilite;" [(#ENV{Virage[]}|oui)checked="checked"]>sans visibilit&eacute;<br>
+      	</td>
+        <td class="form-infras__partie-cellule"><input name="Virage[]" type="checkbox" class="checkbox" value="glissant;" [(#ENV{Virage[]}|oui)checked="checked"]>glissant<br>
+      	</td>
+      </tr>
+      <tr class="form-infras__partie-ligne">
+        <td class="form-infras__partie-cellule"><B>Carrefour:</B></td>
+        <td class="form-infras__partie-cellule" COLSPAN="2"><input name="Carrefour[]" type="checkbox" class="checkbox" value="mauvaise comprehension;" [(#ENV{Carrefour[]}|oui)checked="checked"]>mauvaise compr&eacute;hension<br>
+      	</td>
+        <td class="form-infras__partie-cellule" COLSPAN="2"><input name="Carrefour[]" type="checkbox" class="checkbox" value="sans visibilite;" [(#ENV{Carrefour[]}|oui)checked="checked"]>sans visibilit&eacute;<br>
+      	</td>
+      </tr>
+      <tr class="form-infras__partie-ligne">
+        <td class="form-infras__partie-cellule"><B>Plaque d'&eacute;go&ucirc;t:</B></td>
+        <td class="form-infras__partie-cellule"> <input name="Plaque_egout[]" type="checkbox" class="checkbox" value="surelevee;" [(#ENV{Plaque_egout[]}|oui)checked="checked"]>sur&eacute;lev&eacute;e<br>
+      	</td>
+        <td class="form-infras__partie-cellule"><input name="Plaque_egout[]" type="checkbox" class="checkbox" value="enfoncee;" [(#ENV{Plaque_egout[]}|oui)checked="checked"]>enfonc&eacute;e<br>
+      	</td>
+        <td class="form-infras__partie-cellule" COLSPAN="2"><input name="Plaque_egout[]" type="checkbox" class="checkbox" value="glissante;" [(#ENV{Plaque_egout[]}|oui)checked="checked"]>glissante<br>
+      	</td>
+      </tr>
+      <tr class="form-infras__partie-ligne">
+        <td class="form-infras__partie-cellule"><B>S&eacute;parateur de bus:</B></td>
+        <td class="form-infras__partie-cellule"><input name="Separateur_bus[]" type="checkbox" class="checkbox" value="mal signale;" [(#ENV{Separateur_bus[]}|oui)checked="checked"]>mal signal&eacute;<br>
+      	</td>
+        <td class="form-infras__partie-cellule"><input name="Separateur_bus[]" type="checkbox" class="checkbox" value="mal eclaire;" [(#ENV{Separateur_bus[]}|oui)checked="checked"]>mal &eacute;clair&eacute;<br>
+      	</td>
+        <td class="form-infras__partie-cellule" COLSPAN="2"><input name="Separateur_bus[]" type="checkbox" class="checkbox" value="dangereux;" [(#ENV{Separateur_bus[]}|oui)checked="checked"]>dangereux<br>
+      	</td>
+      </tr>
+    </table>
+
+    <!-- Divers -->
+    <table class="form-infras__partie">
+      <tr class="form-infras__partie-ligne">
+        <td class="form-infras__partie-cellule"><input name="Autre[]" type="checkbox" class="checkbox" value="terre plein peu visible;" [(#ENV{Autre[]}|oui)checked="checked"]>terre plein peu visible<br>
+          <input name="Autre[]" type="checkbox" class="checkbox" value="vegetation debordante;" [(#ENV{Autre[]}|oui)checked="checked"]>v&eacute;g&eacute;tation d&eacute;bordante<br>
+      	</td>
+        <td class="form-infras__partie-cellule"><input name="Autre[]" type="checkbox" class="checkbox" value="feux/panneaux peu visible;" [(#ENV{Autre[]}|oui)checked="checked"]>feux/panneaux peu visible<br>
+          <input name="Autre[]" type="checkbox" class="checkbox" value="eclairage defectueux;" [(#ENV{Autre[]}|oui)checked="checked"]>&eacute;clairage d&eacute;fectueux<br>
+      	</td>
+        <td class="form-infras__partie-cellule"><input name="Autre[]" type="checkbox" class="checkbox" value="travaux non signales;" [(#ENV{Autre[]}|oui)checked="checked"]>travaux non signal&eacute;s<br>
+          <input name="Autre[]" type="checkbox" class="checkbox" value="presence d'eau;" [(#ENV{Autre[]}|oui)checked="checked"]>pr&eacute;sence d'eau<br>
+        </td>
+      </tr>
+    </table>
+
+    <!-- Autres observations -->
+    <table class="form-infras__partie">
+      <tr class="form-infras__partie-ligne">
+        <td class="form-infras__partie-cellule">
+          <p><B>Autres observations: </B></p>
+        </td>
+      </tr>
+      <tr class="form-infras__partie-ligne">
+        <td class="form-infras__partie-cellule">
+          <textarea name="Autres_observations" rows="5"></textarea>
+        </td>
+      </tr>
+    </table>
+		<i>Les champs identifiés par une * sont requis.</i>
+
+    <input type="submit" class="btn btn--form" value="Envoyer" />
+
+</form>

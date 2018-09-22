@@ -1,27 +1,28 @@
 // main: ../global.scss
 
 /** ================================================
-               # ESPACEMENTS
+               # 404
 ================================================ **/
 
+.page-404 {
 
-$espace-vertical--petit : 15px;
-$espace-vertical        : 30px;
-
-
-
-/** ------------------------------------------------
-                Tablette paysage
------------------------------------------------- **/
-
-@media (max-width: $tablette-paysage) { 
-
-   
+  .conteneur {
+    max-width: 640px;
+    margin: 100px auto;
+  }
 
 }
 
+
+
 /** ------------------------------------------------
-                Tablette portrait
+                tablette paysage
+------------------------------------------------ **/
+
+@media (max-width: $tablette-paysage) { }
+
+/** ------------------------------------------------
+                tablette portrait
 ------------------------------------------------ **/
 
 @media (max-width: $tablette-portrait) { }

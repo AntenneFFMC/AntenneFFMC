@@ -1,32 +1,47 @@
 // main: ../global.scss
 
 /** ================================================
-               # CONTENEURS
+               # ARTICLES
 ================================================ **/
 
-.page {
-   &-accueil { background-color: $couleur-fond--clair; }
-   &-rubrique { background-color: $couleur-fond; }
+
+.article {
+  display: flex;
+  flex-flow: wrap;
+  margin: $espace-vertical auto;
+
+  &__contenu {
+    flex: 3 1 100px;
+    margin-right: 30px;
+  }
+  &__aside {
+    flex: 1;
+    margin: $espace-vertical auto;
+  }
+
+  &__entete {
+    display: flex;
+    flex-flow: column;
+    text-align: center;
+    margin: $espace-vertical auto;
+
+    &-date { margin: auto; }
+
+    &-logo { margin-bottom: $espace-vertical--petit; }
+
+    &-titre { margin-top: $espace-vertical--petit; }
+  }
+
+
+  &__texte {}
+
+  &__supplements { margin: $espace-vertical*2 auto; }
+  &__commentaires {
+    margin: $espace-vertical auto;
+  }
+
 }
 
-.conteneur {
-   width: 100%;
-   max-width: 1000px;
-   margin: $espace-vertical auto 50px;
-   &__chapo { margin: $espace-vertical auto; }
-}
-
-.spip_logo.spip_logos {
-   display: block;
-   z-index: 9;
-   width: auto;
-   height: 90px;
-   margin: auto;
-   padding: 10px;
-   vertical-align: unset;
-}
-
-.pagination {text-align: center;}
 
 
 

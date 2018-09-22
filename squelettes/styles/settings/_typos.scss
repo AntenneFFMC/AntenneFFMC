@@ -5,27 +5,30 @@
 ================================================ **/
 
 $police1 : Arial;
-$police2 : Tahoma, Arial;
+$police2 : Helvetica, Arial;
 $police3 : 'Anton', Arial;
 
 h1 {
+  margin: $espace-vertical auto;
   font-family: $police2;
-  font-size: 20px;
+  font-size: 25px;
   text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 h2 {
-  color: $couleur1--sombre;
+  margin: $espace-vertical--petit auto;
+  font-family: $police2;
   font-size: 20px;
-  margin-bottom: 10px;
-  margin-left: 40px;
-  margin-right: 40px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 p {
   color: $couleur-texte;
   font-size: 16px;
-  text-align: justify;
 }
 
 hr { width: 50%;}
@@ -67,13 +70,13 @@ hr { width: 50%;}
 
 
   /** ------------------------------------------------
-                  Tablette paysage
+                  tablette paysage
   ------------------------------------------------ **/
 
   @media (max-width: $tablette-paysage) { }
 
   /** ------------------------------------------------
-                  Tablette portrait
+                  tablette portrait
   ------------------------------------------------ **/
 
   @media (max-width: $tablette-portrait) { }

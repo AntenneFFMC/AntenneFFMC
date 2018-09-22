@@ -38,7 +38,7 @@
 
 .article-mobile {display: none;}
 
-.article {
+.sommaire__article {
         display: block;
         padding: 0 0 40px 0;
         text-align: justify;
@@ -129,7 +129,7 @@
 
 
 /** ------------------------------------------------
-                Tablette paysage
+                tablette paysage
 ------------------------------------------------ **/
 
 @media (max-width: $tablette-paysage) {
@@ -145,7 +145,7 @@
    }
 
 
-   .article {text-align: left;}
+   .sommaire__article {text-align: left;}
    .extrait-articles {
            display: block;
            margin: 0 auto;
@@ -192,7 +192,7 @@
 }
 
 /** ------------------------------------------------
-                Tablette portrait
+                tablette portrait
 ------------------------------------------------ **/
 
 @media (max-width: $tablette-portrait) {

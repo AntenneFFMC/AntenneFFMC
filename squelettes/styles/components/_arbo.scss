@@ -6,8 +6,8 @@
 
 .arbo {
    display: block;
-   margin: 0 auto;
-   max-width: 800px;
+   margin: $espace-vertical auto;
+   width: 100%;
    color: $couleur-texte;
    text-align: center;
 
@@ -16,13 +16,13 @@
 
 
 /** ------------------------------------------------
-                Tablette paysage
+                tablette paysage
 ------------------------------------------------ **/
 
 @media (max-width: $tablette-paysage) { }
 
 /** ------------------------------------------------
-                Tablette portrait
+                tablette portrait
 ------------------------------------------------ **/
 
 @media (max-width: $tablette-portrait) { }

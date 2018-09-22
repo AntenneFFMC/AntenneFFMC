@@ -1,32 +1,29 @@
 // main: ../global.scss
 
 /** ================================================
-               # CONTENEURS
+               # INFRASTRUCTURES
 ================================================ **/
 
-.page {
-   &-accueil { background-color: $couleur-fond--clair; }
-   &-rubrique { background-color: $couleur-fond; }
+.page-infrastructures {
+  .conteneur { max-width: 840px; }
 }
 
-.conteneur {
-   width: 100%;
-   max-width: 1000px;
-   margin: $espace-vertical auto 50px;
-   &__chapo { margin: $espace-vertical auto; }
-}
+.form-infras {
 
-.spip_logo.spip_logos {
-   display: block;
-   z-index: 9;
-   width: auto;
-   height: 90px;
-   margin: auto;
-   padding: 10px;
-   vertical-align: unset;
-}
+  &__partie {
+    width: 100%;
+    max-width: 840px;
+    margin: 0 auto 20px;
+    padding: 20px;
+    border: 1px solid $couleur-bordure;
 
-.pagination {text-align: center;}
+    &-ligne {}
+    &-cellule {
+      &:first-child { width: 250px; }
+    }
+  }
+
+}
 
 
 

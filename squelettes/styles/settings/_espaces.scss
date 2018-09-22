@@ -1,32 +1,12 @@
 // main: ../global.scss
 
 /** ================================================
-               # CONTENEURS
+               # ESPACEMENTS
 ================================================ **/
 
-.page {
-   &-accueil { background-color: $couleur-fond--clair; }
-   &-rubrique { background-color: $couleur-fond; }
-}
 
-.conteneur {
-   width: 100%;
-   max-width: 1000px;
-   margin: $espace-vertical auto 50px;
-   &__chapo { margin: $espace-vertical auto; }
-}
-
-.spip_logo.spip_logos {
-   display: block;
-   z-index: 9;
-   width: auto;
-   height: 90px;
-   margin: auto;
-   padding: 10px;
-   vertical-align: unset;
-}
-
-.pagination {text-align: center;}
+$espace-vertical--petit : 15px;
+$espace-vertical        : 30px;
 
 
 
@@ -34,7 +14,11 @@
                 tablette paysage
 ------------------------------------------------ **/
 
-@media (max-width: $tablette-paysage) { }
+@media (max-width: $tablette-paysage) { 
+
+   
+
+}
 
 /** ------------------------------------------------
                 tablette portrait

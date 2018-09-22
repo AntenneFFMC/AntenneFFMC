@@ -5,10 +5,10 @@
 @import "./settings/_colors";
 @import "./settings/_reset";
 @import "./settings/_breakpoints";
+@import "./settings/_espaces";
 @import "./settings/_typos";
 
 @import "./tools/_animations";
-@import "./tools/_espaces";
 
 @import "./components/_boutons";
 @import "./components/_formulaires";
@@ -18,8 +18,11 @@
 @import "./layouts/_header";
 @import "./layouts/_conteneurs";
 @import "./layouts/_rubriques";
+@import "./layouts/_articles";
 
 @import "./pages/_sommaire";
 @import "./pages/_contact";
 @import "./pages/_calendrier";
+@import "./pages/_infrastructures";
 @import "./pages/_mentions";
+@import "./pages/_404";

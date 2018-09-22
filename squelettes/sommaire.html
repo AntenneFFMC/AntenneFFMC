@@ -18,11 +18,11 @@
 	[(#INCLURE{fond=inclure/inc_entete})]
 
 	<!-- Corps de la page -->
-	<header class="conteneur">
+	<section class="conteneur">
 
-		<div class="une">
+		<header class="une">
 			<BOUCLE_EDITO(ARTICLES){id_mot=1}{!par date}{0,1}{doublons}>
-				<h1>A LA UNE<hr/></h1> [
+				<h2>A LA UNE</h2><hr/> [
 				<h5 class="titre-article-une"><a href="#URL_ARTICLE">(#TITRE)</a></h5>]
 				<span class="published"><abbr title="[(#DATE|date_iso)]">[(#DATE|nom_jour) ][(#DATE|affdate)]</span>
 				<hr/> [
@@ -89,24 +89,24 @@
 		<section class="conteneur">
 			<div id="colonne-laterale-gauche">
 
-				<div class="article">
-					<h1>LES DERNIERS ARTICLES<hr></h1>
+				<div class="sommaire__article">
+					<h2>LES DERNIERS ARTICLES<hr></h2>
 					[(#REM) Non affichage des articles avec le mot-clef "14"= agenda 2015-03-14 Norbert]
 					<BOUCLE_RECENTS(ARTICLES){!par date}{0,6}{doublons}{!id_article=1}{!id_mot=14}>
 						[<h5 class="titre-article"><a href="#URL_ARTICLE">(#TITRE)</a></h5>]
 						<span><abbr class="published-sommaire" title="[(#DATE|date_iso)]">[(#DATE|nom_jour) ][(#DATE|affdate)]</span> [
 						<div class="#EDIT{texte}">(#TEXTE|couper{200})</div>]<br/>
 					</BOUCLE_RECENTS>
-				</div>[(#REM) Fin DIV "articles" ]
+				</div>[(#REM) Fin div "articles" ]
 
 				<!-- Articles -->
-					<div class="article">
-					[(#REM) Debut Tableau News nationales ]
+					<div class="sommaire__article">
+					[(#REM) Debut tableau News nationales ]
 					<table WIDTH="100%" BORDER="0" CLASS="news">
-						<TR>
+						<tr>
 							[(#REM) Debut colonne gauche News Motomag ]
-							<TD WIDTH="50%" VALIGN="TOP" STYLE="padding-right: 20px;">
-								<DIV ID="NewsMotoMag">
+							<td WIDTH="50%" VALIGN="TOP" STYLE="padding-right: 20px;">
+								<div ID="NewsMotoMag">
 									<IMG SRC="#CHEMIN{images/rubriques/partenaires/motomag.png}">&nbsp;&nbsp;
 									<B>  Les derni&egrave;res infos de MotoMag</B>
 									<BR>
@@ -124,14 +124,14 @@
 										</B_MotoMag>
 									</div>
 									<BR>
-									<DIV STYLE="text-align: right;">
+									<div STYLE="text-align: right;">
 										<I><A HREF="http://www.motomag.com" TARGET="_blank">Toutes les news de Motomag ></A></I>
-									</DIV>
-								</DIV>
-							</TD>
+									</div>
+								</div>
+							</td>
 							[(#REM) Fin colonne gauche News Motomag ] [(#REM) Debut colonne droite News FFMC nationale ]
-							<TD WIDTH="50%" VALIGN="TOP" STYLE="padding-left: 20px;">
-								<DIV ID="NewsNationales">
+							<td WIDTH="50%" VALIGN="TOP" STYLE="padding-left: 20px;">
+								<div ID="NewsNationales">
 									<IMG SRC="images/FFMC_mini.jpg">&nbsp;&nbsp;
 									<B>Les infos de la FFMC nationale</B>
 									<BR>
@@ -149,13 +149,13 @@
 										</B_FFMCNat>
 									</div>
 									<BR>
-									<DIV STYLE="text-align: right;">
+									<div STYLE="text-align: right;">
 										<I><A HREF="http://www.ffmc.asso.fr/" TARGET="_blank">Toutes les news du national ></A></I>
-									</DIV>
-								</DIV>
-							</TD>
+									</div>
+								</div>
+							</td>
 							[(#REM) Fin colonne droite News FFMC nationale ]
-						</TR>
+						</tr>
 					</table>
 					[(#REM) Fin tableau News nationales ]
 				</div>
@@ -308,7 +308,7 @@
 
 		<div class="bandeau-antenne">#DESCRIPTIF_SITE_SPIP</div>
 
-	</div>
+	</section>
 
 	<!-- Footer -->
 	[(#INCLURE{fond=inclure/inc_pied})]

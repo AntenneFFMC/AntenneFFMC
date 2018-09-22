@@ -13,7 +13,9 @@
 	margin: 20px auto;
 	color: $couleur-texte;
 	background-color: $couleur-fond--sombre;
-	border-bottom: 4px solid $couleur-bordure;
+	border-style: solid;
+	border-width: 0 0 4px 0;
+	border-color: $couleur-bordure;
 	cursor: pointer;
 	&__logo {
 		height: 56px;
@@ -31,7 +33,7 @@
 .btn--pop, .btn--pop.btn--deroulant {
 	color: $couleur-fond--clair;
 	background-color: $couleur-pop;
-	border-bottom: 4px solid $couleur-pop--sombre;
+	border-color: $couleur-pop--sombre;
 	.btn__logo { background-color: $couleur-pop--sombre; }
 	.btn__liste {
 		background-color: $couleur-pop--sombre;
@@ -84,16 +86,22 @@
 	}
 }
 
+.btn--form {
+	padding: 8px 10px;
+	font-size: 14px;
+	letter-spacing: 6px;
+}
+
 
 
 /** ------------------------------------------------
-                Tablette paysage
+                tablette paysage
 ------------------------------------------------ **/
 
 @media (max-width: $tablette-paysage) { }
 
 /** ------------------------------------------------
-                Tablette portrait
+                tablette portrait
 ------------------------------------------------ **/
 
 @media (max-width: $tablette-portrait) { }

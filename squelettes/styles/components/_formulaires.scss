@@ -118,16 +118,20 @@
   }
 }
 
+textarea { width: 100%; }
+input[type="text"],
+input[type="email"] { width: 100%; max-width: 320px; }
+
 
 
 /** ------------------------------------------------
-                Tablette paysage
+                tablette paysage
 ------------------------------------------------ **/
 
 @media (max-width: $tablette-paysage) { }
 
 /** ------------------------------------------------
-                Tablette portrait
+                tablette portrait
 ------------------------------------------------ **/
 
 @media (max-width: $tablette-portrait) {
