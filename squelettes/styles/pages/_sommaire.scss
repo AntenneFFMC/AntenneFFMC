@@ -62,7 +62,11 @@
 
     }
 
-    &-contenu { position: relative; z-index: 1; }
+    &-contenu {
+      z-index: 1;
+      position: relative;
+      width: 200%;
+    }
     &-titre {
       margin-bottom: 8px;
     }
@@ -112,7 +116,17 @@
       font-size: $police-taille--petite;
     }
     &-articles {}
-    &-article {}
+    &-article {
+      position: relative;
+      margin: 5px 0;
+      padding-left: 22px;
+      &::before {
+      	content: "✒";
+      	position: absolute;
+      	left: 0;
+      	line-height: 16px;
+      }
+    }
   }
 
   // Colonne droite
@@ -133,36 +147,36 @@
     max-width: 289px;
   }
 
-  // Bas de page
-  .bandeau-antenne {
-    display: flex;
-    width: 100%;
-    height: 145px;
-    margin: $espace-vertical auto $espace-vertical--petit;
-    background-image: url("../images/index/bandeau-antenne.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    p {
-      color: $couleur-fond--clair;
-      display: block;
-      font-family: $police3;
-      font-size: 21px;
-      letter-spacing: 0.5px;
-      line-height: 1.2;
-      margin: auto;
-      text-align: center;
-    }
-  }
-  .zone-bandeau-mouvement {
-    display: block;
-    margin: 20px auto 0 auto;
-    max-width: 1000px;
-    width: 100%;
-  }
-
 }
 
+
+// Bas de page
+.bandeau-antenne {
+  display: flex;
+  width: 100%;
+  height: 145px;
+  margin: $espace-vertical auto $espace-vertical--petit;
+  background-image: url("../images/index/bandeau-antenne.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  p {
+    color: $couleur-fond--clair;
+    display: block;
+    font-family: $police3;
+    font-size: 21px;
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+    margin: auto;
+    text-align: center;
+  }
+}
+.zone-bandeau-mouvement {
+  display: block;
+  margin: 20px auto 0 auto;
+  max-width: 1000px;
+  width: 100%;
+}
 
 
 
