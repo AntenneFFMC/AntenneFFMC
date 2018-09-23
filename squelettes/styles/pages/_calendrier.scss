@@ -12,7 +12,6 @@
   .fc-right { right: 0; }
 
   h2 {
-    color: $couleur-texte;
   	line-height: 30px;
   	font-size: 16px;
   	font-weight: normal;
@@ -24,7 +23,6 @@
   	border: none;
   	box-shadow: none;
   	text-shadow: none;
-  	color: $couleur-texte;
   	font-family: $police1;
   	font-size: 16px;
   }
@@ -35,16 +33,49 @@
 }
 
 .fc-view-container {
+  overflow: hidden auto;
+  height: auto;
 
   .fc-view {}
   .fc-view, .fc-view > table { z-index: 0; }
-  .fc-basic-view {}
+  .fc-event, .fc-event-dot {
+    border: none;
+    text-transform: none;
+    padding: 2px;
+  }
 
   // vue semaine
   .fc-agendaWeek-view {}
 
   // vue mensuelle
   .fc-month-view {}
+  .fc-scroller { height: auto !important; }
+  .fc-row {
+    height: auto !important;
+    th {
+    	border: none;
+    	text-transform: lowercase;
+    	font-weight: normal;
+    	letter-spacing: 5px;
+    	padding-bottom: 8px;
+    }
+  }
+  .fc-head {
+    border: 1px solid transparent;
+    &-container { border: none; }
+  }
+  .fc-ltr .fc-basic-view .fc-day-top .fc-day-number {
+    font-size: 14px;
+  }
+  .fc-day-grid {
+    &-event {
+      @extend %transition-all;
+      &:hover {
+        transform: translateY(-20px);
+        .fc-content { white-space: normal; }
+      }
+    }
+  }
 
   // vue journalière
   .fc-agendaDay-view {}
@@ -54,50 +85,39 @@
     .fc-widget-header {}
   }
 
-  .fc-body {}
+}
+
+
+// SPECIFIQUE VERSION PAGE
+.conteneur {
+  $couleur-calendrier : $couleur-texte;
+
+  .fc-toolbar, .fc-header-toolbar {
+    h2, .fc-button { color: $couleur-calendrier; }
+  }
+  .fc-view-container {
+    .fc-body * { border-color: $couleur-calendrier; }
+    .fc-row th { color: $couleur-calendrier; }
+    .fc-today { background: $couleur-fond--sombre; }
+    .fc-event, .fc-event-dot { background-color: $couleur-pop; }
+    .fc-event, .fc-event:hover { color: $couleur-calendrier; }
+  }
 
 }
 
+
 // SPECIFIQUE VERSION MENU
 .header {
+  $couleur-calendrier : $couleur-fond--clair;
+
   .fc-toolbar, .fc-header-toolbar {
-    h2, .fc-button { color: $couleur-fond--clair; }
+    h2, .fc-button { color: $couleur-calendrier; }
   }
-
-  .fc-row th {
-  	border: none;
-  	text-transform: lowercase;
-  	font-weight: normal;
-  	letter-spacing: 5px;
-  	padding-bottom: 8px;
-  }
-
-  .fc-ltr .fc-basic-view .fc-day-top .fc-day-number { font-size: 14px; }
-
-  .fc-day-grid {
-    border-left: 1px solid #ddd;
-    &-event:hover {
-      transform: translateY(-20px);
-      .fc-content {
-        white-space: normal;
-      }
-    }
-  }
-
-  .fc-unthemed td.fc-today {
-  	background: $couleur1--sombre;
-  }
-
-  .fc-head {
-    border: none;
-    &-container { border: none; }
-  }
-
-  .fc-event, .fc-event-dot {
-    background-color: $couleur-pop;
-    border: none;
-    text-transform: none;
-    padding: 2px;
+  .fc-view-container {
+    .fc-body * { border-color: $couleur-calendrier; }
+    .fc-row th { color: $couleur-calendrier; }
+    .fc-today { background: darken($couleur1--sombre, 5); }
+    .fc-event, .fc-event-dot { background-color: $couleur-pop; }
   }
 
 }
