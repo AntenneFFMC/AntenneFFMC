@@ -1,29 +1,25 @@
 // main: ../global.scss
 
 /** ================================================
-               # INFRASTRUCTURES
+               # FOOTER
 ================================================ **/
 
-.page-infrastructures {
-  .conteneur { max-width: 840px; }
+.bas {
+  display: block;
+  margin-top: 30px;
+  padding: 10px 20px;
+  background-color: $couleur-texte;
+  color: $couleur-fond--clair;
+  font-size: $police-taille--petite;
+  line-height: 35px;
+  text-align: center;
 }
-
-.form-infras {
-  margin: 0 auto;
-
-  &__partie {
-    width: 100%;
-    max-width: 840px;
-    margin: 0 auto 20px;
-    padding: 20px;
-    border: 1px solid $couleur-bordure;
-
-    &-ligne {}
-    &-cellule {
-      &:first-child { width: 250px; }
-    }
-  }
-
+.logos-footer { display: inline-block; }
+.logo-footer {
+  display: inline;
+  vertical-align: middle;
+  height: 20px;
+  margin: 0 4px;
 }
 
 

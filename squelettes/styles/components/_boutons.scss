@@ -4,7 +4,7 @@
                # BOUTONS
 ================================================ **/
 
-.btn {
+.btn, input[type="submit"] {
 	position: relative;
 	display: flex;
 	flex-flow: wrap;
@@ -17,6 +17,9 @@
 	border-width: 0 0 4px 0;
 	border-color: $couleur-bordure;
 	cursor: pointer;
+}
+
+.btn {
 	&__logo {
 		height: 56px;
 		max-width: 60px;
@@ -25,6 +28,7 @@
 	&__texte {
 		flex: 1;
 		margin: auto 30px auto auto;
+		padding: 20px 0 20px 20px;
 		text-align: left;
 		padding: 10px;
 	}
@@ -45,10 +49,7 @@
 	cursor: default;
 	input {
 		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 60px;
+		left: -10000;
 		opacity: 0;
 	}
 	.btn__liste {
@@ -86,9 +87,9 @@
 	}
 }
 
-.btn--form {
+.btn--form, input[type="submit"] {
 	padding: 8px 10px;
-	font-size: 14px;
+	font-size: $police-taille--petite;
 	letter-spacing: 6px;
 }
 

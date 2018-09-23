@@ -10,12 +10,13 @@
 
 @import "./tools/_animations";
 
+@import "./components/_header";
 @import "./components/_boutons";
 @import "./components/_formulaires";
 @import "./components/_arbo";
 @import "./components/_widget";
+@import "./components/_footer";
 
-@import "./layouts/_header";
 @import "./layouts/_conteneurs";
 @import "./layouts/_rubriques";
 @import "./layouts/_articles";

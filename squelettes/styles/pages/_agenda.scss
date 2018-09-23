@@ -13,7 +13,7 @@
 
   h2 {
   	line-height: 30px;
-  	font-size: 16px;
+  	font-size: $police-taille--normale;
   	font-weight: normal;
   	letter-spacing: 10px;
   }
@@ -24,7 +24,7 @@
   	box-shadow: none;
   	text-shadow: none;
   	font-family: $police1;
-  	font-size: 16px;
+  	font-size: $police-taille--normale;
   }
 
   .fc-state-active,
@@ -65,7 +65,7 @@
     &-container { border: none; }
   }
   .fc-ltr .fc-basic-view .fc-day-top .fc-day-number {
-    font-size: 14px;
+    font-size: $police-taille--petite;
   }
   .fc-day-grid {
     &-event {
@@ -89,7 +89,7 @@
 
 
 // SPECIFIQUE VERSION PAGE
-.conteneur {
+.page-agenda .conteneur {
   margin: $espace-vertical*2 auto;
   max-width: 860px;
 

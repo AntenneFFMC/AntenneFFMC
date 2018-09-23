@@ -4,127 +4,166 @@
                # SOMMAIRE
 ================================================ **/
 
-/* ------------------------------------------------------------------
-                COLONNE DE GAUCHE
-------------------------------------------------------------------- */
+.page-accueil {
 
-#colonne-laterale-gauche { display: inline-block; margin-right: 30px; vertical-align: top; width: 676px;}
+  &__une {
+    display: block;
+    width: 100%;
+    margin: $espace-vertical auto;
+    padding: 1px 350px 20px 20px;
+    background-color: $couleur-fond;
+    background-image: url("../images/index/motard.png");
+    background-position: right 40px bottom;
+    background-repeat: no-repeat;
+    background-size: 250px;
+    &-date {
+      display: block;
+      text-align: center;
+      font-size: $police-taille--petite;
+      margin-top: $espace-vertical--petit;
+    }
+    &-titre { margin-top: 4px; }
+    &-texte { }
+  }
 
-.une-mobile {display: none;}
+  // Colonne gauche
+  &__articles-liste {
+    display: block;
+    h2 { margin-bottom: $espace-vertical; }
+  }
+  &__article {
+    display: flex;
+    position: relative;
+    margin: $espace-vertical--petit auto;
+    &:not(:last-child) {
+      padding-bottom: $espace-vertical--petit;
+      border-bottom: 1px solid $couleur-fond--sombre;
+    }
 
-.une {
-        background-color: $couleur-fond--sombre;
-        background-image: url("../images/index/motard.png");
-        background-position: right 40px bottom;
-        background-repeat: no-repeat;
-        background-size: 250px;
-        display: block;
-        margin: 20px 0 55px 0;
-        padding: 1px 350px 20px 20px;
-        text-align: center;
+    &-illustration {
+      z-index: 0;
+    	position: relative;
+      display: flex;
+      justify-content: center;
+      width: 220px;
+      max-height: 50px;
+      margin: 50px 0 0 -30px;
+      transform: translateX(10px);
+    	opacity: 0.2;
+      .spip_logo.spip_logos {
+        height: auto;
+        max-width: 100%;
+        max-height: 100%;
+        margin: auto;
+        padding: 0;
+        &[src*="svg"] { filter: invert(1); }
+        &[src*="png"] { max-width: 70px; }
+      }
+
+    }
+
+    &-contenu { position: relative; z-index: 1; }
+    &-titre {
+      margin-bottom: 8px;
+    }
+    &-date {
+      display: block;
+      margin: 0 auto $espace-vertical--petit;
+      color: $couleur-texte--clair;
+      font-size: $police-taille--petite;
+    }
+    &-texte { }
+  }
+  &__rss {
+    flex: 1 1 300px;
+    margin: $espace-vertical*1.5 8px 0;
+    padding: 0 20px 10px;
+    border: 1px solid $couleur-bordure;
+
+    &-groupe {
+      display: flex;
+      flex-flow: wrap;
+      margin: $espace-vertical -8px;
+    }
+    &--MotoMag {}
+    &--NewsNationales {}
+
+    &-entete {}
+    &-pied {
+      font-size: $police-taille--petite;
+      font-style: italic;
+      text-align: center;
+      &::after {
+        content: "❭";
+        margin-left: 4px;
+        font-style: normal;
+        @extend %transition-all;
+      }
+      &:hover::after { margin-left: 8px; }
+    }
+
+    &-logo {
+      height: 50px;
+      margin-top: -25px;
+      text-align: center;
+      img { background: $couleur-fond--clair; padding: 0 7px;}
+    }
+    &-titre {
+      font-size: $police-taille--petite;
+    }
+    &-articles {}
+    &-article {}
+  }
+
+  // Colonne droite
+  &__carte-antenne {
+    display: block;
+    margin-bottom: 20px;
+    max-width: 289px;
+  }
+  &__bloc-twitter {
+    display: block;
+    margin-bottom: 20px;
+    max-height: 300px;
+    max-width: 289px;
+    &-timeline { min-width: none; }
+  }
+  &__couverture-motomag {
+    display: block;
+    max-width: 289px;
+  }
+
+  // Bas de page
+  .bandeau-antenne {
+    display: flex;
+    width: 100%;
+    height: 145px;
+    margin: $espace-vertical auto $espace-vertical--petit;
+    background-image: url("../images/index/bandeau-antenne.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    p {
+      color: $couleur-fond--clair;
+      display: block;
+      font-family: $police3;
+      font-size: 21px;
+      letter-spacing: 0.5px;
+      line-height: 1.2;
+      margin: auto;
+      text-align: center;
+    }
+  }
+  .zone-bandeau-mouvement {
+    display: block;
+    margin: 20px auto 0 auto;
+    max-width: 1000px;
+    width: 100%;
+  }
+
 }
 
-.titre-article-une {
-        color: $couleur1--sombre;
-        font-size: 16px;
-        margin: 0 0 2px 0;
-        text-decoration: none;
-}
 
-.extrait-une {text-align: left;}
-
-.published { margin: 0;}
-.lien-une { margin-left: 50%;}
-
-.article-mobile {display: none;}
-
-.sommaire__article {
-        display: block;
-        padding: 0 0 40px 0;
-        text-align: justify;
-        width: 100%;
-}
-
-.titre-article {
-        color: $couleur1--sombre;
-        font-size: 16px;
-        margin: 0;
-        margin-bottom: 2px;
-        text-decoration: none;
-}
-
-.published-sommaire {
-        color: $couleur-texte--clair;
-        display: block;
-        font-size: 15px;
-        margin: -3px 0 5px 0;
-}
-
-.texte-news { min-height: 121px;}
-
-/* ------------------------------------------------------------------
-                COLONNE DE DROITE
-------------------------------------------------------------------- */
-
-#colonne-laterale-droite { display: inline-block; vertical-align: top; width: 289px;}
-
-.carte-antenne { display: block; margin-bottom: 20px; max-width: 289px;}
-
-.bloc-twitter {display: block; margin-bottom: 20px; max-height: 300px;  max-width: 289px;}
-.twitter-timeline {min-width: none;}
-
-.illustration-mobilisation { display: block;  max-width: 289px;}
-
-/* ------------------------------------------------------------------
-                      BAS DE LA PAGE
-------------------------------------------------------------------- */
-
-.bandeau-antenne {
-        background-image: url("../images/index/bandeau-antenne.jpg");
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        display: flex;
-        height: 145px;
-        margin-bottom: 15px;
-        width: 100%;
-}
-
-.bandeau-antenne p {
-  color: $couleur-fond--clair;
-  display: block;
-  font-family: $police3;
-  font-size: 21px;
-  letter-spacing: 0.5px;
-  line-height: 1.2;
-  margin: auto;
-  text-align: center;
-}
-
-.zone-bandeau-mouvement {
-  display: block;
-  margin: 20px auto 0 auto;
-  max-width: 1000px;
-  width: 100%;
-}
-
-.bas {
-  display: block;
-  margin-top: 30px;
-  padding: 10px 20px;
-  background-color: $couleur-texte;
-  color: $couleur-fond--clair;
-  font-size: 14px;
-  line-height: 35px;
-  text-align: center;
-}
-.logos-footer { display: inline-block; }
-.logo-footer {
-  display: inline;
-  vertical-align: middle;
-  height: 20px;
-  margin: 0 4px;
-}
 
 
 
@@ -134,60 +173,25 @@
 
 @media (max-width: $tablette-paysage) {
 
-   .une {
-      background-color: $couleur-fond--sombre;
-      background-image: inherit;
-      background-size: 250px;
-      display: block;
-      margin: 15px 0 20px 0;
-      padding: 1px 40px 20px 40px;
-      text-align: center;
-   }
+  .page-accueil {
+
+    &__une {
+      background-image: none;
+      padding: $espace-vertical--petit $espace-vertical--petit $espace-vertical;
+      &-texte {
+        max-width: 640px;
+        margin: 0 auto;
+      }
+    }
+
+    &__articles-liste { margin: 0 40px; }
+
+    .zone-bandeau-mouvement { width: 98%;}
+
+  }
 
 
-   .sommaire__article {text-align: left;}
-   .extrait-articles {
-           display: block;
-           margin: 0 auto;
-           max-width: 650px;
-   }
-   .titre-article {margin-top: 20px;}
-   #colonne-laterale-gauche {
-           display: block;
-           margin: 0;
-           padding: 0 10% 0 10%;
-           width: 100%;
-   }
-   #colonne-laterale-droite {
-           display: flex;
-           flex-flow: row wrap;
-           justify-content: space-evenly;
-           margin: 20px auto;
-           padding: 0 10% 0 10%;
-           width: 100%;
-   }
 
-   .carte-antenne { max-width: 420px; }
-   .boutons {
-           display: flex;
-           flex-flow: column;
-           justify-content: space-between;
-           margin: 0 0 0 1%;
-           max-width: none;
-           min-width: 200px;
-           width: 49%;
-   }
-   .bloc-twitter {
-           height: inherit;
-           margin: 0 1% 0 0;
-           max-height: none;
-           max-width: none;
-           min-width: 200px;
-           width: 49%;
-   }
-   .illustration-mobilisation {display: none;}
-
-   .zone-bandeau-mouvement { width: 98%;}
 
 }
 
@@ -206,17 +210,4 @@
                 Mobile
 ------------------------------------------------ **/
 
-@media (max-width: $mobile) {
-
-   .boutons {
-           height: 200px;
-           margin: 10px 0;
-           width: 100%;
-   }
-   .bloc-twitter {
-           display: block;
-           margin: 10px 0;
-           width: 100%;
-   }
-
-}
+@media (max-width: $mobile) { }

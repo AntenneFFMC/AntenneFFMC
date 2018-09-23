@@ -6,6 +6,7 @@
 
 .widget-liste.conteneur {
   display: flex;
+  margin: $espace-vertical--petit auto $espace-vertical*1.5;
 }
 
 .widget {
@@ -18,7 +19,7 @@
 
   &__entete {
     color: inherit;
-    font-size: 18px;
+    font-size: $police-taille--moyenne;
     margin: 0 0 10px;
     font-weight: normal;
   }
@@ -90,7 +91,7 @@
 
     &-titre { display: block; }
     &-date {
-      font-size: 14px;
+      font-size: $police-taille--petite;
       color: $couleur-texte--clair;
     }
   }

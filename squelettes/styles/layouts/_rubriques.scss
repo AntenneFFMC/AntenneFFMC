@@ -4,73 +4,94 @@
                # RUBRIQUES
 ================================================ **/
 
-
 .rubrique {
-   max-width: 980px;
-   margin: $espace-vertical auto;
-   padding: $espace-vertical 10px;
-   background-color: $couleur-fond--clair;
-   text-align: left;
+  max-width: 980px;
+  margin: $espace-vertical auto;
+  padding: 0 $espace-vertical;
+  background-color: $couleur-fond--clair;
+  text-align: left;
 
-   &__entete {
-      margin: $espace-vertical auto;
-      color: $couleur-texte;
-      font-family: $police2;
-      font-size: 20px;
-      font-weight: bold;
-      text-align: center;
+  &__entete {
+    width: 100%;
+    margin: 0 auto $espace-vertical;
+    color: $couleur-texte;
+    font-family: $police2;
+    font-size: $police-taille--grande;
+    font-weight: bold;
+    text-align: center;
 
-      &-logo {
-         height: 0;
-         margin-bottom: $espace-vertical;
+    &-logo {
+      height: 0;
+      margin-bottom: $espace-vertical;
+    }
+    @supports (-webkit-filter: blur(2px)) or (filter: blur(2px)) {
+      .rubrique__entete-logo {
+        display: block;
+        height: auto;
+        margin-bottom: 6px;
+        filter: invert(1);
       }
-      @supports (-webkit-filter: blur(2px)) or (filter: blur(2px)) {
-         .rubrique__entete-logo {
-            display: block;
-            height: auto;
-            margin-bottom: 6px;
-            filter: invert(1);
-         }
-      }
+    }
 
-      &-titre { margin: 0 auto;}
+    &-titre {
+      margin: 0 auto;
+    }
   }
 
-
-  .texte-rubrique {
-          max-width: 800px;
-          margin: auto;
-          margin-bottom: 10px;
+  &__rubriques-liste, &__articles-liste {
+    max-width: 720px;
+    margin: 0 auto;
   }
-
-   .liste-articles-rubrique,
-   .supplements-articles {
+  &__rubriques-liste {
+    margin-top: 20px;
+    padding: 0 30px 10px;
+    border: 1px solid $couleur-bordure;
+    h2 {
       display: block;
-      max-width: 600px;
-      margin: $espace-vertical auto 0 auto;
-      text-align: left;
-   }
+      width: 225px;
+      margin: -13px auto 0;
+      background-color: $couleur-fond--clair;
+    }
+  }
+
+  &__description {
+    max-width: 840px;
+    margin: 0 auto;
+  }
+
+  .liste-articles-rubrique,
+  .supplements-articles {
+    display: block;
+    max-width: 600px;
+    margin: $espace-vertical auto 0;
+    text-align: left;
+  }
+
   .liste-articles-rubrique {
-      & > li:not(:first-child) { margin-top: 8px; }
-      &-dates {
-         display: block;
-         margin-left: 35px;
-         color: $couleur-texte--clair;
-         vertical-align: super;
-      }
-   }
+    & > li:not(:first-child) {
+      margin-top: 8px;
+    }
 
-   .info-publi {
-      margin-top: 0;
-      font-style: italic;
-      font-weight: normal;
-      text-align: right;
-   }
+    &-dates {
+      display: block;
+      margin-left: 35px;
+      color: $couleur-texte--clair;
+      vertical-align: super;
+    }
+  }
 
-  .sous-titre-rubrique { font-weight: bold;} /* sert aussi dans les articles */
+  .info-publi {
+    margin-top: 0;
+    font-style: italic;
+    font-weight: normal;
+    text-align: right;
+  }
+
+  .sous-titre-rubrique {
+    font-weight: bold;
+  }
+  /* sert aussi dans les articles */
 }
-
-
 
 
 /** ------------------------------------------------
@@ -78,30 +99,32 @@
 ------------------------------------------------ **/
 
 @media (max-width: $tablette-paysage) {
-
-   .rubrique {
-      max-width: none;
-      margin-top: $espace-vertical--petit;
-   }
-
+  .rubrique {
+    max-width: none;
+    margin-top: $espace-vertical--petit;
+  }
 }
+
 
 /** ------------------------------------------------
                 tablette portrait
 ------------------------------------------------ **/
 
-@media (max-width: $tablette-portrait) { }
+@media (max-width: $tablette-portrait) {}
+
 
 /** ------------------------------------------------
                 Mobile
 ------------------------------------------------ **/
 
 @media (max-width: $mobile) {
+  .rubrique {
+    margin-bottom: 0;
+    padding: 20px 8%;
 
-   .rubrique {
-      margin-bottom: 0; padding: 20px 8%;
-
-      .arbo > p { margin: 0 0 10px 0; text-align: center;}
-   }
-
+    .arbo > p {
+      margin: 0 0 10px;
+      text-align: center;
+    }
+  }
 }

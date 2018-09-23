@@ -20,153 +20,116 @@
 	<!-- Corps de la page -->
 	<section class="conteneur">
 
-		<header class="une">
+		<header class="page-accueil__une">
 			<BOUCLE_EDITO(ARTICLES){id_mot=1}{!par date}{0,1}{doublons}>
-				<h2>A LA UNE</h2><hr/> [
-				<h5 class="titre-article-une"><a href="#URL_ARTICLE">(#TITRE)</a></h5>]
-				<span class="published"><abbr title="[(#DATE|date_iso)]">[(#DATE|nom_jour) ][(#DATE|affdate)]</span>
-				<hr/> [
-				<div class="#EDIT{texte} extrait-une">(#TEXTE|couper{550})</div>]
+				<h2>A LA UNE</h2>
+				<abbr class="page-accueil__une-date" title="[(#DATE|date_iso)]">
+					[(#DATE|nom_jour) ][(#DATE|affdate)]
+				</abbr>
+				<h3 class="page-accueil__une-titre">
+					<a href="#URL_ARTICLE">#TITRE</a>
+				</h3>
+				<div class="page-accueil__une-texte">[(#TEXTE|couper{550})]</div>
 			</BOUCLE_EDITO>
 		</header>
 
-		<aside class="conteneur widget-liste">
+		<!-- Widgets -->
+		[(#INCLURE{fond=inclure/inc_widgets})]
 
-			<!-- agenda -->
-			<B_agenda>
-			<div class="widget widget-agenda">
-				<header class="widget__entete">
-					<time datetime='#DATE'>📅 [(#DATE|affdate)]</time>
-				</header>
-				<section class="widget-agenda__evenements-liste">
-					<BOUCLE_agenda(DATA){source json, #PRODUIRE{fond=agenda.json, start=0,end=2147483647,_=#REM|time}|url_absolue}{pagination 15}{0,4}>
-						<article class="widget-agenda__evenement">
-								[<header>
-									<span class="widget-agenda__evenement-titre">
-										<a href="#VALEUR{url}">#VALEUR{title}</a>
-									</span>
-									<span class="widget-agenda__evenement-date">
-										(#VALEUR{start}|Agenda_affdate_debut_fin{#VALEUR{end},#VALEUR{allDay}|=={true}|?{non,oui}})
-									</span>
-								</header>]
+		<div class="conteneur conteneur--colonnes">
 
-								[<!--section class="widget-agenda__desc">
-									(#VALEUR{description})
-								</section-->]
+			<section class="conteneur__colonne-principale">
+
+				<!-- Derniers articles -->
+				<div class="page-accueil__articles-liste">
+					<h2>LES DERNIERS ARTICLES</h2>
+
+					<BOUCLE_RECENTS(ARTICLES){!par date}{0,6}{doublons}{!id_article=1}>
+						<article class="page-accueil__article">
+							<div class="page-accueil__article-illustration">
+								[(#LOGO_RUBRIQUE)]
+							</div>
+							<div class="page-accueil__article-contenu">
+								<h4 class="page-accueil__article-titre">
+									<a href="#URL_ARTICLE">#TITRE</a>
+								</h4>
+								<abbr class="page-accueil__article-date" title="[(#DATE|date_iso)]">
+									[(#DATE|nom_jour) ][(#DATE|affdate)]
+								</abbr>
+								<p class="page-accueil__article-texte">[(#TEXTE|couper{200})]</p>
+							</div>
 						</article>
-					</BOUCLE_agenda>
-				</section>
-				<footer class="widget-agenda__footer">
-					<a href="spip.php?page=agenda">Accéder à l'agenda</a>
-				</footer>
-			</div>
-			</B_agenda>
-
-			<B_widgets>
-			<BOUCLE_widgets(RUBRIQUES) {id_parent=6} {par num id_rubrique, id_rubrique}>
-				<div class="widget">
-					<header class="widget__entete">
-						<a href="#URL_RUBRIQUE">#TITRE</a>
-					</header>
-					<BOUCLE_widgetArticles(ARTICLES){id_rubrique}{0,1}{doublons}>
-						<article class="widget__article">
-							<a href="#URL_ARTICLE">
-								<header class="widget__article-logo">
-									[(#LOGO_ARTICLE)]
-								</header>
-								<section class="widget__article-titre">
-									#TITRE
-								</section>
-							</a>
-						</article>
-					</BOUCLE_widgetArticles>
-				</div>
-			</BOUCLE_widgets>
-			</B_widgets>
-
-		</aside>
-
-		<section class="conteneur">
-			<div id="colonne-laterale-gauche">
-
-				<div class="sommaire__article">
-					<h2>LES DERNIERS ARTICLES<hr></h2>
-					[(#REM) Non affichage des articles avec le mot-clef "14"= agenda 2015-03-14 Norbert]
-					<BOUCLE_RECENTS(ARTICLES){!par date}{0,6}{doublons}{!id_article=1}{!id_mot=14}>
-						[<h5 class="titre-article"><a href="#URL_ARTICLE">(#TITRE)</a></h5>]
-						<span><abbr class="published-sommaire" title="[(#DATE|date_iso)]">[(#DATE|nom_jour) ][(#DATE|affdate)]</span> [
-						<div class="#EDIT{texte}">(#TEXTE|couper{200})</div>]<br/>
 					</BOUCLE_RECENTS>
-				</div>[(#REM) Fin div "articles" ]
-
-				<!-- Articles -->
-					<div class="sommaire__article">
-					[(#REM) Debut tableau News nationales ]
-					<table WIDTH="100%" BORDER="0" CLASS="news">
-						<tr>
-							[(#REM) Debut colonne gauche News Motomag ]
-							<td WIDTH="50%" VALIGN="TOP" STYLE="padding-right: 20px;">
-								<div ID="NewsMotoMag">
-									<IMG SRC="#CHEMIN{images/rubriques/partenaires/motomag.png}">&nbsp;&nbsp;
-									<B>  Les derni&egrave;res infos de MotoMag</B>
-									<BR>
-									<BR>
-									<div class="texte-news">
-										<B_MotoMag>
-											<BOUCLE_MotoMag(SYNDIC_ARTICLES){id_syndic=2}{par date}{inverse}{0,3}>
-												[
-												<div class="texte">
-													<img src="puce.gif" alt="" width="8" height="11" border="0" align="left">
-													<a href="#URL_ARTICLE" target="_self">(#TITRE)</a>
-												</div>
-												]
-												</BOUCLE_MotoMag>
-										</B_MotoMag>
-									</div>
-									<BR>
-									<div STYLE="text-align: right;">
-										<I><A HREF="http://www.motomag.com" TARGET="_blank">Toutes les news de Motomag ></A></I>
-									</div>
-								</div>
-							</td>
-							[(#REM) Fin colonne gauche News Motomag ] [(#REM) Debut colonne droite News FFMC nationale ]
-							<td WIDTH="50%" VALIGN="TOP" STYLE="padding-left: 20px;">
-								<div ID="NewsNationales">
-									<IMG SRC="images/FFMC_mini.jpg">&nbsp;&nbsp;
-									<B>Les infos de la FFMC nationale</B>
-									<BR>
-									<BR>
-									<div class="texte-news">
-										<B_FFMCNat>
-											<BOUCLE_FFMCNat(SYNDIC_ARTICLES){id_syndic=1}{par date}{inverse}{0,3}>
-												[
-												<div class="texte">
-													<img src="puce.gif" alt="" width="8" height="11" border="0" align="left">
-													<a href="#URL_ARTICLE" target="_self">(#TITRE)</a>
-												</div>
-												]
-												</BOUCLE_FFMCNat>
-										</B_FFMCNat>
-									</div>
-									<BR>
-									<div STYLE="text-align: right;">
-										<I><A HREF="http://www.ffmc.asso.fr/" TARGET="_blank">Toutes les news du national ></A></I>
-									</div>
-								</div>
-							</td>
-							[(#REM) Fin colonne droite News FFMC nationale ]
-						</tr>
-					</table>
-					[(#REM) Fin tableau News nationales ]
 				</div>
-				<!-- Dernières infos -->
-			</div>
 
-			<div id="colonne-laterale-droite">
+				<!-- Flux RSS partenaires -->
+				<div class="page-accueil__rss-groupe">
+
+					<!-- News MotoMag -->
+					<article class="page-accueil__rss page-accueil__rss--MotoMag">
+
+						<header class="page-accueil__rss-entete">
+							<div class="page-accueil__rss-logo">
+								<img src="#CHEMIN{images/rubriques/partenaires/motomag.png}"
+										 alt="logo de MotoMag" height="100%">
+						 </div>
+							<h2 class="page-accueil__rss-titre">Les dernières infos de MotoMag</h2>
+						</header>
+
+						<section class="page-accueil__rss-articles">
+							<B_MotoMag>
+							<BOUCLE_MotoMag(SYNDIC_ARTICLES){id_syndic=2}{par date}{inverse}{0,3}>
+								<div class="page-accueil__rss-article">
+									<a href="#URL_ARTICLE" target="_blank">#TITRE</a>
+								</div>
+								</BOUCLE_MotoMag>
+							</B_MotoMag>
+						</section>
+
+						<footer class="page-accueil__rss-pied">
+							<a href="http://www.motomag.com"
+								 target="_blank">Toutes les news de Motomag</a>
+						</footer>
+
+					</article>
+
+					<!-- News FFMC Nationale -->
+					<article class="page-accueil__rss page-accueil__rss--NewsNationales">
+
+						<header class="page-accueil__rss-entete">
+							<div class="page-accueil__rss-logo">
+								<img src="#CHEMIN{images/rubriques/partenaires/FFMCnationale.png}"
+										 alt="logo de la FFMC nationale" height="100%">
+							</div>
+							<h2 class="page-accueil__rss-titre">Les infos de la FFMC nationale</h2>
+						</header>
+
+						<section class="page-accueil__rss-articles">
+							<B_FFMCNat>
+							<BOUCLE_FFMCNat(SYNDIC_ARTICLES){id_syndic=1}{par date}{inverse}{0,3}>
+								<div class="page-accueil__rss-article">
+									<a href="#URL_ARTICLE" target="_blank">(#TITRE)</a>
+								</div>
+							</BOUCLE_FFMCNat>
+							</B_FFMCNat>
+						</section>
+
+						<footer class="page-accueil__rss-pied">
+							<a href="http://www.ffmc.asso.fr/"
+								 target="_blank">Toutes les news du national</a>
+						</footer>
+
+					</article>
+
+				</div>
+
+			</section>
+
+			<aside class="conteneur__colonne-droite">
 
 				<?xml version="1.0" encoding="utf-8"?>
 				<!-- Generator: Adobe Illustrator 22.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-				<svg class="carte-antenne" version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+				<svg class="page-accueil__carte-antenne" version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 					 viewBox="0 0 500 500" style="enable-background:new 0 0 500 500;" xml:space="preserve">
 					<style type="text/css">
 						.st0{fill-rule:evenodd;clip-rule:evenodd;fill:#3F982C;}
@@ -279,7 +242,7 @@
 				</svg>
 
 				<!-- Bouton adhésion et dons -->
-				<div class="btn btn--pop btn--deroulant">
+				<label class="btn btn--pop btn--deroulant">
 					<input type="checkbox" />
 					<div class="btn__logo"></div>
 					<div class="btn__texte">
@@ -296,19 +259,27 @@
 							<a target="_blank" href="http://ffmc73.org/IMG/pdf/demande_et_autorisation_de_prelevement.pdf">- Bulletin de prélèvement</a>
 						</li>
 					</ul>
-				</div>
+				</label>
 
-				<div class="bloc-twitter">
-	                                <a class="twitter-timeline" data-width="100%" data-height="100%" data-link-color="$couleur1--sombre" href="https://twitter.com/ffmc73">Tweets by ffmc73</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-	                        </div>
+				<div class="page-accueil__bloc-twitter">
+	        <a class="page-accueil__bloc-twitter-timeline"
+						 data-width="100%"
+						 data-height="100%"
+						 data-link-color="#30891D"
+						 href="https://twitter.com/ffmc73">Tweets by ffmc73</a>
+					<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+	      </div>
 
-				<img class="illustration-mobilisation" src="https://www.motomag.com/IMG/jpg/moto_magazine_couverture.jpg" width="auto">
-			</div>
-		</section>
+				<img class="page-accueil__couverture-motomag" src="https://www.motomag.com/IMG/jpg/moto_magazine_couverture.jpg" width="auto">
 
-		<div class="bandeau-antenne">#DESCRIPTIF_SITE_SPIP</div>
+			</aside>
+
+			<div class="bandeau-antenne">#DESCRIPTIF_SITE_SPIP</div>
+
+		</div>
 
 	</section>
+
 
 	<!-- Footer -->
 	[(#INCLURE{fond=inclure/inc_pied})]

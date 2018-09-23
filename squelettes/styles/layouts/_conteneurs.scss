@@ -4,29 +4,49 @@
                # CONTENEURS
 ================================================ **/
 
-.page {
-   &-accueil { background-color: $couleur-fond--clair; }
-   &-rubrique { background-color: $couleur-fond; }
-}
-
 .conteneur {
-   width: 100%;
-   max-width: 1000px;
-   margin: $espace-vertical auto 50px;
-   &__chapo { margin: $espace-vertical auto; }
+  display: flex;
+  flex-flow: wrap;
+  width: 100%;
+  max-width: 1000px;
+  margin: $espace-vertical auto 50px;
+  &--colonnes {
+    margin: 0 auto 0;
+    justify-content: center;
+  }
+
+  &__chapo {
+    margin: $espace-vertical auto;
+  }
+
+  &__colonne-principale {
+    flex: 3 1 500px;
+    margin: 0 20px;
+  }
+
+  &__colonne-droite {
+    flex: 1 1 200px;
+    display: flex;
+    flex-flow: wrap;
+    justify-content: center;
+    margin: $espace-vertical 20px auto;
+    max-width: 360px;
+  }
 }
 
 .spip_logo.spip_logos {
-   display: block;
-   z-index: 9;
-   width: auto;
-   height: 90px;
-   margin: auto;
-   padding: 10px;
-   vertical-align: unset;
+  display: block;
+  z-index: 9;
+  width: auto;
+  height: 90px;
+  margin: auto;
+  padding: 10px;
+  vertical-align: unset;
 }
 
-.pagination {text-align: center;}
+.pagination {
+  text-align: center;
+}
 
 
 
@@ -34,16 +54,18 @@
                 tablette paysage
 ------------------------------------------------ **/
 
-@media (max-width: $tablette-paysage) { }
+@media (max-width: $tablette-paysage) {}
+
 
 /** ------------------------------------------------
                 tablette portrait
 ------------------------------------------------ **/
 
-@media (max-width: $tablette-portrait) { }
+@media (max-width: $tablette-portrait) {}
+
 
 /** ------------------------------------------------
                 Mobile
 ------------------------------------------------ **/
 
-@media (max-width: $mobile) { }
+@media (max-width: $mobile) {}

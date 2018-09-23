@@ -10,16 +10,6 @@
   flex-flow: wrap;
   margin: $espace-vertical auto;
 
-  &__contenu {
-    flex: 3;
-    min-width: 500px;
-    margin-right: 30px;
-  }
-  &__aside {
-    flex: 1;
-    margin: $espace-vertical auto;
-  }
-
   &__entete {
     display: flex;
     flex-flow: column;
@@ -77,6 +67,7 @@
 
 
   &__lireaussi {
+    flex: 1 1 200px;
 
     &-vignette {
       display: flex;
@@ -105,22 +96,26 @@
     }
     &-titre {
       margin: 5px 0;
-      font-size: 16px;
+      font-size: $police-taille--normale;
     }
     &-date {
-      font-size: 14px;
+      font-size: $police-taille--petite;
       color: $couleur-fond--clair;
     }
   }
-  &__widget-agenda {
-    margin: $espace-vertical 0!important;
-    overflow: hidden;
-    .widget-agenda__evenements-liste { height: 180px; }
-  }
   &__social {
+    flex: 1 1 200px;
+    align-self: center;
+    padding: 0 20px;
     margin: $espace-vertical auto;
     text-align: center;
     .fb-like, .twitter-share-button { margin: 2px auto; vertical-align: middle;}
+  }
+  &__widget-agenda {
+    flex: 1 1 200px;
+    margin: $espace-vertical 0!important;
+    overflow: hidden;
+    .widget-agenda__evenements-liste { height: 180px; }
   }
 
 }
