@@ -14,7 +14,7 @@
 	[(#INCLURE{fond=inclure/inc_fonts})]
 	[(#INCLURE{fond=inclure/inc_robots-do})]
 	[(#INCLURE{fond=inclure/inc_desc})]
-	<title>Calendrier</title>
+	<title>Agenda</title>
 </head>
 
 <body class="page-agenda">
@@ -23,6 +23,8 @@
 	[(#INCLURE{fond=inclure/inc_entete})]
 
 	<div class="conteneur">
+
+		<h1>📅 Agenda</h1>
 
 		<!-- Masqué si JS activé -->
 		<B_agenda>
@@ -57,25 +59,34 @@
 	<script type="text/javascript">
 		/*<![CDATA[*/
 			jQuery(function($) {
-							$('#agenda').fullCalendar({
-											locale : '[(#LANG|strtolower)]',
-											editable: false,
-											navLinks: true,
-											eventLimit: true,
-											events: "[(#URL_PAGE{agenda.json})]",
-											header: {
-															left: [(#LANG_DIR|=={ltr}|?{"'prevYear,prev,next,nextYear,today'","'listMonth,month,agendaWeek,agendaDay'"})],
-															center: 'title',
-															right: [(#LANG_DIR|=={ltr}|?{"'agendaDay,agendaWeek,month,listMonth'","'today nextYear,next,prev,prevYear'"})]
-											},
-											fixedWeekCount: false,
-										 allDayHtml:'<:organiseur:cal_jour_entier|textebrut:>',
-											loading: function(bool) {
-														 if (bool) $('#calendrier-loading').show();
-															else $('#calendrier-loading').hide();
-											},
-							})
+					var largeur = $( window ).width();
+					$('#agenda').fullCalendar({
+						locale : '[(#LANG|strtolower)]',
+						editable: false,
+						navLinks: true,
+						eventLimit: true,
+						events: "[(#URL_PAGE{agenda.json})]",
+						header: {
+							left: [(#LANG_DIR|=={ltr}|?{"'prevYear,prev,next,nextYear,today'","'listMonth,month,agendaWeek,agendaDay'"})],
+							center: 'title',
+							right: [(#LANG_DIR|=={ltr}|?{"'agendaDay,agendaWeek,month,listMonth'","'today nextYear,next,prev,prevYear'"})]
+						},
+						fixedWeekCount: false,
+					  allDayHtml:'<:organiseur:cal_jour_entier|textebrut:>',
+						loading: function(bool) {
+									 if (bool) $('#calendrier-loading').show();
+										else $('#calendrier-loading').hide();
+						},
+					})
+					if (largeur <= 768) {
+				    console.log("Hello ! :)");
+				    $('#agenda').fullCalendar('changeView', 'listMonth');
+				  }
 			});
+
+
+
+
 		/*]]>*/
 	</script>
 

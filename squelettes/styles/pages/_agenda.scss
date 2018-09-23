@@ -1,13 +1,13 @@
 // main: ../global.scss
 
 /** ================================================
-               # CALENDRIER
+               # AGENDA
 ================================================ **/
 
 .fc-toolbar, .fc-header-toolbar {
   position: relative;
 
-  .fc-right, .fc-left { position: absolute; }
+  .fc-right, .fc-left { position: absolute; bottom: 0; }
   .fc-left { left: 0; }
   .fc-right { right: 0; }
 
@@ -90,10 +90,16 @@
 
 // SPECIFIQUE VERSION PAGE
 .conteneur {
+  margin: $espace-vertical*2 auto;
+  max-width: 860px;
+
   $couleur-calendrier : $couleur-texte;
 
   .fc-toolbar, .fc-header-toolbar {
     h2, .fc-button { color: $couleur-calendrier; }
+    .fc-center {
+      margin-bottom: $espace-vertical*1.5;
+    }
   }
   .fc-view-container {
     .fc-body * { border-color: $couleur-calendrier; }
@@ -136,7 +142,31 @@
                 tablette portrait
 ------------------------------------------------ **/
 
-@media (max-width: $tablette-portrait) { }
+@media (max-width: $tablette-portrait) {
+
+  .conteneur {
+
+    .fc-toolbar, .fc-header-toolbar {
+      display: flex;
+      flex-flow: column-reverse;
+      .fc-left {
+        position: static;
+        float: none;
+        display: flex;
+        margin: 0 auto $espace-vertical;
+        justify-content: center;
+      }
+      .fc-center {
+        display: flex;
+        margin-bottom: $espace-vertical;
+        justify-content: center;
+      }
+      .fc-right { display: none; }
+    }
+
+  }
+
+}
 
 /** ------------------------------------------------
                 Mobile
