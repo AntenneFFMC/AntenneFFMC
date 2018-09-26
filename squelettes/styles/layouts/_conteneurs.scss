@@ -29,8 +29,8 @@
     display: flex;
     flex-flow: wrap;
     justify-content: center;
+    align-items: center;
     margin: $espace-vertical 20px auto;
-    max-width: 360px;
   }
 }
 
@@ -61,7 +61,15 @@
                 tablette portrait
 ------------------------------------------------ **/
 
-@media (max-width: $tablette-portrait) {}
+@media (max-width: $tablette-portrait) {
+
+  .conteneur {
+    &__colonne-droite {
+      &-item { margin: $espace-vertical; }
+    }
+  }
+  
+}
 
 
 /** ------------------------------------------------

@@ -132,8 +132,10 @@
   // Colonne droite
   &__carte-antenne {
     display: block;
-    margin-bottom: 20px;
+    width: 100%;
     max-width: 289px;
+    height: 100%;
+    margin-bottom: 20px;
   }
   &__bloc-twitter {
     display: block;
@@ -144,7 +146,9 @@
   }
   &__couverture-motomag {
     display: block;
+    width: 100%;
     max-width: 289px;
+    height: 100%;
   }
 
 }
@@ -198,7 +202,7 @@
       }
     }
 
-    &__articles-liste { margin: 0 40px; }
+    &__rss { margin: 45px 28px 0; }
 
     .zone-bandeau-mouvement { width: 98%;}
 
@@ -215,8 +219,12 @@
 
 @media (max-width: $tablette-portrait) {
 
-   .bandeau-antenne {height: 106px;}
-   .bandeau-antenne p {font-size: 17px;}
+  .page-accueil {
+      &__articles-liste { margin: 0 auto 0; max-width: 78%;}
+
+      .bandeau-antenne {height: 106px;}
+      .bandeau-antenne p {font-size: 17px;}
+  }
 
 }
 

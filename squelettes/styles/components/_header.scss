@@ -30,10 +30,6 @@ $hauteurligne: 50px;
   background-color: $couleur1;
   border-bottom: 4px solid $couleur1--sombre;
 
-  * {
-    @extend %transition-all;
-  }
-
   &__bouton-mobile {
     z-index: 2;
     position: relative;
@@ -60,11 +56,9 @@ $hauteurligne: 50px;
           &:nth-of-type(1) {
             transform: rotate(45deg) translate(25%, 360%);
           }
-
           &:nth-of-type(2) {
             width: 0;
           }
-
           &:nth-of-type(3) {
             transform: rotate(-45deg) translate(25%, -360%);
           }
@@ -131,12 +125,10 @@ $hauteurligne: 50px;
       list-style: none;
       text-align: center;
       overflow: hidden;
-      @extend %transition-all;
     }
 
     &-sous-liste--agenda {
       overflow: hidden;
-
       #agendaMenu {
         max-width: 860px;
         margin: 0 auto;
@@ -289,7 +281,6 @@ $hauteurligne: 50px;
 
     &--recherche {
       line-height: $hauteurligne;
-
       form {
         margin: 0;
         height: 100%;
@@ -353,6 +344,7 @@ $hauteurligne: 50px;
     color: $couleur-fond--clair;
     font-size: $police-taille--moyenne;
     text-align: center;
+    &::placeholder { color: $couleur-bordure; }
   }
 }
 
@@ -370,8 +362,12 @@ $hauteurligne: 50px;
 
       &-declencheur:checked {
         & ~ .menu__liste {
-          height: 100%;
-          .menu__rubrique--recherche { left: -80px; }
+          height: auto;
+          font-size: inherit;
+          .menu__rubrique {
+            height: auto;
+              &--recherche { left: -80px; }
+          }
         }
       }
     }
@@ -379,10 +375,9 @@ $hauteurligne: 50px;
     &__liste {
       z-index: 1;
       flex-direction: column;
-      height: $hauteurligne;
-      margin-top: -$hauteurligne;
-      padding-top: $hauteurligne;
-      overflow: hidden;
+      height: 0;
+      font-size: 0;
+      //overflow: hidden;
 
       &-sous-liste {
         position: unset;
@@ -394,7 +389,6 @@ $hauteurligne: 50px;
     &__rubrique {
       position: relative;
       flex: auto;
-      height: auto;
 
       &-bouton {
         display: none;
@@ -413,7 +407,7 @@ $hauteurligne: 50px;
 
       &--recherche {
         position: absolute;
-        top: 0;
+        top: -$hauteurligne;
         left: 0;
 
         .menu__rubrique-bouton {
@@ -515,15 +509,27 @@ $hauteurligne: 50px;
   }
 
   .menu {
+    &__bouton-mobile {
+      &-declencheur:checked {
+        & ~ .menu__liste {
+          .menu__rubrique {
+            .menu__liste-sous-liste { padding: 10px 20px; }
+          }
+        }
+      }
+    }
     &__liste {
       &-sous-liste {
-        padding: 10px 20px;
+        padding: 0;
       }
     }
 
     &__sous-rubrique {
-      line-height: 30px;
-      height: auto;
+      &:not(.menu__sous-rubrique--recherche) {
+        display: block;
+        line-height: 30px;
+        height: auto;
+      }
 
       &-texte {
         line-height: 25px;
