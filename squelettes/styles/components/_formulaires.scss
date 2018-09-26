@@ -4,14 +4,10 @@
                # FORMULAIRES
 ================================================ **/
 
-.cadre-formulaire {
-        border: 5px solid $couleur1--sombre;
-        border-radius: 10px;
-        display: block;
-        margin: auto;
-        padding: 10px;
-        width: 96%;
-}
+textarea,
+input[type="text"],
+input[type="email"] { width: 100%; }
+
 
 .formulaire {
   display: flex;
@@ -23,7 +19,7 @@
 
   &__liste {
     display: flex;
-    flex: 1 1 246px;
+    flex: 1 1 200px;
     flex-flow: column;
     list-style: none;
     padding: 0;
@@ -36,7 +32,6 @@
     	padding: 6px 0;
     	background: none;
     	border: none;
-    	color: $couleur-fond--clair;
     	border-bottom: 1px solid;
     	font-size: $police-taille--petite;
     }
@@ -49,10 +44,8 @@
     }
   }
   &__bouton {
-    height: 28px;
     margin: 20px auto 8px;
     padding: 2px 20px;
-  	background: $couleur-fond--clair;
   	border: none;
   	line-height: 24px;
     text-transform: uppercase;
@@ -119,10 +112,34 @@
   }
 }
 
-textarea { width: 100%; }
-input[type="text"],
-input[type="email"] { width: 100%; max-width: 320px; }
 
+.header {
+  .formulaire {
+    &__element {
+      &-champ, textarea, input {
+        color: $couleur-fond--clair;
+        border-color: $couleur-fond;
+        @extend %transition-all;
+        &:focus { border-color: $couleur-fond--clair; }
+      }
+      &-bouton { background: $couleur-fond--clair; }
+    }
+  }
+}
+
+.conteneur {
+  .formulaire {
+    &__element {
+      &-champ, textarea, input {
+        color: $couleur-texte;
+        border-color: $couleur-bordure;
+        @extend %transition-all;
+        &:focus { border-color: $couleur1--sombre; }
+      }
+      &-bouton { background: $couleur-fond--clair; }
+    }
+  }
+}
 
 
 /** ------------------------------------------------

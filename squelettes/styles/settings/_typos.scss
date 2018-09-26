@@ -14,6 +14,7 @@ $police-taille--moyenne  : 18px;
 $police-taille--grande   : 20px;
 $police-taille--enorme   : 25px;
 
+
 h1 {
   margin: $espace-vertical auto;
   font-family: $police2;
@@ -51,6 +52,8 @@ p {
   color: $couleur-texte;
   font-size: $police-taille--normale;
 }
+
+*::placeholder { color: $couleur-bordure; }
 
 hr { width: 50%;}
 
