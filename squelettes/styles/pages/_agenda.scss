@@ -103,7 +103,7 @@
   }
   .fc-view-container {
     .fc-body * { border-color: $couleur-calendrier; }
-    .fc-row th { color: $couleur-calendrier; }
+    .fc-row th, .fc-day-number { color: $couleur-calendrier; }
     .fc-today { background: $couleur-fond--sombre; }
     .fc-event, .fc-event-dot { background-color: $couleur-pop; }
     .fc-event, .fc-event:hover { color: $couleur-calendrier; }
@@ -114,14 +114,14 @@
 
 // SPECIFIQUE VERSION MENU
 .header {
-  $couleur-calendrier : $couleur-fond--clair;
+  $couleur-calendrier--clair : $couleur-fond--clair;
 
   .fc-toolbar, .fc-header-toolbar {
-    h2, .fc-button { color: $couleur-calendrier; }
+    h2, .fc-button { color: $couleur-calendrier--clair; }
   }
   .fc-view-container {
-    .fc-body * { border-color: $couleur-calendrier; }
-    .fc-row th { color: $couleur-calendrier; }
+    .fc-body * { border-color: $couleur-calendrier--clair; }
+    .fc-row th, .fc-day-number { color: $couleur-calendrier--clair; }
     .fc-today { background: darken($couleur1--sombre, 5); }
     .fc-event, .fc-event-dot { background-color: $couleur-pop; }
   }
