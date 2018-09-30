@@ -31,12 +31,12 @@
   </B_agenda>
 
   <B_widgets>
-  <BOUCLE_widgets(RUBRIQUES) {id_parent=6} {par num id_rubrique, id_rubrique}>
+  <BOUCLE_widgets(RUBRIQUES) {id_rubrique=5}>
     <div class="widget">
       <header class="widget__entete">
         <a href="#URL_RUBRIQUE">#TITRE</a>
       </header>
-      <BOUCLE_widgetArticles(ARTICLES){id_rubrique}{0,1}{doublons}>
+      <BOUCLE_widgetArticles(ARTICLES){id_parent}{0,1}{doublons}>
         <article class="widget__article">
           <a href="#URL_ARTICLE">
             <header class="widget__article-logo">
@@ -51,5 +51,17 @@
     </div>
   </BOUCLE_widgets>
   </B_widgets>
+
+  <div class="widget">
+    <header class="widget__entete">
+      <a href="spip.php?page=infrastructures">⚠️ Infrastructures dangereuses</a>
+    </header>
+    <section>
+      <a href="spip.php?page=infrastructures">
+        <div class="btn btn--form">Formulaire de signalement</div>
+      </a>
+      Signalez une chaussée dangereuse pour les 2 roues pour éviter des accidents !
+    </section>
+  </div>
 
 </section>

@@ -1,0 +1,73 @@
+// main: ../global.scss
+
+/** ================================================
+               # COMMENTAIRES
+================================================ **/
+
+.commentaires {
+  position: relative;
+
+  &__bouton {
+    &--checkbox {
+      position: absolute;
+      visibility: hidden;
+      & ~ .commentaires__ecrire { height: 0; overflow: hidden; }
+      &:hover ~ .commentaires__bouton--label::after {
+        top: 8px;
+    		transform: rotate(0deg);
+    		@extend %transition-all;
+    	}
+      &:checked ~ .commentaires {
+        &__ecrire { height: 100%; }
+        &__bouton--label::after {
+          top: 6px;
+    			transform: rotate(-90deg);
+    			@extend %transition-all;
+    		}
+      }
+    }
+    &--label {
+    	position: absolute;
+    	top: 10px;
+    	right: 0;
+      justify-content: left;
+    	margin: 0 auto;
+      padding: 8px 40px 8px 17px;
+    	max-width: 140px;
+      color: $couleur-fond--clair;
+      background-color: $couleur1;
+      border-color: $couleur1--sombre;
+      &::after {
+  			content: "❯";
+  			position: absolute;
+  			top: 12px;
+  			right: 20px;
+  			transform: rotate(90deg);
+  			@extend %transition-all;
+  		}
+    }
+
+  }
+  &__ecrire {}
+  &__liste {}
+
+}
+
+
+/** ------------------------------------------------
+                tablette paysage
+------------------------------------------------ **/
+
+@media (max-width: $tablette-paysage) { }
+
+/** ------------------------------------------------
+                tablette portrait
+------------------------------------------------ **/
+
+@media (max-width: $tablette-portrait) { }
+
+/** ------------------------------------------------
+                Mobile
+------------------------------------------------ **/
+
+@media (max-width: $mobile) { }

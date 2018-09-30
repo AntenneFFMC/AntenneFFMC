@@ -70,11 +70,29 @@
 
 					[<div class="notes"><hr />(#NOTES)</div>]
 
-					[(#REM) Forum de l'article ]
-					<div class="article__commentaires">
-						<INCLURE{fond=inclure/forum,id_article} />
-						[<h2><:forum:form_pet_message_commentaire:></h2>
-						(#FORMULAIRE_FORUM)]
+
+					<div class="article__commentaires commentaires">
+
+						<input type="checkbox"
+									 id="commentaires__bouton"
+									 class="commentaires__bouton
+									 				commentaires__bouton--checkbox"/>
+						<label for="commentaires__bouton"
+									 class="commentaires__bouton
+									 			  commentaires__bouton--label
+									 				btn btn--form">
+							Réagir
+						</label>
+
+						<div class="commentaires__ecrire">
+							[<h2>Votre message</h2>
+							(#FORMULAIRE_FORUM)]
+						</div>
+
+						<div class="commentaires__liste">
+							<h2>Les commentaires</h2>
+							[(#INCLURE{fond=inclure/forum,id_article})]
+						</div>
 					</div>
 
 				</div>
