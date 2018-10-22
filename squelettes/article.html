@@ -105,7 +105,7 @@
 				<B_LIREAUSSI>
 				<div class="article__lireaussi">
 					<h2>Lisez aussi</h2>
-					<BOUCLE_LIREAUSSI(ARTICLES) {!id_article} {date <= #DATE}{par date, id_article}{0,1}>
+					<BOUCLE_LIREAUSSI(ARTICLES) {age_relatif>0}{!par date}{0,1} {exclus}>
 					<div class="article__lireaussi-vignette" style='background-image: url("[(#LOGO_ARTICLE|extraire_attribut{src}|url_absolue)]");'>
 						<div class="article__lireaussi-texte">
 							[<h5 class="article__lireaussi-titre"><a href="#URL_ARTICLE">(#TITRE)</a></h5>]

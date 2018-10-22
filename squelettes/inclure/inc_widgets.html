@@ -1,12 +1,12 @@
 <section class="conteneur widget-liste">
 
   <!-- agenda -->
-  <B_agenda>
   <div class="widget widget-agenda">
     <header class="widget__entete">
       <time datetime='#DATE'>📅 [(#DATE|affdate)]</time>
     </header>
     <section class="widget-agenda__evenements-liste">
+      <B_agenda>
       <BOUCLE_agenda(DATA){source json, #PRODUIRE{fond=agenda.json, start=0,end=2147483647,_=#REM|time}|url_absolue}{pagination 15}{0,4}>
         <article class="widget-agenda__evenement">
             [<header>
@@ -23,12 +23,12 @@
             </section-->]
         </article>
       </BOUCLE_agenda>
+      </B_agenda>
     </section>
     <footer class="widget-agenda__footer">
       <a href="spip.php?page=agenda">Accéder à l'agenda</a>
     </footer>
   </div>
-  </B_agenda>
 
   <B_widgets>
   <BOUCLE_widgets(RUBRIQUES) {id_rubrique=5}>
