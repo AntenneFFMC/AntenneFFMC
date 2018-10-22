@@ -1,33 +1,50 @@
 [(#REM) Cette balise (invisible) provoque le recalcul du forum
 la premiere fois qu'un message est poste (cf. inc/invalideur). ]
 [(#PARAMETRES_FORUM|?{''})]
+
 <a href="#forum" name="forum" id="forum"></a>
 [(#REM) Messages du forum ]
 <B_comments>
+
+	<h2>Les commentaires</h2>
+
 <div class="comments comments-thread comments-thread-1">
 <ul class="comments-items">
 
 	<BOUCLE_comments(FORUMS?) {id_rubrique ?}{id_article ?}{id_breve ?}{id_syndic ?} {par date}>
-	<li class="comment-item comment-fil[ (#COMPTEUR_BOUCLE|alterner{'odd','even'})][ (#COMPTEUR_BOUCLE|=={1}|oui)first][ (#COMPTEUR_BOUCLE|=={#TOTAL_BOUCLE}|oui)last][ (#EXPOSE)]">
-		<div class="comment hreview">
+	<li class="commentaire commentaire--#COMPTEUR_BOUCLE comment-item comment-fil[ (#COMPTEUR_BOUCLE|alterner{'odd','even'})][ (#COMPTEUR_BOUCLE|=={1}|oui)first][ (#COMPTEUR_BOUCLE|=={#TOTAL_BOUCLE}|oui)last][ (#EXPOSE)]">
+		<div class="hreview">
 			<a href="#comment#ID_FORUM" name="comment#ID_FORUM" id="comment#ID_FORUM"></a>
 			<a href="#forum#ID_FORUM" name="forum#ID_FORUM" id="forum#ID_FORUM"></a>
-			<p class="comment-meta">
-				<a rel="self bookmark" href="#forum#ID_FORUM" title="<:forum:forum_permalink:> #ID_FORUM" class="permalink">[(#CONFIG{forums_titre}|!={non}|oui)<span class="permalink">#COMPTEUR_BOUCLE.</span>
-				<strong class="#EDIT{titre} comment-titre">[(#TITRE), ]</strong>]
-				<small><abbr class="dtreviewed"[ title="(#DATE|date_iso)"]>[(#DATE|affdate_jourcourt)][, (#DATE|heures)][:(#DATE|minutes)]</abbr>[<span class="sep">, </span><:par_auteur:> <span class="#EDIT{qui}">(#NOM|couper{80})</span>]</small></a>
+			<p class="commentaire__header">
+				<a rel="self bookmark"
+					 href="#forum#ID_FORUM"
+					 title="<:forum:forum_permalink:> #ID_FORUM"
+					 class="permalink">
+					[(#CONFIG{forums_titre}|!={non}|oui)
+					<h4 class="#EDIT{titre} commentaire__header--titre">[(#TITRE)]</h4>]
+					<small>
+						<abbr class="dtreviewed  commentaire__header--date"[ title="(#DATE|date_iso)"]>[(#DATE|affdate_jourcourt)][, (#DATE|heures)][:(#DATE|minutes)]</abbr>
+						[<span class="sep">, </span><:par_auteur:>
+						<span class="#EDIT{qui}">(#NOM|couper{80})</span>]
+					</small>
+				</a>
 			</p>
-			<div class="#EDIT{texte} comment-content description">
+			<div class="#EDIT{texte} commentaire__contenu">
 				[(#TEXTE|lignes_longues)]
 				[<div class="comment-notes">(#NOTES|safehtml|lignes_longues)</div>]
 				[<p class="#EDIT{hyperlien} hyperlien"><:voir_en_ligne:> : <a href="(#URL_SITE)" class="spip_out">[(#NOM_SITE|sinon{[(#URL_SITE|couper{80})]})]</a></p>]
-				<B_doc><div class="comment-doc"><BOUCLE_doc(DOCUMENTS){id_forum}>
-				[(#EXTENSION|match{'^(gif|jpg|png)$'}|?{
-					[(#MODELE{emb}|image_reduire{672,*})]
-				,
-					#LOGO_DOCUMENT{#URL_DOCUMENT}
-				})]
-				</BOUCLE_doc></div></B_doc>
+				<B_doc>
+				<div class="comment-doc">
+					<BOUCLE_doc(DOCUMENTS){id_forum}>
+						[(#EXTENSION|match{'^(gif|jpg|png)$'}|?{
+							[(#MODELE{emb}|image_reduire{672,*})]
+						,
+							#LOGO_DOCUMENT{#URL_DOCUMENT}
+						})]
+					</BOUCLE_doc>
+				</div>
+				</B_doc>
 			</div>
 		</div>
 		<B_comments-fils>

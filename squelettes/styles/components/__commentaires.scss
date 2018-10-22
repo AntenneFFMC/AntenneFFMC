@@ -18,7 +18,8 @@
     		@extend %transition-all;
     	}
       &:checked ~ .commentaires {
-        &__ecrire { height: 100%; }
+        &__ecrire { height: auto; }
+        &__liste { height: 0; overflow: hidden; }
         &__bouton--label::after {
           top: 6px;
     			transform: rotate(-90deg);
@@ -48,8 +49,20 @@
     }
 
   }
+
   &__ecrire {}
-  &__liste {}
+
+  &__liste {
+    ul { list-style: none; padding: 0; }
+    .comments-thread { margin-top: 40px; }
+  }
+
+  .commentaire {
+    margin: 15px 0 20px;
+    padding: 0 30px 5px;
+    border-bottom: 1px solid $couleur-fond--sombre;
+    &__header--titre { margin-bottom: 2px; }
+  }
 
 }
 
