@@ -11,7 +11,7 @@
         <article class="widget-agenda__evenement">
             [<header>
               <span class="widget-agenda__evenement-titre">
-                <a href="#VALEUR{url}">(#VALEUR{title})</a>
+                <a href="#VALEUR{url}">#VALEUR{title}</a>
               </span>
               <span class="widget-agenda__evenement-date">
                 (#VALEUR{start}|Agenda_affdate_debut_fin{#VALEUR{end},#VALEUR{allDay}|=={true}|?{non,oui}})
@@ -30,7 +30,6 @@
     </footer>
   </div>
 
-  <B_widgets>
   <BOUCLE_widgets(RUBRIQUES){id_rubrique=5}>
     <div class="widget">
       <header class="widget__entete">
@@ -50,7 +49,6 @@
       </BOUCLE_widgetArticles>
     </div>
   </BOUCLE_widgets>
-  </B_widgets>
 
   <div class="widget">
     <header class="widget__entete">
