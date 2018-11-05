@@ -14,7 +14,7 @@ N°|Détails|Année
  ------------ | ------------ | ------------
  V1 | Toute première version ! (en tableaux :flushed:) | 2010
  V2 | Abandons des tableaux & arrivée du responsive ! :blush: | 2015
- V3 | Design modernisé, menus 100% CSS, hiérarchie revue... | _soon !_
+ V3 | Design modernisé, menus 100% CSS, hiérarchie revue... | 2018
 
 ---  
 [Visitez le site de l'antenne FFMC Savoie pour exemple !](http://www.ffmc73.org)
