@@ -7,7 +7,7 @@
     </header>
     <section class="widget-agenda__evenements-liste">
       <B_agenda>
-      <BOUCLE_agenda(DATA){source json, #PRODUIRE{fond=agenda.json, start=0,end=2147483647,_=#REM|time}|url_absolue}{pagination 15}{0,4}>
+      <BOUCLE_agenda(DATA){source json, #PRODUIRE{fond=agenda.json, start=2147483647,end=0,_=#REM|time}|url_absolue}{pagination 15}{0,4}>
         <article class="widget-agenda__evenement">
             [<header>
               <span class="widget-agenda__evenement-titre">
