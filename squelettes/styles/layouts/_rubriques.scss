@@ -20,14 +20,18 @@
     font-weight: bold;
     text-align: center;
 
-    &-logo {
-      height: 0;
-      margin-bottom: $espace-vertical;
+    &-logo .spip_logo {
+      display: block;
+      height: 100px;
+      margin-bottom: 6px;
+      &[src*=".svg"] {
+        height: 0;
+        margin-bottom: $espace-vertical;
+      }
     }
     @supports (-webkit-filter: blur(2px)) or (filter: blur(2px)) {
-      .rubrique__entete-logo {
-        display: block;
-        height: auto;
+      .rubrique__entete-logo .spip_logo[src*=".svg"] {
+        height: 100px;
         margin-bottom: 6px;
         filter: invert(1);
       }
