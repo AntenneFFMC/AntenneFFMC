@@ -128,7 +128,7 @@
     }
   }
 
-  // Colonne droite
+  // Colonne droite 2018-12-31 + overflow: auto
   &__carte-antenne {
     display: block;
     width: 100%;
@@ -141,6 +141,7 @@
     margin-bottom: 20px;
     max-height: 300px;
     max-width: 289px;
+    overflow: auto;
     &-timeline { min-width: none; }
   }
   &__couverture-motomag {

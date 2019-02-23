@@ -1,13 +1,13 @@
 <section class="conteneur widget-liste">
 
-  <!-- agenda -->
+  <!--mini agenda ({!par date} ordonne les résultats par date décroissante (de la plus récente à la plus ancienne))-->
   <div class="widget widget-agenda">
     <header class="widget__entete">
       <time datetime='#DATE'>📅 [(#DATE|affdate)]</time>
     </header>
     <section class="widget-agenda__evenements-liste">
       <B_agenda>
-      <BOUCLE_agenda(DATA){source json, #PRODUIRE{fond=agenda.json, start=0,end=2147483647,_=#REM|time}|url_absolue}{pagination 15}{0,4}>
+      <BOUCLE_agenda(DATA){source json, #PRODUIRE{fond=agenda.json, start=0,end=2147483647,_=#REM|time}|url_absolue}{0,4}{!par date}>
         <article class="widget-agenda__evenement">
             [<header>
               <span class="widget-agenda__evenement-titre">
@@ -30,13 +30,12 @@
     </footer>
   </div>
 
-  <B_widgets>
-  <BOUCLE_widgets(RUBRIQUES) {id_rubrique=5}>
+  <BOUCLE_widgets(RUBRIQUES){id_rubrique=5}>
     <div class="widget">
       <header class="widget__entete">
         <a href="#URL_RUBRIQUE">#TITRE</a>
       </header>
-      <BOUCLE_widgetArticles(ARTICLES){id_parent}{0,1}{doublons}>
+      <BOUCLE_widgetArticles(ARTICLES){id_rubrique=5}{0,1}{doublons}>
         <article class="widget__article">
           <a href="#URL_ARTICLE">
             <header class="widget__article-logo">
@@ -50,7 +49,6 @@
       </BOUCLE_widgetArticles>
     </div>
   </BOUCLE_widgets>
-  </B_widgets>
 
   <div class="widget">
     <header class="widget__entete">

@@ -21,14 +21,14 @@
 		<div class="menu__masque"></div>
 		<ul class="menu__liste">
 
-			<BOUCLE_nav(RUBRIQUES) {racine} {id_rubrique != 5} {id_rubrique != 6} {par num id_rubrique, id_rubrique}>
+			<BOUCLE_nav(RUBRIQUES){racine}{id_rubrique!= 5}{id_rubrique!=6} {par num id_rubrique,id_rubrique}>
 				<li class="menu__rubrique">
 					<input id="onglet-rubrique#ID_RUBRIQUE" class="menu__rubrique-bouton" type="radio" name="optionmenu" />
 					<label for="onglet-rubrique#ID_RUBRIQUE" class="menu__rubrique-texte">
 						<a href="#URL_RUBRIQUE">#TITRE</a>
 					</label>
 					<ul class="menu__liste-sous-liste">
-						<BOUCLE_sousnav(RUBRIQUES) {id_parent} {par num id_rubrique, id_rubrique}>
+						<BOUCLE_sousnav(RUBRIQUES){id_parent}{par num id_rubrique,id_rubrique}>
 							<li class="menu__sous-rubrique" >
 								<span class="menu__sous-rubrique-texte"><a href="#URL_RUBRIQUE">#TITRE</a></span>
 								<span class="menu__sous-rubrique-illustration">[(#LOGO_ARTICLE_RUBRIQUE)]</span>
@@ -45,7 +45,7 @@
 				<a class="menu__rubrique--lien-remplacement" href="#"></a>
 				<input id="onglet-agenda" class="menu__rubrique-bouton" type="radio" name="optionmenu" />
 				<label for="onglet-agenda" class="menu__rubrique-texte">
-					<a href="spip?page=agenda">Agenda</a>
+					<a href="spip.php?page=agenda">Agenda</a>
 					</label>
 				<ul class="menu__liste-sous-liste menu__liste-sous-liste--agenda">
 
@@ -72,7 +72,7 @@
 				<a class="menu__rubrique--lien-remplacement" href="#"></a>
 				<input id="onglet-contact" class="menu__rubrique-bouton" type="radio" name="optionmenu" />
 				<label for="onglet-contact" class="menu__rubrique-texte">
-					<a href="spip?page=contact">Contact</a>
+					<a href="spip.php?page=contact">Contact</a>
 				</label>
 				<ul class="menu__liste-sous-liste menu__liste-sous-liste--contact">
 					<div>
