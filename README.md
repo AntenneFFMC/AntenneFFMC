@@ -20,7 +20,7 @@ N°|Détails|Année
 [Visitez le site de l'antenne FFMC Savoie pour exemple !](http://www.ffmc73.org)
 ---
 
-## ETAT DES VERSIONS DES SITES ANTENNE
+## Etat des versions des sites antenne
 N°|Antenne|Spip|Agenda|Mini Calendrier|Logo SVG|Plugin
  ------------ |------------|------------|------------|------------|------------|------------
  V1 | 29,74,84 | 3.1.6 | 3.28.1 | 2.4.1 | ---- | ---
