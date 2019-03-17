@@ -19,3 +19,10 @@ N°|Détails|Année
 ---  
 [Visitez le site de l'antenne FFMC Savoie pour exemple !](http://www.ffmc73.org)
 ---
+
+## ETAT DES VERSIONS DES SITES ANTENNE
+N°|Détails|Année
+ ------------ | ------------ | ------------
+ V1 | Toute première version ! (en tableaux :flushed:) | 2010
+ V2 | Abandons des tableaux & arrivée du responsive ! :blush: | 2015
+ V3 | Design modernisé, menus 100% CSS, hiérarchie revue... | 2018
