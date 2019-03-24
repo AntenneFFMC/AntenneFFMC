@@ -1,13 +1,13 @@
 <section class="conteneur widget-liste">
 
-  <!--mini agenda ({!par date} ordonne les résultats par date décroissante (de la plus récente à la plus ancienne))-->
+  <!-- agenda -->
   <div class="widget widget-agenda">
     <header class="widget__entete">
       <time datetime='#DATE'>📅 [(#DATE|affdate)]</time>
     </header>
     <section class="widget-agenda__evenements-liste">
       <B_agenda>
-      <BOUCLE_agenda(DATA){source json, #PRODUIRE{fond=agenda.json, start=0,end=2147483647,_=#REM|time}|url_absolue}{0,4}{!par date}>
+      <BOUCLE_agenda(DATA){source json, #PRODUIRE{fond=agenda.json, start=0,end=2147483647,_=#REM|time}|url_absolue}{pagination 15}{0,4}>
         <article class="widget-agenda__evenement">
             [<header>
               <span class="widget-agenda__evenement-titre">

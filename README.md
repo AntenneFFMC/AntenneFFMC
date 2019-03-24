@@ -19,3 +19,12 @@ N°|Détails|Année
 ---  
 [Visitez le site de l'antenne FFMC Savoie pour exemple !](http://www.ffmc73.org)
 ---
+
+## Etat des versions des sites antenne
+N°|Antenne|Spip|Agenda|Mini Calendrier|Logo SVG|Plugin
+ ------------ |------------|------------|------------|------------|------------|------------
+ V1 | 29,74,84 | 3.1.6 | 3.28.1 | 2.4.1 | ---- | ---
+ V1 | 58 | 3.1.3 | 3.28.1 | 2.4.1 | ---- | ---
+ V1 | 69 | 3.2.3 | 3.28.1 | 2.4.1 | ---- | Le Couteau Suisse 1.10.14
+ V2 | 23,35 | 3.2.3 | 3.28.1 | 2.4.1 | 1.2.1 | (35)Enluminures typographiques 3.5.13
+ V3 | 43,63,73,77,89 | 3.2.3 | 3.28.1 | 2.4.1 | 1.2.1 |---
