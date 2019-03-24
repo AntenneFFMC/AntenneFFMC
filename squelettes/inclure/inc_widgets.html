@@ -1,34 +1,7 @@
 <section class="conteneur widget-liste">
 
   <!-- agenda -->
-  <div class="widget widget-agenda">
-    <header class="widget__entete">
-      <time datetime='#DATE'>📅 [(#DATE|affdate)]</time>
-    </header>
-    <section class="widget-agenda__evenements-liste">
-      <B_agenda>
-      <BOUCLE_agenda(DATA){source json, #PRODUIRE{fond=agenda.json, start=0,end=2147483647,_=#REM|time}|url_absolue}{pagination 15}{0,4}>
-        <article class="widget-agenda__evenement">
-            [<header>
-              <span class="widget-agenda__evenement-titre">
-                <a href="#VALEUR{url}">#VALEUR{title}</a>
-              </span>
-              <span class="widget-agenda__evenement-date">
-                (#VALEUR{start}|Agenda_affdate_debut_fin{#VALEUR{end},#VALEUR{allDay}|=={true}|?{non,oui}})
-              </span>
-            </header>]
-
-            [<!--section class="widget-agenda__desc">
-              (#VALEUR{description})
-            </section-->]
-        </article>
-      </BOUCLE_agenda>
-      </B_agenda>
-    </section>
-    <footer class="widget-agenda__footer">
-      <a href="spip.php?page=agenda">Accéder à l'agenda</a>
-    </footer>
-  </div>
+  [(#INCLURE{fond=inclure/inc_widget-agenda})]
 
   <BOUCLE_widgets(RUBRIQUES){id_rubrique=5}>
     <div class="widget">
