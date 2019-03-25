@@ -14,7 +14,6 @@ package*.json
 **/squelettes-dist
 
 COPYING.txt
-htaccess.txt
 INSTALL.txt
 
 index.php
