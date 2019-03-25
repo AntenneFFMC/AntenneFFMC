@@ -17,5 +17,5 @@
   ],
   "name": "Mon antenne FFMC",
   "short_name": "MonAntenne",
-  "start_url": "spip.php"
+  "start_url": "/spip.php"
 }
