@@ -3,7 +3,8 @@ node_modules/
 gulp*
 package*.json
 
-**/config
+config/*
+!config/mes_options.php
 **/ecrire
 **/IMG
 **/tmp
