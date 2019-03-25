@@ -5,27 +5,33 @@
   <header class="widget__entete">
     <time datetime='#DATE'>📅 À venir en #GET{nom_mois}</time>
   </header>
-  <section class="widget-agenda__evenements-liste">
-    <B_agenda>
-    <BOUCLE_agenda(DATA){source json, #PRODUIRE{fond=agenda.json, start=0,end=2147483647,_=#REM|time}|url_absolue}>
-      #SET{mois_event, #VALEUR{start}|mois}
-      <BOUCLE_triRecents(CONDITION){si #GET{mois_event}|=={#GET{num_mois}}}>
-        <article class="widget-agenda__evenement">
-            [<header>
-              <span class="widget-agenda__evenement-titre">#VALEUR{title} </span>
-              <span class="widget-agenda__evenement-date">
-                (#VALEUR{start}|Agenda_affdate_debut_fin{#VALEUR{end},#VALEUR{allDay}|=={true}|?{non,oui}})
-              </span>
-            </header>]
 
-            [<!--section class="widget-agenda__desc">
-              (#VALEUR{description})
-            </section-->]
-        </article>
-      </BOUCLE_triRecents>
-    </BOUCLE_agenda>
-    </B_agenda>
+  <B_agenda>
+  <section class="widget-agenda__evenements-liste">
+
+  <BOUCLE_agenda(DATA){source json, #PRODUIRE{fond=agenda.json, start=0,end=2147483647,_=#REM|time}|url_absolue}>
+    #SET{mois_event, #VALEUR{start}|mois}
+    <B_triRecents>
+    <BOUCLE_triRecents(CONDITION){si #GET{mois_event}|=={#GET{num_mois}}}>
+      [<article class="widget-agenda__evenement">
+          <header>
+            <span class="widget-agenda__evenement-titre">#VALEUR{title}</span>
+            <span class="widget-agenda__evenement-date">
+              (#VALEUR{start}|Agenda_affdate_debut_fin{#VALEUR{end},#VALEUR{allDay}|=={true}|?{non,oui}})
+            </span>
+          </header>
+
+          [<!--section class="widget-agenda__desc">
+            (#VALEUR{description})
+          </section-->]
+      </article>]
+    </BOUCLE_triRecents>
+    </B_triRecents>
+  </BOUCLE_agenda>
+
   </section>
+  </B_agenda>
+
   <footer class="widget-agenda__footer">
     <a href="spip.php?page=agenda">Accéder à l'agenda</a>
   </footer>

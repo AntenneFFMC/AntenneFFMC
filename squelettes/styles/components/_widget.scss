@@ -78,6 +78,13 @@
     height: 120px;
     margin-right: -16px;
     overflow-y: scroll;
+    &.sansEnfants {
+      background-image: url("../images/index/tyre.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 30%;
+      opacity: 0.2;
+    }
   }
 
   &__evenement {
