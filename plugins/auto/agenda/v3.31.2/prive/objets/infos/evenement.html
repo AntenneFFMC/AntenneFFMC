@@ -1,0 +1,41 @@
+<BOUCLE_art(EVENEMENTS){id_evenement=#ENV{id}}{statut?}>
+<div class='infos'>
+#SET{texte_objet,#VAL{evenement}|objet_info{texte_objet}|_T}
+<div class='numero'><:titre_cadre_numero_objet{objet=#GET{texte_objet}}:><p>#ID_EVENEMENT</p></div>
+
+[(#FORMULAIRE_INSTITUER_OBJET{evenement,#ID_EVENEMENT})]
+
+[(#REM)
+
+	Bouton voir en ligne
+
+]
+<B_has>
+	<ul class="liste-items articles">
+<BOUCLE_has(ARTICLES){id_article}{statut==.*}>
+		<li class="item"><a href="[(#ID_ARTICLE|generer_url_entite{article})]">#TITRE</a></li>
+</BOUCLE_has>
+#PIPELINE{evenement_liaisons_colonne_gauche,
+		#ARRAY{args,#ARRAY{id_evenement,#ID_EVENEMENT},
+					data,''
+				}
+		}
+	</ul>
+</B_has>
+
+
+<BOUCLE_epublie(EVENEMENTS){id_evenement}>
+	[(#VAL{redirect}
+		|generer_url_action{type=evenement&id=#ID_EVENEMENT}
+		|parametre_url{var_mode,calcul}
+		|icone_horizontale{<:icone_voir_en_ligne:>,racine})]
+</BOUCLE_epublie>
+	[(#AUTORISER{previsualiser,evenement,#ID_EVENEMENT,'',#ARRAY{statut,#STATUT}})
+		[(#VAL{redirect}
+			|generer_url_action{type=evenement&id=#ID_ARTICLE}
+			|parametre_url{var_mode,preview}
+			|icone_horizontale{<:previsualiser:>,preview})]
+	]
+<//B_epublie>
+</div>
+</BOUCLE_art>

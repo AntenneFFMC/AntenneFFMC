@@ -1,0 +1,18 @@
+#HTTP_HEADER{Content-type:text/javascript;}
+[<BOUCLE_ev(EVENEMENTS)
+	{!evenement_passe #ENV{start}|todate}{!evenement_a_venir #ENV{end}|todate}{par date_debut}
+	{id_article?}
+	{id_rubrique?}
+	{id_mot?}
+	{id_evenement_source?}
+	{', '}>
+[(#ARRAY{
+id,#ID_EVENEMENT,
+title,[(#TITRE|html2unicode|unicode2charset|textebrut)],
+allDay,[(#HORAIRE|=={oui}|non)],
+start,#DATE_DEBUT,
+end,#DATE_FIN,
+url,#URL_EVENEMENT*,
+className,calendrier-couleur6,
+description,[(#INTRODUCTION|html2unicode|unicode2charset)]
+}|json_encode)]</BOUCLE_ev>]

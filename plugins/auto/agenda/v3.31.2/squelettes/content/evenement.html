@@ -1,0 +1,13 @@
+[(#REM)
+/**
+ * Plugin Agenda 4 pour Spip 3.0
+ * Licence GPL 3
+ *
+ * 2006-2011
+ * Auteurs : cf paquet.xml
+ */
+]
+[(#CONFIG{agenda/url_evenement,evenement}|=={article}|non|sinon_interdire_acces{#URL_EVENEMENT*,301})]
+<BOUCLE_ev(EVENEMENTS){id_evenement}>
+<INCLURE{fond=content/article-evenement,id_article,id_evenement,env} />
+</BOUCLE_ev>

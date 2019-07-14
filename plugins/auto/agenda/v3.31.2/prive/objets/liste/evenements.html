@@ -1,0 +1,48 @@
+[(#SET{defaut_tri,#ARRAY{
+	date_debut,#ENV{date_sens,1},
+	titre,1,
+	id_evenement,1,
+	points,-1
+}})
+]<B_liste_evt>
+#ANCRE_PAGINATION
+<div class="liste-objets evenements">
+<table class='spip liste'>
+[<caption><strong class="caption">(#ENV*{titre,#GRAND_TOTAL|singulier_ou_pluriel{agenda:info_un_evenement,agenda:info_nombre_evenements}})</strong></caption>]
+	<thead>
+		<tr class='first_row'>
+			<th class='statut' scope='col'>[(#TRI{statut,<span title="<:lien_trier_statut|attribut_html:>">#</span>,ajax})]</th>
+			<th class='date' scope='col'>[(#TRI{date_debut,<:date:>,ajax})]</th>
+			<th class='article secondaire' scope='col'></th>
+			<th class='titre principale' scope='col'>[(#TRI{titre,<:info_titre:>,ajax})]</th>
+			<th class='lieu' scope='col secondaire'><:agenda:evenement_lieu:></th>
+			<th class='id' scope='col'>[(#TRI{id_evenement,<:info_numero_abbreviation:>,ajax})]</th>
+		</tr>
+	</thead>
+	<tbody>
+	<BOUCLE_liste_evt(EVENEMENTS){id_evenement?}{id_article?}{id_rubrique?}{id_mot?}{id_evenement_source?}{where?}{statut?}{recherche?}{tri #ENV{par,date_debut},#GET{defaut_tri}}{pagination #ENV{nb,15}}>
+		<tr class="[(#COMPTEUR_BOUCLE|alterner{row_odd,row_even})][ (#EXPOSE)][(#ID_EVENEMENT_SOURCE|oui)repetition]">
+			<td class='statut'>[(#STATUT|puce_statut{evenement,#ID_EVENEMENT})]</td>
+			<td class='date'>[(#DATE_DEBUT|affdate_jourcourt|unique{liste_evt})]</td>
+			<td class='article secondaire'>[<a (#ID_ARTICLE|oui) href="[(#ID_ARTICLE|generer_url_entite{article})]" title="[(#INFO_TITRE{article,#ID_ARTICLE}|attribut_html)]">[(#CHEMIN_IMAGE{article-16.png}|balise_img{#INFO_TITRE{article,#ID_ARTICLE}})]</a>]</td>
+			<td class='titre principale'><a href="[(#ID_EVENEMENT|generer_url_entite{evenement})]" title="<:info_numero_abbreviation|attribut_html:> #ID_EVENEMENT">[(#RANG). ]#TITRE</a>
+				<p class="date">[(#DATE_DEBUT|affdate_debut_fin{#DATE_FIN,#HORAIRE})]</p>
+			</td>
+			<td class='lieu secondaire'>#LIEU</td>
+			#SET{id_evenement,#ID_EVENEMENT_SOURCE|?{#ID_EVENEMENT_SOURCE,#ID_EVENEMENT}}
+			<td class='id'>[(#ID_EVENEMENT_SOURCE|oui)
+				[(#CHEMIN_IMAGE{repetition-16.png}|balise_img{<:agenda:repetition:>,''}|inserer_attribut{title,<:agenda:repetition:>})]
+				][(#AUTORISER{modifier,evenement,#GET{id_evenement}}|?{[
+				<a href="[(#URL_ECRIRE{evenement_edit}|parametre_url{id_evenement,#GET{id_evenement}}|parametre_url{redirect,#SELF})]">(#GET{id_evenement})</a>],
+				[(#GET{id_evenement})]
+			})]
+			</td>
+		</tr>
+	</BOUCLE_liste_evt>
+	</tbody>
+</table>
+[<p class='pagination'>(#PAGINATION{prive})</p>]
+</div>
+</B_liste_evt>[
+<div class="liste-objets evenements caption-wrap"><strong class="caption">(#ENV*{sinon,''})</strong></div>
+]<//B_liste_evt>

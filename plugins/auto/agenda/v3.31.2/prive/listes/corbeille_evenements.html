@@ -1,0 +1,18 @@
+<B_evenements>
+<div class="liste corbeille-evenements">
+[<h3 class="titrem">(#GRAND_TOTAL|singulier_ou_pluriel{agenda:evenements_corbeille_un,agenda:evenements_corbeille_tous})</h3>]
+[<p class='pagination'>(#PAGINATION)</p>]
+<ul class='liste-items checkables'>
+<BOUCLE_evenements(EVENEMENTS){statut}{pagination 5}{!par date}{recherche ?}>
+<li class='item'>
+<label for='formulaire-#ID_EVENEMENT'><:corbeille:selectionner:></label>
+<input type='checkbox' name='elements[]' id="evenement-#ID_EVENEMENT" value='#ID_EVENEMENT'[ (#ID_EVENEMENT|in_any{#ENV{elements}}|oui)checked='checked']/>
+<h4>[##ID_EVENEMENT - (#TITRE|sinon{<:info_sans_titre:>})]</h4>
+<small>[(#DATE_DEBUT|affdate_debut_fin{#DATE_FIN,#HORAIRE})]</small>
+<p class='actions'><a href='#URL_ECRIRE{evenement,id_evenement=#ID_EVENEMENT}'><:corbeille:voir_detail:></a></p>
+</li>
+</BOUCLE_evenements>
+</ul>
+[<p class='pagination'>(#PAGINATION{prive})</p>]
+</div>
+</B_evenements>

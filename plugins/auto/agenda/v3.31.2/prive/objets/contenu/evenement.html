@@ -1,0 +1,54 @@
+<BOUCLE_afficher_contenu(EVENEMENTS){id_evenement=#ENV{id}}{statut==.*}>
+<div class="champ contenu_titre[ (#TITRE*|strlen|?{'',vide})]">
+<div class='label'><:info_titre:></div>
+<div dir='#LANG_DIR' class='#EDIT{titre} titre'>#TITRE</div>
+</div>
+<div class="champ contenu_dates">
+<div class='label'><:agenda:info_dates:></div>
+<div dir='#LANG_DIR' class='dates'>[(#DATE_DEBUT|affdate_debut_fin{#DATE_FIN,#HORAIRE})]</div>
+</div>
+<B_repetitions>
+<div class="champ contenu_repetitions">
+	<div class='label'>[(#GRAND_TOTAL|singulier_ou_pluriel{agenda:une_repetition,agenda:nb_repetitions})]</div>
+	<div dir='#LANG_DIR' class='repetitions'>(<BOUCLE_repetitions(EVENEMENTS){par date_debut}{id_evenement_source=#ID_EVENEMENT}{', '}{statut==.*}>[<a href="[(#ID_EVENEMENT|generer_url_entite{evenement})]">(#DATE_DEBUT|affdate_court)</a>]</BOUCLE_repetitions>)</div>
+</div>
+</B_repetitions>
+<B_repetition_de>
+<div class="champ contenu_repetition_de">
+	<div class="label"><:agenda:repetition_de:></div>
+	<BOUCLE_repetition_de(EVENEMENTS){id_evenement=#ID_EVENEMENT_SOURCE} {statut==.*}>
+	[<a href="[(#ID_EVENEMENT|generer_url_entite{evenement})]">(#DATE_DEBUT|affdate_court)</a>]
+	</BOUCLE_repetition_de>
+</div>
+</B_repetition_de>
+<div class="champ contenu_descriptif[ (#DESCRIPTIF*|strlen|?{'',vide})]">
+<div class='label'><:info_descriptif:></div>
+<div dir='#LANG_DIR' class='#EDIT{descriptif} descriptif'>[(#DESCRIPTIF|image_reduire{500,0})]</div>
+</div>
+<div class="champ contenu_lieu[ (#LIEU*|strlen|?{'',vide})]">
+<div class='label'><:agenda:info_lieu:></div>
+<div dir='#LANG_DIR' class='#EDIT{lieu} lieu'>[(#LIEU|image_reduire{500,0})]</div>
+</div>
+<div class="champ contenu_adresse[ (#ADRESSE*|strlen|?{'',vide})]">
+<div class='label'><:agenda:evenement_adresse:></div>
+<div dir='#LANG_DIR' class='#EDIT{adresse} adresse'>[(#ADRESSE|image_reduire{500,0})]</div>
+</div>
+<div class="champ contenu_places[ (#INSCRIPTION*|?{'',vide})]">
+<div class='label'><:agenda:info_inscription:></div>
+<BOUCLE_decompte_oui(evenements_participants){id_evenement}{reponse=oui} />#SET{rep_oui,#TOTAL_BOUCLE}<//B_decompte_oui>
+<BOUCLE_decompte_non(evenements_participants){id_evenement}{reponse=non} />#SET{rep_non,#TOTAL_BOUCLE}<//B_decompte_non>
+<BOUCLE_decompte_nsp(evenements_participants){id_evenement}{reponse=?} />#SET{rep_nsp,#TOTAL_BOUCLE}<//B_decompte_nsp>
+[<div dir='#LANG_DIR' class='#EDIT{places} places'>(#PLACES|singulier_ou_pluriel{agenda:info_1_place,agenda:info_nb_places})
+	<span class="reponses">(<:agenda:info_reponses_inscriptions:>
+		[(#GET{rep_oui}) ]<:agenda:info_reponse_inscription_oui:> |
+		[(#GET{rep_non}) ]<:agenda:info_reponse_inscription_non:> |
+		[(#GET{rep_nsp}) ]<:agenda:info_reponse_inscription_nsp:>)
+	</span>
+</div>]
+<div><a href="[(#URL_ECRIRE{agenda_inscriptions}|parametre_url{id_evenement,#ID_EVENEMENT})]"><:agenda:liste_inscrits:></a></div>
+</div>
+[<div class="champ contenu_notes">
+<div class='label'><:info_notes:></div>
+<div dir='#LANG_DIR' class='#EDIT{notes} notes'>(#NOTES)</div>
+</div>
+]</BOUCLE_afficher_contenu>

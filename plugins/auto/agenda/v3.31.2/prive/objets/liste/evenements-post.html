@@ -1,0 +1,11 @@
+[(#REM) Se placer au debut du mois en cours par defaut]
+#SET{date_debut,#ENV{date_debut,#ENV{date}}|affdate{Y-m-d 00:00:00}|agenda_dateplus{-1}}
+<BOUCLE_un(EVENEMENTS){statut==.*}{id_evenement}{id_article?}{id_rubrique?}{id_mot?}{id_evenement_source?}>
+[(#REM) Si un evenement passe, on commence par le jour de cet evenement]
+	#SET{id_evenement,#ID_EVENEMENT}
+</BOUCLE_un>
+	<BOUCLE_debut(EVENEMENTS){evenement_a_venir #GET{date_debut}}{statut==.*}{id_article?}{id_rubrique?}{id_mot?}{id_evenement_source?}{par date_debut}{0,1}>
+		#SET{id_evenement,#ID_EVENEMENT}
+	</BOUCLE_debut>
+<//B_un>
+[(#INCLURE{fond=prive/objets/liste/evenements,debut_liste_evt=#ENV{debut_liste_evt,@#GET{id_evenement}},id_evenement=#EVAL{null},env})]

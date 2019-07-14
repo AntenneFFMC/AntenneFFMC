@@ -1,0 +1,65 @@
+[(#SET{urljson,[(#ENV{urljson}
+						|parametre_url{id_rubrique,#ENV{id_rubrique,#ENV{urljson}|parametre_url{id_rubrique}}}
+						|parametre_url{id_article,#ENV{id_article,#ENV{urljson}|parametre_url{id_article}}}
+						|parametre_url{id_mot,#ENV{id_mot,#ENV{urljson}|parametre_url{id_mot}}}
+						|parametre_url{lang,#ENV{lang,#ENV{urljson}|parametre_url{lang}}}
+						)]})
+]<div id="calendar" class="calendriermini minicalendar">
+	<h2 class="menu-titre"><:icone_calendrier:></h2>
+	<div class="calendar-container"
+					data-json="#GET{urljson}"
+					data-year="[(#ENV{date}|affdate{Y})]"
+					data-month="[(#ENV{date}|affdate{n})]"
+					data-url="#ENV{self}"
+					data-vardate="#ENV{var_date}"
+					>[(#REM)
+		Contenu alternatif statique pour les Bot et les utilisateurs sans JS
+		]<div class="alt">
+			#SET{start,#ENV{date}|affdate{Y-m-01}|strtotime}
+			#SET{end,#VAL{Y-m-01}|date{#GET{start}|plus{2764800}}|strtotime}
+			[(#SET{url,#INCLURE{fond=#GET{urljson}|parametre_url{page},
+						id_rubrique=#GET{urljson}|parametre_url{id_rubrique},
+						id_article=#GET{urljson}|parametre_url{id_articlee},
+						id_mot=#GET{urljson}|parametre_url{id_mot},
+						lang=#GET{urljson}|parametre_url{lang},
+						start=#GET{start},
+						end=#GET{end}}})]
+			<strong>[(#ENV{date}|affdate_mois_annee)]&nbsp;:</strong>
+			<B_alt>
+			<ul class="liste-items">
+			<BOUCLE_alt(DATA){source json,#GET{url}}><BOUCLE_dates(DATA){source table,#VALEUR{start}|calendriermini_intervalle{#VALEUR{end}}}>[
+				<li class="item"><a href="[(#ENV{self}|parametre_url{#ENV{var_date},#VALEUR})]">(#VALEUR|affdate|unique)</a></li>
+				]</BOUCLE_dates></BOUCLE_alt>
+			</ul>
+			</B_alt>
+			<p><:minical:aucune_date:></p>
+			<//B_alt>
+			<p class="pagination">
+			#SET{prev,#VAL{Y-m-01}|date{#GET{start}|moins{172800}}}
+			#SET{next,#VAL{Y-m-01}|date{#GET{end}}}
+			<a rel="nofollow" href="[(#ENV{self}|parametre_url{#ENV{var_date},#GET{prev}|affdate{Y-m-d}})]">[(#GET{prev}|affdate_mois_annee)]</a>
+			| <a rel="nofollow" href="[(#ENV{self}|parametre_url{#ENV{var_date},#GET{next}|affdate{Y-m-d}})]">[(#GET{next}|affdate_mois_annee)]</a>
+			</p>
+		</div>
+	</div>
+</div>[
+(#REM) --------------------------------------------------------------------------------------------------
+
+Chargement du javascript du mini-calendrier
+
+]<script type='text/javascript'>/*<![CDATA[*/
+if (window.jQuery){jQuery(function(){
+	#SET{ui,#CHEMIN{javascript/ui/jquery-ui.min.js}}[(#REM) SPIP 3.2+]
+	[(#GET{ui}|oui)jQuery.getScript('#GET{ui}', function(){]
+		jQuery.getScript('[(#PRODUIRE{fond=javascript/calendrier_mini.js,lang=#ENV{lang}}|compacte)]',function(){minical.init('.minicalendar .calendar-container');});
+	[(#GET{ui}|oui)});]
+});}/*]]>*/</script>[
+(#REM) --------------------------------------------------------------------------------------------------
+
+Chargement de la css que l'on importe inline pour eviter un hit (performance)
++ fixer la css de background pour les boutons precedent/suivant
+
+]<style type="text/css">
+[(#INCLURE{css/minical.css}|compacte{css})]
+.calendriermini .ui-datepicker-header .ui-icon {background-image: url("#CHEMIN{css/img/month_prev_next-32x16.png}");}
+</style>

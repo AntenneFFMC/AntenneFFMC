@@ -1,0 +1,63 @@
+<paquet
+	prefix="agenda"
+	categorie="date"
+	version="3.31.2"
+	etat="stable"
+	compatibilite="[3.0.0;3.2.*]"
+	logo="prive/themes/spip/images/evenement-32.png"
+	schema="0.28.0"
+	documentation="https://contrib.spip.net/article2858"
+>
+
+	<nom>Agenda</nom>
+	<!-- Agenda Evenementiel -->
+
+	<auteur lien="http://www.yterium.net">Cedric MORIN</auteur>
+	<auteur lien="https://contrib.spip.net/b_b">b_b</auteur>
+	<auteur lien="http://spip.tetue.net">Tetue</auteur>
+	<auteur lien="http://www.cahri.com">Julien Tessier</auteur>
+
+	<copyright>2006-2015</copyright>
+
+	<licence lien="http://www.gnu.org/licenses/gpl-3.0.html">GPL 3</licence>
+
+	<traduire module="agenda" reference="fr" gestionnaire="salvatore" />
+	<traduire module="configureragenda" reference="fr" gestionnaire="salvatore" />
+	<traduire module="migreragenda" reference="fr" gestionnaire="salvatore" />
+
+	<pipeline nom="autoriser" inclure="agenda_autoriser.php" />
+	<pipeline nom="declarer_tables_interfaces" inclure="base/agenda_evenements.php" />
+	<pipeline nom="declarer_tables_auxiliaires" inclure="base/agenda_evenements.php" />
+	<pipeline nom="declarer_tables_objets_sql" inclure="base/agenda_evenements.php" />
+
+	<pipeline nom="accueil_encours" inclure="agenda_pipelines.php" />
+	<pipeline nom="affiche_milieu" inclure="agenda_pipelines.php" />
+	<pipeline nom="compositions_declarer_heritage"  inclure="agenda_pipelines.php" />
+	<pipeline nom="corbeille_table_infos" inclure="agenda_pipelines.php" />
+	<pipeline nom="formulaire_fond"  inclure="agenda_pipelines.php" />
+	<pipeline nom="insert_head_css" inclure="agenda_pipelines.php" />
+	<pipeline nom="optimiser_base_disparus" inclure="agenda_pipelines.php" />
+	<pipeline nom="post_edition" inclure="agenda_pipelines.php" />
+	<pipeline nom="post_edition_lien" inclure="agenda_pipelines.php" />
+	<pipeline nom="quete_calendrier_prive" inclure="agenda_pipelines.php" />
+	<pipeline nom="revisions_chercher_label" inclure="agenda_pipelines.php" />
+	<pipeline nom="propres_creer_chaine_url" inclure="agenda_pipelines.php" />
+	<pipeline nom="saisie_est_tabulaire" inclure="agenda_pipelines.php" />
+
+
+	<utilise nom="Fulltext" compatibilite="[1.0.0;[" />
+	<utilise nom="mots" compatibilite="[2.4.6;[" />
+	<utilise nom="corbeille" compatibilite="[3.1.1;[" />
+	<utilise nom="saisies" compatibilite="[3.13.0;[" />
+	<utilise nom="verifier" compatibilite="[1.7.1;[" />
+	<utilise nom="urls" compatibilite="[1.4.12;[" />
+	<utilise nom="pages" compatibilite="[1.3.10;[" />
+
+	<necessite nom="calendriermini" compatibilite="[2.3.7;[" />
+
+	<menu nom="evenements" titre="agenda:evenements" parent="menu_edition" icone="images/evenement-16.png" />
+	<menu nom="evenement_creer" titre="agenda:creer_evenement" parent="outils_rapides" action="evenement_edit" icone="images/evenement-new-16.png" />
+
+	<chemin path="./" />
+	<chemin path="squelettes" type='public'/>
+</paquet>

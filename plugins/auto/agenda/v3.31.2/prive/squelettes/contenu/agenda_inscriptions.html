@@ -1,0 +1,14 @@
+#BOITE_OUVRIR
+<BOUCLE_evt(EVENEMENTS){id_evenement}>
+<h1 class="grostitre"><:agenda:liste_inscrits:></h1>
+<h2 class="#EDIT{titre}">#TITRE</h2>
+<div dir='#LANG_DIR' class='dates'>[(#DATE_DEBUT|affdate_debut_fin{#DATE_FIN,#HORAIRE})]</div>
+[<div class='descriptif secondaire #EDIT{descriptif}'><:agenda:evenement_descriptif:> : (#DESCRIPTIF|PtoBR)</div>]
+[<div class='lieu secondaire #EDIT{lieu}'><:agenda:evenement_lieu:> : (#LIEU)</div>]
+<INCLURE{fond=prive/objets/liste/evenement_participants,id_evenement=#ENV{id_evenement},tri_inscrits=#ENV{tri_inscrits}}>
+</BOUCLE_evt>
+</B_evt>
+<h2><:agenda:aucun_evenement:></h2>
+<//B_evt>
+#BOITE_FERMER
+ 

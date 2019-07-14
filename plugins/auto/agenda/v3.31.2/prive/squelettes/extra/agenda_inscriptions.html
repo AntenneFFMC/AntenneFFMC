@@ -1,0 +1,23 @@
+[(#BOITE_OUVRIR{[(#CHEMIN_IMAGE{calendrier-24.png}|balise_img{'',cadre-icone})],'info'})]
+<h3><:agenda:info_inscription:></h3>
+<BOUCLE_decompte_oui(evenements_participants){id_evenement}{reponse=oui} />#SET{rep_oui,#TOTAL_BOUCLE}<//B_decompte_oui>
+<BOUCLE_decompte_non(evenements_participants){id_evenement}{reponse=non} />#SET{rep_non,#TOTAL_BOUCLE}<//B_decompte_non>
+<BOUCLE_decompte_nsp(evenements_participants){id_evenement}{reponse=?} />#SET{rep_nsp,#TOTAL_BOUCLE}<//B_decompte_nsp>
+<BOUCLE_evt(EVENEMENTS){id_evenement}>
+[<div class="label"><span dir="#LANG_DIR" class="#EDIT{places} places">(#PLACES|singulier_ou_pluriel{agenda:info_1_place,agenda:info_nb_places})</span></div>]
+</BOUCLE_evt>
+<div class="label"><:agenda:info_reponses_inscriptions:></div>
+<ul class="liste-items">
+    <li class="item">[(#GET{rep_oui}) ]<:agenda:info_reponse_inscription_oui:></li>
+    <li class="item">[(#GET{rep_non}) ]<:agenda:info_reponse_inscription_non:></li>
+    <li class="item">[(#GET{rep_nsp}) ]<:agenda:info_reponse_inscription_nsp:></li>
+</ul>
+#SET{args,#ARRAY{id_evenement,#ID_EVENEMENT}}
+<h3><:agenda:telecharger:></h3>
+<ul class="liste-items">
+    <li class="item"><a href="[(#URL_PAGE{transmettre,[(#VAL{evenement_participants}|param_low_sec{#GET{args}, '', 'transmettre'})]}|parametre_url{reponse,oui})]" class="noajax"><:agenda:telecharger_oui:></a></li>
+    <li class="item"><a href="[(#URL_PAGE{transmettre,[(#VAL{evenement_participants}|param_low_sec{#GET{args}, '', 'transmettre'})]})]" class="noajax"><:agenda:telecharger_toutes:></a></li>
+#SET{args,#ARRAY{}}
+    <li class="item"><a href="[(#URL_PAGE{transmettre,[(#VAL{evenements_participants}|param_low_sec{#GET{args}, '', 'transmettre'})]})]" class="noajax"><:agenda:telecharger_toutes_tous_evenements:></a></li>
+</ul>
+#BOITE_FERMER

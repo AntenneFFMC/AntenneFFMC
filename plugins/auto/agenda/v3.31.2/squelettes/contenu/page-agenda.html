@@ -1,0 +1,18 @@
+[(#REM)
+
+  Squelette
+  (c) 2009 xxx
+  Distribue sous licence GPL
+
+]
+
+<B_ev>
+	[<h1>(#TOTAL_BOUCLE|singulier_ou_pluriel{agenda:info_un_evenement,agenda:info_nombre_evenements})</h1>]
+	<ul class="liste-items evenements">
+	<BOUCLE_ev(EVENEMENTS){!evenement_passe #ENV{date_debut,#ENV{date}}}{!evenement_a_venir #ENV{date_debut,#ENV{date}}|agenda_moisdecal{1,'Y-m-d H:i:00'}}{par date_debut}{id_article?}{id_rubrique?}{id_mot?}{id_evenement_source?}>
+		<li class="item">#INCLURE{fond=inclure/resume/evenement,id_evenement}</li>
+	</BOUCLE_ev>
+	</ul>
+</B_ev>
+<h1><:agenda:info_aucun_evenement:></h1>
+<//B_ev>

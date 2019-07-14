@@ -1,0 +1,91 @@
+#CACHE{7200}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+[(#REM) Cf.: http://paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/
+]<!--[if lt IE 7 ]> <html dir="#LANG_DIR" lang="#LANG" xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" class="[(#LANG_DIR)][ (#LANG)] no-js ie ie6"> <![endif]-->
+<!--[if IE 7 ]> <html dir="#LANG_DIR" lang="#LANG" xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" class="[(#LANG_DIR)][ (#LANG)] no-js ie ie7"> <![endif]-->
+<!--[if IE 8 ]> <html dir="#LANG_DIR" lang="#LANG" xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" class="[(#LANG_DIR)][ (#LANG)] no-js ie ie8"> <![endif]-->
+<!--[if IE 9 ]> <html dir="#LANG_DIR" lang="#LANG" xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" class="[(#LANG_DIR)][ (#LANG)] no-js ie ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html dir="#LANG_DIR" lang="#LANG" xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" class="[(#LANG_DIR)][ (#LANG)] no-js"> <!--<![endif]-->
+<head>
+<script type='text/javascript'>/*<![CDATA[*/(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement);/*]]>*/</script>
+	<title>Exemple #[(#REM)]CALENDRIER_MINI</title>
+	<INCLURE{fond=squelettes-dist/inclure/head} />
+	<link rel="stylesheet" href="[(#CHEMIN{minical.css}|direction_css)]" type="text/css" media="projection, screen, tv" />
+</head>
+
+<body class="pas_surlignable page_demo_minical">
+<div class="page">
+	<INCLURE{fond=inclure/header} />
+	<INCLURE{fond=inclure/nav,env} />
+
+	<div class="main">
+		[(#REM) Contenu principal : contenu de l'article ]
+		<div class="wrapper hfeed">
+		<div class="content hentry" id="content">
+
+			[(#REM) Les deux derniers articles ]
+			<B_articles_recents>
+			<div class="liste-articles">
+				[(#ANCRE_PAGINATION)]
+				[(#ENV{debut_articles_recents}|?{'',' '})<h2 class="invisible"><:articles_recents:>[ - (#DATE_ARCHIVES|affdate)]</h2>]
+				<ul>
+					<BOUCLE_articles_recents(ARTICLES) {pagination} {par date}{inverse} {archives ?}{branche ?} {lang ?}>
+					<li>
+						[(#LOGO_ARTICLE_RUBRIQUE|#URL_ARTICLE|image_reduire{150,100})]
+						[<p class="surtitre">(#SURTITRE)</p>]
+						<h3 class="titre"><a href="#URL_ARTICLE">#TITRE</a></h3>
+						[<p class="soustitre">(#SOUSTITRE)</p>]
+						<small>[(#DATE|affdate)][, <:par_auteur:> (#LESAUTEURS)]</small>
+						[<div class="texte">(#INTRODUCTION)</div>]
+						<br class="nettoyeur" />
+					</li>
+					</BOUCLE_articles_recents>
+				</ul>
+				[<p class="pagination">(#PAGINATION)</p>]
+			</div>
+			</B_articles_recents>[
+   			<h2>Rien pour (#DATE_ARCHIVES|affdate)[ (#ENV{id_rubrique}?{dans ce secteur})]</h2>
+   			]<//B_articles_recents>
+
+			<br class="nettoyeur" />
+
+		</div><!--.content-->
+		</div><!--.wrapper-->
+
+		[(#REM) Menu de navigation laterale ]
+		<div class="aside">
+			#CALENDRIER_MINI
+			<B_categories>
+			<div id='categories' class="rubriques">
+				<h2 class="menu-titre"><:categories|ucfirst:></h2>
+				<ul>
+					<BOUCLE_categories(RUBRIQUES){racine}>[
+					<li>[(#EXPOSE{<b>})]
+					<a href="(#SELF|parametre_url{id_rubrique,#ID_RUBRIQUE})">#TITRE</a>
+					[(#EXPOSE{</b>})]</li>
+					]</BOUCLE_categories>
+				</ul>
+			</div>
+			</B_categories>
+	   
+			[(#MODELE{archives_mensuelles,id_rubrique,archives,self=#SELF,lang})]
+	   
+			[(#MODELE{select_archives_mensuelles,id_rubrique,archives,self=#SELF,lang})]
+	   
+			[<div>(#MENU_LANG)<small>(<a href="[(#SELF|parametre_url{lang,''})]">toutes les langues</a>)</small><br class="nettoyeur" /></div>]
+	
+			<div id="links" class="syndic">
+				<h2 class="menu-titre"><:liens|ucfirst:></h2>
+				<ul>
+					<li><a href="https://zone.spip.org/trac/spip-zone/">Spip Zone</a></li>
+					<li><a href="#URL_PAGE{minical_doc}"><:documentation|ucfirst:></a></li>
+				</ul>
+			</div>
+		</div><!--.aside-->
+	</div><!--.main-->
+
+	<INCLURE{fond=inclure/footer,self=#SELF} />
+
+</div><!--.page-->
+</body>
+</html>

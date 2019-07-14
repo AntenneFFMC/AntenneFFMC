@@ -1,0 +1,12 @@
+#SET{sinon,''}
+[(#AUTORISER{creerevenementdans, article, #ID_ARTICLE}|oui)
+	[(#SET{sinon,<:agenda:info_aucun_evenement:>})]
+]
+
+[(#REM) afficher les evenements de cet article]
+<div id="agenda">
+	<INCLURE{fond=prive/objets/liste/evenements-post,nb=5,sinon=#GET{sinon},statut=#LISTE{publie,prop},env}>
+	[(#AUTORISER{creerevenementdans, article, #ID_ARTICLE}|oui)
+		[(#URL_ECRIRE{evenement_edit,id_evenement=new}|parametre_url{id_article,#ID_ARTICLE}|parametre_url{redirect,#SELF}|icone_horizontale{<:agenda:creer_evenement:>,evenement-24.png,new,creer_evenement})]
+	]
+</div>

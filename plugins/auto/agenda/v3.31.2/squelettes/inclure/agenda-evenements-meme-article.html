@@ -1,0 +1,12 @@
+<B_et_aussi>
+<div class="liste">
+<h2><:agenda:titre_sur_l_agenda_aussi:></h2>
+#ANCRE_PAGINATION
+<ul class="liste-items evenements short">
+<BOUCLE_et_aussi(EVENEMENTS){par date_debut}{!evenement_passe #ENV{date_debut,#ENV{date}}}{id_article=#ENV{id_article}}{id_evenement!=#ENV{id_evenement,0}}{pagination 10}>
+<li class="item evenement">#INCLURE{fond=inclure/resume/evenement,id_evenement}</li>
+</BOUCLE_et_aussi>
+</ul>
+[<p class="pagination">(#PAGINATION)</p>]
+</div>
+</B_et_aussi>

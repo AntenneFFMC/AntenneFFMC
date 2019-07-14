@@ -1,0 +1,22 @@
+#SET{description,#ARRAY}
+[(#ENV{afficher_annee_obligatoire}|=={on}|?{
+	#SET{forme,annee},
+	#SET{forme,''}
+}
+)]
+<BOUCLE_evenements(EVENEMENTS) {par date_debut} {id_evenement IN #ENV{valeur}}>
+	[(#ENV{masquer_heure}|oui)#SET{horaire,non}]
+	[(#ENV{masquer_heure}|non)#SET{horaire,#HORAIRE}]
+	[(#ENV{type_affichage}|=={titre_date}|oui)
+		#SET{texte,#TITRE|concat{' - ', #DATE_DEBUT|agenda_affdate_debut_fin{#DATE_FIN,#GET{horaire},#GET{forme}}}}
+	]
+	[(#ENV{type_affichage}|=={titre}|oui)
+		#SET{texte,#TITRE}
+	]
+	[(#ENV{type_affichage}|=={date}|oui)
+		#SET{texte,#DATE_DEBUT|agenda_affdate_debut_fin{#DATE_FIN,#GET{horaire},#GET{forme}}}
+	]
+	[(#SET{description,#GET{description}|array_merge{#ARRAY{#GET{texte},#ID_EVENEMENT}}})]
+</BOUCLE_evenements>
+#SET{description,#GET{description}|array_flip}
+#INCLURE{fond=saisies-vues/#ENV{type_choix,radio},data=#GET{description},env}

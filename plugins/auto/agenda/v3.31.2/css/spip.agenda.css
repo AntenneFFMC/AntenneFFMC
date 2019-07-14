@@ -1,0 +1,36 @@
+
+.evenement.one {padding: 0.75em;background: #eee;margin-bottom: 1.5em;}
+.evenement.one .lire-la-suite {display: none;}
+
+.long .liste-items .evenement {padding-left: 7.5em;}
+.long .liste-items .evenement .banner {display:block;float: left;margin-left: -7.5em;width: 5.5em;text-align: center;overflow: hidden;opacity: 0.7;}
+.long .liste-items .evenement .banner .label {display: block;padding:0.75em 0;}
+.long .liste-items .evenement .banner .day {display: block;text-align: center;font-size: 2em;line-height: 1;}
+.long .liste-items .evenement .banner .month {display: block;text-align: center;text-transform: uppercase;font-size: 0.85em;}
+.long .liste-items .evenement .banner .year {display: block;text-align: center;font-size: 0.85em;}
+
+/*.long .liste-items.evenements .item.month, .long .liste-items.evenements .item.month {padding: 0.75em;background: #e4e4e4; text-transform: uppercase;}*/
+.liste-items.evenements .item.fini  .entry-title a {color:#ccc;}
+.liste-items.evenements .item.fini  .entry-content {margin-bottom: 0;max-height: 4.5em;overflow: hidden;}
+.liste-items.evenements .item.fini  .meta-publi {display: none;}
+.liste-items.evenements .item.fini  .lire-la-suite {display: none;}
+.liste-items.evenements .item.fini  .evenement .banner {opacity: 0.5;}
+
+.liste-items.evenements.short .info-publi, .short .liste-items.evenements .info-publi {display:block;margin: 0;}
+.liste-items.evenements .meta-publi {left:7.5em;}
+.liste-items.evenements .lire-la-suite {left:7.5em;}
+.liste-items.evenements .entry-title {margin-top: 0;}
+
+.page_jour .liste-items.evenements .evenement .banner {display: none;}
+.page_jour .long .liste-items .evenement{padding-left: 0;}
+.page_jour .liste-items.evenements .meta-publi {left:0;}
+.page_jour .liste-items.evenements .lire-la-suite {left:0;}
+
+/*
+.liste-items.evenements.short .evenement {padding-left: 0;background-image: none;}
+.liste-items.evenements.short .entry-title {margin: 0;font-size: inherit;}
+.liste-items.evenements.short .banner {display: none;}
+.liste-items.evenements.short .entry-content {display: none;}
+.liste-items.evenements.short .lire-la-suite {display: none;}
+.liste-items.evenements.short .meta-publi {display: none;}
+*/

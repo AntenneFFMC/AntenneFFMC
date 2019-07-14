@@ -1,0 +1,16 @@
+<B_archives_mensuelles>
+<div id="archives" class="rubriques">
+	<h2 class="menu-titre"><:archives|ucfirst:></h2>
+	<ul>
+	<BOUCLE_archives_mensuelles(ARTICLES){branche ?}{lang}{par date}{inverse}>[
+		<li>
+			<a href="[(#ENV{self}|parametre_url{archives,[(#DATE|affdate{'Y-m'})]})]">[
+			(#ENV{archives}|=={[(#DATE|affdate{'Y-m'})]}|?{<b>})
+			](#DATE|affdate{'Y-m'}|unique|affdate_mois_annee)[
+			(#ENV{archives}|=={[(#DATE|affdate{'Y-m'})]}|?{</b>})
+			]</a>
+		</li>
+	]</BOUCLE_archives_mensuelles>
+	</ul>
+</div>
+</B_archives_mensuelles>

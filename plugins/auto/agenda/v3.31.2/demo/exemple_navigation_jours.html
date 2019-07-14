@@ -1,0 +1,8 @@
+
+[<a href="(#URL_PAGE{jour}|parametre_url{date,[(#VAL{Y-m-d}|date{#VAL{-1 day}|strtotime{#ENV{date}|affdate{U}}})]})" title="jour précédent">
+[(#VAL{Y-m-d}|date{#VAL{-1 day}|strtotime{#ENV{date}|affdate{U}}}|nom_jour)]&nbsp;&#8249;</a>]
+	
+[(#EVAL{' '}|concat{[(#ENV{date}|nom_jour) ],#ENV{date}|jour})]
+
+[<a href="(#URL_PAGE{jour}|parametre_url{date,[(#VAL{Y-m-d}|date{#VAL{+1 day}|strtotime{#ENV{date}|affdate{U}}})]})"
+title="jour suivant">&#8250;&nbsp; [(#VAL{Y-m-d}|date{#VAL{+1 day}|strtotime{#ENV{date}|affdate{U}}}|nom_jour)]</a>]
