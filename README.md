@@ -5,9 +5,8 @@
 `Antenne FFMC` est le thème des sites internet des antennes départementales de la FFMC (Fédération Française des Motards en Colère).   La FFMC est une association française de loi 1901. Ce thème est développé bénévolement et fonctionne avec le CMS [Spip](https://www.spip.net). ![spip](https://www.spip.net/local/cache-gd2/e1/90951bb7dda1912dd06c731a3c34f0.ico?1508838261)
 
 ## Contact
-Webmestre & Back dev : Norbert Cabrol  
-Front dev : Antoine Cabrol  
-Tel : 06 37 09 53 11  
+Développeurs : Antoine Cabrol & Norbert Cabrol
+✉️ : contact@antoinecabrol.dev
 
 ## MAJ
 N°|Détails|Année
@@ -18,7 +17,7 @@ N°|Détails|Année
  V4 | PWA en approche... | 2019
 
 ---  
-[Visitez le site de l'antenne FFMC Savoie pour exemple !](http://www.ffmc73.org)
+[Visitez le site demo !](http://preprod.ffmc73.org/)
 ---
 
 ## Etat des versions des sites antenne
