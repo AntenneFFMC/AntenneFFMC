@@ -21,3 +21,5 @@ N°|Détails|Année
 ---  
 
 ### 👀 [Visitez la demo !](http://preprod.ffmc73.org/)
+
+_L'environnement de développement pour permettre la contribution et faciliter la maintenabilité du projet est en cours de préparation. Il n'est pour l'instant pas possible de contribuer à la preproduction, c'est pour bientôt !_
