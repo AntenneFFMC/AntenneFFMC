@@ -76,9 +76,9 @@
 
   &__evenements-liste {
     height: 120px;
-    margin-right: -16px;
+    margin-right: -16px; 
     overflow-y: scroll;
-    &.sansEnfants {
+    &:empty {
       background-image: url("../images/index/tyre.svg");
       background-repeat: no-repeat;
       background-position: center;

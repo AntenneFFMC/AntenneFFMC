@@ -1,0 +1,30 @@
+/** ================================================
+                # GLOBAL
+================================================ **/
+
+@import "./settings/colors";
+@import "./settings/reset";
+@import "./settings/breakpoints";
+@import "./settings/espaces";
+@import "./settings/typos";
+
+@import "./tools/animations";
+
+@import "./components/header";
+@import "./components/boutons";
+@import "./components/arbo";
+@import "./components/widget";
+@import "./components/formulaires";
+@import "./components/commentaires";
+@import "./components/footer";
+
+@import "./layouts/conteneurs";
+@import "./layouts/rubriques";
+@import "./layouts/articles";
+
+@import "./pages/sommaire";
+@import "./pages/contact";
+@import "./pages/agenda";
+@import "./pages/infrastructures";
+@import "./pages/mentions";
+@import "./pages/404";
