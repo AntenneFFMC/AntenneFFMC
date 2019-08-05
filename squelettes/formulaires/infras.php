@@ -110,6 +110,7 @@ function formulaires_infras_traiter() {
 	/* Configuration du script d'envoi */
 	$to = $GLOBALS['meta']['email_webmaster']; // obligatoire : email du destinataire - contact du site
 	$copie_a_expediteur = 0; // mettre 1 si on veut envoyer une copie du message à l'expéditeur / visiteur du site
+	$copie_a_webmaster = 1;
 	$sujet = "Signalisation de point noir";
 	$from = $GLOBALS['meta']['email_webmaster']; //$_POST['sender']);
 	/* Fin de la config */
@@ -123,6 +124,10 @@ function formulaires_infras_traiter() {
 	// Cc à l'expéditeur si choix activé
 	if ( $copie_a_expediteur == 1 ) {
 		$headers.= "Cc: ".$_POST['email'];
+	}
+	// Cc au webmaster général si choix activé
+	if ( $copie_a_webmaster == 1 ) {
+		$headers.= "Cc: norbert.cabrol@ffmc.fr";
 	}
 
 	// Expédition du mail :
