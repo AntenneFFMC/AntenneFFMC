@@ -8,12 +8,12 @@
     <!-- Infos personne -->
     <table class="form-infras__partie">
       <tr class="form-infras__partie-ligne">
-        <td class="form-infras__partie-cellule">Nom: * :</td>
-        <td class="form-infras__partie-cellule"><input type="text" name="sender" value="#ENV{sender}"></td>
+        <td class="form-infras__partie-cellule">Nom*:</td>
+        <td class="form-infras__partie-cellule"><input type="text" name="sender" value="#ENV{sender}" required></td>
       </tr>
       <tr class="form-infras__partie-ligne">
-        <td class="form-infras__partie-cellule">Email: * :</td>
-        <td class="form-infras__partie-cellule"><input type="email" name="email" value="#ENV{email}"></td>
+        <td class="form-infras__partie-cellule">Email*:</td>
+        <td class="form-infras__partie-cellule"><input type="email" name="email" value="#ENV{email}" required></td>
       </tr>
       <tr class="form-infras__partie-ligne">
         <td class="form-infras__partie-cellule">Autoroute n&deg;/Avenue/Bld/Rue :</td>
@@ -167,7 +167,10 @@
         </td>
       </tr>
     </table>
-		<i>Les champs identifiés par une * sont requis.</i>
+
+    <i>Les champs identifiés par une * sont requis.</i>
+    
+    <input type="text" name="special" value="#ENV{special}" style="display:none">
 
     <input type="submit" class="btn btn--form" value="Envoyer" />
 
