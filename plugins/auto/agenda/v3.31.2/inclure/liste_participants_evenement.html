@@ -1,0 +1,31 @@
+<BOUCLE_inscrits_oui(evenements_participants){id_evenement=#ENV{id,#ENV{id_evenement}}}{reponse='oui'}>
+</BOUCLE_inscrits_oui>#SET{inscrits,#TOTAL_BOUCLE}</B_inscrits_oui>
+        
+<B_inscrits>
+    #ANCRE_PAGINATION
+    <table class='spip liste'>
+        [<caption>(#GRAND_TOTAL|singulier_ou_pluriel{agenda:info_une_reponse,agenda:info_nb_reponses,nb})[,
+                  (#GET{inscrits}|singulier_ou_pluriel{agenda:info_un_inscrit,agenda:info_nb_inscrits,nb})]</caption>]
+        <thead>
+        <tr class='first_row'>
+            <th scope='col'><:nom:></th>
+            <th scope='col'><:agenda:evenement_date_inscription:></th>
+            <th scope='col'><:agenda:info_reponse_inscriptions:></th>
+        </tr>
+        </thead>
+        <tbody>
+        <BOUCLE_inscrits(evenements_participants){id_evenement=#ENV{id,#ENV{id_evenement}}}{par date}{inverse}{pagination #ENV{nb,15}}>
+        <tr class="[(#COMPTEUR_BOUCLE|alterner{row_odd,row_even})]">
+            <td>[(#NOM|sinon{#INFO_NOM{auteur,#ID_AUTEUR}})]</td>
+            <td>[(#DATE|affdate_jourcourt)]</td>
+            <td>
+                [(#REPONSE|=={'oui'}|oui)<:agenda:label_reponse_jyparticipe:>]
+                [(#REPONSE|=={'non'}|oui)<:agenda:label_reponse_jyparticipe_pas:>]
+                [(#REPONSE|=={'?'}|oui)<:agenda:label_reponse_jyparticipe_peutetre:>]
+            </td>
+        </tr>
+        </BOUCLE_inscrits>
+        </tbody>
+    </table>
+    [<p class='pagination'>(#PAGINATION)</p>]
+</B_inscrits>

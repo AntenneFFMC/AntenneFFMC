@@ -1,0 +1,14 @@
+<BOUCLE_nav(EVENEMENTS){id_evenement}{statut==.*}{si #ENV{exec}|=={evenement}}>
+#BOITE_OUVRIR{'','info'}
+#PIPELINE{boite_infos,#ARRAY{data,'',args,#ARRAY{'type','evenement','id',#ENV{id_evenement}}}}
+#BOITE_FERMER
+
+<div class="ajax">
+#FORMULAIRE_EDITER_LOGO{evenement,#ID_EVENEMENT,'',#ENV**}
+</div>
+
+#PIPELINE{afficher_config_objet,#ARRAY{args,#ARRAY{type,evenement,id,#ID_EVENEMENT},data,''}}
+
+</BOUCLE_nav>
+[(#ENV{exec}|=={evenement_edit}|oui)<INCLURE{fond=prive/squelettes/navigation/evenement_edit,env} />]
+<//B_nav>

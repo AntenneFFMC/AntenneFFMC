@@ -1,0 +1,22 @@
+[(#REM)
+
+  Squelette
+  (c) 2009 xxx
+  Distribue sous licence GPL
+
+]
+<BOUCLE_ev(EVENEMENTS){id_evenement}>
+#CALENDRIER_MINI{#DATE_DEBUT,date_debut,#URL_PAGE{jour},#URL_PAGE{calendrier_mini_event.json}}
+</BOUCLE_ev>
+#CALENDRIER_MINI{#DATE_DEBUT,date_debut,#URL_PAGE{jour},#URL_PAGE{calendrier_mini_event.json}}
+<//B_ev>
+
+<B_mois>
+#ANCRE_PAGINATION
+<ul class="liste-items">
+<BOUCLE_mois(EVENEMENTS){!par date_debut}{evenement_passe #ENV{date}}{id_article?}{id_rubrique?}{id_mot?}{id_evenement_source?}{fusion_par_mois date_debut}{pagination 10}>
+<li class="item">[(#SELF|parametre_url{date_debut,#DATE_DEBUT|affdate{Y-m-01}}|lien_ou_expose{#DATE_DEBUT|affdate_mois_annee{},#ENV{date_debut,''}|=={#DATE_DEBUT|affdate{Y-m-01}}})]</li>
+</BOUCLE_mois>
+</ul>
+[<p class="pagination">(#PAGINATION)</p>]
+</B_mois>

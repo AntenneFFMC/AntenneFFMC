@@ -45,9 +45,6 @@ RewriteRule ^(.*) - [E=BASE:%1]
 ################ REGLAGES PERSONNALISES ######################
 # Inscrivez ci-dessous vos reglages supplementaires
 
-RewriteCond %{HTTPS} !=on
-RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-
 
 ################ GESTIONS DES URLS SPIP #######################
 

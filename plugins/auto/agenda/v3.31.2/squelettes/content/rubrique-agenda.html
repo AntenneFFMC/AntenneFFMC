@@ -1,0 +1,24 @@
+[(#REM)
+/**
+ * Plugin Agenda 4 pour Spip 3.0
+ * Licence GPL 3
+ *
+ * 2006-2011
+ * Auteurs : cf paquet.xml
+ */
+]
+<BOUCLE_rub(RUBRIQUES){id_rubrique}>
+<section>
+
+	<header class="cartouche">
+		<h1 class="#EDIT{titre}">[(#LOGO_RUBRIQUE|image_reduire)]#TITRE</h1>
+	</header>
+
+	<div class="main">
+		[<div class="#EDIT{texte} chapo">(#TEXTE)</div>]
+
+		<INCLURE{fond=inclure/agenda-liste,id_rubrique,env,ajax} />
+	</div>
+
+</section>
+</BOUCLE_rub>

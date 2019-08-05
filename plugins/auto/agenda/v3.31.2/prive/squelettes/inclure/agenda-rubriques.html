@@ -1,0 +1,13 @@
+#SET{self,#SELF|parametre_url{debut_rubriques,#EVAL{_request('debut_rubriques')}}}
+<B_rubriques>
+[(#BOITE_OUVRIR{[<:agenda:rubriques:>(#CHEMIN_IMAGE{rubrique-24.png}|balise_img{'',cadre-icone})],simple})]
+[(#REM) navigation par rubriques agenda]
+[<p class='pagination'>(#PAGINATION{page})</p>]
+<ul class='liste_items'>
+<li class='item[ (#ENV{id_rubrique}|non)on]'>[(#GET{self}|parametre_url{id_rubrique,''}|lien_ou_expose{<:agenda:toutes_rubriques:>,#ENV{id_rubrique,0}|=={0}})]</li>
+<BOUCLE_rubriques(RUBRIQUES){par titre}{pagination 10}{agenda=1}>
+<li class='item[ (#EXPOSE)]'>[(#GET{self}|parametre_url{id_rubrique,#ID_RUBRIQUE}|lien_ou_expose{#TITRE|supprimer_numero{},#ENV{id_rubrique}|=={#ID_RUBRIQUE}})] (<a href='#URL_RUBRIQUE'><:info_numero_abbreviation:>#ID_RUBRIQUE</a>)</li>
+</BOUCLE_rubriques>
+</ul>
+#BOITE_FERMER
+</B_rubriques>

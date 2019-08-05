@@ -1,0 +1,25 @@
+[(#BOITE_OUVRIR{[(#CHEMIN_IMAGE{calendrier-24.png}|balise_img{'',cadre-icone})],'simple'})]
+#SET{self,#SELF|parametre_url{id_evenement|date_debut|debut_liste_evt,''}|parametre_url{debut_mois,#EVAL{_request('debut_mois')}}}
+<ul class='liste-items agenda-nav'>
+<BOUCLE_debut(EVENEMENTS){par date_debut}{0,1}{id_article?}{id_rubrique?}{id_evenement_source?}{statut==.*}>
+<li class="item[(#ENV{date_debut,''}|=={#DATE_DEBUT|affdate{Y-01-01}}|oui)on]"><a
+	href="[(#GET{self}|parametre_url{date_debut,#DATE_DEBUT|affdate{Y-01-01}})]"
+	onclick='return update_agenda(this);'><:agenda:evenements_depuis_debut:></a></li>
+</BOUCLE_debut>
+<li class="item[(#ENV{date_debut,''}|non)on]"><a
+	href="[(#GET{self})]"
+	onclick='return update_agenda(this);'><:agenda:evenements_a_venir:></a></li>
+</ul>
+[(#INCLURE{fond=prive/squelettes/inclure/agenda-navigation-mois}{ajax}{env}{self=#GET{self}})]
+#BOITE_FERMER
+[(#INCLURE{fond=prive/squelettes/inclure/agenda-rubriques}{ajax}{env}{self=#GET{self}})]
+<script type="text/javascript">
+function update_agenda(link){
+	var date_debut = parametre_url(jQuery(link).attr('href'),'date_debut');
+	$("#liste_des_evenements").ajaxReload({args:{date_debut:date_debut,debut_liste_evt:""},history:true});
+	jQuery(link).closest('.box').find('li.on').removeClass('on');
+	jQuery(link).closest('li').addClass('on');
+	return false;
+}
+
+</script>

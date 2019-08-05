@@ -1,0 +1,35 @@
+[(#REM)
+/**
+ * Plugin Agenda 4 pour Spip 3.0
+ * Licence GPL 3
+ *
+ * 2006-2011
+ * Auteurs : cf paquet.xml
+ */
+]
+#SET{date_debut,#ENV{date_debut,#ENV{date}}|affdate{Y-m-d 00:00:00}}
+#SET{date_fin,#ENV{date_debut,#ENV{date}}|affdate{Y-m-d 23:59:59}}
+
+<section>
+
+	<header class="cartouche">
+		<h1><:agenda:titre_sur_l_agenda:>
+		<small>[(#GET{date_debut}|affdate)]</small>
+		</h1>
+	</header>
+
+	<div class="main">
+		<B_ev>
+			<div class="liste long evenements">
+				<ul class="liste-items evenements">
+				<BOUCLE_ev(EVENEMENTS){!evenement_passe #GET{date_debut}}{!evenement_a_venir #GET{date_fin}}{par date_debut}{id_article?}{id_rubrique?}{id_mot?}{id_evenement_source?}>
+					[(#TOTAL_BOUCLE|>{1}|sinon_interdire_acces{#URL_EVENEMENT})]
+					<li class="item">#INCLURE{fond=inclure/resume/evenement,id_evenement}</li>
+				</BOUCLE_ev>
+				</ul>
+			</div>
+		</B_ev>
+		<p><:agenda:info_aucun_evenement:></p>
+		<//B_ev>
+	</div>
+</section>

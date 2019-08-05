@@ -1,0 +1,20 @@
+<paquet
+	prefix="calendriermini"
+	categorie="date"
+	version="2.4.1"
+	etat="stable"
+	compatibilite="[3.0.0;3.2.*]"
+	logo="minical-32.png"
+	documentation="https://contrib.spip.net/Calendrier-Mini-2-0"
+>
+
+	<nom>Mini Calendrier</nom>
+	<!-- Permet l'utilisation d'une balise #CALENDRIER_MINI -->
+
+	<auteur mail="james@rezo.net">James</auteur>
+
+	<credit lien="http://tempest.deviantart.com/">Tempest pour l'icone sous licence CC BY-NC-ND.</credit>
+	<copyright>2006-2012</copyright>
+
+	<licence lien="http://www.gnu.org/licenses/gpl-3.0.html">GPL 3</licence>
+</paquet>

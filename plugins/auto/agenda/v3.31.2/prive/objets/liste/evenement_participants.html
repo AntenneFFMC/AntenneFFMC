@@ -1,0 +1,46 @@
+<B_inscrits>
+#ANCRE_PAGINATION
+<div class="liste-objets auteurs">
+<table class='spip liste'>
+[<caption><strong class="caption">(#ENV*{titre,#GRAND_TOTAL|singulier_ou_pluriel{agenda:info_un_inscrit,agenda:info_nb_inscrits,nb}})</strong></caption>]
+	<thead>
+		<tr class='first_row'>
+			<th class='statut' scope='col'>[(#TRI{statut,<span title="<:lien_trier_statut|attribut_html:>">#</span>,ajax})]</th>
+			<th class='nom' scope='col'>[(#TRI{nom,<span title="<:lien_trier_nom|attribut_html:>"><:nom:></span>,ajax})]</th>
+			<th class='mail' scope='col'>[(#TRI{email,<:email:>,ajax})]</th>
+			<th class='date' scope='col'>[(#TRI{date,<:agenda:evenement_date_inscription:>,ajax})]</th>
+			<th class='reponse' scope='col'>[(#TRI{reponse,<:agenda:info_reponse_inscriptions:>,ajax})]</th>[
+			(#AUTORISER{modifier,evenement,#ID_EVENEMENT})<th class='reponse' scope='col'>Action</th>]
+		</tr>
+	</thead>
+	<tbody>
+	<BOUCLE_inscrits(evenements_participants){id_evenement}{tri #ENV{par,date},#GET{defaut_tri}}{pagination #ENV{nb,15}}>
+		<tr class="[(#COMPTEUR_BOUCLE|alterner{row_odd,row_even})]">
+			<td class='statut'>[(#STATUT|puce_statut{auteur,#ID_AUTEUR})]</td>
+			<td class='nom'>
+                [(#NOM|sinon{
+                <a href="[(#ID_AUTEUR|generer_url_entite{auteur})]">[(#RANG). ][(#INFO_NOM{auteur,#ID_AUTEUR}|sinon{<:texte_vide:>})]</a>
+                })]
+            </td>
+			<td class='mail'>[(#EMAIL|sinon{#INFO_EMAIL{auteur,#ID_AUTEUR}})]</td>
+			<td class='date'>[(#DATE|affdate_jourcourt)]</td>
+			<td class='reponse'>#REPONSE</td>[
+			(#AUTORISER{modifier,evenement,#ID_EVENEMENT})<td class='delete'>
+                [(#BOUTON_ACTION{<:agenda:lien_desinscrire:>, [(#URL_ACTION_AUTEUR{supprimer_evenement_participant,#ID_EVENEMENT-#ID_EVENEMENT_PARTICIPANT,#SELF})], ajax, <:agenda:confirm_suppression_inscription:>})]
+            </td>]
+		</tr>
+	</BOUCLE_inscrits>
+	</tbody>
+</table>
+[<p class='pagination'>(#PAGINATION{prive})</p>]
+</div>
+[(#AUTORISER{modifier,evenement,#ID_EVENEMENT})
+    [(#BOUTON_ACTION{<:agenda:lien_desinscrire_tous:>, [(#URL_ACTION_AUTEUR{supprimer_evenement_participant,#ID_EVENEMENT-tous,#SELF})], ajax, <:agenda:confirm_suppression_inscription_toutes:>})]
+]
+
+</B_inscrits>
+<h2><:agenda:aucun_inscrit:></h2>
+<//B_inscrits>
+ 
+
+

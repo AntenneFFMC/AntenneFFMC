@@ -1,0 +1,208 @@
+#HTTP_HEADER{Content-type:text/javascript}
+if (!jQuery.fn.datepicker){
+[(#INCLURE{javascript/ui/core.js}|sinon{#INCLURE{javascript/ui/jquery.ui.core.js}})]
+[(#INCLURE{javascript/ui/widget.js}|sinon{#INCLURE{javascript/ui/jquery.ui.widget.js}})]
+[(#INCLURE{javascript/ui/datepicker.js}|sinon{#INCLURE{javascript/ui/jquery.ui.datepicker.js}})]
+}
+if (!jQuery.fn.multiDatesPicker){
+#INCLURE{javascript/jquery-ui.multidatespicker.js}
+}
+[(#REM)<script>]
+var ajax_image_searching = "<img src='#CHEMIN{images/searching.gif}' width='16' height='16' />";
+var minical = {
+	options: {
+		buttonText: '<:afficher_calendrier|texte_script:>',
+		buttonImage: '#CHEMIN_IMAGE{calendrier-16.png}',
+		buttonImageOnly: true,
+		prevText: '<:precedent|texte_script:>',
+		nextText: '<:suivant|texte_script:>',
+		currentText: '<:date_aujourdhui|texte_script:>',
+		closeText: '<:bouton_fermer|texte_script:>',
+		monthNames: [
+			'<:date_mois_1|texte_script:>','<:date_mois_2|texte_script:>','<:date_mois_3|texte_script:>','<:date_mois_4|texte_script:>','<:date_mois_5|texte_script:>','<:date_mois_6|texte_script:>',
+			'<:date_mois_7|texte_script:>','<:date_mois_8|texte_script:>','<:date_mois_9|texte_script:>','<:date_mois_10|texte_script:>','<:date_mois_11|texte_script:>','<:date_mois_12|texte_script:>'],
+		monthNamesShort: [
+			'<:date_mois_1_abbr|texte_script:>','<:date_mois_2_abbr|texte_script:>','<:date_mois_3_abbr|texte_script:>','<:date_mois_4_abbr|texte_script:>','<:date_mois_5_abbr|texte_script:>','<:date_mois_6_abbr|texte_script:>',
+			'<:date_mois_7_abbr|texte_script:>','<:date_mois_8_abbr|texte_script:>','<:date_mois_9_abbr|texte_script:>','<:date_mois_10_abbr|texte_script:>','<:date_mois_11_abbr|texte_script:>','<:date_mois_12_abbr|texte_script:>'],
+		dayNames: [
+			'<:date_jour_1|texte_script:>','<:date_jour_2|texte_script:>','<:date_jour_3|texte_script:>','<:date_jour_4|texte_script:>',
+			'<:date_jour_5|texte_script:>','<:date_jour_6|texte_script:>','<:date_jour_7|texte_script:>'],
+		dayNamesShort: [
+			'<:date_jour_1_abbr|texte_script:>','<:date_jour_2_abbr|texte_script:>','<:date_jour_3_abbr|texte_script:>','<:date_jour_4_abbr|texte_script:>',
+			'<:date_jour_5_abbr|texte_script:>','<:date_jour_6_abbr|texte_script:>','<:date_jour_7_abbr|texte_script:>'],
+		dayNamesMin: [
+			'<:date_jour_1_initiale|texte_script:>','<:date_jour_2_initiale|texte_script:>','<:date_jour_3_initiale|texte_script:>','<:date_jour_4_initiale|texte_script:>',
+			'<:date_jour_5_initiale|texte_script:>','<:date_jour_6_initiale|texte_script:>','<:date_jour_7_initiale|texte_script:>'],
+		dateFormat: 'yy-mm-dd',
+		firstDay: #CONFIG{calendriermini/jour1,1},
+		isRTL: [(#ENV{lang}|lang_dir|=={rtl}|?{true,false})],
+		changeMonth: [(#CONFIG{calendriermini/changement_rapide,1}|?{true,false})],
+		changeYear: [(#CONFIG{calendriermini/changement_rapide,1}|?{true,false})],
+		showOtherMonths: [(#CONFIG{calendriermini/affichage_hors_mois,1}|?{true,false})],
+		selectOtherMonths: [(#CONFIG{calendriermini/affichage_hors_mois,1}|?{true,false})]
+	},
+
+	add_tooltip_and_class: function($this,date,id,tooltip,className){
+		if (!$this.tooltip)
+			$this.tooltip = {};
+		if (!$this.cn)
+			$this.cn = {};
+
+		var d = date.getFullYear() + "-" + (date.getMonth()+1) + "-" + date.getDate();
+		if (!$this.tooltip[d])
+			$this.tooltip[d] = {};
+		tooltip = tooltip.replace(/"/g,'&quot;'); // echapper les " pour ne pas casser le html (secu, supprimer le html en amont !)
+		$this.tooltip[d][id] = tooltip;
+
+		if (className && typeof className != "undefined"){
+			if (!$this.cn[d])
+				$this.cn[d] = {};
+			$this.cn[d][id] = className;
+		}
+	},
+
+	set_events: function(me,start,end,data){
+		var dates = [];
+		var $this = me.get(0);
+
+		if (data.length){
+			var d,datebegin,dateend;
+			for(var j=0;j<data.length;j++){
+				d = data[j].start.split(" ");
+				d = d[0].split("-");
+				d = new Date(d[0],d[1]-1,d[2]);
+				dates.push(d);
+				minical.add_tooltip_and_class($this,d,data[j].id,data[j].title,data[j].className);
+
+				if(data[j].end){
+					/* prendre la plus grande date de debut entre debut a afficher et l'interval donne */
+					datebegin = Math.max(start * 1000,d.getTime());
+					d = data[j].end.split(" ");
+					d = d[0].split("-");
+					d = new Date(d[0],d[1]-1,d[2]);
+					/* prendre la plus petite date de fin entre fin a afficher et l'interval donne */
+					dateend = Math.min(end * 1000, d.getTime());
+					if (dateend>datebegin){
+						dates.push(d);
+						minical.add_tooltip_and_class($this,d,data[j].id,data[j].title,data[j].className);
+						datebegin = datebegin+(3600*24*1000);
+						while(datebegin < dateend){
+							d = new Date(datebegin);
+							dates.push(d);
+							minical.add_tooltip_and_class($this,d,data[j].id,data[j].title,data[j].className);
+							datebegin = datebegin+(3600*24*1000);
+						}
+					}
+				}
+			}
+
+			me.multiDatesPicker('addDates', dates);
+			// toujours retirer la classe active qui n'a pas de sens pour l'affichage
+			jQuery('.ui-state-active',me).removeClass('ui-state-active');
+		}
+	},
+
+	before_show_day: function(date) {
+		var d = date.getFullYear() + "-" + (date.getMonth()+1) + "-" + date.getDate();
+		var c = [true, ''];
+		if (this.cn && this.cn[d]){
+			for (var i in this.cn[d])
+				c[1] += ' ' + this.cn[d][i];
+		}
+
+		if (this.tooltip && this.tooltip[d]){
+			var glue = '';
+			c[2] = '';
+			for (var i in this.tooltip[d]) {
+				c[2] += glue + this.tooltip[d][i];
+				glue = "\n";
+      }
+		}
+		return c;
+	},
+
+	change_month_year: function(year, month, inst){
+		var me = inst;
+		//console.log("change_month_year:"+year+"/"+month);
+		if (typeof inst.input != "undefined")
+			me = inst.input;
+		//console.log(me);
+		var t = new Date(year,month-1,1);
+		t = parseInt(t.getTime()/1000);
+		var start = t-7*24*3600;
+		var end = t+38*24*3600;
+		// stocker les year/month deja vus pour ne pas les recharger 2 fois quand on va et vient
+		var o = me.get(0);
+		if (typeof o.dateseen == "undefined")
+			o.dateseen = {};
+		if (!o.dateseen[year+"/"+month]){
+			//console.log(o.dateseen);
+			o.dateseen[year+"/"+month] = true;
+			minical.show_loading(me);
+			jQuery.ajax({
+				url:jQuery(me).attr("data-json"),
+				data:{start:start,end:end},
+				success:function(data, textStatus, jqXHR){
+					data = eval(data);
+					minical.set_events(me,start,end,data);
+					minical.hide_loading(me);
+				}
+			});
+		}
+		inst.currentDay=0; // annuler la date active : pas de sens ici
+	},
+	show_loading : function(me){
+		me.animateLoading();
+	},
+	hide_loading : function(me) {
+		me.endLoading(true);
+	},
+
+	scripts_loaded: {widget:false,datepicker:false,multidatepicker:false},
+	init : function(selecteur){
+		//if (!minical.scripts_loaded.widget || !minical.scripts_loaded.datepicker || !minical.scripts_loaded.multidatepicker)
+		//	return;
+		[(#CONFIG{calendriermini/format_jour,initiale}|=={abbr}|oui)
+		minical.options.dayNamesMin = minical.options.dayNamesShort;
+		]
+		jQuery(function(){
+			jQuery(selecteur).not('.loaded')
+				.addClass('loaded')
+				.multiDatesPicker(jQuery.extend(minical.options,
+					{
+						showButtonPanel: true,
+						prevText: '<:minical:mois_precedent|texte_script:>',
+						nextText: '<:minical:mois_suivant|texte_script:>',
+						create: minical.create,
+						beforeShowDay: minical.before_show_day,
+						onChangeMonthYear: minical.change_month_year,
+						onSelect: minical.on_select
+					})
+				)
+				.each(function(){
+					var me=jQuery(this);
+					// se mettre a la date demandee (pour afficher le bon mois)
+					me.datepicker("setDate" , me.attr('data-year')+"-"+me.attr('data-month')+"-1");
+					// et retirer la classe active qui n'a pas de sens pour l'affichage
+					jQuery('.ui-state-active',me).removeClass('ui-state-active');
+					minical.change_month_year(me.attr('data-year'),me.attr('data-month'),me);
+				})
+				.trigger('miniCalendarLoaded')
+				.find(".alt").remove();
+		});
+	},
+	on_select : function(dateText, inst){
+		var me = inst.input;
+		if (dateText) {
+			// annuler la selection !
+			me.multiDatesPicker('toggleDate', dateText);
+			var actif = (me.multiDatesPicker('gotDate', dateText) !==false);
+			if (actif){
+				var url = me.attr('data-url');
+				url = parametre_url(url,me.attr('data-vardate'),dateText);
+				//console.log(url);
+				window.location = url;
+			}
+		}
+	}
+}

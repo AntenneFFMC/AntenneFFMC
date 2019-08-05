@@ -1,0 +1,13 @@
+[(#REM)
+/**
+ * Plugin Agenda 4 pour Spip 3.0
+ * Licence GPL 3
+ *
+ * 2006-2011
+ * Auteurs : cf paquet.xml
+ */
+]
+<BOUCLE_ev(EVENEMENTS){id_evenement}>
+<div class="evenement one well">#INCLURE{fond=inclure/resume/evenement,id_evenement}</div>
+<INCLURE{fond=content/article,id_article,id_evenement,env} />
+</BOUCLE_ev>

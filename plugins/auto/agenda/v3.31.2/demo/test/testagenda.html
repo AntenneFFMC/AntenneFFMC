@@ -1,0 +1,36 @@
+<h1>{id_mot}</h1>
+<ul>
+<BOUCLE_ListeMots(MOTS)>
+<li>#TITRE
+	<B_Evenements>
+	<ul>
+	<BOUCLE_Evenements(EVENEMENTS){id_mot}>
+		<li>#TITRE</li>
+	</BOUCLE_Evenements>
+	</ul>
+	</B_Evenements>
+</li>
+</BOUCLE_ListeMots>
+</ul>
+
+<h1>{titre_mot}</h1>
+<ul>
+<BOUCLE_ListeEvenements(EVENEMENTS){titre_mot=mc1}>
+	<li>#TITRE</li>
+</BOUCLE_ListeEvenements>
+</ul>
+
+<h1>{branche}</h1>
+<ul>
+<BOUCLE_ListeSecteurs(RUBRIQUES){racine}>
+<li>#TITRE
+	<B_EvenementsSecteur>
+	<ul>
+	<BOUCLE_EvenementsSecteur(EVENEMENTS){branche}>
+		<li>#TITRE</li>
+	</BOUCLE_EvenementsSecteur>
+	</ul>
+	</B_EvenementsSecteur>
+</li>
+</BOUCLE_ListeSecteurs>
+</ul>

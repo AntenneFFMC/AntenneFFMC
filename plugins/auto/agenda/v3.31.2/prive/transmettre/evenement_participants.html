@@ -1,0 +1,16 @@
+<BOUCLE0(AUTEURS){tout}{id_auteur=#ENV{id}}{lang_select}><?php
+if ([(#ID_AUTEUR|securiser_acces{#ENV{cle},transmettre,#ENV{op}, #ENV{args}}|?{1,0})]) {
+?><B_participants_oui>"<:nom:>","<:email:>","<:agenda:evenement_date_inscription:>"
+<BOUCLE_participants_oui(evenements_participants){id_evenement}{si #ENV{reponse}}{reponse=#ENV{reponse}}>"[(#NOM|sinon{#INFO_NOM{auteur,#ID_AUTEUR}})]","[(#EMAIL|sinon{#INFO_EMAIL{auteur,#ID_AUTEUR}})]","[(#DATE|affdate{'d/m/Y H:i:s'})]"
+</BOUCLE_participants_oui>
+</B_participants_oui>
+<B_participants>"<:nom:>","<:email:>","<:agenda:evenement_date_inscription:>","<:agenda:reponse:>"
+<BOUCLE_participants(evenements_participants){id_evenement}>"[(#NOM|sinon{#INFO_NOM{auteur,#ID_AUTEUR}})]","[(#EMAIL|sinon{#INFO_EMAIL{auteur,#ID_AUTEUR}})]","[(#DATE|affdate{'d/m/Y H:i:s'})]","#REPONSE"
+</BOUCLE_participants>
+<//B_participants_oui>
+<?php
+} else {
+include_spip('inc/minipres'); 
+echo minipres();
+}?></BOUCLE0>
+ 

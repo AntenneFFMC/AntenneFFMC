@@ -1,0 +1,26 @@
+<B_archives_mensuelles>
+<div id="form_archives" class="formulaire_spip">
+	<form action='#ENV{self}' method='get'>
+		[(#ENV{self}|form_hidden)]
+		<ul>
+			<li class="fieldset">
+				<h3 class="legend"><:archives|ucfirst:></h3>
+				<fieldset>
+					<ul>
+						<li class="editer editer_archives">
+							<label for="archives"><:date:></label>
+							<select class="forml" name='archives'>
+							<BOUCLE_archives_mensuelles(ARTICLES){branche ?}{lang}{par date}{inverse}>[
+								<option value='[(#DATE|affdate{'Y-m'})]'[
+								(#ENV{archives}|=={[(#DATE|affdate{'Y-m'})]}|?{selected="selected"})
+								]>(#DATE|affdate{'Y-m'}|unique{select}|affdate_mois_annee)</option>
+							]</BOUCLE_archives_mensuelles>
+							</select>
+						</li>
+					</ul>
+				</fieldset>
+			</li>
+		</ul>
+	</form>
+</div>
+</B_archives_mensuelles>

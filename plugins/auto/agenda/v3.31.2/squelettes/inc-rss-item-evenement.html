@@ -1,0 +1,29 @@
+<BOUCLE_evenement(EVENEMENTS) {id_evenement}>
+<item>
+	[<title>(#TITRE|texte_backend)</title>]
+	<link>[(#URL_EVENEMENT|url_absolue)]</link>
+	[<guid isPermaLink="true">(#URL_EVENEMENT|url_absolue)</guid>]
+	<date>#DATE_DEBUT</date>
+	[<dc:date>(#DATE_DEBUT|affdate{Y-m-dTH:i:s})</dc:date>]
+	<dc:format>text/html</dc:format>
+	[<dc:language>(#LANG)</dc:language>]
+
+	#SET{intro,''}<BOUCLE_art(ARTICLES){id_article}>#SET{intro,#INTRODUCTION{#ENV{coupe,300}}</BOUCLE_art>
+	[(#REM) Le bloc qui suit diffuse l'evenement a la mode RSS ]
+	<description>
+		[(#DATE_DEBUT|agenda_affdate_debut_fin{#DATE_FIN,#HORAIRE}|texte_backend)][ - (#LIEU|PtoBR|texte_backend)]
+		[(#DESCRIPTIF|sinon{#GET{intro}}|texte_backend)]
+	</description>
+
+	[(#REM) Le bloc qui suit diffuse aussi le texte integral de l'evenement,
+	ce qui permet une syndication plus riche (mais plus "lourde").
+	Fonction desactivable depuis les reglages du site.]
+	[(#CONFIG{syndication_integrale}|=={oui}|?{' ',''})<content:encoded>
+	[(#LOGO_ARTICLE{right}|image_reduire{150,150}|texte_backend)]
+	&lt;div class='rss_texte'&gt;
+		[(#DATE_DEBUT|agenda_affdate_debut_fin{#DATE_FIN,#HORAIRE}|texte_backend)][ - (#LIEU|PtoBR|texte_backend)]
+		[(#DESCRIPTIF|sinon{#GET{intro}}|texte_backend)]
+	&lt;/div&gt;
+	</content:encoded>]
+</item>
+</BOUCLE_evenement>

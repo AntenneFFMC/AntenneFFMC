@@ -1,0 +1,79 @@
+<div class="formulaire_spip formulaire_configurer formulaire_#FORM">
+<h3 class="titrem"><:minical:config_titre_calendriermini:></h3>
+
+[<p class="reponse_formulaire reponse_formulaire_ok">(#ENV*{message_ok})</p>]
+[<p class="reponse_formulaire reponse_formulaire_erreur">(#ENV*{message_erreur})</p>]
+
+<form method="post" action="#ENV{action}"><div>
+	#ACTION_FORMULAIRE{#ENV{action}}
+	<ul>
+		#SET{fl,minical}
+		#SET{name,jour1}#SET{obli,''}#SET{defaut,1}#SET{erreurs,#ENV**{erreurs}|table_valeur{#GET{name}}}
+		<li class="editer editer_[(#GET{name})][ (#GET{obli})][ (#GET{erreurs}|oui)erreur]">
+			<label for="#GET{name}">[(#GET{fl}|concat{':label_',#GET{name}}|_T)]</label>[
+			<span class='erreur_message'>(#GET{erreurs})</span>
+			]<select name="#GET{name}" class="select" id="#GET{name}">
+				<BOUCLE_jours(DATA){enum 1,7}>
+				#SET{val,#VALEUR|moins{1}}
+				<option value="#GET{val}"[(#ENV{#GET{name},#GET{defaut}}|=={#GET{val}}|oui)selected="selected"]>[(#VAL{date_jour_}|concat{#VALEUR}|_T)]</option>
+				</BOUCLE_jours>
+			</select>
+		</li>
+		#SET{name,format_jour}#SET{defaut,initiale}#SET{obli,''}#SET{erreurs,#ENV**{erreurs}|table_valeur{#GET{name}}}
+		<li class="editer editer_[(#GET{name})][ (#GET{obli})][ (#GET{erreurs}|oui)erreur]">
+			<label>[(#GET{fl}|concat{':label_',#GET{name}}|_T)]</label>[
+			<span class='erreur_message'>(#GET{erreurs})</span>
+			]
+			#SET{val,initiale}
+			<div class="choix">
+				<input type="radio" name="#GET{name}" class="radio" id="#GET{name}_#GET{val}" value="#GET{val}"[(#ENV{#GET{name},#GET{defaut}}|=={#GET{val}}|oui)checked="checked"] />
+				<label for="#GET{name}_#GET{val}">[(#GET{fl}|concat{':label_',#GET{name},'_',#GET{val}}|_T)] (<:date_jour_1_initiale:> <:date_jour_2_initiale:> <:date_jour_3_initiale:> <:date_jour_4_initiale:>
+					<:date_jour_5_initiale:> <:date_jour_6_initiale:> <:date_jour_7_initiale:>)</label>
+			</div>
+			#SET{val,abbr}
+			<div class="choix">
+				<input type="radio" name="#GET{name}" class="radio" id="#GET{name}_#GET{val}" value="#GET{val}"[(#ENV{#GET{name},#GET{defaut}}|=={#GET{val}}|oui)checked="checked"] />
+				<label for="#GET{name}_#GET{val}">[(#GET{fl}|concat{':label_',#GET{name},'_',#GET{val}}|_T)] (<:date_jour_1_abbr:> <:date_jour_2_abbr:> <:date_jour_3_abbr:> <:date_jour_4_abbr:>
+									<:date_jour_5_abbr:> <:date_jour_6_abbr:> <:date_jour_7_abbr:>)</label>
+			</div>
+		</li>
+		#SET{name,affichage_hors_mois}#SET{defaut,1}#SET{obli,''}#SET{erreurs,#ENV**{erreurs}|table_valeur{#GET{name}}}
+		<li class="editer editer_[(#GET{name})][ (#GET{obli})][ (#GET{erreurs}|oui)erreur]">
+			<label>[(#GET{fl}|concat{':label_',#GET{name}}|_T)]</label>[
+			<span class='erreur_message'>(#GET{erreurs})</span>
+			]
+			#SET{val,1}
+			<div class="choix">
+				<input type="radio" name="#GET{name}" class="radio" id="#GET{name}_#GET{val}" value="#GET{val}"[(#ENV{#GET{name},#GET{defaut}}|=={#GET{val}}|oui)checked="checked"] />
+				<label for="#GET{name}_#GET{val}">[(#GET{fl}|concat{':label_',#GET{name},'_',#GET{val}}|_T)]</label>
+			</div>
+			#SET{val,0}
+			<div class="choix">
+				<input type="radio" name="#GET{name}" class="radio" id="#GET{name}_#GET{val}" value="#GET{val}"[(#ENV{#GET{name},#GET{defaut}}|=={#GET{val}}|oui)checked="checked"] />
+				<label for="#GET{name}_#GET{val}">[(#GET{fl}|concat{':label_',#GET{name},'_',#GET{val}}|_T)]</label>
+			</div>
+		</li>
+		#SET{name,changement_rapide}#SET{defaut,1}#SET{obli,''}#SET{erreurs,#ENV**{erreurs}|table_valeur{#GET{name}}}
+		<li class="editer editer_[(#GET{name})][ (#GET{obli})][ (#GET{erreurs}|oui)erreur]">
+			<label>[(#GET{fl}|concat{':label_',#GET{name}}|_T)]</label>[
+			<span class='erreur_message'>(#GET{erreurs})</span>
+			]
+			#SET{val,1}
+			<div class="choix">
+				<input type="radio" name="#GET{name}" class="radio" id="#GET{name}_#GET{val}" value="#GET{val}"[(#ENV{#GET{name},#GET{defaut}}|=={#GET{val}}|oui)checked="checked"] />
+				<label for="#GET{name}_#GET{val}">[(#GET{fl}|concat{':label_',#GET{name},'_',#GET{val}}|_T)]</label>
+			</div>
+			#SET{val,0}
+			<div class="choix">
+				<input type="radio" name="#GET{name}" class="radio" id="#GET{name}_#GET{val}" value="#GET{val}"[(#ENV{#GET{name},#GET{defaut}}|=={#GET{val}}|oui)checked="checked"] />
+				<label for="#GET{name}_#GET{val}">[(#GET{fl}|concat{':label_',#GET{name},'_',#GET{val}}|_T)]</label>
+			</div>
+		</li>
+
+
+	</ul>
+
+	<p class='boutons'><span class='image_loading'>&nbsp;</span>
+	<input type='submit' class='submit' value='<:bouton_enregistrer:>' /></p>
+</div></form>
+</div>

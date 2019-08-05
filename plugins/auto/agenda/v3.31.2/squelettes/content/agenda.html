@@ -1,0 +1,21 @@
+[(#REM)
+/**
+ * Plugin Agenda 4 pour Spip 3.0
+ * Licence GPL 3
+ *
+ * 2006-2011
+ * Auteurs : cf paquet.xml
+ */
+]
+<section>
+
+	<header class="cartouche">
+		<h1 class="#EDIT{meta-agenda/titre}">[(#CONFIG{agenda/titre}|sinon{<:agenda:titre_sur_l_agenda:>}|typo)]</h1>
+	</header>
+
+	[<div class="chapo #EDIT{meta-agenda/descriptif}">(#CONFIG{agenda/descriptif}|propre)</div>]
+
+	<div class="main">
+		<INCLURE{fond=inclure/agenda-liste,env,ajax} />
+	</div>
+</section>

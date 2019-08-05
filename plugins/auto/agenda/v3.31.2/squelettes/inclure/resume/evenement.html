@@ -1,0 +1,26 @@
+<BOUCLE_vevent(EVENEMENTS){id_evenement=#ENV{id,#ENV{id_evenement}}}{tout}>
+[(#SET{annee,#DATE_DEBUT|annee})][(#SET{mois,#DATE_DEBUT|nom_mois})][(#SET{jour,#DATE_DEBUT|jour})]
+<article class="entry evenement vevent id_#ID_EVENEMENT" id="evenement_#ID_EVENEMENT" itemscope itemtype="http://schema.org/Event">
+	<span class="banner #EDIT{date_debut}"><span class="label label-inverse"><:agenda:date_fmt_agenda_label{annee=#GET{annee},mois=#GET{mois},jour=#GET{jour}}:></span></span>
+	<strong class="h3-like summary entry-title #EDIT{titre}"><a itemprop="url" class="url" href="[(#URL_EVENEMENT)]">[(#LOGO_EVENEMENT|image_reduire{150,100}|inserer_attribut{itemprop,image})]<span itemprop="name">#TITRE</span><span
+			class="lire-la-suite hide"><i class="icon-chevron-right" title="<:zpip:lire_la_suite|attribut_html:><:zpip:lire_la_suite_de|attribut_html:>&laquo;[(#TITRE|attribut_html)]&raquo;"></i></span></a></strong>
+	<meta itemprop="startDate" content="[(#DATE_DEBUT|affdate{Y-m-d})]T[(#DATE_DEBUT|affdate{H:i:sO})]" />
+	<meta itemprop="endDate" content="[(#DATE_FIN|affdate{Y-m-d})]T[(#DATE_FIN|affdate{H:i:sO})]" />
+	[<p class="info-publi"><time><i class="icon-calendar"></i> (#DATE_DEBUT|agenda_affdate_debut_fin{#DATE_FIN,#HORAIRE*,'hcal'})</time></p>]
+	#SET{intro,''}<BOUCLE_art(ARTICLES){si #ENV{sinon_intro_article,oui}|=={non}|ou{#ENV{intro}|=={non}}|non}{id_article}>#SET{intro,#INTRODUCTION{#ENV{coupe,300}}</BOUCLE_art>
+	[(#ENV{intro,oui}|=={non}|non|et{#DESCRIPTIF}|oui)[(#SET{intro,[<div class="introduction #EDIT{descriptif}" itemprop="description">(#DESCRIPTIF|sinon{#GET{intro}})</div>]})]]
+	[(#GET{intro}|ou{#LIEU}|ou{#ADRESSE}|oui)
+	<div class="entry-content">
+		#GET{intro}
+		[<p class="location" itemprop="location"><span class="lieu #EDIT{lieu}">(#LIEU)</span>[<br /><span class="adresse #EDIT{adresse}">(#ADRESSE|PtoBR)</span>]</p>]
+	</div>]
+	<B_mots>
+	<p class="meta-publi">
+	[(#INSCRIPTION|?{' ',''})<span class="inscrits"><span class="sep">|</span> <i class="icon-user" title="#NB_INSCRITS[/#PLACES(#PLACES|>{0}|oui)] <:agenda:inscrits|attribut_html:>"></i> #NB_INSCRITS[/#PLACES(#PLACES|>{0}|oui)]</span>]
+	<span class="sep">|</span> <BOUCLE_mots(MOTS){id_evenement}{par num titre,titre}{', '}><span class="category"><i class="icon-tag"></i> #TITRE</span></BOUCLE_mots>
+	</p>
+	</B_mots>
+	[(#INSCRIPTION|?{' ',''})<p class="meta-publi"><span class="inscrits"><span class="sep">|</span> <i class="icon-user" title="#NB_INSCRITS[/#PLACES(#PLACES|>{0}|oui)] <:agenda:inscrits|attribut_html:>"></i> #NB_INSCRITS[/#PLACES(#PLACES|>{0}|oui)]</span></p>]
+	<//B_mots>
+</article>
+</BOUCLE_vevent>

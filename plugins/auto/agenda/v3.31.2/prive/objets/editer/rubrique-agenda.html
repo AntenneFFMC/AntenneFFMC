@@ -1,0 +1,22 @@
+<div class="editer-groupe">
+	#SET{name,agenda}#SET{obli,''}#SET{defaut,''}#SET{erreurs,#ENV**{erreurs}|table_valeur{#GET{name}}}
+	<div class="editer editer_[(#GET{name})][ (#GET{obli})][ (#GET{erreurs}|oui)erreur]">[
+		<span class='erreur_message'>(#GET{erreurs})</span>
+		]
+		<div class="choix">
+			#SET{val,0}
+			<input type="hidden" name="#GET{name}" value="#GET{val}" />
+			#SET{val,1}
+			<input type="checkbox" name="#GET{name}" class="checkbox" id="#GET{name}_#GET{val}" value="#GET{val}" aria-describedby="#GET{name}_explication" [(#ENV{#GET{name},#GET{defaut}}|=={#GET{val}}|oui)checked="checked"] />
+			<label for="#GET{name}_#GET{val}"><:agenda:rubrique_activer_agenda:></label>
+		</div>
+		<BOUCLE_hasrubriquesagenda(RUBRIQUES){tout}{agenda=1}{0,1}>
+		#SET{parent_agenda,#ENV{id_rubrique}|agenda_rubrique_actif_explicite}
+		[(#GET{parent_agenda}|et{#GET{parent_agenda}|=={#ENV{id_rubrique}}|non})
+			<p class="explication"><:agenda:rubrique_dans_une_rubrique_mode_agenda:></p>
+		]
+		</BOUCLE_hasrubriquesagenda>
+		<p class="explication"><:agenda:aucune_rubrique_mode_agenda:></p>
+		<//B_hasrubriquesagenda>
+	</div>
+</div>

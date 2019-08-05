@@ -1,0 +1,12 @@
+#SET{self,#ENV{self}|parametre_url{debut_mois,#EVAL{_request('debut_mois')}}}
+<B_mois>
+[(#REM) navigation par mois]
+<ul class="liste-items mois">
+<BOUCLE_mois(EVENEMENTS){!par date_debut}{pagination 12}{id_article?}{id_rubrique?}{id_mot?}{id_evenement_source?}{fusion_par_mois date_debut}{statut==.*}>
+<li class="item[(#ENV{date_debut,''}|=={#DATE_DEBUT|affdate{Y-m-01}}|oui)on]"><a
+	href="[(#GET{self}|parametre_url{date_debut,#DATE_DEBUT|affdate{Y-m-01}})]"
+	onclick='return update_agenda(this);'>[(#DATE_DEBUT|affdate_mois_annee{})]</a></li>
+</BOUCLE_mois>
+</ul>
+[<p class='pagination'>(#PAGINATION{prive})</p>]
+</B_mois>

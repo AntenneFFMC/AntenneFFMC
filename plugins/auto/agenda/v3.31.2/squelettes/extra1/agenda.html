@@ -1,0 +1,16 @@
+[(#REM)
+
+  Squelette
+  (c) 2009 xxx
+  Distribue sous licence GPL
+
+]
+#SET{id_article,#ENV{id_article,''}}
+<BOUCLE_ev(EVENEMENTS){id_evenement}>
+#CALENDRIER_MINI{#DATE_DEBUT,date_debut,#URL_PAGE{jour},#URL_PAGE{calendrier_mini_event.json,id_article=#ID_ARTICLE}}
+#SET{id_article,#ID_ARTICLE}
+</BOUCLE_ev>
+#CALENDRIER_MINI{#DATE_DEBUT,date_debut,#URL_PAGE{jour},#URL_PAGE{calendrier_mini_event.json}|parametre_url{id_article,#GET{id_article}}|parametre_url{id_rubrique,#GET{id_rubrique}}}
+<//B_ev>
+
+<INCLURE{fond=inclure/agenda-evenements-meme-article,id_article=#GET{id_article},env,ajax} />
