@@ -8,11 +8,11 @@
     <!-- Infos personne -->
     <table class="form-infras__partie">
       <tr class="form-infras__partie-ligne">
-        <td class="form-infras__partie-cellule">Nom* :</td>
+        <td class="form-infras__partie-cellule">Nom*:</td>
         <td class="form-infras__partie-cellule"><input type="text" name="sender" value="#ENV{sender}" required></td>
       </tr>
       <tr class="form-infras__partie-ligne">
-        <td class="form-infras__partie-cellule">Email* :</td>
+        <td class="form-infras__partie-cellule">Email*:</td>
         <td class="form-infras__partie-cellule"><input type="email" name="email" value="#ENV{email}" required></td>
       </tr>
       <tr class="form-infras__partie-ligne">
@@ -20,7 +20,7 @@
         <td class="form-infras__partie-cellule"><input type="text" name="Rue" value="#ENV{Rue}"></td>
       </tr>
       <tr class="form-infras__partie-ligne">
-        <td class="form-infras__partie-cellule" valign="top">En venant de :</td>
+        <td class="form-infras__partie-cellule" valign="top">En venant de:</td>
         <td class="form-infras__partie-cellule"><input type="text" name="De" value="#ENV{De}"></td>
       </tr>
       <tr class="form-infras__partie-ligne">
@@ -166,11 +166,12 @@
           <textarea name="Autres_observations" rows="5"></textarea>
         </td>
       </tr>
-	</table>
-	
-	<i>Les champs identifiés par une * sont requis.</i>
+    </table>
 
-	<input type="text" name="special" value="#ENV{special}" style="display:none">
+    <i>Les champs identifiés par une * sont requis.</i>
+    
+    <input type="text" name="special" value="#ENV{special}" style="display:none">
+
     <input type="submit" class="btn btn--form" value="Envoyer" />
 
 </form>
