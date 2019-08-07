@@ -259,17 +259,41 @@
 						</li>
 					</ul>
 				</label>
+				  
+				[(#IDENTITE_URL_FACEBOOK|oui|?{
+					#SET{URL_FACEBOOK, #IDENTITE_URL_FACEBOOK},
+					#SET{URL_FACEBOOK, 'https://www.facebook.com/ffmcnat'}
+				})]
+				<div class="conteneur__colonne-droite-item page-accueil_bloc-facebook">
+						<div id="fb-root"></div>
+						<script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v4.0"></script>
+
+						<div class="fb-page"
+							data-href="[(#GET{URL_FACEBOOK})]"
+							data-tabs=""
+							data-width="255"
+							data-height=""
+							data-small-header="false"
+							data-adapt-container-width="false"
+							data-hide-cover="false"
+							data-show-facepile="false">
+							<blockquote cite="[(#GET{URL_FACEBOOK})]"
+										class="fb-xfbml-parse-ignore">
+								<a href="[(#GET{URL_FACEBOOK})]">
+									Notre page
+								</a>
+							</blockquote>
+						</div>
+				</div>
 
 				<div class="conteneur__colonne-droite-item page-accueil__bloc-twitter">
-
 					<a class="twitter-timeline"
 						 data-link-color="#30891D"
 						 href="https://twitter.com/[(#IDENTITE_PSEUDO_TWITTER|oui|?{#IDENTITE_PSEUDO_TWITTER,'ffmcnat'})]?ref_src=twsrc%5Etfw">
 						 Tweets de @[(#IDENTITE_PSEUDO_TWITTER|oui|?{#IDENTITE_PSEUDO_TWITTER,'ffmcnat'})]
 					</a>
 					<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-	      </div>
+				</div>
 
 				<img class="conteneur__colonne-droite-item page-accueil__couverture-motomag" src="https://www.motomag.com/IMG/jpg/moto_magazine_couverture.jpg" width="auto">
 
