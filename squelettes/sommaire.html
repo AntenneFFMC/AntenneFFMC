@@ -15,7 +15,7 @@
 <body class="page-accueil">
 
 	<!-- Header -->
-	[(#INCLURE{fond=inclure/inc_entete})]
+	[(#INCLURE{fond=inclure/inc_entete})]	
 
 	<!-- Corps de la page -->
 	<section class="conteneur">
@@ -24,7 +24,7 @@
 			<BOUCLE_EDITO(ARTICLES){id_mot=1}{!par date}{0,1}{doublons}>
 				<h2>A LA UNE</h2>
 				<abbr class="page-accueil__une-date" title="[(#DATE|date_iso)]">
-					[(#DATE|nom_jour) ][(#DATE|affdate)]
+					[(#DATE|nom_jour)][(#DATE|affdate)]
 				</abbr>
 				<h3 class="page-accueil__une-titre">
 					<a href="#URL_ARTICLE">#TITRE</a>
@@ -264,8 +264,8 @@
 
 					<a class="twitter-timeline"
 						 data-link-color="#30891D"
-						 href="https://twitter.com/ffmc73?ref_src=twsrc%5Etfw">
-						 Tweets by ffmc73
+						 href="https://twitter.com/[(#IDENTITE_PSEUDO_TWITTER|oui|?{#IDENTITE_PSEUDO_TWITTER,'ffmcnat'})]?ref_src=twsrc%5Etfw">
+						 Tweets de @[(#IDENTITE_PSEUDO_TWITTER|oui|?{#IDENTITE_PSEUDO_TWITTER,'ffmcnat'})]
 					</a>
 					<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
