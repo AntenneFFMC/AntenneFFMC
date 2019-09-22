@@ -1,12 +1,12 @@
 import '../sass/index.scss';
-import DOMscan from './components/DOMscan';
+import HomeWidget from './components/HomeWidget';
 
 class App {
   constructor () {
     this.initApp();
   }
   initApp () {
-    this.DOMscan = new DOMscan();
+    this.HomeWidget = new HomeWidget();
   }
 }
 

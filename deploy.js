@@ -3,7 +3,7 @@ var ftpDeploy = new FtpDeploy();
  
 var config = {
     user: "preprod.ffmc73.ft",
-    // password: "password",         // optional, prompted if none given
+    password: "#Gatogorbo73",         // optional, prompted if none given
     host: "ftp.ouvaton.coop",
     port: 21,
     localRoot: __dirname + '/squelettes',

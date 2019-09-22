@@ -1,0 +1,15 @@
+<paquet
+	prefix="dist"
+	categorie="squelette"
+	version="3.2"
+	etat="stable"
+	compatibilite="[3.2.0;3.2.*]"
+	logo="icon/skel.png"
+>
+
+	<nom>Antenne FFMC</nom>
+
+	<auteur>Norbert Cabrol & Antoine Cabrol</auteur>
+
+	<licence lien="http://www.gnu.org/licenses/gpl-3.0.html">GNU/GPL</licence>
+</paquet>

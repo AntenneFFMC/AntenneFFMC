@@ -1,95 +1,65 @@
-[(#REM) date" content="2018-08-21 Norbert(FFMC73)"]
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-[(#REM) Cf.: http://paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/
-]<!--[if lt IE 7 ]> <html dir="#LANG_DIR" lang="#LANG" xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" class="[(#LANG_DIR)][ (#LANG)] no-js ie ie6"> <![endif]-->
-<!--[if IE 7 ]> <html dir="#LANG_DIR" lang="#LANG" xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" class="[(#LANG_DIR)][ (#LANG)] no-js ie ie7"> <![endif]-->
-<!--[if IE 8 ]> <html dir="#LANG_DIR" lang="#LANG" xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" class="[(#LANG_DIR)][ (#LANG)] no-js ie ie8"> <![endif]-->
-<!--[if IE 9 ]> <html dir="#LANG_DIR" lang="#LANG" xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" class="[(#LANG_DIR)][ (#LANG)] no-js ie ie9"> <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!--> <html dir="#LANG_DIR" lang="#LANG" xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" class="[(#LANG_DIR)][ (#LANG)] no-js"> <!--<![endif]-->
-<head>
-	<!-- Entête -->
-	<meta charset="utf-8" />
-	[(#INCLURE{fond=inclure/inc_styles})]
-	[(#INCLURE{fond=inclure/inc_scripts})]
-	[(#INCLURE{fond=inclure/inc_fonts})]
-	[(#INCLURE{fond=inclure/inc_robots-no})]  <!-- TODO: Changer en prod -->
-	[(#INCLURE{fond=inclure/inc_desc})]
-	<title>Agenda</title>
-</head>
-
-<body class="page-agenda">
-
-	<!-- Header -->
-	[(#INCLURE{fond=inclure/inc_entete})]
-
-	<div class="conteneur">
-
-		<h1>📅 Agenda</h1>
-
-		<!-- Masqué si JS activé -->
-		<B_agenda>
-		<div id="calendrier-loading">
-			<p class="pagination">#PAGINATION</p>
-			<BOUCLE_agenda(DATA){source json, #PRODUIRE{fond=agenda.json, start=0,end=2147483647,_=#REM|time}|url_absolue}{pagination 15}>
-					<dl>
-							[<dt><:agenda:evenement_titre:></dt>
-							<dd><a href="#VALEUR{url}">(#VALEUR{title})</a></dd>]
-
-							[<dt><:agenda:evenement_date:></dt>
-							<dd>(#VALEUR{start}|Agenda_affdate_debut_fin{#VALEUR{end},#VALEUR{allDay}|=={true}|?{non,oui}})</dd>]
-
-							[<dt><:agenda:evenement_descriptif:></dt>
-							<dd>(#VALEUR{description})</dd>]
-					</dl>
-			</BOUCLE_agenda>
-			<p class="pagination">#PAGINATION</p>
-		</div>
-		</B_agenda>
-
-		<!-- Affiché si JS activé -->
-		<div id="agenda">
-		</div>
-
-	</div>
-
-	<!-- Footer -->
-	[(#INCLURE{fond=inclure/inc_pied})]
+<INCLURE{fond=inclure/head,title=Agenda,page=agenda,robots=#CONST{_PREPROD}|?{noindex,doindex}} />
 
 
-	<script type="text/javascript">
-		/*<![CDATA[*/
-			jQuery(function($) {
-					var largeur = $( window ).width();
-					$('#agenda').fullCalendar({
-						locale : '[(#LANG|strtolower)]',
-						editable: false,
-						navLinks: true,
-						eventLimit: true,
-						events: "[(#URL_PAGE{agenda.json})]",
-						header: {
-							left: [(#LANG_DIR|=={ltr}|?{"'prevYear,prev,next,nextYear,today'","'listMonth,month,agendaWeek,agendaDay'"})],
-							center: 'title',
-							right: [(#LANG_DIR|=={ltr}|?{"'agendaDay,agendaWeek,month,listMonth'","'today nextYear,next,prev,prevYear'"})]
-						},
-						fixedWeekCount: false,
-					  allDayHtml:'<:organiseur:cal_jour_entier|textebrut:>',
-						loading: function(bool) {
-									 if (bool) $('#calendrier-loading').show();
-										else $('#calendrier-loading').hide();
-						},
-					})
-					if (largeur <= 768) {
-				    console.log("Hello ! :)");
-				    $('#agenda').fullCalendar('changeView', 'listMonth');
-				  }
-			});
+<h1>📅 Agenda</h1>
+
+<!-- Masqué si JS activé -->
+<B_agenda>
+<div id="calendrier-loading">
+	<p class="pagination">#PAGINATION</p>
+	<BOUCLE_agenda(DATA){source json, #PRODUIRE{fond=agenda.json, start=0,end=2147483647,_=#REM|time}|url_absolue}{pagination 15}>
+			<dl>
+					[<dt><:agenda:evenement_titre:></dt>
+					<dd><a href="#VALEUR{url}">(#VALEUR{title})</a></dd>]
+
+					[<dt><:agenda:evenement_date:></dt>
+					<dd>(#VALEUR{start}|Agenda_affdate_debut_fin{#VALEUR{end},#VALEUR{allDay}|=={true}|?{non,oui}})</dd>]
+
+					[<dt><:agenda:evenement_descriptif:></dt>
+					<dd>(#VALEUR{description})</dd>]
+			</dl>
+	</BOUCLE_agenda>
+	<p class="pagination">#PAGINATION</p>
+</div>
+</B_agenda>
+
+<!-- Affiché si JS activé -->
+<div id="agenda">
+</div>
+
+<script type="text/javascript">
+	/*<![CDATA[*/
+		jQuery(function($) {
+				var largeur = $( window ).width();
+				$('#agenda').fullCalendar({
+					locale : '[(#LANG|strtolower)]',
+					editable: false,
+					navLinks: true,
+					eventLimit: true,
+					events: "[(#URL_PAGE{agenda.json})]",
+					header: {
+						left: [(#LANG_DIR|=={ltr}|?{"'prevYear,prev,next,nextYear,today'","'listMonth,month,agendaWeek,agendaDay'"})],
+						center: 'title',
+						right: [(#LANG_DIR|=={ltr}|?{"'agendaDay,agendaWeek,month,listMonth'","'today nextYear,next,prev,prevYear'"})]
+					},
+					fixedWeekCount: false,
+					allDayHtml:'<:organiseur:cal_jour_entier|textebrut:>',
+					loading: function(bool) {
+									if (bool) $('#calendrier-loading').show();
+									else $('#calendrier-loading').hide();
+					},
+				})
+				if (largeur <= 768) {
+				console.log("Hello ! :)");
+				$('#agenda').fullCalendar('changeView', 'listMonth');
+				}
+		});
 
 
 
 
-		/*]]>*/
-	</script>
+	/*]]>*/
+</script>
 
-</body>
 
-</html>
+<INCLURE{fond=inclure/footer} />

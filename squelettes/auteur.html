@@ -1,47 +1,22 @@
-[(#REM) date" content="2014-05-17 Norbert(FFMC73) ]
-
 <BOUCLE_auteur_principal(AUTEURS){id_auteur}>
-<!DOCTYPE html>
-<html lang="fr">
 
-<head>
-	<!-- Entête -->
-	<meta charset="utf-8" />
-	[(#INCLURE{fond=inclure/inc_styles})]
-	[(#INCLURE{fond=inclure/inc_scripts})]
-	[(#INCLURE{fond=inclure/inc_fonts})]
-	[(#INCLURE{fond=inclure/inc_robots-no})]  <!-- TODO: Changer en prod -->
-	[(#INCLURE{fond=inclure/inc_desc})]
-	<title>#NOM_SITE_SPIP</title>
-</head>
+	<INCLURE{fond=inclure/head,title=Auteur - #NOM,page=auteur,robots=#CONST{_PREPROD}|?{noindex,doindex}} />
 
-<body class="page-auteur">
 
-	<!-- Header -->
-	[(#INCLURE{fond=inclure/inc_entete})]
+	<p class="arbo">
+		<a href="#URL_SITE_SPIP/">
+			<:accueil_site:>
+		</a> &gt; <strong class="on"><:contact:> - #NOM</strong></p>
 
-	<!-- Corps de la page -->
-	<section class="conteneur">
+	<header>
+		<h1 class="#EDIT{titre} surlignable">#NOM</h1>
+		<p>#BIO</p>
+		#LOGO_AUTEUR
+	</header>
 
-				<p class="arbo">
-					<a href="#URL_SITE_SPIP/">
-						<:accueil_site:>
-					</a> &gt; <strong class="on"><:contact:> - #NOM</strong></p>
+	#FORMULAIRE_ECRIRE_AUTEUR
 
-				<header>
-					<h1 class="#EDIT{titre} surlignable">#NOM</h1>
-					<p>#BIO</p>
-					#LOGO_AUTEUR
-				</header>
 
-				#FORMULAIRE_ECRIRE_AUTEUR
+	<INCLURE{fond=inclure/footer} />
 
-	</section>
-
-	<!-- Footer -->
-	[(#INCLURE{fond=inclure/inc_pied})]
-
-</body>
-
-</html>
 </BOUCLE_auteur_principal>

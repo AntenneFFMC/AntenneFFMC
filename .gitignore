@@ -1,5 +1,4 @@
 node_modules/
-squelettes/images/
 squelettes/main.js
 squelettes/main.css
 deploy.js

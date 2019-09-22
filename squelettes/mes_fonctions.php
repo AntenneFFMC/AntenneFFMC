@@ -1,5 +1,16 @@
 <?php
 
+if (stripos($_SERVER['SERVER_NAME'], 'preprod.ffmc73.org') !== FALSE) {
+    define('_PREPROD', true);
+} else {
+    define('_PREPROD', false);
+}
+
+
+
+////////////////////
+// Ajouter des champs personnalisés à l'identité du site
+
 function mes_champs_identite($champs){
 
     $champs = [
