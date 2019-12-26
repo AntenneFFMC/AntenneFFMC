@@ -15,7 +15,9 @@ function mes_champs_identite($champs){
 
     $champs = [
         'url_facebook',
-        'pseudo_twitter'
+        'pseudo_twitter',
+        'mentions_nom_long',
+        'mentions_nom_court'
     ];
 
     return $champs;
