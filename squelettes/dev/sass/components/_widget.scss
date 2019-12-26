@@ -79,7 +79,7 @@
     margin-right: -16px; 
     overflow-y: scroll;
     &:empty {
-      background-image: url("../images/index/tyre.svg");
+      background-image: url("https://ffmc73.org/squelettes/images/index/tyre.svg"); 
       background-repeat: no-repeat;
       background-position: center;
       background-size: 30%;
@@ -116,6 +116,14 @@
   	background: $couleur-fond--clair;
   }
 
+}
+
+.widget-articles {
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0; 
+  }
 }
 
 

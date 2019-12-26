@@ -1,4 +1,6 @@
 node_modules/
-squelettes/images/
+tmp/
 squelettes/main.js
 squelettes/main.css
+deploy.js
+spip_loader.php

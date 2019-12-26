@@ -1,60 +1,33 @@
-<html dir="#LANG_DIR" lang="#LANG" xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" class="[(#LANG_DIR)][ (#LANG)] no-js"> <!--<![endif]-->
+<INCLURE{fond=inclure/head,title=Infrastructures dangereuses,page=infrastructures,robots=#CONST{_PREPROD}|?{noindex,doindex}} />
 
-<head>
-	<!-- Entête -->
-	<meta charset="utf-8" />
-	[(#INCLURE{fond=inclure/inc_styles})]
-	[(#INCLURE{fond=inclure/inc_scripts})]
-	[(#INCLURE{fond=inclure/inc_fonts})]
-	[(#INCLURE{fond=inclure/inc_robots-no})]  <!-- TODO: Changer en prod -->
-	[(#INCLURE{fond=inclure/inc_desc})]
-	<title>Infrastructures dangereuses</title>
-</head>
+<p class="arbo">
+	<a href="#URL_SITE_SPIP/">
+		<:accueil_site:>
+	</a> &gt; <strong class="on">Formulaire Points noirs</strong>
+</p>
 
+<h1>Formulaire Points noirs</h1>
 
-<body class="page-infrastructures">
+<div class="conteneur__chapo">
+	<p>
+		Signalez-nous les dangers « spécial motards » que vous rencontrez.
+		Nous les communiquerons aux responsables de la voirie concernée. Ensuite,
+		nous nous assurerons que les défauts sont supprimés. Si nécessaire,
+		des actions seront entreprises en cas d’absence de prise en compte de
+		nos remarques.
+	</p>
+	<p>
+		Votre sécurité est entre vos mains : merci de remplir ce formulaire puis
+		de cliquer sur le bouton "OK" tout en bas. Il sera reçu par la FFMC qui,
+		après regroupement et classification, engagera les actions nécessaires
+		auprès des autorités locales compétentes.
+	</p>
+	<p>
+		D’avance, merci pour votre aide !
+	</p>
+</div>
 
-	<!-- Header -->
-	[(#INCLURE{fond=inclure/inc_entete})]
-
-	<!-- Corps de la page -->
-	<section class="conteneur">
-
-		<p class="arbo">
-			<a href="#URL_SITE_SPIP/">
-				<:accueil_site:>
-			</a> &gt; <strong class="on">Formulaire Points noirs</strong>
-		</p>
-
-		<h1>Formulaire Points noirs</h1>
-
-		<div class="conteneur__chapo">
-			<p>
-				Signalez-nous les dangers « spécial motards » que vous rencontrez.
-				Nous les communiquerons aux responsables de la voirie concernée. Ensuite,
-				nous nous assurerons que les défauts sont supprimés. Si nécessaire,
-				des actions seront entreprises en cas d’absence de prise en compte de
-				nos remarques.
-			</p>
-			<p>
-				Votre sécurité est entre vos mains : merci de remplir ce formulaire puis
-				de cliquer sur le bouton "OK" tout en bas. Il sera reçu par la FFMC qui,
-				après regroupement et classification, engagera les actions nécessaires
-				auprès des autorités locales compétentes.
-			</p>
-			<p>
-				D’avance, merci pour votre aide !
-			</p>
-		</div>
-
-		#FORMULAIRE_INFRAS
-
-	</section>
-
-	<!-- Footer -->
-	[(#INCLURE{fond=inclure/inc_pied})]
-
-</body>
+#FORMULAIRE_INFRAS
 
 
-</html>
+<INCLURE{fond=inclure/footer} />

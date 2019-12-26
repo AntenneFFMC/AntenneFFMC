@@ -1,33 +1,9 @@
-<!DOCTYPE html>
-<html lang="fr">
+<INCLURE{fond=inclure/head,title=Erreur 404,page=404,robots=#CONST{_PREPROD}|?{noindex,doindex}} />
 
-<head>
-	<!-- Entête -->
-	<meta charset="utf-8" />
-	[(#INCLURE{fond=inclure/inc_styles})]
-	[(#INCLURE{fond=inclure/inc_scripts})]
-	[(#INCLURE{fond=inclure/inc_fonts})]
-	[(#INCLURE{fond=inclure/inc_robots-no})]  <!-- TODO: Changer en prod -->
-	[(#INCLURE{fond=inclure/inc_desc})]
-	<title>Erreur 404</title>
-</head>
+<div style="width:100%; height:0;padding-bottom:42%;position:relative;">
+	<iframe src="https://giphy.com/embed/3oEjI30CLaY1W5rgyc" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+</div>
+<h1>Vous avez l'air de vous être trompé de route...</h1>
 
-<body class="page-404">
 
-	<!-- Header -->
-	[(#INCLURE{fond=inclure/inc_entete})]
-
-	<!-- Corps de la page -->
-	<div class="conteneur">
-		<div style="width:100%; height:0;padding-bottom:42%;position:relative;">
-			<iframe src="https://giphy.com/embed/3oEjI30CLaY1W5rgyc" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
-		</div>
-		<h1>Vous avez l'air de vous être trompé de route...</h1>
-	</div>
-
-	<!-- Footer -->
-	[(#INCLURE{fond=inclure/inc_pied})]
-
-</body>
-
-</html>
+<INCLURE{fond=inclure/footer} />

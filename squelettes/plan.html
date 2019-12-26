@@ -1,48 +1,18 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-[(#REM) Cf.: http://paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/
-]<!--[if lt IE 7 ]> <html dir="#LANG_DIR" lang="#LANG" xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" class="[(#LANG_DIR)][ (#LANG)] no-js ie ie6"> <![endif]-->
-<!--[if IE 7 ]> <html dir="#LANG_DIR" lang="#LANG" xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" class="[(#LANG_DIR)][ (#LANG)] no-js ie ie7"> <![endif]-->
-<!--[if IE 8 ]> <html dir="#LANG_DIR" lang="#LANG" xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" class="[(#LANG_DIR)][ (#LANG)] no-js ie ie8"> <![endif]-->
-<!--[if IE 9 ]> <html dir="#LANG_DIR" lang="#LANG" xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" class="[(#LANG_DIR)][ (#LANG)] no-js ie ie9"> <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!-->
-
-<html dir="#LANG_DIR" lang="#LANG" xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" class="[(#LANG_DIR)][ (#LANG)] no-js"> <!--<![endif]-->
-
-<head>
-	<!-- Entête -->
-	<meta charset="utf-8" />
-	[(#INCLURE{fond=inclure/inc_styles})]
-	[(#INCLURE{fond=inclure/inc_scripts})]
-	[(#INCLURE{fond=inclure/inc_fonts})]
-	[(#INCLURE{fond=inclure/inc_robots-no})]  <!-- TODO: Changer en prod -->
-	[(#INCLURE{fond=inclure/inc_desc})]
-	<title>Plan - #NOM_SITE_SPIP</title>
-</head>
+<INCLURE{fond=inclure/head,title=Plan - #NOM_SITE_SPIP,page=plan,robots=#CONST{_PREPROD}|?{noindex,doindex}} />
 
 
-<body class="page-plan">
+<p class="arbo">
+	<a href="#URL_SITE_SPIP/"><:accueil_site:></a> &gt;
+	<strong class="on"><:plan_site:></strong>
+</p>
 
-	<!-- Header -->
-	[(#INCLURE{fond=inclure/inc_entete})]
+<header class="rubrique__entete">
+	<h1 class="rubrique__entete-titre"><:plan_site:></h1>
+</header>
 
-	<!-- Corps de la page -->
-	<section class="conteneur">
-
-    <p class="arbo">
-      <a href="#URL_SITE_SPIP/"><:accueil_site:></a> &gt;
-      <strong class="on"><:plan_site:></strong>
-    </p>
-
-  	<h1 class="#EDIT{titre} surlignable"><:plan_site:></h1>
-
-    #MODELE{plan}
-
-  </section>
-
-	<!-- Footer -->
-	[(#INCLURE{fond=inclure/inc_pied})]
-
-</body>
+<div class="page-plan__liste">
+	#MODELE{plan}
+</div>
 
 
-</html>
+<INCLURE{fond=inclure/footer} />
