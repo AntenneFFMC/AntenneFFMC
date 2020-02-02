@@ -3,10 +3,10 @@ var ftpDeploy = new FtpDeploy();
  
 var config = {
     user: "preprod.ffmc73.ft",
-    password: "#Gatogorbo73",         // optional, prompted if none given
+    password: "",         // optional, prompted if none given
     host: "ftp.ouvaton.coop",
     port: 21,
-    localRoot: __dirname + '/squelettes',
+    localRoot: __dirname + 'plugins/auto/antenneffmc/squelettes',
     remoteRoot: '/httpdocs/squelettes/',
     include: ['main.css'],
     exclude: [],                     // e.g. exclude sourcemaps - ** exclude: [] if nothing to exclude **

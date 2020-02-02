@@ -1,0 +1,29 @@
+<BOUCLE_principale(AUTEURS){tout}{par id_auteur}{! email}{0,1}>
+
+	<INCLURE{fond=inclure/head,title=Contact,page=contact,robots=#CONST{_PREPROD}|?{noindex,doindex}} />
+
+
+	<p class="arbo"><a href="#URL_SITE_SPIP/"><:accueil_site:></a> &gt; <strong class="on"><:contact:></strong></p>
+
+	<h1><:contact:></h1>
+
+	<section class="conteneur conteneur--colonnes">
+
+		<section class="conteneur__colonne-principale">
+			[(#CONFIG{antenneffmc/config/contact_gmaps_url}|strlen|oui)
+				<iframe src="#CONFIG{antenneffmc/config/contact_gmaps_url}"
+						frameborder="0" style="border:0" allowfullscreen class="page-contact__street-view"></iframe>
+			]
+			<div class="bandeau-antenne">#DESCRIPTIF_SITE_SPIP</div>
+		</section>
+
+		<aside class="conteneur__colonne-droite">
+			#FORMULAIRE_ECRIRE_AUTEUR
+		</aside>
+
+	</section>
+
+ 
+	<INCLURE{fond=inclure/footer} />
+
+</BOUCLE_principale>

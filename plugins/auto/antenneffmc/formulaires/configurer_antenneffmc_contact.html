@@ -1,0 +1,52 @@
+<!-------------------------------------------------------------------------------->
+<!-- CONTACT 6-------------------------------------------------------------------->
+<!-------------------------------------------------------------------------------->
+
+<div class="formulaire_spip formulaire_configurer formulaire_#FORM">
+    <h3 class="titrem"><:antenneffmc:cfg_page_contact:></h3>
+    [<p class="reponse_formulaire reponse_formulaire_ok">(#ENV*{message_ok})</p>]
+    [<p class="reponse_formulaire reponse_formulaire_erreur">(#ENV*{message_erreur})</p>]
+
+    <form method="post" action="#ENV{action}">
+        <div>
+            #ACTION_FORMULAIRE{#ENV{action}}
+
+
+            <!-- CONFIGURATION -->
+
+            <ul>
+                <!-- Menu -->
+                <li class="[ (#GET{erreurs}|oui)erreur]">
+                    <fieldset>
+                        <legend><:antenneffmc:cfg_contact_gmaps:></legend>
+
+                        <div class="editer-groupe">
+                            #SET{name,contact_gmaps}
+                            #SET{erreurs,#ENV**{erreurs}|table_valeur{#GET{name}}}
+                            <div class="editer long_label">
+                                <label for="#GET{name}_url"><:antenneffmc:cfg_contact_gmaps_label:></label>
+                                <div class="explication">
+                                    <:antenneffmc:cfg_contact_gmaps_explication:>
+                                </div>
+                                <input type="text" class="text" name="#GET{name}_url" id="#GET{name}_url" placeholder="https://www.google.com/maps/embed?..." value="[(#ENV{#GET{name}}|?{#ENV{#GET{name}},#CONFIG{antenneffmc/config/#GET{name}_url}})]">
+                                
+                                <small>
+                                    
+                                </small>
+                            </div>
+                        </div>
+                    </fieldset>
+                </li>
+            </ul>
+
+
+            <!-- STOCKAGE DES DONNEES  -->
+
+            <input type="hidden" name="_meta_casier" value="antenneffmc/config" />
+            <p class="boutons">
+                <span class='image_loading'>&nbsp;</span>
+                <input type="submit" name="enregistrer" class="submit" value="<:bouton_valider:>" />
+            </p>
+        </div>
+    </form>
+</div>

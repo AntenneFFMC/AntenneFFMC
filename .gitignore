@@ -1,4 +1,5 @@
 node_modules/
+/prive/
 tmp/
 squelettes/main.js
 squelettes/main.css

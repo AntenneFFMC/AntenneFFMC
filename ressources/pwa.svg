@@ -59,7 +59,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -75,20 +75,29 @@
        width="132.29167"
        height="132.29167"
        x="44.601192"
-       y="64.166664" />
+       y="64.166664"
+       inkscape:export-filename="D:\Travail\Desktop\app29.png"
+       inkscape:export-xdpi="5.5674429"
+       inkscape:export-ydpi="5.5674429" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'arial black';-inkscape-font-specification:'arial black, ';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.05833333;stroke-miterlimit:4;stroke-dasharray:none"
        x="51.171364"
        y="120.11375"
-       id="text4549"><tspan
+       id="text4549"
+       inkscape:export-filename="D:\Travail\Desktop\app29.png"
+       inkscape:export-xdpi="5.5674429"
+       inkscape:export-ydpi="5.5674429"><tspan
          sodipodi:role="line"
          id="tspan4547"
          x="51.171364"
          y="120.11375"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:38.80555725px;font-family:'arial black';-inkscape-font-specification:'arial black, ';fill:#3ea147;fill-opacity:1;stroke:#ffffff;stroke-width:1.05833333;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">FFMC</tspan></text>
     <g
-       id="g4573">
+       id="g4573"
+       inkscape:export-filename="D:\Travail\Desktop\app29.png"
+       inkscape:export-xdpi="5.5674429"
+       inkscape:export-ydpi="5.5674429">
       <flowRoot
          transform="matrix(0.26458333,0,0,0.26458333,1.6564824,56.600527)"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:64px;line-height:1.25;font-family:'arial black';-inkscape-font-specification:'arial black, ';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"

@@ -1,0 +1,165 @@
+// main: ../global.scss
+
+/** ================================================
+               # WIDGET
+================================================ **/
+
+.widget-liste.conteneur {
+  display: flex;
+  margin: $espace-vertical--petit auto $espace-vertical*1.5;
+}
+
+.widget {
+  flex: 1;
+  margin: 10px 20px;
+  padding: 0;
+  min-width: 200px;
+  height: 180px;
+  overflow: hidden;
+  //border: 1px solid lightgrey;
+
+  &__entete {
+    color: inherit;
+    font-size: $police-taille--moyenne;
+    margin: 0 0 10px;
+    font-weight: normal;
+  }
+
+  &__article {
+    position: relative;
+
+    &:hover {
+      .widget__article-logo {
+        .spip_logo.spip_logos {
+          transform: translateY(-8%);
+          @extend %transition-all;
+        }
+      }
+      .widget__article-titre {
+        bottom: 15px;
+        @extend %transition-all;
+      }
+    }
+
+    &-logo {
+      z-index: 0;
+      position: relative;
+      width: 100%;
+      height: 150px;
+      overflow: hidden;
+      .spip_logo.spip_logos {
+        width: 100%;
+        height: auto;
+        padding: 0;
+        transform: translateY(-10%);
+        @extend %transition-all;
+      }
+    }
+    &-titre {
+      z-index: 0;
+      position: absolute;
+      left: 10%;
+      bottom: 10px;
+      width: 80%;
+      padding: 10px 20px;
+      background-color: $couleur-fond--clair;
+      text-align: center;
+      @extend %transition-all;
+    }
+  }
+
+}
+
+.widget-agenda {
+  position: relative;
+  padding-bottom: 20px;
+
+  &__evenements-liste {
+    height: 120px;
+    margin-right: -16px; 
+    overflow-y: scroll;
+    &:empty {
+      background-image: url("https://ffmc73.org/plugins/auto/antenneffmc/images/index/tyre.svg"); 
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 30%;
+      opacity: 0.2;
+    }
+  }
+
+  &__evenement {
+    margin: 0 5px 5px;
+    padding: 8px 20px;
+  	background: rgba(255, 201, 20, 0.3);
+  	border-radius: 4px;
+    &:first-of-type {
+      margin: 0 0 5px;
+    	background: rgba(255, 201, 20, 0.6);
+    }
+
+    &-titre { display: block; }
+    &-date {
+      font-size: $police-taille--petite;
+      color: $couleur-texte--clair;
+    }
+  }
+
+  //&__desc {}
+
+  &__footer {
+  	position: absolute;
+  	bottom: 0;
+  	right: 0;
+  	width: 100%;
+    padding-top: 5px;
+  	text-align: right;
+  	background: $couleur-fond--clair;
+  }
+
+}
+
+.widget-articles {
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0; 
+  }
+}
+
+
+
+
+/** ------------------------------------------------
+                tablette paysage
+------------------------------------------------ **/
+
+@media (max-width: $tablette-paysage) {
+
+}
+
+/** ------------------------------------------------
+                tablette portrait
+------------------------------------------------ **/
+
+@media (max-width: $tablette-portrait) {
+
+  .widget-liste.conteneur {
+    flex-flow: column;
+    max-width: 400px;
+  }
+
+  .widget-agenda {
+    height: auto;
+    &__evenements-liste { margin-right: 0; overflow-y: auto; }
+    &__footer { position: static; }
+  }
+
+}
+
+/** ------------------------------------------------
+                Mobile
+------------------------------------------------ **/
+
+@media (max-width: $mobile) {
+
+}
