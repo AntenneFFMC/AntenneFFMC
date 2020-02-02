@@ -1,12 +1,13 @@
 {
   "name": "antenneffmc",
-  "version": "1.0.0",
+  "version": "4.0.0",
   "description": "![logo FFMC](https://ffmc.asso.fr/local/cache-vignettes/L960xH138/siteon0-e29d4.jpg?1504019807)",
-  "main": "./squelettes/dev/js/index.js",
+  "main": "./plugins/auto/antenneffmc/squelettes/dev/js/index.js",
   "scripts": {
-    "watch": "onchange \"./squelettes/dev/sass/**/*\" -- npm run sass",
+    "watch": "onchange \"./plugins/auto/antenneffmc/squelettes/dev/sass/**/*\" -- npm run sassNodeploy",
     "build": "webpack && echo \"Upload manuel de main.js et autres fichiers modifiés nécessaire.\"",
-    "sass": "node-sass ./squelettes/dev/sass/index.scss ./squelettes/main.css && npm run deploy",
+    "sass": "node-sass ./plugins/auto/antenneffmc/squelettes/dev/sass/index.scss ./plugins/auto/antenneffmc/squelettes/main.css && npm run deploy",
+    "sassNodeploy": "node-sass ./plugins/auto/antenneffmc/squelettes/dev/sass/index.scss ./plugins/auto/antenneffmc/squelettes/main.css",
     "deploy": "node deploy"
   },
   "repository": {

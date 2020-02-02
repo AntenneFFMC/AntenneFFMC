@@ -1,0 +1,55 @@
+<!-------------------------------------------------------------------------------->
+<!-- SOMMAIRE -------------------------------------------------------------------->
+<!-------------------------------------------------------------------------------->
+
+<div class="formulaire_spip formulaire_configurer formulaire_#FORM">
+    <h3 class="titrem"><:antenneffmc:cfg_page_header:></h3>
+    [<p class="reponse_formulaire reponse_formulaire_ok">(#ENV*{message_ok})</p>]
+    [<p class="reponse_formulaire reponse_formulaire_erreur">(#ENV*{message_erreur})</p>]
+
+    <form method="post" action="#ENV{action}">
+        <div>
+            #ACTION_FORMULAIRE{#ENV{action}}
+
+
+            <!-- CONFIGURATION -->
+
+            <ul>
+                <!-- Menu -->
+                <li class="[ (#GET{erreurs}|oui)erreur]">
+                    <fieldset>
+                        <legend><:antenneffmc:cfg_header_menu:></legend>
+
+                        <div class="editer-groupe">
+                            #SET{name,header_menu}
+                            #SET{erreurs,#ENV**{erreurs}|table_valeur{#GET{name}}}
+                            <div class="editer long_label obligatoire">
+                                <label for="#GET{name}_id"><:antenneffmc:cfg_header_menu_order:></label>
+                                <div class="explication">
+                                    <:antenneffmc:cfg_header_menu_explication:>
+                                    <BOUCLE_nav(RUBRIQUES){racine}{id_rubrique!= #CONFIG{antenneffmc/config/sommaire_widgetvignettes_id}}{par num id_rubrique,id_rubrique}>
+                                        <span>#TITRE <em>(id#ID_RUBRIQUE)</em></span>
+                                    </BOUCLE_nav>
+                                </div>
+                                <input type="text" class="text" name="#GET{name}_order" id="#GET{name}_order" required placeholder="ex: 1-2-3-19" value="[(#ENV{#GET{name}}|?{#ENV{#GET{name}},#CONFIG{antenneffmc/config/#GET{name}_order}})]">
+                                
+                                <small>
+                                    
+                                </small>
+                            </div>
+                        </div>
+                    </fieldset>
+                </li>
+            </ul>
+
+
+            <!-- STOCKAGE DES DONNEES  -->
+
+            <input type="hidden" name="_meta_casier" value="antenneffmc/config" />
+            <p class="boutons">
+                <span class='image_loading'>&nbsp;</span>
+                <input type="submit" name="enregistrer" class="submit" value="<:bouton_valider:>" />
+            </p>
+        </div>
+    </form>
+</div>

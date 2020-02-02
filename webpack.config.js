@@ -3,9 +3,9 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
 	mode: 'production',
-	entry: './squelettes/dev/js/index.js',
+	entry: './plugins/auto/antenneffmc/squelettes/dev/js/index.js',
 	output: {
-		path: path.resolve('./squelettes'),
+		path: path.resolve('./plugins/auto/antenneffmc/squelettes'),
 		filename: 'main.js'
 	},
 	module: {
