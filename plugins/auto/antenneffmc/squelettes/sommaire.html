@@ -24,7 +24,7 @@
 		<!-- Derniers articles -->
 		<div class="page-accueil__articles-liste">
 			<h2>LES DERNIERS ARTICLES</h2>
-			<BOUCLE_RECENTS(ARTICLES){!par date}{0,#CONFIG{antenneffmc/config/sommaire_articles_nb}}{doublons}{!id_article=1}{!id_rubrique=#CONFIG{antenneffmc/config/sommaire_widgetvignettes_id}}>
+			<BOUCLE_RECENTS(ARTICLES){!par date}{0,#CONFIG{antenneffmc/config/sommaire_articles_nb}}{doublons}{!id_article=1}{!id_mot=2}{!id_rubrique=#CONFIG{antenneffmc/config/sommaire_widgetvignettes_id}}>
 				<article class="page-accueil__article">
 					<div class="page-accueil__article-illustration">
 						[(#LOGO_RUBRIQUE)]
@@ -240,7 +240,7 @@
 				</li>
 			</ul>
 		</label>
-			
+
 		[(#IDENTITE_URL_FACEBOOK|oui|?{
 			#SET{URL_FACEBOOK, #IDENTITE_URL_FACEBOOK},
 			#SET{URL_FACEBOOK, 'https://www.facebook.com/ffmcnat'}
