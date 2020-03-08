@@ -1,0 +1,28 @@
+[(#AUTORISER{configurer,antenneffmc}|sinon_interdire_acces))]
+
+<h1 class="grostitre"><:antenneffmc:configurer_antenneffmc:></h1>
+
+<p>
+	<BOUCLE_version(spip_paquets){prefixe=antenneffmc}{!par version}{0,1}>
+		[(#VERSION|replace{0}|>{#PLUGIN{antenneffmc, version}}|oui)
+			<span><:antenneffmc:version_maj:> [(#VAL{/\.0*/}|preg_replace{'.',#VERSION}|ltrim{0})] (<:antenneffmc:version_actuelle:> #PLUGIN{antenneffmc, version})</span>
+		]
+		[(#VERSION|replace{0}|>{#PLUGIN{antenneffmc, version}}|non)
+			<span><:antenneffmc:version_ok:> (v#PLUGIN{antenneffmc, version})</span>
+		]
+	</BOUCLE_version>
+</p>
+
+
+
+
+[(#ENV{cfg, accueil}|=={accueil}|oui)
+	#BOITE_OUVRIR{#CHEMIN_IMAGE{antenneffmc-29.png}|balise_img{'',cadre-icone}, info}
+
+	<:antenneffmc:texte_accueil:>	
+
+	#BOITE_FERMER
+]
+
+[(#SET{configurer, [(#ENV{type-page})_[(#ENV{cfg, accueil})]]})]
+	[<div class='ajax'>(#FORMULAIRE_{#GET{configurer}})</div>]

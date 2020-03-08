@@ -1,0 +1,91 @@
+<!-------------------------------------------------------------------------------->
+<!-- SOMMAIRE -------------------------------------------------------------------->
+<!-------------------------------------------------------------------------------->
+
+<div class="formulaire_spip formulaire_configurer formulaire_#FORM">
+    <h3 class="titrem"><:antenneffmc:cfg_page_sommaire:></h3>
+    [<p class="reponse_formulaire reponse_formulaire_ok">(#ENV*{message_ok})</p>]
+    [<p class="reponse_formulaire reponse_formulaire_erreur">(#ENV*{message_erreur})</p>]
+
+    <form method="post" action="#ENV{action}">
+        <div>
+            #ACTION_FORMULAIRE{#ENV{action}}
+
+
+            <!-- CONFIGURATION -->
+
+            <ul>
+                <!-- Widget article -->
+                <li class="[ (#GET{erreurs}|oui)erreur]">
+                    <fieldset>
+                        <legend><:antenneffmc:cfg_sommaire_widgetvignettes:></legend>
+
+                        <div class="editer-groupe">
+                            #SET{name,sommaire_widgetvignettes}
+                            #SET{erreurs,#ENV**{erreurs}|table_valeur{#GET{name}}}
+                            <div class="editer long_label">
+                                <label for="#GET{name}_id"><:antenneffmc:cfg_sommaire_widgetvignettes_id:></label>
+                                <input type="number" class="text" name="#GET{name}_id" id="#GET{name}_id" placeholder="défaut: 5" value="[(#ENV{#GET{name}}|?{#ENV{#GET{name}},#CONFIG{antenneffmc/config/#GET{name}_id}})]">
+                            </div>
+                            <div class="editer long_label">
+                                <label for="#GET{name}_nb"><:antenneffmc:cfg_sommaire_widgetvignettes_nb:></label>
+                                <input type="number" class="text" name="#GET{name}_nb" id="#GET{name}_nb" placeholder="défaut: 5" value="[(#ENV{#GET{name}}|?{#ENV{#GET{name}},#CONFIG{antenneffmc/config/#GET{name}_nb}})]">
+                            </div>
+                        </div>
+                    </fieldset>
+                </li>
+
+                <!-- Liste d'articles -->
+                <li class="[ (#GET{erreurs}|oui)erreur]">
+                    <fieldset>
+                        <legend><:antenneffmc:cfg_sommaire_articles:></legend>
+
+                        <div class="editer-groupe">
+                            #SET{name,sommaire_articles}
+                            #SET{erreurs,#ENV**{erreurs}|table_valeur{#GET{name}}}
+                            <div class="editer long_label">
+                                <label for="#GET{name}_nb"><:antenneffmc:cfg_sommaire_articles_nb:></label>
+                                [(#SESSION{webmestre}|non)<div class="explication"><:antenneffmc:cfg_webmestrerestreint:></div>]
+                                <input type="number" min="0" max="10" class="text" name="#GET{name}_nb" id="#GET{name}_nb"
+                                       placeholder="défaut: 6" [(#SESSION{webmestre}|non) readonly disabled]
+                                       value="[(#ENV{#GET{name}}|?{#ENV{#GET{name}}, #CONFIG{antenneffmc/config/#GET{name}_nb}})]">
+                            </div>
+                        </div>
+                    </fieldset>
+                </li>
+
+                <!-- Carte svg -->
+                <li class="[ (#GET{erreurs}|oui)erreur]">
+                    <fieldset>
+                        <legend><:antenneffmc:cfg_sommaire_carte:></legend>
+
+                        <div class="editer-groupe">
+                            #SET{name,sommaire_carte}
+                            #SET{erreurs,#ENV**{erreurs}|table_valeur{#GET{name}}}
+                            <div class="editer long_label obligatoire">
+                                <label for="#GET{name}_region"><:antenneffmc:cfg_sommaire_carte_label:></label>
+                                <select name="#GET{name}_region" id="#GET{name}_region" required>
+                                    <option value="" disabled>[(#VAL{antenneffmc:cfg_#GET{name}_region_defaut}|_T)]</option>
+                                    <BOUCLE_carteRegions(DATA){source table, #CONST{_ANTENNEFFMC_CARTE_REGIONS}|explode{|}}>
+                                        [<option value="FR-#VALEUR" [(#CONFIG{antenneffmc/config/#GET{name}_region}|=={FR-#VALEUR}|oui) selected="selected"]>
+                                            (#VAL{antenneffmc:#GET{name}_region_#VALEUR}|_T)
+                                        </option>]
+                                    </BOUCLE_carteRegions>
+                                  </select>
+                            </div>
+                        </div>
+                    </fieldset>
+                </li>
+            </ul>
+
+
+            <!-- STOCKAGE DES DONNEES  -->
+
+            <input type="hidden" name="_meta_casier" value="antenneffmc/config" />
+            <p class="boutons">
+                <span class='image_loading'>&nbsp;</span>
+                <input type="submit" name="enregistrer" class="submit" value="<:bouton_valider:>" />
+            </p>
+        </div>
+    </form>
+</div>
