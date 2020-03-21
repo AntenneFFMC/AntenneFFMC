@@ -1,10 +1,12 @@
-<form action="[(#ENV{action})]" method="get">
+<form role="search" action="[(#ENV{action})]" method="get">
 	[(#ENV{action}|form_hidden)]
 	[<input type="hidden" name="lang" value="(#ENV{lang})" />]
-	<input type="[(#HTML5|?{search,text})]"
-			   id="#ENV{_id_champ}"[ value="(#ENV{recherche})"]
-			 	 class="menu__barre-recherche"
-				 placeholder="Que cherchez-vous ?"
-				 autocapitalize="off" autocorrect="off"
-				 accesskey="4"/>
+	<label for="#ENV{_id_champ}">
+		<input type="[(#HTML5|?{search,text})]"
+				   id="#ENV{_id_champ}"[ value="(#ENV{recherche})"]
+				 	 class="menu__barre-recherche"
+					 name="recherche" placeholder="Que cherchez-vous ?"
+					 autocapitalize="off" autocorrect="off"
+					 accesskey="4" />
+	 </label>
 </form>
