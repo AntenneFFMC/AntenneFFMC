@@ -3,8 +3,8 @@
 /**
  * Plugin AntenneFFMC
  * Licence GNU/GPL
- * 
- * 
+ *
+ *
  * 1. Paramétrage à l'installation & désinstallation d'AntenneFFMC
  * 2. DIVERS
  */
@@ -205,10 +205,19 @@ function uninstall_antenneffmc(){
 
 function mes_champs_identite($champs) {
     $champs = [
+        'webmestre',
+        'directeur_de_publication',
+        'adresse_email_antenne',
+        'code_postal',
+        'ville',
+        'voie',
+        'telephone',
+        'frequence_reunions',
         'url_facebook',
         'pseudo_twitter',
         'mentions_nom_long',
-        'mentions_nom_court'
+        'mentions_nom_court',
+        'hebergement',
     ];
 
     return $champs;
