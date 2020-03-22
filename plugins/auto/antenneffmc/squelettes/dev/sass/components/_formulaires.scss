@@ -53,6 +53,7 @@ input[type="email"] { width: 100%; }
   }
 
   &__reponse {
+    z-index: 1;
   	position: fixed;
   	top: 30vh;
   	left: calc(50% - 240px);
@@ -64,6 +65,7 @@ input[type="email"] { width: 100%; }
   	background-color: #ffc914;
   	text-transform: initial;
   	overflow: hidden;
+    box-shadow: 0 0 10px -2px #0000006e;
     animation-name: ApparitionDisparition;
     animation-duration: 4s;
     animation-fill-mode: both;

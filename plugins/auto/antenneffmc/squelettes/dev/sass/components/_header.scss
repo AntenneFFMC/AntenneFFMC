@@ -277,7 +277,6 @@ $hauteurligne: 50px;
     margin: 0;
     padding: 2px 0;
     text-transform: none;
-    cursor: pointer;
 
     &--recherche {
       line-height: $hauteurligne;
@@ -293,11 +292,7 @@ $hauteurligne: 50px;
       padding: 30px 10px;
       margin: auto;
       opacity: 1;
-
-      a {
-        display: flex;
-        justify-content: center;
-      }
+      cursor: pointer;
     }
 
     &-illustration {
