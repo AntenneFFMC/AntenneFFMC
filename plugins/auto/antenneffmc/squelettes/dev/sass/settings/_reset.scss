@@ -12,6 +12,11 @@ body {
   font-family: Arial;
 }
 
+main, footer {
+  z-index: 0;
+  position: relative; 
+}
+
 .page-agenda .menu__rubrique--agenda { display: none; }
 
 a { color: inherit; text-decoration: none;}
@@ -20,8 +25,8 @@ a:visited { color: inherit; text-decoration: none;}
 a:hover { background: none; text-decoration: underline;}
 a:active {text-decoration: underline;}
 
-input, a, label {cursor: pointer;}
+input, a, label { cursor: pointer; }
 
-ul, li {margin: none;}
+ul, li { margin: none; }
 
 .clear { clear: both;}
