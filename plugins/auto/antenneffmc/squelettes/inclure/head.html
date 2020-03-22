@@ -19,7 +19,7 @@
 		,
 		<meta name="description" content="La FFMC agit pour développer la pratique des deux-roues motorisés ou engins assimilés. Elle défend, sans corporatisme, leurs utilisateurs en tant qu'usagers de la route et en tant que consommateurs. Elle agit pour la sécurité et le partage de la route sur la base du développement de l'information, de la prévention, et de la formation, et pour faire prévaloir la connaissance et la prise de conscience plutôt que les mesures répressives" />
 	})]
-	
+
 	[(#REM) Lien vers le flux RSS du site ]
 	[<link rel="alternate" type="application/rss+xml" title="<:syndiquer_site:>" href="(#URL_PAGE{backend})" />]
 
@@ -33,7 +33,7 @@
 	[(#REM) Fonts ]
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Anton" />
 
-	
+
 	[<script src="(#CHEMIN{main.js})" type="text/javascript"></script>]
 
 	[(#REM)
@@ -73,7 +73,7 @@
 		<a href="spip.php">
 			<div class="header__banniere">#LOGO_SITE_SPIP</div>
 		</a>
-	
+
 		<B_ordreMenu>
 		<nav class="menu">
 			<input id="bouton-menu-mobile"
@@ -91,25 +91,28 @@
 				<BOUCLE_ordreMenu(DATA){source table, #CONFIG{antenneffmc/config/header_menu_order}|explode{-}}>
 					<BOUCLE_nav(RUBRIQUES){racine}{id_rubrique==#VALEUR}{0,1}>
 						<li class="menu__rubrique">
-							<input id="onglet-rubrique#ID_RUBRIQUE" class="menu__rubrique-bouton" type="radio" name="optionmenu" />
-							<label for="onglet-rubrique#ID_RUBRIQUE" class="menu__rubrique-texte">
-								<a href="#URL_RUBRIQUE">#TITRE</a>
-							</label>
-							<ul class="menu__liste-sous-liste">
-								<BOUCLE_sousnav(RUBRIQUES){id_parent}{par num id_rubrique,id_rubrique}>
-									<li class="menu__sous-rubrique" >
-										<span class="menu__sous-rubrique-texte"><a href="#URL_RUBRIQUE">#TITRE</a></span>
-										<span class="menu__sous-rubrique-illustration">[(#LOGO_ARTICLE_RUBRIQUE)]</span>
-										<!--img class="menu__sous-rubrique-illustration"
-												src="../images/partenaires/AFDM_bg.jpg"
-												width="100%" /-->
-									</li>
-								</BOUCLE_sousnav>
-							</ul>
+							<B_sousnav>
+								<input id="onglet-rubrique#ID_RUBRIQUE" class="menu__rubrique-bouton" type="radio" name="optionmenu" />
+								<label for="onglet-rubrique#ID_RUBRIQUE" class="menu__rubrique-texte">
+									<a href="#URL_RUBRIQUE">#TITRE</a>
+								</label>
+								<ul class="menu__liste-sous-liste">
+									<BOUCLE_sousnav(RUBRIQUES){id_parent}{par num id_rubrique,id_rubrique}>
+										<li class="menu__sous-rubrique" >
+											<a href="#URL_RUBRIQUE" class="menu__sous-rubrique-texte">#TITRE</a>
+											<span class="menu__sous-rubrique-illustration">[(#LOGO_ARTICLE_RUBRIQUE)]</span>
+										</li>
+									</BOUCLE_sousnav>
+								</ul>
+							</B_sousnav>
+								<a href="#URL_RUBRIQUE" class="menu__rubrique-texte">
+									#TITRE
+								</a>
+							<//B_sousnav>
 						</li>
 					</BOUCLE_nav>
 				</BOUCLE_ordreMenu>
-	
+
 				<li class="menu__rubrique menu__rubrique--agenda">
 					<a class="menu__rubrique--lien-remplacement" href="#"></a>
 					<input id="onglet-agenda" class="menu__rubrique-bouton" type="radio" name="optionmenu" />
@@ -117,9 +120,9 @@
 						<a href="spip.php?page=agenda">Agenda</a>
 						</label>
 					<ul class="menu__liste-sous-liste menu__liste-sous-liste--agenda">
-	
+
 						[(#INCLURE{fond=inclure/inc_agenda})]
-	
+
 						<!-- Masqué si JS activé -->
 						<B_agendaMenu>
 						<div id="calendrierMenu-loading">
@@ -133,10 +136,10 @@
 							</BOUCLE_agendaMenu>
 						</div>
 						</B_agendaMenu>
-	
+
 					</ul>
 				</li>
-	
+
 				<li class="menu__rubrique menu__rubrique--contact">
 					<a class="menu__rubrique--lien-remplacement" href="#"></a>
 					<input id="onglet-contact" class="menu__rubrique-bouton" type="radio" name="optionmenu" />
@@ -152,7 +155,7 @@
 						<a href="spip.php?page=contact">Page contact</a>
 					</ul>
 				</li>
-	
+
 				<li class="menu__rubrique menu__rubrique--recherche">
 					<input id="onglet-recherche" class="menu__rubrique-bouton" type="radio" name="optionmenu" />
 					<label for="onglet-recherche">
@@ -165,11 +168,11 @@
 						</li>
 					</ul>
 				</li>
-	
+
 			</ul>
 		</nav>
 		</B_ordreMenu>
-	</header>	
+	</header>
 
 	<!-- MAIN -->
 	<main>
