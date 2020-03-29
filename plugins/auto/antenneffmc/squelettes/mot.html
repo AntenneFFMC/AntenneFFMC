@@ -1,0 +1,114 @@
+<BOUCLE_principale(MOTS) {id_mot}>
+	<INCLURE{fond=inclure/head,title=Mot clé - #TITRE,page=mot,robots=#CONST{_PREPROD}|?{noindex,doindex}} />
+
+	<div class="arbo">
+		<p>
+			<a href="#URL_SITE_SPIP/"><:accueil_site:></a> >
+			<BOUCLE_ariane(GROUPES_MOTS){id_groupe}><span>[(#TITRE|couper{80})]</span> ></BOUCLE_ariane>
+			<span>[<strong class="on">(#TITRE|couper{80})</strong>]</span>
+		</p>
+	</div>
+
+	<br /><br />
+
+	<header class="rubrique__entete">
+		[(#LOGO_MOT|image_reduire{224,*})]
+		<h1 class="#EDIT{titre} surlignable rubrique__entete-titre">
+			[(#TITRE)]
+		</h1>
+
+		[<div class="#EDIT{texte} texte">(#TEXTE)</div>]
+	</header>
+
+
+
+
+	<div class="conteneur">
+		<div class="conteneur__colonne-principale">
+
+			<!-- Derniers articles -->
+			<B_articles>
+			<section class="page-accueil__articles-liste">
+				<h2><:articles:> (#GRAND_TOTAL)</h2>
+				#ANCRE_PAGINATION
+				<BOUCLE_articles(ARTICLES) {id_mot} {!par popularite} {pagination 10}>
+					<article class="page-accueil__article">
+						<div class="page-accueil__article-illustration">
+							[(#LOGO_RUBRIQUE)]
+						</div>
+						<div class="page-accueil__article-contenu">
+							<h4 class="page-accueil__article-titre">
+								<a href="#URL_ARTICLE">#TITRE</a>
+							</h4>
+							<abbr class="page-accueil__article-date" title="[(#DATE|date_iso)]">
+								[(#DATE|nom_jour) ][(#DATE|affdate)]
+							</abbr>
+							<p class="page-accueil__article-texte">[(#TEXTE|couper{200})]</p>
+						</div>
+					</article>
+				</BOUCLE_articles>
+				[<div class="pagination">(#PAGINATION)</div>]
+			</section>
+			<br /><br />
+			</B_articles>
+
+			[(#REM) Rubriques liees au mot-cle ]
+			<B_rubriques>
+			<div class="menu_rubriques">
+				<h2><:rubriques:></h2>
+				<ul>
+					<BOUCLE_rubriques(RUBRIQUES) {id_mot} {par titre}>
+					<li><a href="#URL_RUBRIQUE">#TITRE</a></li>
+					</BOUCLE_rubriques>
+				</ul>
+			</div>
+			<br /><br />
+			</B_rubriques>
+
+			[(#REM) Breves liees au mot-cle ]
+			<B_breves>
+			<div class="menu_breves">
+				<h2><:breves:breves:></h2>
+				<ul>
+					<BOUCLE_breves(BREVES) {id_mot} {par titre}>
+					<li><a href="#URL_BREVE">#TITRE</a></li>
+					</BOUCLE_breves>
+				</ul>
+			</div>
+			<br /><br />
+			</B_breves>
+
+			[(#REM) Liens des forums ]
+			<B_forums_liens>
+			<div class="menu_comments">
+				<h2><:messages_forum:></h2>
+				<ul>
+					<BOUCLE_forums_liens(FORUMS?) {id_mot} {plat} {!par date}>
+					[<li>[(#NOM|sinon{...})&nbsp;: ]<a href="#URL_FORUM"[ title="(#TITRE|attribut_html|couper{80})"]>(#TEXTE|couper{80})</a></li>]
+					</BOUCLE_forums_liens>
+				</ul>
+			</div>
+			<br /><br />
+			</B_forums_liens>
+
+			[(#REM) Sites web lies au mot-cle ]
+			<B_sites>
+			<div class="sites">
+				<h2><:sites_web:></h2>
+				<ul>
+					<BOUCLE_sites(SITES) {id_mot} {par nom_site}>
+					<li>📌 <a href="[(#ID_SYNDIC|generer_url_entite{site,'','',#CONNECT})]">#NOM_SITE</a></li>
+					</BOUCLE_sites>
+				</ul>
+			</div>
+			<br /><br />
+			</B_sites>
+
+			[<div class="notes"><hr />(#NOTES)</div>]
+
+		</div>
+	</div>
+
+	
+	<INCLURE{fond=inclure/footer} />
+</BOUCLE_principale>
