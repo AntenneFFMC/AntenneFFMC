@@ -5,7 +5,7 @@
 ================================================ **/
 
 
-.article { 
+.article {
   display: flex;
   flex-flow: wrap;
   margin: $espace-vertical auto;
@@ -14,7 +14,7 @@
     display: flex;
     flex-flow: column;
     text-align: center;
-    margin: $espace-vertical auto $espace-vertical*2;
+    margin: $espace-vertical auto $espace-vertical;
 
     &-logo {
       max-height: 320px;
@@ -55,11 +55,50 @@
     	box-shadow: 0 5px 20px -10px $couleur-bordure;
     }
 
-    &-titre { margin: $espace-vertical--petit auto; }
+    &-titre { margin: $espace-vertical--petit auto 0; }
+
+    &-soustitre {
+      margin-top: 5px;
+      font-size: 18px;
+    }
+
+    &-mots {
+      margin-top: $espace-vertical--petit;
+      text-align: center;
+      a {
+        display: inline-block;
+        vertical-align: top;
+        border: 1px solid $couleur-bordure;
+        padding: 2px 8px;
+        border-radius: 2px;
+        text-decoration: none;
+        font-size: 14px;
+        color: $couleur1--sombre;
+        transition: all .2s;
+
+        &:hover, &:focus {
+          border-color: $couleur1--sombre;
+        }
+      }
+    }
   }
 
+  &__chapo {
+    margin: $espace-vertical 0;
+    > * {
+      font-size: 18px;
+    }
+  }
 
   &__texte {}
+
+  &__site {
+    margin: $espace-vertical 0;
+    a {
+      color: $couleur1--sombre;
+      text-decoration: underline;
+    }
+  }
 
   &__supplements { margin: $espace-vertical*2 auto; }
   &__commentaires {
