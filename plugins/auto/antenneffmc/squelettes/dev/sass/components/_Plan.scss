@@ -1,0 +1,21 @@
+.ffmc-c-Plan {
+  width: 100%;
+  padding: 0 20px;
+
+  &-item {
+    display: inline-block;
+    vertical-align: top;
+    width: 100%;
+  }
+
+  .article__entete-mots {
+    a { margin-bottom: 3px; }
+  }
+
+
+  @media (min-width: $tablette-portrait) {
+    columns: 2;
+    column-gap: 60px;
+    column-rule: 2px solid $couleur-fond--sombre;
+  }
+}

@@ -24,16 +24,27 @@
 				<div class="article__entete-texte">
 					<abbr class="article__entete-date" title="[(#DATE|date_iso)]">[(#DATE|nom_jour) ][(#DATE|affdate)]</abbr>
 					<h1 class="article__entete-titre #EDIT{titre}">#TITRE</h1>
+					[<p class="article__entete-soustitre #EDIT{soustitre}">(#SOUSTITRE)</p>]
+					<B_mots>
+					<div class="article__entete-mots">
+						<BOUCLE_mots(MOTS) {id_article}>
+							<a href="#URL_MOT"[ class="(#EXPOSE)"]>#TITRE</a>
+						</BOUCLE_mots>
+					</div>
+					</B_mots>
 				</div>
 			</div>
 
+			[<div class="article__chapo #EDIT{chapo}">(#CHAPO|image_reduire{50,*})</div>]
+
 			<div class="article__texte">
-				<span class="texte-rubrique sous-titre-rubrique">[<p class="#EDIT{soustitre} soustitre">(#SOUSTITRE)</p>]</span>
-				[<div class="#EDIT{chapo} chapo surlignable texte-rubrique">(#CHAPO|image_reduire{50,*})</div>]
 				[<div class="#EDIT{texte} texte surlignable texte-rubrique">(#TEXTE|image_reduire{500,500})</div>]
-				[<p class="#EDIT{hyperlien} hyperlien"><:voir_en_ligne:> : <a href="(#URL_SITE)">[(#NOM_SITE|sinon{[(#URL_SITE|couper{80})]})]</a></p>]
 				[<div class="#EDIT{ps} ps surlignable texte-rubrique"><hr />(#PS|image_reduire{50,*})</div>]
 			</div>
+
+			[<p class="article__site #EDIT{hyperlien} hyperlien">
+				<strong>📌 <:voir_en_ligne:> :</strong> <a href="(#URL_SITE)">[(#NOM_SITE|sinon{[(#URL_SITE|couper{80})]})]</a>
+			</p>]
 
 			<div class="article__supplements">
 
