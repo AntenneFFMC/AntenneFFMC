@@ -1059,6 +1059,21 @@ input[type="email"] {
 /** ------------------------------------------------
                 Mobile
 ------------------------------------------------ **/
+.ffmc-c-Plan {
+  width: 100%;
+  padding: 0 20px; }
+  .ffmc-c-Plan-item {
+    display: inline-block;
+    vertical-align: top;
+    width: 100%; }
+  .ffmc-c-Plan .article__entete-mots a {
+    margin-bottom: 3px; }
+  @media (min-width: 768px) {
+    .ffmc-c-Plan {
+      columns: 2;
+      column-gap: 60px;
+      column-rule: 2px solid #f1f1f0; } }
+
 /** ================================================
                # CONTENEURS
 ================================================ **/
