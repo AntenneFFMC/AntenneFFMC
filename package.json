@@ -1,6 +1,6 @@
 {
   "name": "antenneffmc",
-  "version": "4.1.1",
+  "version": "4.2.0",
   "description": "![logo FFMC](https://ffmc.asso.fr/local/cache-vignettes/L960xH138/siteon0-e29d4.jpg?1504019807)",
   "main": "./plugins/auto/antenneffmc/squelettes/dev/js/index.js",
   "scripts": {

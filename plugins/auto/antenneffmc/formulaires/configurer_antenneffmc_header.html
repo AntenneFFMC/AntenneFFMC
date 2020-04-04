@@ -32,12 +32,19 @@
                                     </BOUCLE_nav>
                                 </div>
                                 <input type="text" class="text" name="#GET{name}_order" id="#GET{name}_order" required placeholder="ex: 1-2-3-19" value="[(#ENV{#GET{name}}|?{#ENV{#GET{name}},#CONFIG{antenneffmc/config/#GET{name}_order}})]">
-                                
+
                                 <small>
-                                    
+
                                 </small>
                             </div>
                         </div>
+
+                        <p>
+                          <strong>Les sous-rubriques</strong><br />
+                          ℹ️ Les logo des rubriques s'affichent en arrière-plan du nom :<br />
+                          - Les images en <em>.svg</em> ou <em>.png</em> sont centrées et redimensionnées<br />
+                          - les images en <em>.jpg</em> sont affichées sur toute la surface du bouton. Les dimensions recommandées pour que l'image ne soit pas rognée sont <strong>200 x 100 pixels</strong>. Pratique pour des photos !
+                        </p>
                     </fieldset>
                 </li>
             </ul>
