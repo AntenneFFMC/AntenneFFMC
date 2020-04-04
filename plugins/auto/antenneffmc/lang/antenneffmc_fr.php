@@ -7,17 +7,19 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// A
-	'antenneffmc' => 'AntenneFFMC 🏍',
+	'antenneffmc' => 'AntenneFFMC',
 
 	// B
 
 	// C
 	'cfg_page_accueil' => '🏠 Accueil',
 	'cfg_page_apparence' => 'Apparence',
-	'cfg_page_autre' => 'Autres fonctionnalités',
 	'cfg_page_contact' => 'La page contact',
 	'cfg_page_header' => 'La navigation',
-	'cfg_page_listecontacts' => 'Liste des contacts',
+	'cfg_page_documentation' => 'Documentation',
+	'cfg_page_doc_rubriques' => 'Les rubriques',
+	'cfg_page_doc_widgets' => 'Les widgets',
+	'cfg_page_doc_mots' => 'Les mots-clés',
 	'cfg_page_sommaire' => 'La page d\'accueil',
 	'cfg_contact_gmaps' => 'Aperçu carte Google maps',
 	'cfg_contact_gmaps_label' => 'Lien généré',
@@ -93,7 +95,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'texte_accueil' => '<h4>BIENVENUE&nbsp;!</h4>Vous êtes sur la page de configuration du squelette AntenneFFMC.<br /><br />
 	Cette page va vous permettre de personnaliser l\'apparence votre site, accéder à la liste de vos contacts...<br /><br />
 	À vous de jouer !',
-	
+
 	// U
 
 	// V
