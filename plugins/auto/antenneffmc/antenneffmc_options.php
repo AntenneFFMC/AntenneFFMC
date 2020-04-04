@@ -27,13 +27,11 @@ if (_PREPROD) {
     define('_LOG_FILELINE',true);
     define('_LOG_FILTRE_GRAVITE',8);
     define('_DEBUG_SLOW_QUERIES', true);
-    define('_BOUCLE_PROFILER', 5000);   
+    define('_BOUCLE_PROFILER', 5000);
 }
 
 if (!defined('_ANTENNEFFMC_PAGES_CONFIG')) define('_ANTENNEFFMC_PAGES_CONFIG',
-    'accueil
-    |apparence!header:sommaire:contact
-    |autre!listecontacts'
+    'accueil|apparence!header:sommaire:contact|documentation!doc_rubriques:doc_widgets:doc_mots'
 );
 
 if (!defined('_ANTENNEFFMC_CARTE_REGIONS')) define('_ANTENNEFFMC_CARTE_REGIONS',

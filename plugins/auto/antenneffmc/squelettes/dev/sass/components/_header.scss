@@ -310,9 +310,9 @@ $hauteurligne: 50px;
 
         &[src*=".jpg"] {
           width: 100%;
-          height: auto;
-          transform: translatey(-10%);
+          height: 100%;
           padding: 0;
+          object-fit: cover;
         }
       }
     }
