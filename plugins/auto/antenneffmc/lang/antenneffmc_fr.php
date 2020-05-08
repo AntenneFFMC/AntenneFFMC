@@ -92,9 +92,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'sommaire_carte_region_RE' => 'La Réunion',
 
 	// T
-	'texte_accueil' => '<h4>BIENVENUE&nbsp;!</h4>Vous êtes sur la page de configuration du squelette AntenneFFMC.<br /><br />
-	Cette page va vous permettre de personnaliser l\'apparence votre site, accéder à la liste de vos contacts...<br /><br />
-	À vous de jouer !',
+	'texte_accueil' => '<strong>Bienvenue&nbsp;!</strong><br>Vous êtes dans l\'espace de configuration de votre site.<br>À vous de jouer !',
 
 	// U
 
