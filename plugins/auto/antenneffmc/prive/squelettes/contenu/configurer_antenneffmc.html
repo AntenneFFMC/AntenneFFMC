@@ -13,16 +13,23 @@
 	</BOUCLE_version>
 </p>
 
-
-
-
 [(#ENV{cfg, accueil}|=={accueil}|oui)
-	#BOITE_OUVRIR{#CHEMIN_IMAGE{antenneffmc-29.png}|balise_img{'',cadre-icone}, info}
-
-	<:antenneffmc:texte_accueil:>	
-
-	#BOITE_FERMER
+	<div style="display: flex; align-items: center;">
+		<img src="[(#CHEMIN_IMAGE{antenneffmc-192.png})]" alt="" width="120" style="margin-right: 16px;" />
+		<p style="margin: 0;"><:antenneffmc:texte_accueil:></p>
+	</div>
 ]
+
+<div [(#ENV{cfg, accueil}|=={accueil}|non) style="display: none;"]>
+	#BOITE_OUVRIR{📫 Les dernières notes de mises à jour}
+		<BOUCLE_afficher(DATA){source rss,https://preprod.ffmc73.org/?page=backend}{0,4}>
+			<article>
+				<h4 [(#CLE|=={0}|oui) style="margin-bottom: 6px;"]><a href="[(#VALEUR{url})]" target="_blank">[(#VALEUR{titre})]</a></h4>
+				[(#CLE|=={0}|oui) <div>[(#VALEUR{descriptif})]</div>]
+			</article>
+		</BOUCLE_afficher>
+	#BOITE_FERMER
+</div>
 
 [(#SET{configurer, [(#ENV{type-page})_[(#ENV{cfg, accueil})]]})]
 	[<div class='ajax'>(#FORMULAIRE_{#GET{configurer}})</div>]
