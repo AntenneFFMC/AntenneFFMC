@@ -2,8 +2,12 @@
 #SET{nom_mois, #DATE|nom_mois}
 
 <BOUCLE_principale(ARTICLES){id_article}>
+	#SET{title, #TITRE|couper{80}}
+	#SET{introduction, #INTRODUCTION{150}|attribut_html}
+	#SET{logo, #LOGO_ARTICLE_RUBRIQUE|extraire_attribut{src}|url_absolue}
+	#SET{url, #URL_ARTICLE|url_absolue}
 
-	<INCLURE{fond=inclure/head,title=#TITRE|couper{80},page=article,conteneur=article,robots=#CONST{_PREPROD}|?{noindex,doindex}} />
+	<INCLURE{fond=inclure/head,title=#GET{title},logo=#GET{logo},introduction=#GET{introduction},canonical=#GET{url},page=article,conteneur=article,robots=#CONST{_PREPROD}|?{noindex,doindex}} />
 
 
 	<div class="arbo">

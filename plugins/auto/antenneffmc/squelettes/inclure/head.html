@@ -6,18 +6,17 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
 
 	<meta name="author" content="#NOM_SITE_SPIP" />
-	<meta name="description" content="[(#DESCRIPTIF_SITE_SPIP{60}|attribut_html)]" />
 
 	[(#ENV{page}|=={'article'}|?{
-		<meta property="og:url"           content="[(#URL_ARTICLE|url_absolue)]" />
+		<meta property="og:url"           content="[(#ENV{canonical})]" />
 		<meta property="og:type"          content="website" />
-		<meta property="og:title"         content="#TITRE" />
-		<meta property="og:description"   content="[(#INTRODUCTION{150}|attribut_html)]" />
-		<meta property="og:image"         content="[(#LOGO_ARTICLE_RUBRIQUE|extraire_attribut{src}|url_absolue)]" />
-		[<meta name="description" content="(#INTRODUCTION{150}|attribut_html)" />]
-		[<link rel="canonical" href="(#URL_ARTICLE|url_absolue)" />]
+		<meta property="og:title"         content="[(#ENV{title})]" />
+		<meta property="og:description"   content="[(#ENV{introduction})]" />
+		<meta property="og:image"         content="[(#ENV{logo})]" />
+		[<meta name="description" 		  content="(#ENV{introduction})" />]
+		[<link rel="canonical" 			  href="(#ENV{canonical})" />]
 		,
-		<meta name="description" content="La FFMC agit pour développer la pratique des deux-roues motorisés ou engins assimilés. Elle défend, sans corporatisme, leurs utilisateurs en tant qu'usagers de la route et en tant que consommateurs. Elle agit pour la sécurité et le partage de la route sur la base du développement de l'information, de la prévention, et de la formation, et pour faire prévaloir la connaissance et la prise de conscience plutôt que les mesures répressives" />
+		<meta name="description" content="[(#DESCRIPTIF_SITE_SPIP{60}|attribut_html)]" />
 	})]
 
 	[(#ENV{page}|=={'mot'}|?{
