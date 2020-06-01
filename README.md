@@ -1,4 +1,4 @@
-![logo MonAntenneFFMC](https://raw.githubusercontent.com/AntoineCabrol/antenneFFMC/master/plugins/auto/antenneffmc/images/android-chrome-192x192.png)
+![logo MonAntenneFFMC](https://raw.githubusercontent.com/AntenneFFMC/AntenneFFMC/master/plugins/auto/antenneffmc/images/icons/android-chrome-192x192.png)
 
 `Mon Antenne FFMC` est un thème configurable conçu pour les sites internet des antennes départementales de la [FFMC](https://ffmc.asso.fr/). Ce thème est développé sous la forme d'un plugin et fonctionne avec le CMS [Spip](https://www.spip.net).
 
