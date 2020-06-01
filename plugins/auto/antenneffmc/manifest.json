@@ -1,21 +1,20 @@
 {
-  "background_color": "#3ea147",
+  "name": "mon Antenne FFMC",
+  "short_name": "monAntenne",
   "description": "L'application de votre antenne FFMC !",
-  "display": "fullscreen",
   "icons": [
-    {
-      "src": "images/antenneffmc-192.png",
-      "type": "image/png",
-      "sizes": "192x192"
-    },
-    {
-      "src": "images/antenneffmc-512.png",
-      "type": "image/png",
-      "sizes": "512x512"
-    }
-
+      {
+          "src": "/plugins/auto/antenneffmc/images/icons/android-chrome-192x192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+      },
+      {
+          "src": "/plugins/auto/antenneffmc/images/icons/android-chrome-512x512.png",
+          "sizes": "512x512",
+          "type": "image/png"
+      }
   ],
-  "name": "Mon antenne FFMC",
-  "short_name": "MonAntenne",
-  "start_url": "/"
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "display": "standalone"
 }
