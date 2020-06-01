@@ -27,9 +27,6 @@
 	[(#REM) Lien vers le flux RSS du site ]
 	[<link rel="alternate" type="application/rss+xml" title="<:syndiquer_site:>" href="(#URL_PAGE{backend})" />]
 
-	[(#REM) Lien vers le manifest ]
-	<link rel="manifest" href="#CHEMIN{manifest.json}">
-
 	[(#REM) Styles ]
 	[<link rel="stylesheet" href="(#CHEMIN{main.css})" type="text/css"/>]
 	[<link rel="stylesheet" href="(#CHEMIN{lib/fullcalendar/fullcalendar.min.css}|direction_css)" type="text/css" />]
@@ -56,9 +53,16 @@
 	[(#REM) Fierement fabrique avec SPIP ]
 	<meta name="generator" content="SPIP[ (#SPIP_VERSION)]" />
 
-	[(#REM) Favicon ]
-	[<link rel="icon" type="image/x-icon" href="(#CHEMIN{favicon.ico})" />
-	[<link rel="shortcut icon" type="image/x-icon" href="(#CHEMIN{favicon.ico})" />]]
+	[(#REM) App & icones ]
+	[<link rel="apple-touch-icon" sizes="180x180" href="(#CHEMIN{images/icons/apple-touch-icon.png})">]
+	[<link rel="icon" type="image/png" sizes="32x32" href="(#CHEMIN{images/icons/favicon-32x32.png})">]
+	[<link rel="icon" type="image/png" sizes="16x16" href="(#CHEMIN{images/icons/favicon-16x16.png})">]
+	[<link rel="mask-icon" href="(#CHEMIN{images/icons/safari-pinned-tab.svg})" color="#3f982c">]
+	[<link rel="shortcut icon" href="(#CHEMIN{images/icons/favicon.ico})">]
+	[<meta name="msapplication-config" content="(#CHEMIN{images/icons/browserconfig.xml})">]
+	<meta name="msapplication-TileColor" content="#040017">
+	[<link rel="manifest" href="(#CHEMIN{manifest.json})">]
+	<meta name="theme-color" content="#ffffff">
 
 	[(#REM) meta robots ]
 	[<meta name="robots" content="(#ENV{robots})" />]

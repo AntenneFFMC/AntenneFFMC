@@ -45,6 +45,12 @@ RewriteRule ^(.*) - [E=BASE:%1]
 ################ REGLAGES PERSONNALISES ######################
 # Inscrivez ci-dessous vos reglages supplementaires
 
+# Redirect to HTTPS sans IP
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+
 
 ################ GESTIONS DES URLS SPIP #######################
 
@@ -98,8 +104,9 @@ RewriteRule ^([1-9][0-9]*)$     spip.php?action=redirect&type=article&status=301
 # APIs
 # http://site/xmlrpc.api
 # http://site/atom.api/articles/1234
+# https://site/offline.api.sw.js
 
-RewriteRule ^([\w]+)\.api(/(.*))?$ spip.php?action=api_$1&arg=$3 [QSA,L]
+RewriteRule ^([\w]+)\.api([/.](.*))?$ spip.php?action=api_$1&arg=$3 [QSA,L]
 
 # Fin des APIs
 ###
@@ -127,7 +134,7 @@ RewriteRule ^sitemap[.]xml$      spip.php?page=sitemap.xml [QSA,L]
 ##
 
 # Favicon pour itrucs
-# Si vous avez le plugin filtres_images et qu'une méthode de retouche a été configurée, vous pouvez décommenter la ligne ci-dessous.
+# Si vous avez le plugin filtres_images et qu'une mÃ©thode de retouche a Ã©tÃ© configurÃ©e, vous pouvez dÃ©commenter la ligne ci-dessous.
 #RewriteRule ^apple-touch-icon(-(\d+x\d+))?(-precomposed)?[.]png$	spip.php?page=apple-touch-icon.png&size=$2 [QSA,L]
 
 # expirer les images (pour contourner gros bug MSIE sur le cache)
