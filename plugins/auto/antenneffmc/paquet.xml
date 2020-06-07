@@ -1,7 +1,7 @@
 <paquet
 	prefix="antenneffmc"
 	categorie="squelette"
-	version="4.3.2"
+	version="4.3.3"
 	schema="0.1.0"
 	etat="stable"
 	compatibilite="[3.2.0;3.2.*]"
@@ -11,7 +11,7 @@
 
 	<nom>Antenne FFMC</nom>
 
-	<auteur lien="https://github.com/AntenneFFMC">antenneFFMC (contribuer ! 🙂)</auteur>
+	<auteur lien="https://github.com/AntenneFFMC">Norbert, Antoine (contribuer ! 🙂)</auteur>
 
 	<licence lien="http://www.gnu.org/licenses/gpl-3.0.html">GNU/GPL</licence>
 	<copyright>2019-2020</copyright>
