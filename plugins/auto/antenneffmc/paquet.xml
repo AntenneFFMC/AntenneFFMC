@@ -4,7 +4,7 @@
 	version="4.3.4"
 	schema="0.1.0"
 	etat="stable"
-	compatibilite="[3.2.0;3.2.*]"
+	compatibilite="[3.0.0;4.0.*]"
 	logo="images/icons/spip-32.png"
 	documentation="https://github.com/AntoineCabrol/antenneFFMC/wiki"
 >
@@ -18,7 +18,7 @@
 
 	<traduire module="antenneffmc" reference="fr" gestionnaire="salvatore" />
 
-	<necessite nom="agenda" compatibilite="[3.18.6;3.39.*]" />
+	<necessite nom="agenda" compatibilite="[4.3.7;4.3.*]" />
 	<necessite nom="identite_extra" compatibilite="[1.4.1;1.4.*]" />
 
 	<menu nom="antenneffmc" titre="antenneffmc:antenneffmc" parent="menu_squelette" icone="images/icons/spip-16.png" action="configurer_antenneffmc" />
