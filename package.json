@@ -37,7 +37,7 @@
     "eslint-plugin-standard": "^4.0.0",
     "ftp-deploy": "^2.3.3",
     "mini-css-extract-plugin": "^0.5.0",
-    "node-sass": "^4.11.0",
+    "node-sass": "^7.0.0",
     "onchange": "^6.0.0",
     "postcss-flexbugs-fixes": "^4.1.0",
     "postcss-loader": "^3.0.0",
