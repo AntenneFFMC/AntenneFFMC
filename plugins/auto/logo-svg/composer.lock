@@ -4,21 +4,25 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "abb79f488da716bb48d85154413267e8",
+    "content-hash": "13865bb69611230dd935832f65c8199e",
     "packages": [
         {
             "name": "enshrined/svg-sanitize",
-            "version": "0.10.0",
+            "version": "0.14.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/darylldoyle/svg-sanitizer.git",
-                "reference": "5344d8511e494adf160f71f4b34024d3a3c66c82"
+                "reference": "beff89576a72540ee99476aeb9cfe98222e76fb8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/darylldoyle/svg-sanitizer/zipball/5344d8511e494adf160f71f4b34024d3a3c66c82",
-                "reference": "5344d8511e494adf160f71f4b34024d3a3c66c82",
+                "url": "https://api.github.com/repos/darylldoyle/svg-sanitizer/zipball/beff89576a72540ee99476aeb9cfe98222e76fb8",
+                "reference": "beff89576a72540ee99476aeb9cfe98222e76fb8",
                 "shasum": ""
+            },
+            "require": {
+                "ext-dom": "*",
+                "ext-libxml": "*"
             },
             "require-dev": {
                 "codeclimate/php-test-reporter": "^0.1.2",
@@ -32,7 +36,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "GPL-2.0+"
+                "GPL-2.0-or-later"
             ],
             "authors": [
                 {
@@ -41,7 +45,11 @@
                 }
             ],
             "description": "An SVG sanitizer for PHP",
-            "time": "2019-01-11T12:31:32+00:00"
+            "support": {
+                "issues": "https://github.com/darylldoyle/svg-sanitizer/issues",
+                "source": "https://github.com/darylldoyle/svg-sanitizer/tree/0.14.0"
+            },
+            "time": "2021-01-21T10:13:20+00:00"
         }
     ],
     "packages-dev": [],
@@ -53,5 +61,6 @@
     "platform": {
         "php": ">=5.3.3"
     },
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "2.2.0"
 }
