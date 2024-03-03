@@ -7,22 +7,23 @@
     <time datetime='#DATE'>📅 Événements à venir</time>
   </header>
 
-  <section class="widget-agenda__evenements-liste js-check-children"><B_agenda>
-    <BOUCLE_agenda(DATA){source json, #PRODUIRE{fond=agenda.json, start=#CONST{_ANNEE_UNIX},end=2147483647,_=#REM|time}|url_absolue}>#SET{date_event, #VALEUR{start}|affdate{'Y-m-d'}}<B_triRecents>
-      <BOUCLE_triRecents(CONDITION){si #GET{date_event}|>={#GET{date_actuelle}}}>
-        [<article class="widget-agenda__evenement">
+  <section class="widget-agenda__evenements-liste js-check-children">
+<B_agenda>
+    <BOUCLE_agenda(EVENEMENTS){evenement_a_venir}{par date_debut}{0,3}>
+        <article class="widget-agenda__evenement">
             <header>
-              <span class="widget-agenda__evenement-titre">#VALEUR{title}</span>
+              <span class="widget-agenda__evenement-titre">#TITRE</span>
               <span class="widget-agenda__evenement-date">
-                (#VALEUR{start}|Agenda_affdate_debut_fin{#VALEUR{end},#VALEUR{allDay}|=={true}|?{non,oui}})
+                [(#DATE_DEBUT|nom_jour)]&nbsp;[(#DATE_DEBUT|jour)]&nbsp;[(#DATE_DEBUT|nom_mois)]&nbsp;[(#DATE_DEBUT|heures)] : [(#DATE_DEBUT|minutes)]
               </span>
             </header>
 
-            [<!--section class="widget-agenda__desc">
-              (#VALEUR{description})
-            </section-->]
-        </article>]
-      </BOUCLE_triRecents></BOUCLE_agenda></B_agenda></section>
+
+        </article>
+    
+      </BOUCLE_agenda>
+</B_agenda>
+      </section>
 
   <footer class="widget-agenda__footer">
     <a href="spip.php?page=agenda">Accéder à l'agenda</a>

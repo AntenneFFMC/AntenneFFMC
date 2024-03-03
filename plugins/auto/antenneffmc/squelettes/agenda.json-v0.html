@@ -1,0 +1,18 @@
+#HTTP_HEADER{Content-Type: application/json; charset=#CHARSET}
+#SET{start,#ENV{start}|strtotime}
+#SET{end,#ENV{end}|strtotime}
+[<BOUCLE_evenements(EVENEMENTS){tout}{', '}{par date}
+{agendafull date_debut,date_fin, periode,
+        #VAL{Y}|date{#GET{start}}, #VAL{m}|date{#GET{start}},     #VAL{d}|date{#GET{start}},
+        #VAL{Y}|date{#GET{end}}, #VAL{m}|date{#GET{end}}, #VAL{d}|date{#GET{end}}}
+        >
+                                        [(#ARRAY{
+                                        id,#ID_EVENEMENT,
+                                       title,[(#TITRE|html2unicode|unicode2charset)],
+                                       allDay,[(#HORAIRE|=={non}|?{#EVAL{true},#EVAL{false}})],
+                                        start,#DATE_DEBUT,
+                                        end,#DATE_FIN,
+                                        url,#URL_ARTICLE,
+                                       description,[(#DESCRIPTIF|html2unicode|unicode2charset)]
+                                        }|json_encode)]
+</BOUCLE_evenements>]
