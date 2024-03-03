@@ -1,65 +1,48 @@
 <INCLURE{fond=inclure/head,title=Agenda,page=agenda,robots=#CONST{_PREPROD}|?{noindex,doindex}} />
 
+<h1>🗓️ Agenda</h1>
 
-<h1>📅 Agenda</h1>
+<div class="conteneur widget-liste">
+<div class="widget widget-agenda" style="height: auto;">
+  <header class="widget__entete">
+    <time datetime='#DATE'>Événements à venir</time>
+  </header>
 
-<!-- Masqué si JS activé -->
+  <section class="widget-agenda__evenements-liste">
 <B_agenda>
-<div id="calendrier-loading">
-	<p class="pagination">#PAGINATION</p>
-	<BOUCLE_agenda(DATA){source json, #PRODUIRE{fond=agenda.json, start=0,end=2147483647,_=#REM|time}|url_absolue}{pagination 15}>
-			<dl>
-					[<dt><:agenda:evenement_titre:></dt>
-					<dd><a href="#VALEUR{url}">(#VALEUR{title})</a></dd>]
-
-					[<dt><:agenda:evenement_date:></dt>
-					<dd>(#VALEUR{start}|Agenda_affdate_debut_fin{#VALEUR{end},#VALEUR{allDay}|=={true}|?{non,oui}})</dd>]
-
-					[<dt><:agenda:evenement_descriptif:></dt>
-					<dd>(#VALEUR{description})</dd>]
-			</dl>
-	</BOUCLE_agenda>
-	<p class="pagination">#PAGINATION</p>
-</div>
+    <BOUCLE_agenda(EVENEMENTS){evenement_a_venir}{par date_debut}{0,30}>
+        <article class="widget-agenda__evenement">
+            <header>
+              <span class="widget-agenda__evenement-titre">#TITRE</span>
+              <span class="widget-agenda__evenement-date">
+                [(#DATE_DEBUT|nom_jour)]&nbsp;[(#DATE_DEBUT|jour)]&nbsp;[(#DATE_DEBUT|nom_mois)]&nbsp;[(#DATE_DEBUT|heures)] : [(#DATE_DEBUT|minutes)]
+              </span>
+            </header>
+        </article>
+    
+    </BOUCLE_agenda>
 </B_agenda>
-
-<!-- Affiché si JS activé -->
-<div id="agenda">
+  </section>
 </div>
 
-<script type="text/javascript">
-	/*<![CDATA[*/
-		jQuery(function($) {
-				var largeur = $( window ).width();
-				$('#agenda').fullCalendar({
-					locale : '[(#LANG|strtolower)]',
-					editable: false,
-					navLinks: true,
-					eventLimit: true,
-					events: "[(#URL_PAGE{agenda.json})]",
-					header: {
-						left: [(#LANG_DIR|=={ltr}|?{"'prevYear,prev,next,nextYear,today'","'listMonth,month,agendaWeek,agendaDay'"})],
-						center: 'title',
-						right: [(#LANG_DIR|=={ltr}|?{"'agendaDay,agendaWeek,month,listMonth'","'today nextYear,next,prev,prevYear'"})]
-					},
-					fixedWeekCount: false,
-					allDayHtml:'<:organiseur:cal_jour_entier|textebrut:>',
-					loading: function(bool) {
-									if (bool) $('#calendrier-loading').show();
-									else $('#calendrier-loading').hide();
-					},
-				})
-				if (largeur <= 768) {
-				console.log("Hello ! :)");
-				$('#agenda').fullCalendar('changeView', 'listMonth');
-				}
-		});
+<div class="widget widget-agenda" style="height: auto;">
+  <header class="widget__entete">
+    <time datetime='#DATE'>Ces 30 derniers jours</time>
+  </header>
 
+<B_agenda_archive>
+    <BOUCLE_agenda_archive(EVENEMENTS){evenement_passe}{par date_debut}{0,30}>
+        <article class="widget-agenda__evenement">
+            <header>
+              <span class="widget-agenda__evenement-titre">#TITRE</span>
+              <span class="widget-agenda__evenement-date">
+                [(#DATE_DEBUT|nom_jour)]&nbsp;[(#DATE_DEBUT|jour)]&nbsp;[(#DATE_DEBUT|nom_mois)]&nbsp;[(#DATE_DEBUT|heures)] : [(#DATE_DEBUT|minutes)]
+              </span>
+            </header>
+        </article>
+    </BOUCLE_agenda_archive>
+</B_agenda_archive>
 
+</div>
+</div>
 
-
-	/*]]>*/
-</script>
-
-
-<INCLURE{fond=inclure/footer} />

@@ -21,18 +21,18 @@
       overflow: hidden;
       margin-top: -50px;
       transform: translateY(50px);
-      .spip_logo.spip_logos[src*="jpg"]{
+      > img[src*="jpg"]{
         width: 100%;
         height: auto;
         margin-bottom: $espace-vertical;
         padding: 0;
         transform: translateY(-10%);
       }
-      .spip_logo.spip_logos[src*="png"]{
+      > img[src*="png"]{
         margin-bottom: 55px;
         height: 80px;
       }
-      .spip_logo.spip_logos[src*="svg"] {
+      > img[src*="svg"] {
         height: 0;
         @supports (-webkit-filter: blur(2px)) or (filter: blur(2px)) {
           display: block;

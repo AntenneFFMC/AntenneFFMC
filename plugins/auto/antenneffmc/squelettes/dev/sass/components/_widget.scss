@@ -30,7 +30,7 @@
 
     &:hover {
       .widget__article-logo {
-        .spip_logo.spip_logos {
+        > img {
           transform: translateY(-8%);
           @extend %transition-all;
         }
@@ -47,7 +47,7 @@
       width: 100%;
       height: 150px;
       overflow: hidden;
-      .spip_logo.spip_logos {
+      > img {
         width: 100%;
         height: auto;
         padding: 0;

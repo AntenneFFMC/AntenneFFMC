@@ -122,30 +122,9 @@
 				</BOUCLE_ordreMenu>
 
 				<li class="menu__rubrique menu__rubrique--agenda">
-					<a class="menu__rubrique--lien-remplacement" href="#"></a>
-					<input id="onglet-agenda" class="menu__rubrique-bouton" type="radio" name="optionmenu" />
-					<label for="onglet-agenda" class="menu__rubrique-texte">
-						<a href="spip.php?page=agenda">Agenda</a>
-						</label>
-					<ul class="menu__liste-sous-liste menu__liste-sous-liste--agenda">
-
-						[(#INCLURE{fond=inclure/inc_agenda})]
-
-						<!-- Masqué si JS activé -->
-						<B_agendaMenu>
-						<div id="calendrierMenu-loading">
-							<BOUCLE_agendaMenu(EVENEMENTS){par date}{statut=publie}{0,4}>
-								<li class="menu__sous-rubrique">
-									[<span class="menu__sous-rubrique-texte">
-										(#DATE_DEBUT|Agenda_affdate_debut_fin{#DATE_FIN,#HORAIRE})
-									</span>]
-									<span class="menu__sous-rubrique-texte">#TITRE</span>
-								</li>
-							</BOUCLE_agendaMenu>
-						</div>
-						</B_agendaMenu>
-
-					</ul>
+					<a href="spip.php?page=agenda" class="menu__rubrique-texte">
+						Agenda
+					</a>
 				</li>
 
 				<li class="menu__rubrique menu__rubrique--contact">

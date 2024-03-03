@@ -1,0 +1,28 @@
+<paquet
+	prefix="antenneffmc"
+	categorie="squelette"
+	version="4.3.4"
+	schema="0.1.0"
+	etat="stable"
+	compatibilite="[3.0.0;4.0.*]"
+	logo="images/icons/spip-32.png"
+	documentation="https://github.com/AntoineCabrol/antenneFFMC/wiki"
+>
+
+	<nom>Antenne FFMC</nom>
+
+	<auteur lien="https://github.com/AntenneFFMC">Norbert, Antoine (contribuez !)</auteur>
+
+	<licence lien="http://www.gnu.org/licenses/gpl-3.0.html">GNU/GPL</licence>
+	<copyright>2019-2021</copyright>
+
+	<traduire module="antenneffmc" reference="fr" gestionnaire="salvatore" />
+
+	<necessite nom="agenda" compatibilite="[4.3.7;4.3.*]" />
+	<necessite nom="identite_extra" compatibilite="[1.4.1;1.4.*]" />
+
+	<menu nom="antenneffmc" titre="antenneffmc:antenneffmc" parent="menu_squelette" icone="images/icons/spip-16.png" action="configurer_antenneffmc" />
+
+	<chemin path="./" />
+	<chemin path="squelettes" type='public'/>
+</paquet>

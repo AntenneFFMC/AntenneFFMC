@@ -49,12 +49,15 @@
       max-height: 50px;
       margin: 50px 0 0 -30px;
     	opacity: 0.2;
-      .spip_logo.spip_logos {
+
+      // .spip_logo
+      > img {
         height: auto;
         max-width: 100%;
         max-height: 100%;
         margin: auto;
         padding: 0;
+
         &[src*="svg"] { filter: invert(1); }
         &[src*="png"] { max-width: 70px; }
       }

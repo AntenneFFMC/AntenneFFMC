@@ -19,7 +19,7 @@ $hauteurligne: 50px;
     margin: auto;
     padding: 20px;
 
-    .spip_logo.spip_logos {
+    > img {
       max-height: 100%;
       padding: 0;
     }
@@ -307,7 +307,7 @@ $hauteurligne: 50px;
       height: 100%;
       opacity: 0.3;
 
-      .spip_logo.spip_logos {
+      > img {
         height: 100%;
         padding: 20px;
 
@@ -484,7 +484,7 @@ $hauteurligne: 50px;
       &-illustration {
         opacity: 0.3;
 
-        .spip_logo.spip_logos {
+        > img {
           padding: 10px;
         }
       }
