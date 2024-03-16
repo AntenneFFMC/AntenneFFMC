@@ -1,7 +1,0 @@
-<traduction module="saisie_evenements" gestionnaire="salvatore" url="https://trad.spip.net" source="svn://zone.spip.org/spip-zone/_plugins_/agenda/trunk/lang/" reference="fr">
-	<langue code="en" url="https://trad.spip.net/tradlang_module/saisie_evenements?lang_cible=en" total="47" traduits="31" relire="0" modifs="4" nouveaux="12" pourcent="65.96">
-		<traducteur nom="jack31" lien="https://trad.spip.net/auteur/jack31" />
-	</langue>
-	<langue code="fr" url="https://trad.spip.net/tradlang_module/saisie_evenements?lang_cible=fr" total="47" traduits="47" relire="0" modifs="0" nouveaux="0" pourcent="100.00">
-	</langue>
-</traduction>
