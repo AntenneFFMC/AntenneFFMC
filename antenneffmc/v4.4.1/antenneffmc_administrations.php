@@ -1,16 +1,21 @@
 <?php
 
 /**
- * Plugin AntenneFFMC
+ * Plugin Antenne FFMC
  * Licence GNU/GPL
+ *
+ * 2019-2024
+ * Auteurs : cf paquet.xml
  */
 
-if (!defined('_ECRIRE_INC_VERSION')) return;
+if (!defined('_ECRIRE_INC_VERSION')) {
+	return;
+	}
 
 
-
-////////////////////
-// Fonction d'installation du plugin et de mise a jour.
+/**
+* Fonction d'installation du plugin et de mise a jour.
+*/
 
 function antenneffmc_upgrade($nom_meta_base_version, $version_cible) {
     $maj = array();
@@ -30,12 +35,13 @@ function antenneffmc_upgrade($nom_meta_base_version, $version_cible) {
 
     include_spip('base/upgrade');
     maj_plugin($nom_meta_base_version, $version_cible, $maj);
-}
+	}
 
 
 
-////////////////////
-// Fonction de desinstallation du plugin.
+/**
+* Fonction de desinstallation du plugin.
+*/
 
 function antenneffmc_vider_tables($nom_meta_base_version) {
     include_spip('antenneffmc_fonctions');

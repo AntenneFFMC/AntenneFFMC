@@ -2,27 +2,30 @@
 	prefix="antenneffmc"
 	categorie="squelette"
 	version="4.4.1"
-	schema="0.1.1"
+	schema="0.1.0"
 	etat="stable"
-	compatibilite="[3.*.*;4.*.*]"
-	logo="images/antenneffmc-32.png"
+	compatibilite="[3.0.0;4.2.*]"
+	logo="images/icons/spip-32.png"
 	documentation="https://github.com/AntoineCabrol/antenneFFMC/wiki"
 >
 
 	<nom>Antenne FFMC</nom>
+	<!-- Plugins Antenne - Fédération Française des Motards en Colère (FFMC) -->
 
-	<auteur lien="https://github.com/AntenneFFMC">Norbert, Antoine (contribuez !)</auteur>
-	<auteur lien="https://github.com/AntoineCabrol">Antoine Cabrol</auteur>
-	<auteur lien="https://github.com/Norbert73">Norbert Cabrol</auteur>
+	<!--	auteur lien="https://github.com/AntenneFFMC">Norbert, Antoine (contribuez !)</auteur-->
+	<auteur lien="https://github.com/AntoineCabrol">Antoine CABROL</auteur>
+	<auteur lien="https://github.com/Norbert73">Norbert CABROL</auteur>
+	<auteur lien="https://github.com/GuillaumeP69">Guillaume PALLOT</auteur>
+
+	<copyright>2019-2024</copyright>
 
 	<licence lien="http://www.gnu.org/licenses/gpl-3.0.html">GNU/GPL</licence>
-	<copyright>2019-2024</copyright>
 
 	<traduire module="antenneffmc" reference="fr" gestionnaire="salvatore" />
 
-	<necessite nom="calendriermini" compatibilite="[3.*.*;4.0.*]" />
-	<necessite nom="agenda" compatibilite="[4.5.*;5.0.*]" />
-	<necessite nom="identite_extra" compatibilite="[1.4.*]" />
+	<necessite nom="calendriermini" compatibilite="[2.4.0;[" />
+	<necessite nom="agenda" compatibilite="[5.0.0;[" />
+	<necessite nom="identite_extra" compatibilite="[1.4.0;[" />
 
 	<menu nom="antenneffmc" titre="antenneffmc:antenneffmc" parent="menu_squelette" icone="images/icons/spip-16.png" action="configurer_antenneffmc" />
 

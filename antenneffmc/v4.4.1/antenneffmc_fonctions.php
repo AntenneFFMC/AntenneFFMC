@@ -105,7 +105,7 @@ function update_mots_sites() {
     $schema = schema_antenneffmc();
 
     // en qu'elle version de antenneffmc est on ?
-    // si on a une meta antenneffmc_base_version, c'est qu'on est sur une version avec instalation auto
+    // si on a une meta antenneffmc_base_version, c'est qu'on est sur une version avec installation auto
     $meta = lire_config('antenneffmc_base_version');
 
     // si la meta est présente

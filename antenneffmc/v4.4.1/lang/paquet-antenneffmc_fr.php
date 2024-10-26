@@ -7,6 +7,6 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 
 $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// A
-	'antenneffmc_description' => 'AntenneFFMC gère l\'apparence et le fonctionnement de votre site antenne. Personnalisez-le, proposez des fonctionnalités, contribuez !<br>',
+	'antenneffmc_description' => 'AntenneFFMC gère l\'apparence et le fonctionnement de votre site antenne.<br>Personnalisez-le, proposez des fonctionnalités, contribuez !<br>',
 	'antenneffmc_slogan' => 'Le squelette des antennes FFMC !'
 );

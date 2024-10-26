@@ -14,6 +14,8 @@ $GLOBALS['spip_pipeline']['identite_extra_champs'] .= "|mes_champs_identite";
 
 if (stripos($_SERVER['SERVER_NAME'], 'preprod.ffmc73.org') !== FALSE) {
     define('_PREPROD', true);
+} elseif (stripos($_SERVER['SERVER_NAME'], 'preprod.ffmc69.org') !== FALSE) {
+    define('_PREPROD', true);
 } else {
     define('_PREPROD', false);
 }
