@@ -1,0 +1,48 @@
+<INCLURE{fond=inclure/head,title=Agenda,page=agenda,robots=#CONST{_PREPROD}|?{noindex,doindex}} />
+
+<h1>🗓️ Agenda</h1>
+
+<div class="conteneur widget-liste">
+<div class="widget widget-agenda" style="height: auto;">
+  <header class="widget__entete">
+    <time datetime='#DATE'>Événements à venir</time>
+  </header>
+
+  <section class="widget-agenda__evenements-liste">
+<B_agenda>
+    <BOUCLE_agenda(EVENEMENTS){evenement_a_venir}{par date_debut}{0,30}>
+        <article class="widget-agenda__evenement">
+            <header>
+              <span class="widget-agenda__evenement-titre"><a href="#URL_ARTICLE"[ class="(#EXPOSE)"]>#TITRE</a></span>
+              <span class="widget-agenda__evenement-date">
+                [(#DATE_DEBUT|nom_jour)]&nbsp;[(#DATE_DEBUT|jour)]&nbsp;[(#DATE_DEBUT|nom_mois)]&nbsp;à&nbsp;[(#DATE_DEBUT|heures)]h [(#DATE_DEBUT|minutes)]
+              </span>
+            </header>
+        </article>
+    
+    </BOUCLE_agenda>
+</B_agenda>
+  </section>
+</div>
+
+<div class="widget widget-agenda" style="height: auto;">
+  <header class="widget__entete">
+    <time datetime='#DATE'>Ces 30 derniers jours</time>
+  </header>
+
+<B_agenda_archive>
+    <BOUCLE_agenda_archive(EVENEMENTS){evenement_passe}{par date_debut}{0,30}>
+        <article class="widget-agenda__evenement">
+            <header>
+              <span class="widget-agenda__evenement-titre"><a href="#URL_ARTICLE"[ class="(#EXPOSE)"]>#TITRE</a></span>
+              <span class="widget-agenda__evenement-date">
+                [(#DATE_DEBUT|nom_jour)]&nbsp;[(#DATE_DEBUT|Jour)]&nbsp;[(#DATE_DEBUT|nom_mois)]&nbsp;à&nbsp;[(#DATE_DEBUT|heures)]h [(#DATE_DEBUT|minutes)]
+              </span>
+            </header>
+        </article>
+    </BOUCLE_agenda_archive>
+</B_agenda_archive>
+
+</div>
+</div>
+

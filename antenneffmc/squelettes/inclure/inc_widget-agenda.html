@@ -1,0 +1,28 @@
+#SET{date_actuelle, #DATE|affdate{'Y-m-d'}}
+#SET{num_mois, #DATE|mois}
+#SET{nom_mois, #DATE|nom_mois}
+
+<div class="widget widget-agenda">
+  <header class="widget__entete">
+    <time datetime='#DATE'>📅 Événements à venir</time>
+  </header>
+
+  <section class="widget-agenda__evenements-liste js-check-children">
+	<B_agenda>
+    <BOUCLE_agenda(EVENEMENTS){evenement_a_venir}{par date_debut}{0,3}>
+        <article class="widget-agenda__evenement">
+            <header>
+              <span class="widget-agenda__evenement-titre"><a href="#URL_ARTICLE"[ class="(#EXPOSE)"]>#TITRE</a></span>
+              <span class="widget-agenda__evenement-date">
+                [(#DATE_DEBUT|nom_jour)]&nbsp;[(#DATE_DEBUT|jour)]&nbsp;[(#DATE_DEBUT|nom_mois)]&nbsp;à&nbsp;[(#DATE_DEBUT|heures)]h [(#DATE_DEBUT|minutes)]
+              </span>
+            </header>
+        </article>
+	</BOUCLE_agenda>
+	</B_agenda>
+  </section>
+
+  <footer class="widget-agenda__footer">
+    <a href="spip.php?page=agenda">Accéder à l'agenda</a>
+  </footer>
+</div>
