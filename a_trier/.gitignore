@@ -1,0 +1,8 @@
+node_modules/
+/prive/
+tmp/
+plugins/auto/antenneffmc/squelettes/main.js
+plugins/auto/antenneffmc/squelettes/main.css
+deploy.js
+spip_loader.php
+antenneffmc.zip
